@@ -1,0 +1,19 @@
+MAX6675 sensor1(24, 25, 26, &SPI1, 1000000);
+
+void setup1()
+{
+  sensor1.begin();
+}
+
+void loop1()
+{
+  int status = sensor1.read();
+  float temp = sensor1.getTemperature();
+
+  Serial.print("\tstatus: ");
+  Serial.print(status);
+  Serial.print("\ttemp: ");
+  Serial.println(temp);
+
+  delay(250);
+}

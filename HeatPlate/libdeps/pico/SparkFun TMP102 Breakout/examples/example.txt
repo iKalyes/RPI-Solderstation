@@ -1,0 +1,36 @@
+void TMP102_USE(void *param)
+{
+  (void)param;
+    Wire1.setSDA(18);
+    Wire1.setSCL(19);
+    Wire1.begin();
+    
+    sensor0.begin();
+
+    // set the number of consecutive faults before triggering alarm.
+    // 0-3: 0:1 fault, 1:2 faults, 2:4 faults, 3:6 faults.
+    sensor0.setFault(0);  // Trigger alarm immediately
+    // set the polarity of the Alarm. (0:Active LOW, 1:Active HIGH).
+    sensor0.setAlertPolarity(1); // Active HIGH
+    // set the sensor in Comparator Mode (0) or Interrupt Mode (1).
+    sensor0.setAlertMode(0); // Comparator Mode.
+    // set the Conversion Rate (how quickly the sensor gets a new reading)
+    //0-3: 0:0.25Hz, 1:1Hz, 2:4Hz, 3:8Hz
+    sensor0.setConversionRate(2);
+    //set Extended Mode.
+    //0:12-bit Temperature(-55C to +128C) 1:13-bit Temperature(-55C to +150C)
+    sensor0.setExtendedMode(0);
+    //set T_HIGH, the upper limit to trigger the alert on
+    sensor0.setHighTempC(29.4); // set T_HIGH in C
+    //set T_LOW, the lower limit to shut turn off the alert
+    sensor0.setLowTempC(26.67); // set T_LOW in C
+    sensor0.wakeup();
+    while(true)
+    {
+      float temperature;
+      temperature = sensor0.readTempC();
+      Serial.print("Temperature: ");
+      Serial.println(temperature);
+      delay(500);
+    }
+}
