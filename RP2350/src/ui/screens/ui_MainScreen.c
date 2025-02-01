@@ -3,7 +3,7 @@
 // LVGL version: 8.3.11
 // Project name: UI
 
-#include "ui.h"
+#include "../ui.h"
 
 void ui_MainScreen_screen_init(void)
 {
@@ -26,12 +26,14 @@ void ui_MainScreen_screen_init(void)
     ui_Temp = lv_label_create(ui_StatusDock);
     lv_obj_set_width(ui_Temp, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_Temp, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_Temp, 19);
+    lv_obj_set_x(ui_Temp, 20);
     lv_obj_set_y(ui_Temp, 0);
     lv_obj_set_align(ui_Temp, LV_ALIGN_LEFT_MID);
     lv_label_set_text(ui_Temp, "00.00");
-    lv_obj_set_style_text_color(ui_Temp, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui_Temp, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    ui_object_set_themeable_style_property(ui_Temp, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR,
+                                           _ui_theme_color_TextAndImage);
+    ui_object_set_themeable_style_property(ui_Temp, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA,
+                                           _ui_theme_alpha_TextAndImage);
     lv_obj_set_style_text_font(ui_Temp, &ui_font_ASCII, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_TempC = lv_label_create(ui_StatusDock);
@@ -41,8 +43,10 @@ void ui_MainScreen_screen_init(void)
     lv_obj_set_y(ui_TempC, 0);
     lv_obj_set_align(ui_TempC, LV_ALIGN_LEFT_MID);
     lv_label_set_text(ui_TempC, "℃");
-    lv_obj_set_style_text_color(ui_TempC, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui_TempC, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    ui_object_set_themeable_style_property(ui_TempC, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR,
+                                           _ui_theme_color_TextAndImage);
+    ui_object_set_themeable_style_property(ui_TempC, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA,
+                                           _ui_theme_alpha_TextAndImage);
     lv_obj_set_style_text_font(ui_TempC, &ui_font_ASCII, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_TempPic = lv_img_create(ui_StatusDock);
@@ -66,6 +70,82 @@ void ui_MainScreen_screen_init(void)
     lv_obj_add_flag(ui_BuzzerStatus, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
     lv_obj_clear_flag(ui_BuzzerStatus, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
     lv_img_set_zoom(ui_BuzzerStatus, 128);
+
+    ui_Image1 = lv_img_create(ui_StatusDock);
+    lv_img_set_src(ui_Image1, &ui_img_290686881);
+    lv_obj_set_width(ui_Image1, LV_SIZE_CONTENT);   /// 16
+    lv_obj_set_height(ui_Image1, LV_SIZE_CONTENT);    /// 16
+    lv_obj_set_x(ui_Image1, 70);
+    lv_obj_set_y(ui_Image1, 0);
+    lv_obj_set_align(ui_Image1, LV_ALIGN_LEFT_MID);
+    lv_obj_add_flag(ui_Image1, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_Image1, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_img_set_zoom(ui_Image1, 128);
+
+    ui_Hour = lv_label_create(ui_StatusDock);
+    lv_obj_set_width(ui_Hour, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_Hour, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_Hour, 95);
+    lv_obj_set_y(ui_Hour, 0);
+    lv_obj_set_align(ui_Hour, LV_ALIGN_LEFT_MID);
+    lv_label_set_text(ui_Hour, "00");
+    ui_object_set_themeable_style_property(ui_Hour, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR,
+                                           _ui_theme_color_TextAndImage);
+    ui_object_set_themeable_style_property(ui_Hour, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA,
+                                           _ui_theme_alpha_TextAndImage);
+    lv_obj_set_style_text_font(ui_Hour, &ui_font_ASCII, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_Minute = lv_label_create(ui_StatusDock);
+    lv_obj_set_width(ui_Minute, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_Minute, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_Minute, 119);
+    lv_obj_set_y(ui_Minute, 0);
+    lv_obj_set_align(ui_Minute, LV_ALIGN_LEFT_MID);
+    lv_label_set_text(ui_Minute, "00");
+    ui_object_set_themeable_style_property(ui_Minute, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR,
+                                           _ui_theme_color_TextAndImage);
+    ui_object_set_themeable_style_property(ui_Minute, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA,
+                                           _ui_theme_alpha_TextAndImage);
+    lv_obj_set_style_text_font(ui_Minute, &ui_font_ASCII, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_Second = lv_label_create(ui_StatusDock);
+    lv_obj_set_width(ui_Second, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_Second, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_Second, 143);
+    lv_obj_set_y(ui_Second, 0);
+    lv_obj_set_align(ui_Second, LV_ALIGN_LEFT_MID);
+    lv_label_set_text(ui_Second, "00");
+    ui_object_set_themeable_style_property(ui_Second, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR,
+                                           _ui_theme_color_TextAndImage);
+    ui_object_set_themeable_style_property(ui_Second, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA,
+                                           _ui_theme_alpha_TextAndImage);
+    lv_obj_set_style_text_font(ui_Second, &ui_font_ASCII, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_Time1 = lv_label_create(ui_StatusDock);
+    lv_obj_set_width(ui_Time1, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_Time1, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_Time1, 111);
+    lv_obj_set_y(ui_Time1, 0);
+    lv_obj_set_align(ui_Time1, LV_ALIGN_LEFT_MID);
+    lv_label_set_text(ui_Time1, ":");
+    ui_object_set_themeable_style_property(ui_Time1, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR,
+                                           _ui_theme_color_TextAndImage);
+    ui_object_set_themeable_style_property(ui_Time1, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA,
+                                           _ui_theme_alpha_TextAndImage);
+    lv_obj_set_style_text_font(ui_Time1, &ui_font_ASCII, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_Time2 = lv_label_create(ui_StatusDock);
+    lv_obj_set_width(ui_Time2, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_Time2, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_Time2, 135);
+    lv_obj_set_y(ui_Time2, 0);
+    lv_obj_set_align(ui_Time2, LV_ALIGN_LEFT_MID);
+    lv_label_set_text(ui_Time2, ":");
+    ui_object_set_themeable_style_property(ui_Time2, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR,
+                                           _ui_theme_color_TextAndImage);
+    ui_object_set_themeable_style_property(ui_Time2, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA,
+                                           _ui_theme_alpha_TextAndImage);
+    lv_obj_set_style_text_font(ui_Time2, &ui_font_ASCII, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_HeatDock = lv_obj_create(ui_MainScreen);
     lv_obj_remove_style_all(ui_HeatDock);
@@ -96,8 +176,10 @@ void ui_MainScreen_screen_init(void)
     lv_obj_set_y(ui_HeatTemp, -8);
     lv_obj_set_align(ui_HeatTemp, LV_ALIGN_LEFT_MID);
     lv_label_set_text(ui_HeatTemp, "000");
-    lv_obj_set_style_text_color(ui_HeatTemp, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui_HeatTemp, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    ui_object_set_themeable_style_property(ui_HeatTemp, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR,
+                                           _ui_theme_color_TextAndImage);
+    ui_object_set_themeable_style_property(ui_HeatTemp, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA,
+                                           _ui_theme_alpha_TextAndImage);
     lv_obj_set_style_text_font(ui_HeatTemp, &ui_font_ASCII48, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_HeatTempC = lv_label_create(ui_HeatDock);
@@ -107,8 +189,10 @@ void ui_MainScreen_screen_init(void)
     lv_obj_set_y(ui_HeatTempC, -8);
     lv_obj_set_align(ui_HeatTempC, LV_ALIGN_LEFT_MID);
     lv_label_set_text(ui_HeatTempC, "℃");
-    lv_obj_set_style_text_color(ui_HeatTempC, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui_HeatTempC, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    ui_object_set_themeable_style_property(ui_HeatTempC, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR,
+                                           _ui_theme_color_TextAndImage);
+    ui_object_set_themeable_style_property(ui_HeatTempC, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA,
+                                           _ui_theme_alpha_TextAndImage);
     lv_obj_set_style_text_font(ui_HeatTempC, &ui_font_ASCII48, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_Target = lv_label_create(ui_HeatDock);
@@ -118,8 +202,10 @@ void ui_MainScreen_screen_init(void)
     lv_obj_set_y(ui_Target, 22);
     lv_obj_set_align(ui_Target, LV_ALIGN_LEFT_MID);
     lv_label_set_text(ui_Target, "TARGET:    ℃");
-    lv_obj_set_style_text_color(ui_Target, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui_Target, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    ui_object_set_themeable_style_property(ui_Target, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR,
+                                           _ui_theme_color_TextAndImage);
+    ui_object_set_themeable_style_property(ui_Target, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA,
+                                           _ui_theme_alpha_TextAndImage);
     lv_obj_set_style_text_font(ui_Target, &ui_font_ASCII, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_TargetTemp = lv_label_create(ui_HeatDock);
@@ -129,8 +215,10 @@ void ui_MainScreen_screen_init(void)
     lv_obj_set_y(ui_TargetTemp, 22);
     lv_obj_set_align(ui_TargetTemp, LV_ALIGN_LEFT_MID);
     lv_label_set_text(ui_TargetTemp, "000");
-    lv_obj_set_style_text_color(ui_TargetTemp, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui_TargetTemp, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    ui_object_set_themeable_style_property(ui_TargetTemp, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR,
+                                           _ui_theme_color_TextAndImage);
+    ui_object_set_themeable_style_property(ui_TargetTemp, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA,
+                                           _ui_theme_alpha_TextAndImage);
     lv_obj_set_style_text_font(ui_TargetTemp, &ui_font_ASCII, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_TempSet = lv_btn_create(ui_HeatDock);
@@ -159,17 +247,17 @@ void ui_MainScreen_screen_init(void)
     lv_obj_set_style_bg_color(ui_FAN, lv_color_hex(0x393939), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui_FAN, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    ui_FANPic = lv_img_create(ui_FAN);
-    lv_img_set_src(ui_FANPic, &ui_img_1162706898);
-    lv_obj_set_width(ui_FANPic, LV_SIZE_CONTENT);   /// 64
-    lv_obj_set_height(ui_FANPic, LV_SIZE_CONTENT);    /// 64
-    lv_obj_set_x(ui_FANPic, 4);
-    lv_obj_set_y(ui_FANPic, 0);
-    lv_obj_set_align(ui_FANPic, LV_ALIGN_LEFT_MID);
-    lv_obj_add_flag(ui_FANPic, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
-    lv_obj_clear_flag(ui_FANPic, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
-    lv_img_set_angle(ui_FANPic, 400);
-    lv_img_set_zoom(ui_FANPic, 300);
+    ui_FanPic = lv_img_create(ui_FAN);
+    lv_img_set_src(ui_FanPic, &ui_img_1162706898);
+    lv_obj_set_width(ui_FanPic, LV_SIZE_CONTENT);   /// 64
+    lv_obj_set_height(ui_FanPic, LV_SIZE_CONTENT);    /// 64
+    lv_obj_set_x(ui_FanPic, 4);
+    lv_obj_set_y(ui_FanPic, 0);
+    lv_obj_set_align(ui_FanPic, LV_ALIGN_LEFT_MID);
+    lv_obj_add_flag(ui_FanPic, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
+    lv_obj_clear_flag(ui_FanPic, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_img_set_angle(ui_FanPic, 400);
+    lv_img_set_zoom(ui_FanPic, 300);
 
     ui_FanPercent = lv_label_create(ui_FAN);
     lv_obj_set_width(ui_FanPercent, LV_SIZE_CONTENT);   /// 1
@@ -178,8 +266,10 @@ void ui_MainScreen_screen_init(void)
     lv_obj_set_y(ui_FanPercent, 0);
     lv_obj_set_align(ui_FanPercent, LV_ALIGN_LEFT_MID);
     lv_label_set_text(ui_FanPercent, "000");
-    lv_obj_set_style_text_color(ui_FanPercent, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui_FanPercent, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    ui_object_set_themeable_style_property(ui_FanPercent, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR,
+                                           _ui_theme_color_TextAndImage);
+    ui_object_set_themeable_style_property(ui_FanPercent, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA,
+                                           _ui_theme_alpha_TextAndImage);
     lv_obj_set_style_text_font(ui_FanPercent, &ui_font_ASCII48, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_Percent = lv_label_create(ui_FAN);
@@ -189,8 +279,10 @@ void ui_MainScreen_screen_init(void)
     lv_obj_set_y(ui_Percent, 0);
     lv_obj_set_align(ui_Percent, LV_ALIGN_LEFT_MID);
     lv_label_set_text(ui_Percent, "%");
-    lv_obj_set_style_text_color(ui_Percent, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui_Percent, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    ui_object_set_themeable_style_property(ui_Percent, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR,
+                                           _ui_theme_color_TextAndImage);
+    ui_object_set_themeable_style_property(ui_Percent, LV_PART_MAIN | LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA,
+                                           _ui_theme_alpha_TextAndImage);
     lv_obj_set_style_text_font(ui_Percent, &ui_font_ASCII48, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_FanUP = lv_btn_create(ui_FAN);
@@ -238,8 +330,10 @@ void ui_MainScreen_screen_init(void)
     lv_obj_set_style_shadow_color(ui_USER1, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_shadow_opa(ui_USER1, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_img_src(ui_USER1, &ui_img_1577463476, LV_PART_MAIN | LV_STATE_PRESSED);
-    lv_obj_set_style_bg_img_recolor(ui_USER1, lv_color_hex(0x00FF8C), LV_PART_MAIN | LV_STATE_PRESSED);
-    lv_obj_set_style_bg_img_recolor_opa(ui_USER1, 255, LV_PART_MAIN | LV_STATE_PRESSED);
+    ui_object_set_themeable_style_property(ui_USER1, LV_PART_MAIN | LV_STATE_PRESSED, LV_STYLE_BG_IMG_RECOLOR,
+                                           _ui_theme_color_ButtonPressed);
+    ui_object_set_themeable_style_property(ui_USER1, LV_PART_MAIN | LV_STATE_PRESSED, LV_STYLE_BG_IMG_RECOLOR_OPA,
+                                           _ui_theme_alpha_ButtonPressed);
 
     ui_USER2 = lv_btn_create(ui_MainScreen);
     lv_obj_set_width(ui_USER2, 32);
@@ -256,8 +350,10 @@ void ui_MainScreen_screen_init(void)
     lv_obj_set_style_shadow_color(ui_USER2, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_shadow_opa(ui_USER2, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_img_src(ui_USER2, &ui_img_1006688281, LV_PART_MAIN | LV_STATE_PRESSED);
-    lv_obj_set_style_bg_img_recolor(ui_USER2, lv_color_hex(0x00FF8C), LV_PART_MAIN | LV_STATE_PRESSED);
-    lv_obj_set_style_bg_img_recolor_opa(ui_USER2, 255, LV_PART_MAIN | LV_STATE_PRESSED);
+    ui_object_set_themeable_style_property(ui_USER2, LV_PART_MAIN | LV_STATE_PRESSED, LV_STYLE_BG_IMG_RECOLOR,
+                                           _ui_theme_color_ButtonPressed);
+    ui_object_set_themeable_style_property(ui_USER2, LV_PART_MAIN | LV_STATE_PRESSED, LV_STYLE_BG_IMG_RECOLOR_OPA,
+                                           _ui_theme_alpha_ButtonPressed);
 
     ui_USER3 = lv_btn_create(ui_MainScreen);
     lv_obj_set_width(ui_USER3, 32);
@@ -274,8 +370,10 @@ void ui_MainScreen_screen_init(void)
     lv_obj_set_style_shadow_color(ui_USER3, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_shadow_opa(ui_USER3, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_img_src(ui_USER3, &ui_img_1428031618, LV_PART_MAIN | LV_STATE_PRESSED);
-    lv_obj_set_style_bg_img_recolor(ui_USER3, lv_color_hex(0x00FF8C), LV_PART_MAIN | LV_STATE_PRESSED);
-    lv_obj_set_style_bg_img_recolor_opa(ui_USER3, 255, LV_PART_MAIN | LV_STATE_PRESSED);
+    ui_object_set_themeable_style_property(ui_USER3, LV_PART_MAIN | LV_STATE_PRESSED, LV_STYLE_BG_IMG_RECOLOR,
+                                           _ui_theme_color_ButtonPressed);
+    ui_object_set_themeable_style_property(ui_USER3, LV_PART_MAIN | LV_STATE_PRESSED, LV_STYLE_BG_IMG_RECOLOR_OPA,
+                                           _ui_theme_alpha_ButtonPressed);
 
     ui_USER4 = lv_btn_create(ui_MainScreen);
     lv_obj_set_width(ui_USER4, 32);
@@ -293,23 +391,10 @@ void ui_MainScreen_screen_init(void)
     lv_obj_set_style_shadow_color(ui_USER4, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_shadow_opa(ui_USER4, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_img_src(ui_USER4, &ui_img_1680627741, LV_PART_MAIN | LV_STATE_PRESSED);
-    lv_obj_set_style_bg_img_recolor(ui_USER4, lv_color_hex(0x00FF8C), LV_PART_MAIN | LV_STATE_PRESSED);
-    lv_obj_set_style_bg_img_recolor_opa(ui_USER4, 255, LV_PART_MAIN | LV_STATE_PRESSED);
-
-    ui_StartStop = lv_btn_create(ui_MainScreen);
-    lv_obj_set_width(ui_StartStop, 56);
-    lv_obj_set_height(ui_StartStop, 152);
-    lv_obj_set_x(ui_StartStop, 220);
-    lv_obj_set_y(ui_StartStop, 28);
-    lv_obj_add_flag(ui_StartStop, LV_OBJ_FLAG_CHECKABLE | LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
-    lv_obj_clear_flag(ui_StartStop, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
-    lv_obj_set_style_radius(ui_StartStop, 5, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_color(ui_StartStop, lv_color_hex(0x00FF8C), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_opa(ui_StartStop, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_img_src(ui_StartStop, &ui_img_1347724781, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_shadow_color(ui_StartStop, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_shadow_opa(ui_StartStop, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_img_src(ui_StartStop, &ui_img_413634367, LV_PART_MAIN | LV_STATE_CHECKED);
+    ui_object_set_themeable_style_property(ui_USER4, LV_PART_MAIN | LV_STATE_PRESSED, LV_STYLE_BG_IMG_RECOLOR,
+                                           _ui_theme_color_ButtonPressed);
+    ui_object_set_themeable_style_property(ui_USER4, LV_PART_MAIN | LV_STATE_PRESSED, LV_STYLE_BG_IMG_RECOLOR_OPA,
+                                           _ui_theme_alpha_ButtonPressed);
 
     ui_USER6 = lv_btn_create(ui_MainScreen);
     lv_obj_set_width(ui_USER6, 64);
@@ -326,5 +411,21 @@ void ui_MainScreen_screen_init(void)
     lv_obj_set_style_shadow_color(ui_USER6, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_shadow_opa(ui_USER6, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
 
+    ui_StartStop = lv_btn_create(ui_MainScreen);
+    lv_obj_set_width(ui_StartStop, 56);
+    lv_obj_set_height(ui_StartStop, 152);
+    lv_obj_set_x(ui_StartStop, 220);
+    lv_obj_set_y(ui_StartStop, 28);
+    lv_obj_add_flag(ui_StartStop, LV_OBJ_FLAG_CHECKABLE | LV_OBJ_FLAG_SCROLL_ON_FOCUS);     /// Flags
+    lv_obj_clear_flag(ui_StartStop, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_radius(ui_StartStop, 5, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui_StartStop, lv_color_hex(0x00FF8C), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui_StartStop, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_img_src(ui_StartStop, &ui_img_1347724781, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_color(ui_StartStop, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_opa(ui_StartStop, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_img_src(ui_StartStop, &ui_img_413634367, LV_PART_MAIN | LV_STATE_CHECKED);
+
+    lv_obj_add_event_cb(ui_TempSet, ui_event_TempSet, LV_EVENT_ALL, NULL);
 
 }

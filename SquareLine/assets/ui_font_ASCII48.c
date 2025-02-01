@@ -4,7 +4,7 @@
  * Opts: --bpp 8 --size 48 --font C:/Users/ikaly/SquareLine/assets/SarasaMonoSC-Bold.ttf -o C:/Users/ikaly/SquareLine/assets\ui_font_ASCII48.c --format lvgl -r 0x20-0x7f --symbols ℃ --no-compress --no-prefilter
  ******************************************************************************/
 
-#include "ui.h"
+#include "../ui.h"
 
 #ifndef UI_FONT_ASCII48
 #define UI_FONT_ASCII48 1

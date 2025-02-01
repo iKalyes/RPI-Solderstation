@@ -17,15 +17,22 @@ lv_obj_t * ui_Temp;
 lv_obj_t * ui_TempC;
 lv_obj_t * ui_TempPic;
 lv_obj_t * ui_BuzzerStatus;
+lv_obj_t * ui_Image1;
+lv_obj_t * ui_Hour;
+lv_obj_t * ui_Minute;
+lv_obj_t * ui_Second;
+lv_obj_t * ui_Time1;
+lv_obj_t * ui_Time2;
 lv_obj_t * ui_HeatDock;
 lv_obj_t * ui_HeatPic;
 lv_obj_t * ui_HeatTemp;
 lv_obj_t * ui_HeatTempC;
 lv_obj_t * ui_Target;
 lv_obj_t * ui_TargetTemp;
+void ui_event_TempSet(lv_event_t * e);
 lv_obj_t * ui_TempSet;
 lv_obj_t * ui_FAN;
-lv_obj_t * ui_FANPic;
+lv_obj_t * ui_FanPic;
 lv_obj_t * ui_FanPercent;
 lv_obj_t * ui_Percent;
 lv_obj_t * ui_FanUP;
@@ -34,8 +41,48 @@ lv_obj_t * ui_USER1;
 lv_obj_t * ui_USER2;
 lv_obj_t * ui_USER3;
 lv_obj_t * ui_USER4;
-lv_obj_t * ui_StartStop;
 lv_obj_t * ui_USER6;
+lv_obj_t * ui_StartStop;
+// CUSTOM VARIABLES
+
+
+// SCREEN: ui_TemperatureSetting
+void ui_TemperatureSetting_screen_init(void);
+lv_obj_t * ui_TemperatureSetting;
+lv_obj_t * ui_Keyboard;
+void ui_event_Confirm(lv_event_t * e);
+lv_obj_t * ui_Confirm;
+void ui_event_Delete(lv_event_t * e);
+lv_obj_t * ui_Delete;
+void ui_event_Num0(lv_event_t * e);
+lv_obj_t * ui_Num0;
+lv_obj_t * ui_Panel2;
+void ui_event_Num1(lv_event_t * e);
+lv_obj_t * ui_Num1;
+void ui_event_Num2(lv_event_t * e);
+lv_obj_t * ui_Num2;
+void ui_event_Num3(lv_event_t * e);
+lv_obj_t * ui_Num3;
+void ui_event_Num4(lv_event_t * e);
+lv_obj_t * ui_Num4;
+void ui_event_Num5(lv_event_t * e);
+lv_obj_t * ui_Num5;
+void ui_event_Num6(lv_event_t * e);
+lv_obj_t * ui_Num6;
+void ui_event_Num7(lv_event_t * e);
+lv_obj_t * ui_Num7;
+void ui_event_Num8(lv_event_t * e);
+lv_obj_t * ui_Num8;
+void ui_event_Num9(lv_event_t * e);
+lv_obj_t * ui_Num9;
+lv_obj_t * ui_StatusDock2;
+lv_obj_t * ui_Label2;
+lv_obj_t * ui_HeatDock2;
+lv_obj_t * ui_Heatpic;
+lv_obj_t * ui_SetTemp;
+lv_obj_t * ui_SetTempC;
+lv_obj_t * ui_Current;
+lv_obj_t * ui_CurrentTemp;
 // CUSTOM VARIABLES
 
 // EVENTS
@@ -54,6 +101,122 @@ lv_obj_t * ui____initial_actions0;
 ///////////////////// ANIMATIONS ////////////////////
 
 ///////////////////// FUNCTIONS ////////////////////
+void ui_event_TempSet(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_PRESSED) {
+        _ui_screen_change(&ui_TemperatureSetting, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_TemperatureSetting_screen_init);
+    }
+}
+
+void ui_event_Confirm(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_PRESSED) {
+        _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_MainScreen_screen_init);
+    }
+}
+
+void ui_event_Delete(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_PRESSED) {
+        _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "000");
+    }
+}
+
+void ui_event_Num0(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_PRESSED) {
+        _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "0");
+    }
+}
+
+void ui_event_Num1(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_PRESSED) {
+        _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "1");
+    }
+}
+
+void ui_event_Num2(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_PRESSED) {
+        _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "2");
+    }
+}
+
+void ui_event_Num3(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_PRESSED) {
+        _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "3");
+    }
+}
+
+void ui_event_Num4(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_PRESSED) {
+        _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "4");
+    }
+}
+
+void ui_event_Num5(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_PRESSED) {
+        _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "5");
+    }
+}
+
+void ui_event_Num6(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_PRESSED) {
+        _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "6");
+    }
+}
+
+void ui_event_Num7(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_PRESSED) {
+        _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "7");
+    }
+}
+
+void ui_event_Num8(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_PRESSED) {
+        _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "8");
+    }
+}
+
+void ui_event_Num9(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_PRESSED) {
+        _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "9");
+    }
+}
 
 ///////////////////// SCREENS ////////////////////
 
@@ -64,6 +227,7 @@ void ui_init(void)
                                                false, LV_FONT_DEFAULT);
     lv_disp_set_theme(dispp, theme);
     ui_MainScreen_screen_init();
+    ui_TemperatureSetting_screen_init();
     ui____initial_actions0 = lv_obj_create(NULL);
     lv_disp_load_scr(ui_MainScreen);
 }

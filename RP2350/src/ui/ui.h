@@ -24,6 +24,8 @@ extern "C" {
 
 #include "ui_helpers.h"
 #include "ui_events.h"
+#include "ui_theme_manager.h"
+#include "ui_themes.h"
 
 // SCREEN: ui_MainScreen
 void ui_MainScreen_screen_init(void);
@@ -33,15 +35,22 @@ extern lv_obj_t * ui_Temp;
 extern lv_obj_t * ui_TempC;
 extern lv_obj_t * ui_TempPic;
 extern lv_obj_t * ui_BuzzerStatus;
+extern lv_obj_t * ui_Image1;
+extern lv_obj_t * ui_Hour;
+extern lv_obj_t * ui_Minute;
+extern lv_obj_t * ui_Second;
+extern lv_obj_t * ui_Time1;
+extern lv_obj_t * ui_Time2;
 extern lv_obj_t * ui_HeatDock;
 extern lv_obj_t * ui_HeatPic;
 extern lv_obj_t * ui_HeatTemp;
 extern lv_obj_t * ui_HeatTempC;
 extern lv_obj_t * ui_Target;
 extern lv_obj_t * ui_TargetTemp;
+void ui_event_TempSet(lv_event_t * e);
 extern lv_obj_t * ui_TempSet;
 extern lv_obj_t * ui_FAN;
-extern lv_obj_t * ui_FANPic;
+extern lv_obj_t * ui_FanPic;
 extern lv_obj_t * ui_FanPercent;
 extern lv_obj_t * ui_Percent;
 extern lv_obj_t * ui_FanUP;
@@ -50,8 +59,47 @@ extern lv_obj_t * ui_USER1;
 extern lv_obj_t * ui_USER2;
 extern lv_obj_t * ui_USER3;
 extern lv_obj_t * ui_USER4;
-extern lv_obj_t * ui_StartStop;
 extern lv_obj_t * ui_USER6;
+extern lv_obj_t * ui_StartStop;
+// CUSTOM VARIABLES
+
+// SCREEN: ui_TemperatureSetting
+void ui_TemperatureSetting_screen_init(void);
+extern lv_obj_t * ui_TemperatureSetting;
+extern lv_obj_t * ui_Keyboard;
+void ui_event_Confirm(lv_event_t * e);
+extern lv_obj_t * ui_Confirm;
+void ui_event_Delete(lv_event_t * e);
+extern lv_obj_t * ui_Delete;
+void ui_event_Num0(lv_event_t * e);
+extern lv_obj_t * ui_Num0;
+extern lv_obj_t * ui_Panel2;
+void ui_event_Num1(lv_event_t * e);
+extern lv_obj_t * ui_Num1;
+void ui_event_Num2(lv_event_t * e);
+extern lv_obj_t * ui_Num2;
+void ui_event_Num3(lv_event_t * e);
+extern lv_obj_t * ui_Num3;
+void ui_event_Num4(lv_event_t * e);
+extern lv_obj_t * ui_Num4;
+void ui_event_Num5(lv_event_t * e);
+extern lv_obj_t * ui_Num5;
+void ui_event_Num6(lv_event_t * e);
+extern lv_obj_t * ui_Num6;
+void ui_event_Num7(lv_event_t * e);
+extern lv_obj_t * ui_Num7;
+void ui_event_Num8(lv_event_t * e);
+extern lv_obj_t * ui_Num8;
+void ui_event_Num9(lv_event_t * e);
+extern lv_obj_t * ui_Num9;
+extern lv_obj_t * ui_StatusDock2;
+extern lv_obj_t * ui_Label2;
+extern lv_obj_t * ui_HeatDock2;
+extern lv_obj_t * ui_Heatpic;
+extern lv_obj_t * ui_SetTemp;
+extern lv_obj_t * ui_SetTempC;
+extern lv_obj_t * ui_Current;
+extern lv_obj_t * ui_CurrentTemp;
 // CUSTOM VARIABLES
 
 // EVENTS
@@ -61,6 +109,7 @@ extern lv_obj_t * ui____initial_actions0;
 // IMAGES AND IMAGE SETS
 LV_IMG_DECLARE(ui_img_740489818);    // assets/material-symbols_thermostat-rounded.png
 LV_IMG_DECLARE(ui_img_1699618864);    // assets/material-symbols_volume-up-outline-rounded.png
+LV_IMG_DECLARE(ui_img_290686881);    // assets/material-symbols_search-activity-rounded.png
 LV_IMG_DECLARE(ui_img_1956478733);    // assets/material-symbols_heat.png
 LV_IMG_DECLARE(ui_img_155116563);    // assets/material-symbols_instant-mix-rounded.png
 LV_IMG_DECLARE(ui_img_1162706898);    // assets/material-symbols_mode-fan-outline-sharp.png
@@ -70,9 +119,21 @@ LV_IMG_DECLARE(ui_img_1577463476);    // assets/material-symbols_filter-1-outlin
 LV_IMG_DECLARE(ui_img_1006688281);    // assets/material-symbols_filter-2-outline-rounded.png
 LV_IMG_DECLARE(ui_img_1428031618);    // assets/material-symbols_filter-3-outline-rounded.png
 LV_IMG_DECLARE(ui_img_1680627741);    // assets/material-symbols_filter-4-outline-rounded.png
+LV_IMG_DECLARE(ui_img_1671917170);    // assets/material-symbols_settings-rounded.png
 LV_IMG_DECLARE(ui_img_1347724781);    // assets/material-symbols_play-arrow-rounded.png
 LV_IMG_DECLARE(ui_img_413634367);    // assets/material-symbols_stop-rounded.png
-LV_IMG_DECLARE(ui_img_1671917170);    // assets/material-symbols_settings-rounded.png
+LV_IMG_DECLARE(ui_img_938671949);    // assets/material-symbols_check-rounded.png
+LV_IMG_DECLARE(ui_img_13634893);    // assets/material-symbols_close-rounded.png
+LV_IMG_DECLARE(ui_img_1543630939);    // assets/material-symbols_counter-0-outline.png
+LV_IMG_DECLARE(ui_img_761595314);    // assets/material-symbols_counter-1-outline-rounded.png
+LV_IMG_DECLARE(ui_img_154154061);    // assets/material-symbols_counter-2-outline-rounded.png
+LV_IMG_DECLARE(ui_img_2056179636);    // assets/material-symbols_counter-3-outline-rounded.png
+LV_IMG_DECLARE(ui_img_2011795637);    // assets/material-symbols_counter-4-outline-rounded.png
+LV_IMG_DECLARE(ui_img_72837962);    // assets/material-symbols_counter-5-outline-rounded.png
+LV_IMG_DECLARE(ui_img_988587337);    // assets/material-symbols_counter-6-outline-rounded.png
+LV_IMG_DECLARE(ui_img_1221746360);    // assets/material-symbols_counter-7-outline-rounded.png
+LV_IMG_DECLARE(ui_img_427413075);    // assets/material-symbols_counter-8-outline.png
+LV_IMG_DECLARE(ui_img_2131435434);    // assets/material-symbols_counter-9-outline-rounded.png
 
 // FONTS
 LV_FONT_DECLARE(ui_font_ASCII);

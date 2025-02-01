@@ -37,6 +37,18 @@
           255
         ],
         "InheritedType": 0
+      },
+      {
+        "nid": 1000676,
+        "strtype": "THEME_COLOR",
+        "strval": "ButtonPressed",
+        "intarray": [
+          0,
+          255,
+          140,
+          255
+        ],
+        "InheritedType": 0
       }
     ]
   },
