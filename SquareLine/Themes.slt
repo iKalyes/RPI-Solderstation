@@ -29,7 +29,7 @@
       {
         "nid": 1000322,
         "strtype": "THEME_COLOR",
-        "strval": "Button",
+        "strval": "ButtonAndBack",
         "intarray": [
           0,
           0,

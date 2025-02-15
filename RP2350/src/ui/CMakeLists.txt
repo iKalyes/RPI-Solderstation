@@ -1,5 +1,6 @@
 SET(SOURCES screens/ui_MainScreen.c
     screens/ui_TemperatureSetting.c
+    screens/ui_SystemSetting.c
     ui_theme_manager.c
     ui_themes.c
     ui.c
@@ -32,6 +33,7 @@ SET(SOURCES screens/ui_MainScreen.c
     images/ui_img_1221746360.c
     images/ui_img_427413075.c
     images/ui_img_2131435434.c
+    images/ui_img_852573520.c
     fonts/ui_font_ASCII.c
     fonts/ui_font_ASCII48.c)
 
