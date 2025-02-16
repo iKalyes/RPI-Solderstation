@@ -1,15 +1,6 @@
 /*Using LVGL with Arduino requires some extra steps:
  *Be sure to read the docs here: https://docs.lvgl.io/master/get-started/platforms/arduino.html  */
-
-#include <TFT_eSPI.h>
-
-#include <Wire.h>
-#include <FreeRTOS.h>
-#include <task.h>
-#include <map>
-
-#include <RotaryEncoder.h>
-#include <display.h>
+#include <main.h>
 
 void setup()
 {
