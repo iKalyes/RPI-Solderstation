@@ -4,7 +4,7 @@
 
 void setup()
 {
-    Serial.begin( 115200 ); /* prepare for possible serial debug */
+    //Serial.begin( 115200 ); /* prepare for possible serial debug */
     display_init();
 }
 
@@ -39,10 +39,10 @@ void loop1()
 
   int newPos = encoder->getPosition();
   if (pos != newPos) {
-    Serial.print("pos:");
-    Serial.print(newPos);
-    Serial.print(" dir:");
-    Serial.println((int)(encoder->getDirection()));
+    //Serial.print("pos:");
+    //Serial.print(newPos);
+    //Serial.print(" dir:");
+    //Serial.println((int)(encoder->getDirection()));
     pos = newPos;
   }
   }

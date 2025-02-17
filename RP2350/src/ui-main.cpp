@@ -1,10 +1,18 @@
-#include <uicontrol.h>
+#include <ui-main.h>
 
 void ui_event_TempSet( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_change( &ui_TemperatureSetting, LV_SCR_LOAD_ANIM_FADE_ON, 50, 0, &ui_TemperatureSetting_screen_init);
+}
+}
+
+void ui_event_Setting( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_RELEASED) {
+      _ui_screen_change( &ui_SystemSetting, LV_SCR_LOAD_ANIM_FADE_ON, 50, 0, &ui_SystemSetting_screen_init);
 }
 }
 
@@ -68,13 +76,5 @@ void ui_event_USER4( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_PRESSED) {
       _ui_label_set_property(ui_TargetTemp, _UI_LABEL_PROPERTY_TEXT, "400");
-}
-}
-
-void ui_event_Setting( lv_event_t * e) {
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-if ( event_code == LV_EVENT_RELEASED) {
-      _ui_screen_change( &ui_SystemSetting, LV_SCR_LOAD_ANIM_FADE_ON, 50, 0, &ui_SystemSetting_screen_init);
 }
 }
