@@ -388,11 +388,11 @@ lv_obj_clear_flag( ui_BuzzerSwitch, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
 lv_obj_set_style_radius(ui_BuzzerSwitch, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
 ui_object_set_themeable_style_property(ui_BuzzerSwitch, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_ButtonPressed);
 ui_object_set_themeable_style_property(ui_BuzzerSwitch, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_ButtonPressed);
-lv_obj_set_style_bg_img_src( ui_BuzzerSwitch, &ui_img_1699618864, LV_PART_MAIN | LV_STATE_DEFAULT );
+lv_obj_set_style_bg_img_src( ui_BuzzerSwitch, &ui_img_185202102, LV_PART_MAIN | LV_STATE_DEFAULT );
 lv_obj_set_style_shadow_color(ui_BuzzerSwitch, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT );
 lv_obj_set_style_shadow_opa(ui_BuzzerSwitch, 0, LV_PART_MAIN| LV_STATE_DEFAULT);
 lv_obj_set_style_radius(ui_BuzzerSwitch, 5, LV_PART_MAIN| LV_STATE_CHECKED);
-lv_obj_set_style_bg_img_src( ui_BuzzerSwitch, &ui_img_185202102, LV_PART_MAIN | LV_STATE_CHECKED );
+lv_obj_set_style_bg_img_src( ui_BuzzerSwitch, &ui_img_1699618864, LV_PART_MAIN | LV_STATE_CHECKED );
 
 ui_FanSwitch = lv_btn_create(ui_MainScreen);
 lv_obj_set_width( ui_FanSwitch, 100);

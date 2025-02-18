@@ -145,6 +145,8 @@ extern lv_obj_t *ui_ImageBrightness;
 void ui_event_SliderBrightness( lv_event_t * e);
 extern lv_obj_t *ui_SliderBrightness;
 extern lv_obj_t *ui_TextBrightness;
+void ui_event_SaveConfig( lv_event_t * e);
+extern lv_obj_t *ui_SaveConfig;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_CustomCurveScreen
@@ -257,6 +259,7 @@ LV_IMG_DECLARE( ui_img_852573520);   // assets/material-symbols_chevron-left-rou
 LV_IMG_DECLARE( ui_img_329106951);   // assets/material-symbols_speed-outline-rounded.png
 LV_IMG_DECLARE( ui_img_295618317);   // assets/material-symbols_avg-pace-rounded.png
 LV_IMG_DECLARE( ui_img_637286161);   // assets/material-symbols_backlight-high-rounded.png
+LV_IMG_DECLARE( ui_img_1723942165);   // assets/material-symbols_save-outline-rounded.png
 LV_IMG_DECLARE( ui_img_179619656);   // assets/material-symbols_filter-5-outline-rounded.png
 
 // FONTS

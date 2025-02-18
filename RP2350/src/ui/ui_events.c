@@ -24,3 +24,8 @@ void PIDCalibrationStop(lv_event_t * e)
 {
 	// Your code here
 }
+
+void SaveConfig(lv_event_t * e)
+{
+	// Your code here
+}

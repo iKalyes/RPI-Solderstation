@@ -10,4 +10,6 @@
 
 #include <Arduino.h>
 
+extern int buzzer_state;
+
 #endif

@@ -129,6 +129,8 @@ lv_obj_t *ui_ImageBrightness;
 void ui_event_SliderBrightness( lv_event_t * e);
 lv_obj_t *ui_SliderBrightness;
 lv_obj_t *ui_TextBrightness;
+void ui_event_SaveConfig( lv_event_t * e);
+lv_obj_t *ui_SaveConfig;
 // CUSTOM VARIABLES
 
 

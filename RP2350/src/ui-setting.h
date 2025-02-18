@@ -10,4 +10,6 @@
 
 #include <Arduino.h>
 
+#include <ui-main.h>
+
 #endif

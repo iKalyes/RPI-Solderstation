@@ -12,6 +12,7 @@ extern "C" {
 
 void HeatingStart(lv_event_t * e);
 void HeatingStop(lv_event_t * e);
+void SaveConfig(lv_event_t * e);
 void PIDCalibrationStart(lv_event_t * e);
 void PIDCalibrationStop(lv_event_t * e);
 

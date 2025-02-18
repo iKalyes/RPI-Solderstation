@@ -62,7 +62,7 @@ lv_obj_set_style_bg_color(ui_SettingMenuDock, lv_color_hex(0x393939), LV_PART_MA
 lv_obj_set_style_bg_opa(ui_SettingMenuDock, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_PIDCalibration = lv_btn_create(ui_SettingMenuDock);
-lv_obj_set_width( ui_PIDCalibration, 273);
+lv_obj_set_width( ui_PIDCalibration, 190);
 lv_obj_set_height( ui_PIDCalibration, 32);
 lv_obj_set_x( ui_PIDCalibration, 4 );
 lv_obj_set_y( ui_PIDCalibration, 4 );
@@ -96,7 +96,7 @@ ui_object_set_themeable_style_property(ui_TextPID, LV_PART_MAIN| LV_STATE_DEFAUL
 lv_obj_set_style_text_font(ui_TextPID, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_CustomCurve = lv_btn_create(ui_SettingMenuDock);
-lv_obj_set_width( ui_CustomCurve, 273);
+lv_obj_set_width( ui_CustomCurve, 190);
 lv_obj_set_height( ui_CustomCurve, 32);
 lv_obj_set_x( ui_CustomCurve, 4 );
 lv_obj_set_y( ui_CustomCurve, 44 );
@@ -279,11 +279,26 @@ ui_object_set_themeable_style_property(ui_TextBrightness, LV_PART_MAIN| LV_STATE
 ui_object_set_themeable_style_property(ui_TextBrightness, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
 lv_obj_set_style_text_font(ui_TextBrightness, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
 
+ui_SaveConfig = lv_btn_create(ui_SettingMenuDock);
+lv_obj_set_width( ui_SaveConfig, 72);
+lv_obj_set_height( ui_SaveConfig, 72);
+lv_obj_set_x( ui_SaveConfig, 205 );
+lv_obj_set_y( ui_SaveConfig, 4 );
+lv_obj_add_flag( ui_SaveConfig, LV_OBJ_FLAG_SCROLL_ON_FOCUS );   /// Flags
+lv_obj_clear_flag( ui_SaveConfig, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
+lv_obj_set_style_radius(ui_SaveConfig, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_bg_color(ui_SaveConfig, lv_color_hex(0x00FF8C), LV_PART_MAIN | LV_STATE_DEFAULT );
+lv_obj_set_style_bg_opa(ui_SaveConfig, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_bg_img_src( ui_SaveConfig, &ui_img_1723942165, LV_PART_MAIN | LV_STATE_DEFAULT );
+lv_obj_set_style_shadow_color(ui_SaveConfig, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT );
+lv_obj_set_style_shadow_opa(ui_SaveConfig, 0, LV_PART_MAIN| LV_STATE_DEFAULT);
+
 lv_obj_add_event_cb(ui_SystemSettingBack, ui_event_SystemSettingBack, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_PIDCalibration, ui_event_PIDCalibration, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_CustomCurve, ui_event_CustomCurve, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_SliderTempLimited, ui_event_SliderTempLimited, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_SliderSleepTime, ui_event_SliderSleepTime, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_SliderBrightness, ui_event_SliderBrightness, LV_EVENT_ALL, NULL);
+lv_obj_add_event_cb(ui_SaveConfig, ui_event_SaveConfig, LV_EVENT_ALL, NULL);
 
 }
