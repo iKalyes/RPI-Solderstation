@@ -12,29 +12,29 @@
 // SCREEN: ui_MainScreen
 void ui_MainScreen_screen_init(void);
 lv_obj_t *ui_MainScreen;
-lv_obj_t *ui_StatusDock;
-lv_obj_t *ui_Temp;
-lv_obj_t *ui_TempC;
-lv_obj_t *ui_TempPic;
+lv_obj_t *ui_StatusHeader;
+lv_obj_t *ui_RoomTemp;
+lv_obj_t *ui_TextRoomTemp;
+lv_obj_t *ui_ImageRoomTemp;
 lv_obj_t *ui_BuzzerStatus;
+lv_obj_t *ui_ImageClock;
 lv_obj_t *ui_Image1;
-lv_obj_t *ui_Hour;
 lv_obj_t *ui_Minute;
 lv_obj_t *ui_Second;
-lv_obj_t *ui_Time1;
-lv_obj_t *ui_Time2;
-lv_obj_t *ui_HeatDock;
-lv_obj_t *ui_HeatPic;
+lv_obj_t *ui_TextTime;
+lv_obj_t *ui_HeatingMode;
+lv_obj_t *ui_HeaterDock;
+lv_obj_t *ui_ImageHeater;
 lv_obj_t *ui_HeatTemp;
-lv_obj_t *ui_HeatTempC;
-lv_obj_t *ui_Target;
+lv_obj_t *ui_TextHeatTemp;
+lv_obj_t *ui_TextTargetTemp;
 lv_obj_t *ui_TargetTemp;
 void ui_event_TempSet( lv_event_t * e);
 lv_obj_t *ui_TempSet;
-lv_obj_t *ui_FAN;
-lv_obj_t *ui_FanPic;
+lv_obj_t *ui_FanDock;
+lv_obj_t *ui_ImageFan;
 lv_obj_t *ui_FanPercent;
-lv_obj_t *ui_Percent;
+lv_obj_t *ui_TextFanPercent;
 void ui_event_FanUP( lv_event_t * e);
 lv_obj_t *ui_FanUP;
 void ui_event_FanDown( lv_event_t * e);
@@ -49,13 +49,18 @@ void ui_event_USER4( lv_event_t * e);
 lv_obj_t *ui_USER4;
 void ui_event_Setting( lv_event_t * e);
 lv_obj_t *ui_Setting;
+void ui_event_BuzzerSwitch( lv_event_t * e);
+lv_obj_t *ui_BuzzerSwitch;
+void ui_event_FanSwitch( lv_event_t * e);
+lv_obj_t *ui_FanSwitch;
+void ui_event_StartStop( lv_event_t * e);
 lv_obj_t *ui_StartStop;
 // CUSTOM VARIABLES
 
 
-// SCREEN: ui_TemperatureSetting
-void ui_TemperatureSetting_screen_init(void);
-lv_obj_t *ui_TemperatureSetting;
+// SCREEN: ui_TemperatureSettingScreen
+void ui_TemperatureSettingScreen_screen_init(void);
+lv_obj_t *ui_TemperatureSettingScreen;
 lv_obj_t *ui_Keyboard;
 void ui_event_Confirm( lv_event_t * e);
 lv_obj_t *ui_Confirm;
@@ -82,25 +87,121 @@ void ui_event_Num8( lv_event_t * e);
 lv_obj_t *ui_Num8;
 void ui_event_Num9( lv_event_t * e);
 lv_obj_t *ui_Num9;
-lv_obj_t *ui_TempSettingDock;
+lv_obj_t *ui_TempSettingHeader;
+lv_obj_t *ui_TextTempSetting;
 lv_obj_t *ui_TempSetting;
-lv_obj_t *ui_HeatDock2;
-lv_obj_t *ui_Heatpic;
+lv_obj_t *ui_ImageTempSetting;
 lv_obj_t *ui_SetTemp;
-lv_obj_t *ui_SetTempC;
-lv_obj_t *ui_Current;
+lv_obj_t *ui_TextSetTemp;
+lv_obj_t *ui_TextCurrentTemp;
 lv_obj_t *ui_CurrentTemp;
 // CUSTOM VARIABLES
 
 
-// SCREEN: ui_SystemSetting
-void ui_SystemSetting_screen_init(void);
-lv_obj_t *ui_SystemSetting;
-lv_obj_t *ui_SystemSettingDock;
-lv_obj_t *ui_System_Setting;
-void ui_event_SettingBack( lv_event_t * e);
-lv_obj_t *ui_SettingBack;
+// SCREEN: ui_SystemSettingScreen
+void ui_SystemSettingScreen_screen_init(void);
+lv_obj_t *ui_SystemSettingScreen;
+lv_obj_t *ui_SystemSettingHeader;
+lv_obj_t *ui_ImageSystemHeader;
+void ui_event_SystemSettingBack( lv_event_t * e);
+lv_obj_t *ui_SystemSettingBack;
 lv_obj_t *ui_SettingMenuDock;
+void ui_event_PIDCalibration( lv_event_t * e);
+lv_obj_t *ui_PIDCalibration;
+lv_obj_t *ui_ImagePID;
+lv_obj_t *ui_TextPID;
+void ui_event_CustomCurve( lv_event_t * e);
+lv_obj_t *ui_CustomCurve;
+lv_obj_t *ui_ImageCurve;
+lv_obj_t *ui_TextCurve;
+lv_obj_t *ui_TempLimited;
+lv_obj_t *ui_ImageTempLimited;
+void ui_event_SliderTempLimited( lv_event_t * e);
+lv_obj_t *ui_SliderTempLimited;
+lv_obj_t *ui_TextTempLimited;
+lv_obj_t *ui_SleepTime;
+lv_obj_t *ui_ImageSleepTime;
+void ui_event_SliderSleepTime( lv_event_t * e);
+lv_obj_t *ui_SliderSleepTime;
+lv_obj_t *ui_TextSleepTime;
+lv_obj_t *ui_Brightness;
+lv_obj_t *ui_ImageBrightness;
+void ui_event_SliderBrightness( lv_event_t * e);
+lv_obj_t *ui_SliderBrightness;
+lv_obj_t *ui_TextBrightness;
+// CUSTOM VARIABLES
+
+
+// SCREEN: ui_CustomCurveScreen
+void ui_CustomCurveScreen_screen_init(void);
+lv_obj_t *ui_CustomCurveScreen;
+lv_obj_t *ui_CustomCurveHeader;
+lv_obj_t *ui_TextCurveHeader;
+void ui_event_CustomCurveBack( lv_event_t * e);
+lv_obj_t *ui_CustomCurveBack;
+lv_obj_t *ui_CustomCurveDock;
+lv_obj_t *ui_ProfileOne;
+lv_obj_t *ui_ImageProfileOne;
+void ui_event_SliderProfileOne( lv_event_t * e);
+lv_obj_t *ui_SliderProfileOne;
+lv_obj_t *ui_TextProfileOne;
+void ui_event_SliderTimeOne( lv_event_t * e);
+lv_obj_t *ui_SliderTimeOne;
+lv_obj_t *ui_TextTimeOne;
+lv_obj_t *ui_ProfileTwo;
+lv_obj_t *ui_ImageProfileTwo;
+void ui_event_SliderProfileTwo( lv_event_t * e);
+lv_obj_t *ui_SliderProfileTwo;
+lv_obj_t *ui_TextProfileTwo;
+void ui_event_SliderTimeTwo( lv_event_t * e);
+lv_obj_t *ui_SliderTimeTwo;
+lv_obj_t *ui_TextTimeTwo;
+lv_obj_t *ui_ProfileThree;
+lv_obj_t *ui_ImageProfileThree;
+void ui_event_SliderProfileThree( lv_event_t * e);
+lv_obj_t *ui_SliderProfileThree;
+lv_obj_t *ui_TextProfileThree;
+void ui_event_SliderTimeThree( lv_event_t * e);
+lv_obj_t *ui_SliderTimeThree;
+lv_obj_t *ui_TextTimeThree;
+lv_obj_t *ui_ProfileFour;
+lv_obj_t *ui_ImageProfileFour;
+void ui_event_SliderProfileFour( lv_event_t * e);
+lv_obj_t *ui_SliderProfileFour;
+lv_obj_t *ui_TextProfileFour;
+void ui_event_SliderTimeFour( lv_event_t * e);
+lv_obj_t *ui_SliderTimeFour;
+lv_obj_t *ui_TextTimeFour;
+lv_obj_t *ui_ProfileFive;
+lv_obj_t *ui_ImageProfileFive;
+void ui_event_SliderProfileFive( lv_event_t * e);
+lv_obj_t *ui_SliderProfileFive;
+lv_obj_t *ui_TextProfileFive;
+void ui_event_SliderTimeFive( lv_event_t * e);
+lv_obj_t *ui_SliderTimeFive;
+lv_obj_t *ui_TextTimeFive;
+// CUSTOM VARIABLES
+
+
+// SCREEN: ui_PIDCalibrationScreen
+void ui_PIDCalibrationScreen_screen_init(void);
+lv_obj_t *ui_PIDCalibrationScreen;
+lv_obj_t *ui_PIDCalibrationHeader;
+lv_obj_t *ui_TextPIDHeader;
+void ui_event_PIDCalibrationBack( lv_event_t * e);
+lv_obj_t *ui_PIDCalibrationBack;
+lv_obj_t *ui_PIDCalibrationDock;
+lv_obj_t *ui_ImageHeaterPID;
+lv_obj_t *ui_PIDCurrentTemp;
+lv_obj_t *ui_TextPIDTemp;
+lv_obj_t *ui_TextPIDTargetTemp;
+lv_obj_t *ui_PIDTargetTemp;
+void ui_event_PIDTempSet( lv_event_t * e);
+lv_obj_t *ui_PIDTempSet;
+void ui_event_PIDCalibrationSwitch( lv_event_t * e);
+lv_obj_t *ui_PIDCalibrationSwitch;
+lv_obj_t *ui_PIDChartDock;
+lv_obj_t *ui_TempChart;
 // CUSTOM VARIABLES
 
 // EVENTS
@@ -120,15 +221,6 @@ lv_obj_t *ui____initial_actions0;
 
 ///////////////////// FUNCTIONS ////////////////////
 
-
-void ui_event_SettingBack( lv_event_t * e) {
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-if ( event_code == LV_EVENT_RELEASED) {
-      _ui_screen_change( &ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 50, 0, &ui_MainScreen_screen_init);
-}
-}
-
 ///////////////////// SCREENS ////////////////////
 
 void ui_init( void )
@@ -137,8 +229,10 @@ lv_disp_t *dispp = lv_disp_get_default();
 lv_theme_t *theme = lv_theme_default_init(dispp, lv_palette_main(LV_PALETTE_BLUE), lv_palette_main(LV_PALETTE_RED), false, LV_FONT_DEFAULT);
 lv_disp_set_theme(dispp, theme);
 ui_MainScreen_screen_init();
-ui_TemperatureSetting_screen_init();
-ui_SystemSetting_screen_init();
+ui_TemperatureSettingScreen_screen_init();
+ui_SystemSettingScreen_screen_init();
+ui_CustomCurveScreen_screen_init();
+ui_PIDCalibrationScreen_screen_init();
 ui____initial_actions0 = lv_obj_create(NULL);
 lv_disp_load_scr( ui_MainScreen);
 }

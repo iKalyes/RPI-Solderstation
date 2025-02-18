@@ -1,14 +1,18 @@
 SET(SOURCES screens/ui_MainScreen.c
-    screens/ui_TemperatureSetting.c
-    screens/ui_SystemSetting.c
+    screens/ui_TemperatureSettingScreen.c
+    screens/ui_SystemSettingScreen.c
+    screens/ui_CustomCurveScreen.c
+    screens/ui_PIDCalibrationScreen.c
     ui_theme_manager.c
     ui_themes.c
     ui.c
     components/ui_comp_hook.c
     ui_helpers.c
+    ui_events.c
     images/ui_img_740489818.c
     images/ui_img_1699618864.c
     images/ui_img_290686881.c
+    images/ui_img_1205510230.c
     images/ui_img_1956478733.c
     images/ui_img_155116563.c
     images/ui_img_1162706898.c
@@ -19,6 +23,9 @@ SET(SOURCES screens/ui_MainScreen.c
     images/ui_img_1428031618.c
     images/ui_img_1680627741.c
     images/ui_img_1671917170.c
+    images/ui_img_185202102.c
+    images/ui_img_2103744591.c
+    images/ui_img_1708415670.c
     images/ui_img_1347724781.c
     images/ui_img_413634367.c
     images/ui_img_938671949.c
@@ -34,7 +41,12 @@ SET(SOURCES screens/ui_MainScreen.c
     images/ui_img_427413075.c
     images/ui_img_2131435434.c
     images/ui_img_852573520.c
+    images/ui_img_329106951.c
+    images/ui_img_295618317.c
+    images/ui_img_637286161.c
+    images/ui_img_179619656.c
     fonts/ui_font_ASCII.c
-    fonts/ui_font_ASCII48.c)
+    fonts/ui_font_ASCII48.c
+    fonts/ui_font_Chart.c)
 
 add_library(ui ${SOURCES})

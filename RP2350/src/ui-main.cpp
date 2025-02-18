@@ -4,7 +4,7 @@ void ui_event_TempSet( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_RELEASED) {
-      _ui_screen_change( &ui_TemperatureSetting, LV_SCR_LOAD_ANIM_FADE_ON, 50, 0, &ui_TemperatureSetting_screen_init);
+      _ui_screen_change( &ui_TemperatureSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 50, 0, &ui_TemperatureSettingScreen_screen_init);
 }
 }
 
@@ -12,7 +12,7 @@ void ui_event_Setting( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_RELEASED) {
-      _ui_screen_change( &ui_SystemSetting, LV_SCR_LOAD_ANIM_FADE_ON, 50, 0, &ui_SystemSetting_screen_init);
+      _ui_screen_change( &ui_SystemSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 50, 0, &ui_SystemSettingScreen_screen_init);
 }
 }
 
@@ -47,11 +47,24 @@ void ui_event_FanDown(lv_event_t * e) {
     }
 }
 
+void ui_event_FanSwitch( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
+
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      FanPercent = 100;
+      _ui_label_set_property(ui_FanPercent, _UI_LABEL_PROPERTY_TEXT, "100");
+}
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      FanPercent = 0;
+      _ui_label_set_property(ui_FanPercent, _UI_LABEL_PROPERTY_TEXT, "000");
+}
+}
+
 void ui_event_USER1( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_TargetTemp, _UI_LABEL_PROPERTY_TEXT, "100");
+      _ui_label_set_property(ui_HeatingMode, _UI_LABEL_PROPERTY_TEXT, "Thermostatic");
 }
 }
 
@@ -59,7 +72,7 @@ void ui_event_USER2( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_TargetTemp, _UI_LABEL_PROPERTY_TEXT, "200");
+      _ui_label_set_property(ui_HeatingMode, _UI_LABEL_PROPERTY_TEXT, "RSS Curve");
 }
 }
 
@@ -67,7 +80,7 @@ void ui_event_USER3( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_TargetTemp, _UI_LABEL_PROPERTY_TEXT, "300");
+      _ui_label_set_property(ui_HeatingMode, _UI_LABEL_PROPERTY_TEXT, "RTS Curve");
 }
 }
 
@@ -75,6 +88,28 @@ void ui_event_USER4( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_TargetTemp, _UI_LABEL_PROPERTY_TEXT, "400");
+      _ui_label_set_property(ui_HeatingMode, _UI_LABEL_PROPERTY_TEXT, "Custom Curve");
+}
+}
+
+void ui_event_BuzzerSwitch( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
+
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      lv_img_set_src(ui_BuzzerStatus, &ui_img_185202102);
+}
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      lv_img_set_src(ui_BuzzerStatus, &ui_img_1699618864);
+}
+}
+
+void ui_event_StartStop( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
+
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      HeatingStart( e );
+}
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      HeatingStop( e );
 }
 }

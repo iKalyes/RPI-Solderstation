@@ -15,5 +15,6 @@ static lv_color_t buf_1[ screenWidth * screenHeight / 10 ];
 static lv_color_t buf_2[ screenWidth * screenHeight / 10 ];
 
 void display_init();
+void backlight_init();
 
 #endif

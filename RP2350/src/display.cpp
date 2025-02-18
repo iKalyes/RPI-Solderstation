@@ -34,6 +34,14 @@ void my_touchpad_read( lv_indev_drv_t * indev_drv, lv_indev_data_t * data )
 
 }
 
+void backlight_init()
+{
+    pinMode(6, OUTPUT);
+    analogWriteFreq(1000);
+    analogWriteRange(100);
+    analogWrite(6, 50);
+}
+
 void display_init()
 {
     lv_init();

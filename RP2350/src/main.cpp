@@ -5,6 +5,7 @@
 void setup()
 {
     //Serial.begin( 115200 ); /* prepare for possible serial debug */
+    backlight_init();
     display_init();
 }
 

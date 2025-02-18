@@ -10,6 +10,11 @@
 extern "C" {
 #endif
 
+void HeatingStart(lv_event_t * e);
+void HeatingStop(lv_event_t * e);
+void PIDCalibrationStart(lv_event_t * e);
+void PIDCalibrationStop(lv_event_t * e);
+
 #ifdef __cplusplus
 } /*extern "C"*/
 #endif
