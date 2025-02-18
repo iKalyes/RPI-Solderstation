@@ -1,14 +1,8 @@
 # RPI-Solderstation
 RaspberryPi 2040/2350 Solder &amp; Heat Plate Station With Touch Screen Open Source Project.
 
-After you download or clone this project.
-Opening the RP2350 or HeatPlate folder with PlatformIO in VSCode.
-Then PlatformIO will automatically produce the ".pio" folder within the root directory.
-Because GIT won't upload the ".pio" folder.
-You need to first remove the "libdeps" folder inside the auto-generated ".pio" folder.
-Then copy the "libdeps" folder from the root directory into the ".pio" folder
-
-下载或克隆此项目后。
+开发板的板载Flash为8MB，而默认为16MB，所以需要替换一个文件。
+将项目根目录的“generic_rp2350.json”，复制替换到“C:\Users\用户名\.platformio\platforms\raspberrypi\boards”
 使用 VSCode 中的 PlatformIO 打开 RP2350 或 HeatPlate 文件夹。
 然后 PlatformIO 会自动在 RP2350 或 HeatPlate 文件夹下生成“.pio”文件夹。
 因为 GIT 不会自动上传“.pio”文件夹，而其中包含了驱动代码。
