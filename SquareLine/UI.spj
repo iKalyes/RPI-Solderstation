@@ -14616,8 +14616,8 @@
           }
         ],
         "isPage": true,
-        "editor_posx": 1080,
-        "editor_posy": -400,
+        "editor_posx": 740,
+        "editor_posy": -680,
         "dont_export": false,
         "locked": false,
         "properties": [
@@ -21048,7 +21048,7 @@
           }
         ],
         "isPage": true,
-        "editor_posx": 1420,
+        "editor_posx": 1080,
         "editor_posy": -400,
         "dont_export": false,
         "locked": false,
@@ -23812,7 +23812,7 @@
     "uiExportFolderPath": "/Users/quin/Documents/RPI-Solderstation/RP2350/src/ui",
     "projectExportFolderPath": "/Users/quin/Documents/RPI-Solderstation/RP2350",
     "custom_variable_prefix": "uic",
-    "backup_cnt": 34,
+    "backup_cnt": 35,
     "autosave_cnt": 0,
     "lvgl_version": "8.3.11",
     "callfuncsexport": "C_FILE",
