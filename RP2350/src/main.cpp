@@ -4,7 +4,8 @@
 
 void setup()
 {
-    //Serial.begin( 115200 ); /* prepare for possible serial debug */
+    Serial.begin( 115200 ); /* prepare for possible serial debug */
+    ReadFlash();
     backlight_init();
     display_init();
 }
@@ -46,4 +47,10 @@ void loop1()
     //Serial.println((int)(encoder->getDirection()));
     pos = newPos;
   }
+    Serial.println(buzzer_state);
+    Serial.println(brightness);
+    Serial.println(temp_limited);
+    Serial.println(sleep_time);
+    Serial.println(SetTemp);
+    delay(1000);
   }

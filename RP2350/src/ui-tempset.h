@@ -9,6 +9,9 @@
 #include "ui/ui_themes.h"
 
 #include <Arduino.h>
+#include <ui-setting.h>
+
+extern uint16_t SetTemp;
 
 void updateDisplay();
 void handleNumberInput(char num);

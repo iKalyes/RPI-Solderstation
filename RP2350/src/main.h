@@ -10,5 +10,6 @@
 
 #include <RotaryEncoder.h>
 #include <display.h>
+#include <flash.h>
 
 #endif

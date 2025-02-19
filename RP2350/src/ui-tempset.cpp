@@ -34,6 +34,15 @@ void ui_event_Confirm(lv_event_t * e) {
         {
             lv_label_set_text(ui_TargetTemp, "000");
         }
+        else if(SetTemp > temp_limited)
+        {
+            SetTemp = temp_limited;
+            // 创建临时字符数组来存储转换后的数字字符串
+            char temp_str[8];
+            sprintf(temp_str, "%d", temp_limited);
+            // 更新目标温度显示
+            lv_label_set_text(ui_TargetTemp, temp_str);
+        }
         else
         {
             // 创建临时字符数组来存储转换后的数字字符串

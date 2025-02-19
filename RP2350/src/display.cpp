@@ -39,7 +39,14 @@ void backlight_init()
     pinMode(6, OUTPUT);
     analogWriteFreq(1000);
     analogWriteRange(100);
-    analogWrite(6, 50);
+    if(brightness == 0)
+    {
+      analogWrite(6, 50);
+    }
+    else
+    {
+      analogWrite(6, brightness);
+    }
 }
 
 void display_init()
@@ -72,4 +79,54 @@ void display_init()
     lv_indev_drv_register( &indev_drv );
 
     ui_init();
+
+    if(buzzer_state == 1 || buzzer_state > 1){
+        buzzer_state = 1;
+        lv_obj_add_state(ui_BuzzerSwitch, LV_STATE_CHECKED);
+        lv_img_set_src(ui_BuzzerStatus, &ui_img_185202102);
+    }
+    else{
+        lv_obj_clear_state(ui_BuzzerSwitch, LV_STATE_CHECKED);
+        lv_img_set_src(ui_BuzzerStatus, &ui_img_1699618864);
+
+    }
+
+    if(brightness == 0 || brightness > 100)
+    {
+      brightness = 50;
+    }
+    else
+    {
+      lv_slider_set_value(ui_SliderBrightness, brightness, LV_ANIM_OFF);
+      lv_label_set_text_fmt(ui_TextBrightness, "%d%%", brightness);
+    }
+
+    if(temp_limited == 0 || temp_limited > 400)
+    {
+      temp_limited = 400;
+    }
+    else
+    {
+      lv_slider_set_value(ui_SliderTempLimited, temp_limited, LV_ANIM_OFF);
+      lv_label_set_text_fmt(ui_TextTempLimited, "%d℃", temp_limited);
+    }
+
+    if(sleep_time == 0 || sleep_time > 60*60)
+    {
+      sleep_time = 10*60;
+    }
+    else
+    {
+      lv_slider_set_value(ui_SliderSleepTime, sleep_time/60, LV_ANIM_OFF);
+      lv_label_set_text_fmt(ui_TextSleepTime, "%dMin", sleep_time/60);
+    }
+
+    if(SetTemp == 0 || SetTemp > 400)
+    {
+      lv_label_set_text(ui_TargetTemp, "000");
+    }
+    else
+    {
+      lv_label_set_text_fmt(ui_TargetTemp, "%d", SetTemp);
+    }
 }

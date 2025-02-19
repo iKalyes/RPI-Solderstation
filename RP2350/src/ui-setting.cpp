@@ -64,9 +64,6 @@ void ui_event_SaveConfig( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_PRESSED) {
       SaveConfig( e );
-      Serial.println(buzzer_state);
-      Serial.println(temp_limited);
-      Serial.println(sleep_time);
-      Serial.println(brightness);
+      WriteFlash();
 }
 }

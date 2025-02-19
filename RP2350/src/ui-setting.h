@@ -9,7 +9,11 @@
 #include "ui/ui_themes.h"
 
 #include <Arduino.h>
+#include <flash.h>
 
-#include <ui-main.h>
+extern uint16_t temp_limited;
+extern uint16_t sleep_time;
+extern uint8_t brightness;
+
 
 #endif
