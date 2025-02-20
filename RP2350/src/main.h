@@ -12,4 +12,7 @@
 #include <display.h>
 #include <flash.h>
 
+#define LVGL_TASK_HANDLER_PRIORITY (tskIDLE_PRIORITY + 3)
+#define LVGL_TASK_HANDLER_STACK_SIZE (1024)
+
 #endif

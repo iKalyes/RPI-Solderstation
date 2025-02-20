@@ -14,3 +14,7 @@ def PIDCalibrationStart(event_struct):
 def PIDCalibrationStop(event_struct):
     return
 
+
+def SaveConfig(event_struct):
+    return
+

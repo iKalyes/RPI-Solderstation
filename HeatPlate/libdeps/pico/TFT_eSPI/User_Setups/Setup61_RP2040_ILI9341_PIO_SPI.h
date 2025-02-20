@@ -24,8 +24,8 @@
 #define TFT_DC     5  // Data Command control pin
 #define TFT_RST    4  // Reset pin (could connect to Arduino RESET pin)
 
-#define TFT_BL   6           // Optional LED back-light control pin
-#define TFT_BACKLIGHT_ON HIGH  // Level to turn ON back-light (HIGH or LOW)
+//#define TFT_BL   6           // Optional LED back-light control pin
+//#define TFT_BACKLIGHT_ON HIGH  // Level to turn ON back-light (HIGH or LOW)
 
 
 #define LOAD_GLCD   // Font 1. Original Adafruit 8 pixel font needs ~1820 bytes in FLASH

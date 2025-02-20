@@ -2,18 +2,23 @@
  *Be sure to read the docs here: https://docs.lvgl.io/master/get-started/platforms/arduino.html  */
 #include <main.h>
 
+void vApplicationTickHook()
+{
+    lv_tick_inc(1);
+}
+
 void setup()
 {
     Serial.begin( 115200 ); /* prepare for possible serial debug */
     ReadFlash();
     backlight_init();
     display_init();
+    xTaskCreate(lvgl_task_handler, "lvgl_task_handler", LVGL_TASK_HANDLER_STACK_SIZE, NULL, LVGL_TASK_HANDLER_PRIORITY, NULL);
 }
 
 void loop()
 {
-    lv_timer_handler(); /* let the GUI do its work */
-    vTaskDelay(5);
+
 }
 
 

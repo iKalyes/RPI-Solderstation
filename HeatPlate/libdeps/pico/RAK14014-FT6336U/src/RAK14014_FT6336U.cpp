@@ -7,7 +7,6 @@
 /**************************************************************************/
 
 #include "RAK14014_FT6336U.h"
-#define INT_PIN   7
 
 static uint8_t intSattus = false; // TP interrupt generation flag.
 
@@ -25,11 +24,11 @@ bool FT6336U::begin(TwoWire &wirePort)
   _i2cPort->setSDA(8);
   _i2cPort->setSCL(9);
   _i2cPort->begin(); 
-  pinMode(INT_PIN, INPUT_PULLUP);
+  pinMode(7, INPUT_PULLUP);
   if(read_device_type() == 0x02)
   {
     writeByte(0x02, 0x01);
-    attachInterrupt(digitalPinToInterrupt(INT_PIN), tpIntHandle, FALLING);
+    attachInterrupt(digitalPinToInterrupt(7), tpIntHandle, FALLING);
     return true;
   }
   return false;
@@ -53,23 +52,14 @@ bool FT6336U::available(void)
 
 void FT6336U::Report(void)
 {
-    Serial.print("FT6336U TD Status: "); 
-    Serial.println(read_td_status());  
-    Serial.print("FT6336U Touch Event/ID 1: ("); 
-    Serial.print(read_touch1_event()); 
-    Serial.print(" / "); 
-    Serial.print(read_touch1_id()); 
-    Serial.println(")"); 
+    Serial.print("Available: "); 
+    Serial.println(available());  
     Serial.print("FT6336U Touch Position 1: ("); 
-    Serial.print(TOUCH_Width - read_touch1_y()); 
+    Serial.print(touchPoint.tp[0].x); 
     Serial.print(" , "); 
-    Serial.print(read_touch1_x()); 
+    Serial.print(touchPoint.tp[0].y); 
     Serial.println(")"); 
-    Serial.print("FT6336U Touch Weight/MISC 1: ("); 
-    Serial.print(read_touch1_weight()); 
-    Serial.print(" / "); 
-    Serial.print(read_touch1_misc()); 
-    Serial.println(")"); 
+
 }
 
 uint8_t FT6336U::read_device_type(void) 
