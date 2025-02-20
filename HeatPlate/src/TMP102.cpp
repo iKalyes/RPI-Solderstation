@@ -25,10 +25,6 @@ void TMP102_init()
     //set Extended Mode.
     //0:12-bit Temperature(-55C to +128C) 1:13-bit Temperature(-55C to +150C)
     sensor0.setExtendedMode(0);
-    //set T_HIGH, the upper limit to trigger the alert on
-    sensor0.setHighTempC(29.4); // set T_HIGH in C
-    //set T_LOW, the lower limit to shut turn off the alert
-    sensor0.setLowTempC(26.67); // set T_LOW in C
     sensor0.wakeup();
 }
 

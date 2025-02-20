@@ -20,6 +20,7 @@ static lv_color_t buf_2[ screenWidth * screenHeight / 10 ];
 
 void display_init();
 void backlight_init();
+
 void lvgl_task_handler(void *param);
 
 #endif

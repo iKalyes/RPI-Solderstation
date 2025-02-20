@@ -35,7 +35,6 @@ void setup1()
   encoder = new RotaryEncoder(16, 17, RotaryEncoder::LatchMode::FOUR3);
   attachInterrupt(digitalPinToInterrupt(16), checkPosition, CHANGE);
   attachInterrupt(digitalPinToInterrupt(17), checkPosition, CHANGE);
-
 }
 
 void loop1()

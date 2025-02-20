@@ -147,4 +147,5 @@ void lvgl_task_handler(void *param)
     vTaskDelayUntil(&xLastWakeTime, xPeriod);
     lv_task_handler();
   }
+  vTaskDelete(NULL);
 }
