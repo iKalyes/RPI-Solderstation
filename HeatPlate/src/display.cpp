@@ -136,16 +136,22 @@ void display_init()
     }
 }
 
-void lvgl_task_handler(void *param)
+void lvgl_run()
 {
-  (void) param;
-  TickType_t xLastWakeTime;
-  const TickType_t xPeriod = pdMS_TO_TICKS(5);
-  xLastWakeTime = xTaskGetTickCount();
-  while (true)
-  {
-    vTaskDelayUntil(&xLastWakeTime, xPeriod);
     lv_task_handler();
+    delay(5);
+}
+
+void lvgl_tmp102_refresh()
+{
+  if(room_temperature > 100)
+  {
+    lv_label_set_text(ui_RoomTemp, "ERROR");
   }
-  vTaskDelete(NULL);
+  else
+  {
+    char temp_str[8] = {0};  // 缓冲区足够存储 XX.XX 格式
+    snprintf(temp_str, sizeof(temp_str), "%.2f", room_temperature);
+    lv_label_set_text(ui_RoomTemp, temp_str);
+  }
 }

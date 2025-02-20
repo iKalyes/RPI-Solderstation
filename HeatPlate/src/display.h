@@ -7,8 +7,7 @@
 #include <RAK14014_FT6336U.h>
 #include <ui-main.h>
 #include <ui-setting.h>
-#include <FreeRTOS.h>
-#include <task.h>
+#include <TMP102.h>
 
 /*Change to your screen resolution*/
 static const uint16_t screenWidth  = 320;
@@ -21,6 +20,7 @@ static lv_color_t buf_2[ screenWidth * screenHeight / 10 ];
 void display_init();
 void backlight_init();
 
-void lvgl_task_handler(void *param);
+void lvgl_run();
+void lvgl_tmp102_refresh();
 
 #endif

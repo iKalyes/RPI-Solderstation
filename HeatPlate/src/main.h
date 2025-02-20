@@ -14,8 +14,4 @@
 #include <TMP102.h>
 
 
-#define LVGL_TASK_HANDLER_PRIORITY (tskIDLE_PRIORITY + 3)
-#define LVGL_TASK_HANDLER_STACK_SIZE (2048)
-
-
 #endif

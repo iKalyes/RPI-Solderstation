@@ -5,8 +5,11 @@
 #include <lvgl.h>
 #include <Wire.h>
 
+#include <FreeRTOS.h>
+#include <task.h>
+
 void TMP102_init();
-void TMP102_Read();
+void TMP102_Read(void *param);
 
 extern float room_temperature;
 

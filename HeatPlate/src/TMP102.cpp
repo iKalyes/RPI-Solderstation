@@ -28,10 +28,16 @@ void TMP102_init()
     sensor0.wakeup();
 }
 
-void TMP102_Read()
+void TMP102_Read(void *param)
 {
+    (void) param;
+    TickType_t xLastWakeTime;
+    const TickType_t xPeriod = pdMS_TO_TICKS(250);
+    xLastWakeTime = xTaskGetTickCount();
+    while (true)
+    {
+        vTaskDelayUntil(&xLastWakeTime, xPeriod);
         room_temperature = sensor0.readTempC();
-        Serial.print("Temperature: ");
-        Serial.println(room_temperature);
-        delay(250);
+    }
+    vTaskDelete(NULL);
 }
