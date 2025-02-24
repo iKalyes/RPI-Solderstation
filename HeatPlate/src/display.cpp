@@ -80,8 +80,8 @@ void display_init()
 
     ui_init();
 
-    if(buzzer_state == 1 || buzzer_state > 1){
-        buzzer_state = 1;
+    if(buzzer_status == 1 || buzzer_status > 1){
+        buzzer_status = 1;
         lv_obj_add_state(ui_BuzzerSwitch, LV_STATE_CHECKED);
         lv_img_set_src(ui_BuzzerStatus, &ui_img_185202102);
     }
@@ -134,6 +134,101 @@ void display_init()
     {
       lv_label_set_text_fmt(ui_TargetTemp, "%d", SetTemp);
     }
+
+    if(stage1_temp == 0 || stage1_temp > 400)
+    {
+      stage1_temp = 100;
+    }
+    else
+    {
+      lv_label_set_text_fmt(ui_TextProfileOne, "%d℃", stage1_temp);
+      lv_slider_set_value(ui_SliderProfileOne, stage1_temp, LV_ANIM_OFF);
+    }
+    if(stage1_time == 0 || stage1_time > 300)
+    {
+      stage1_time = 100;
+    }
+    else
+    {
+      lv_label_set_text_fmt(ui_TextTimeOne, "%dS", stage1_time);
+      lv_slider_set_value(ui_SliderTimeOne, stage1_time, LV_ANIM_OFF);
+    }
+
+    if(stage2_temp == 0 || stage2_temp > 400)
+    {
+      stage2_temp = 100;
+    }
+    else
+    {
+      lv_label_set_text_fmt(ui_TextProfileTwo, "%d℃", stage2_temp);
+      lv_slider_set_value(ui_SliderProfileTwo, stage2_temp, LV_ANIM_OFF);
+    }
+    if(stage2_time == 0 || stage2_time > 300)
+    {
+      stage2_time = 100;
+    }
+    else
+    {
+      lv_label_set_text_fmt(ui_TextTimeTwo, "%dS", stage2_time);
+      lv_slider_set_value(ui_SliderTimeTwo, stage2_time, LV_ANIM_OFF);
+    }
+
+    if(stage3_temp == 0 || stage3_temp > 400)
+    {
+      stage3_temp = 100;
+    }
+    else
+    {
+      lv_label_set_text_fmt(ui_TextProfileThree, "%d℃", stage3_temp);
+      lv_slider_set_value(ui_SliderProfileThree, stage3_temp, LV_ANIM_OFF);
+    }
+    if(stage3_time == 0 || stage3_time > 300)
+    {
+      stage3_time = 100;
+    }
+    else
+    {
+      lv_label_set_text_fmt(ui_TextTimeThree, "%dS", stage3_time);
+      lv_slider_set_value(ui_SliderTimeThree, stage3_time, LV_ANIM_OFF);
+    }
+
+    if(stage4_temp == 0 || stage4_temp > 400)
+    {
+      stage4_temp = 100;
+    }
+    else
+    {
+      lv_label_set_text_fmt(ui_TextProfileFour, "%d℃", stage4_temp);
+      lv_slider_set_value(ui_SliderProfileFour, stage4_temp, LV_ANIM_OFF);
+    }
+    if(stage4_time == 0 || stage4_time > 300)
+    {
+      stage4_time = 100;
+    }
+    else
+    {
+      lv_label_set_text_fmt(ui_TextTimeFour, "%dS", stage4_time);
+      lv_slider_set_value(ui_SliderTimeFour, stage4_time, LV_ANIM_OFF);
+    }
+
+    if(stage5_temp == 0 || stage5_temp > 400)
+    {
+      stage5_temp = 100;
+    }
+    else
+    {
+      lv_label_set_text_fmt(ui_TextProfileFive, "%d℃", stage5_temp);
+      lv_slider_set_value(ui_SliderProfileFive, stage5_temp, LV_ANIM_OFF);
+    }
+    if(stage5_time == 0 || stage5_time > 300)
+    {
+      stage5_time = 100;
+    }
+    else
+    {
+      lv_label_set_text_fmt(ui_TextTimeFive, "%dS", stage5_time);
+      lv_slider_set_value(ui_SliderTimeFive, stage5_time, LV_ANIM_OFF);
+    }
 }
 
 void lvgl_run()
@@ -154,4 +249,59 @@ void lvgl_tmp102_refresh()
     snprintf(temp_str, sizeof(temp_str), "%.2f", room_temperature);
     lv_label_set_text(ui_RoomTemp, temp_str);
   }
+}
+
+void lvgl_max6675_refresh()
+{
+    if(heater_status == 0)
+    {
+        // 提取整数部分
+        int temp_int = (int)heater_temperature;
+        
+        char temp_str[4] = {0};
+        if(temp_int < 100) {
+            // 小于100时补零，确保显示3位
+            snprintf(temp_str, sizeof(temp_str), "%03d", temp_int);
+        } else {
+            // 大于等于100时正常显示
+            snprintf(temp_str, sizeof(temp_str), "%d", temp_int);
+        }
+        lv_label_set_text(ui_HeatTemp, temp_str);
+    }
+    else
+    {
+        lv_label_set_text(ui_HeatTemp, "ERR");
+    }
+}
+
+void lvgl_clock_refresh()
+{
+    if(clock_status == 1)
+    {
+        char second_str[3] = {0};
+        char minute_str[3] = {0};
+        if(timer_second < 10)
+        {
+            snprintf(second_str, sizeof(second_str), "0%d", timer_second);
+        }
+        else
+        {
+            snprintf(second_str, sizeof(second_str), "%d", timer_second);
+        }
+        lv_label_set_text(ui_Second, second_str);
+        if(timer_minute < 10)
+        {
+            snprintf(minute_str, sizeof(minute_str), "0%d", timer_minute);
+        }
+        else
+        {
+            snprintf(minute_str, sizeof(minute_str), "%d", timer_minute);
+        }
+        lv_label_set_text(ui_Minute, minute_str);
+    }
+    else
+    {
+        lv_label_set_text(ui_Second, "00");
+        lv_label_set_text(ui_Minute, "00");
+    }
 }

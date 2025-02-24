@@ -7,7 +7,8 @@
 #include <RAK14014_FT6336U.h>
 #include <ui-main.h>
 #include <ui-setting.h>
-#include <TMP102.h>
+#include <TempRead.h>
+#include <clock.h>
 
 /*Change to your screen resolution*/
 static const uint16_t screenWidth  = 320;
@@ -22,5 +23,7 @@ void backlight_init();
 
 void lvgl_run();
 void lvgl_tmp102_refresh();
+void lvgl_max6675_refresh();
+void lvgl_clock_refresh();
 
 #endif

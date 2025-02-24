@@ -92,28 +92,32 @@ if ( event_code == LV_EVENT_PRESSED) {
 }
 }
 
-uint8_t buzzer_state; //默认buzzer_state为0，即开启
+uint8_t buzzer_status; //默认buzzer_state为0，即开启
 
 void ui_event_BuzzerSwitch( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
 
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       lv_img_set_src(ui_BuzzerStatus, &ui_img_185202102);
-      buzzer_state = 1;
+      buzzer_status = 1;
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       lv_img_set_src(ui_BuzzerStatus, &ui_img_1699618864);
-      buzzer_state = 0;
+      buzzer_status = 0;
 }
 }
+
+uint8_t clock_status;
 
 void ui_event_StartStop( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
 
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       HeatingStart( e );
+      clock_status = 1;
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       HeatingStop( e );
+      clock_status = 0;
 }
 }

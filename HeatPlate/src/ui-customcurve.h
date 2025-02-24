@@ -10,4 +10,16 @@
 
 #include <Arduino.h>
 
+extern uint16_t stage1_temp;
+extern uint16_t stage1_time;
+extern uint16_t stage2_temp;
+extern uint16_t stage2_time;
+extern uint16_t stage3_temp;
+extern uint16_t stage3_time;
+extern uint16_t stage4_temp;
+extern uint16_t stage4_time;
+extern uint16_t stage5_temp;
+extern uint16_t stage5_time;
+
+
 #endif

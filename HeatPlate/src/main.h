@@ -11,7 +11,8 @@
 #include <RotaryEncoder.h>
 #include <display.h>
 #include <flash.h>
-#include <TMP102.h>
+#include <TempRead.h>
+#include <clock.h>
 
 
 #endif

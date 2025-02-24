@@ -10,6 +10,7 @@
 
 #include <Arduino.h>
 
-extern uint8_t buzzer_state;
+extern uint8_t buzzer_status;
+extern uint8_t clock_status;
 
 #endif

@@ -1,8 +1,11 @@
-#include <TMP102.h>
+#include <TempRead.h>
 
 TMP102 sensor0;
+MAX6675 sensor1(24, 25, 26, &SPI1, 1000000);
 
 float room_temperature;
+float heater_temperature;
+int heater_status;
 
 void TMP102_init()
 {
@@ -28,6 +31,11 @@ void TMP102_init()
     sensor0.wakeup();
 }
 
+void MAX6675_init()
+{
+    sensor1.begin();
+}
+
 void TMP102_Read(void *param)
 {
     (void) param;
@@ -38,6 +46,21 @@ void TMP102_Read(void *param)
     {
         vTaskDelayUntil(&xLastWakeTime, xPeriod);
         room_temperature = sensor0.readTempC();
+    }
+    vTaskDelete(NULL);
+}
+
+void MAX6675_Read(void *param)
+{
+    (void) param;
+    TickType_t xLastWakeTime;
+    const TickType_t xPeriod = pdMS_TO_TICKS(250);
+    xLastWakeTime = xTaskGetTickCount();
+    while (true)
+    {
+        vTaskDelayUntil(&xLastWakeTime, xPeriod);
+        heater_status = sensor1.read();
+        heater_temperature = sensor1.getTemperature();
     }
     vTaskDelete(NULL);
 }

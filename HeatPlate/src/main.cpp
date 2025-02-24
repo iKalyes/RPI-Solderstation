@@ -13,6 +13,8 @@ void setup()
 void loop()
 {
     lvgl_tmp102_refresh();
+    lvgl_max6675_refresh();
+    lvgl_clock_refresh();
     lvgl_run();
 }
 
@@ -27,7 +29,10 @@ void checkPosition()
 void setup1()
 {
   TMP102_init();
-  xTaskCreate(TMP102_Read, "TMP102_Read", 512, NULL, 1, NULL);
+  MAX6675_init();
+  xTaskCreate(clock_run, "clock_run", 128, NULL, 1, NULL);
+  xTaskCreate(TMP102_Read, "TMP102_Read", 256, NULL, 1, NULL);
+  xTaskCreate(MAX6675_Read, "MAX6675_Read", 256, NULL, 1, NULL);
   encoder = new RotaryEncoder(16, 17, RotaryEncoder::LatchMode::FOUR3);
   attachInterrupt(digitalPinToInterrupt(16), checkPosition, CHANGE);
   attachInterrupt(digitalPinToInterrupt(17), checkPosition, CHANGE);
