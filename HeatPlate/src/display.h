@@ -5,10 +5,7 @@
 #include <TFT_eSPI.h>
 #include "ui/ui.h"
 #include <RAK14014_FT6336U.h>
-#include <ui-main.h>
-#include <ui-setting.h>
-#include <TempRead.h>
-#include <clock.h>
+#include <variables.h>
 
 /*Change to your screen resolution*/
 static const uint16_t screenWidth  = 320;

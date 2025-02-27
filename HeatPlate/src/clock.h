@@ -3,12 +3,10 @@
 
 #include <FreeRTOS.h>
 #include <task.h>
+
 #include <Arduino.h>
-#include <ui-main.h>
+#include <variables.h>
 
 void clock_run(void *param);
-
-extern uint8_t timer_second;
-extern uint8_t timer_minute;
 
 #endif

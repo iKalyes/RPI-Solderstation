@@ -24,8 +24,6 @@ if ( event_code == LV_EVENT_PRESSED) {
 }
 }
 
-uint16_t temp_limited;
-
 void ui_event_SliderTempLimited( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
 
@@ -35,8 +33,6 @@ if ( event_code == LV_EVENT_VALUE_CHANGED) {
 }
 }
 
-uint16_t sleep_time;
-
 void ui_event_SliderSleepTime( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
 
@@ -45,8 +41,6 @@ if ( event_code == LV_EVENT_VALUE_CHANGED) {
       sleep_time = lv_slider_get_value(target) * 60;
 }
 }
-
-uint8_t brightness;
 
 void ui_event_SliderBrightness( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);

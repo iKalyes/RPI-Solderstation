@@ -1,16 +1,5 @@
 #include <ui-customcurve.h>
 
-uint16_t stage1_temp;
-uint16_t stage1_time;
-uint16_t stage2_temp;
-uint16_t stage2_time;
-uint16_t stage3_temp;
-uint16_t stage3_time;
-uint16_t stage4_temp;
-uint16_t stage4_time;
-uint16_t stage5_temp;
-uint16_t stage5_time;
-
 void ui_event_CustomCurveBack( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 

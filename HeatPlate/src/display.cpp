@@ -267,9 +267,11 @@ void lvgl_max6675_refresh()
             snprintf(temp_str, sizeof(temp_str), "%d", temp_int);
         }
         lv_label_set_text(ui_HeatTemp, temp_str);
+        lv_label_set_text(ui_PIDCurrentTemp, temp_str);
     }
     else
     {
+        lv_label_set_text(ui_PIDCurrentTemp, "ERR");
         lv_label_set_text(ui_HeatTemp, "ERR");
     }
 }

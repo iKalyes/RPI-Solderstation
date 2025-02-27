@@ -62,7 +62,7 @@ lv_obj_set_style_bg_color(ui_SettingMenuDock, lv_color_hex(0x393939), LV_PART_MA
 lv_obj_set_style_bg_opa(ui_SettingMenuDock, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_PIDCalibration = lv_btn_create(ui_SettingMenuDock);
-lv_obj_set_width( ui_PIDCalibration, 190);
+lv_obj_set_width( ui_PIDCalibration, 196);
 lv_obj_set_height( ui_PIDCalibration, 32);
 lv_obj_set_x( ui_PIDCalibration, 4 );
 lv_obj_set_y( ui_PIDCalibration, 4 );
@@ -96,7 +96,7 @@ ui_object_set_themeable_style_property(ui_TextPID, LV_PART_MAIN| LV_STATE_DEFAUL
 lv_obj_set_style_text_font(ui_TextPID, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_CustomCurve = lv_btn_create(ui_SettingMenuDock);
-lv_obj_set_width( ui_CustomCurve, 190);
+lv_obj_set_width( ui_CustomCurve, 196);
 lv_obj_set_height( ui_CustomCurve, 32);
 lv_obj_set_x( ui_CustomCurve, 4 );
 lv_obj_set_y( ui_CustomCurve, 44 );

@@ -4,6 +4,7 @@ void ui_event_TempSet( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_RELEASED) {
+      tempset_status = 1;
       _ui_screen_change( &ui_TemperatureSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_TemperatureSettingScreen_screen_init);
 }
 }
@@ -92,8 +93,6 @@ if ( event_code == LV_EVENT_PRESSED) {
 }
 }
 
-uint8_t buzzer_status; //默认buzzer_state为0，即开启
-
 void ui_event_BuzzerSwitch( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
 
@@ -106,8 +105,6 @@ if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_
       buzzer_status = 0;
 }
 }
-
-uint8_t clock_status;
 
 void ui_event_StartStop( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);

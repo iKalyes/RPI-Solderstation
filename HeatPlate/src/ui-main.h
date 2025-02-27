@@ -9,8 +9,6 @@
 #include "ui/ui_themes.h"
 
 #include <Arduino.h>
-
-extern uint8_t buzzer_status;
-extern uint8_t clock_status;
+#include <variables.h>
 
 #endif

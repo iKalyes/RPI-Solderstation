@@ -1,11 +1,7 @@
-#include <TempRead.h>
+#include <tempread.h>
 
 TMP102 sensor0;
 MAX6675 sensor1(24, 25, 26, &SPI1, 1000000);
-
-float room_temperature;
-float heater_temperature;
-int heater_status;
 
 void TMP102_init()
 {

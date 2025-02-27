@@ -159,15 +159,15 @@ ui_object_set_themeable_style_property(ui_PIDChartDock, LV_PART_MAIN| LV_STATE_D
 
 ui_TempChart = lv_chart_create(ui_PIDChartDock);
 lv_obj_set_width( ui_TempChart, 247);
-lv_obj_set_height( ui_TempChart, 130);
+lv_obj_set_height( ui_TempChart, 142);
 lv_obj_set_x( ui_TempChart, 18 );
 lv_obj_set_y( ui_TempChart, 2 );
 lv_chart_set_type( ui_TempChart, LV_CHART_TYPE_LINE);
 lv_chart_set_range( ui_TempChart, LV_CHART_AXIS_PRIMARY_Y, 0, 450);
-lv_chart_set_div_line_count( ui_TempChart, 8, 10);
-lv_chart_set_axis_tick( ui_TempChart, LV_CHART_AXIS_PRIMARY_X, 1, 0, 21, 1, true, 50);
-lv_chart_set_axis_tick( ui_TempChart, LV_CHART_AXIS_PRIMARY_Y, 1, 0, 8, 1, true, 50);
-lv_chart_set_axis_tick( ui_TempChart, LV_CHART_AXIS_SECONDARY_Y, 1, 0, 5, 1, true, 0);
+lv_chart_set_div_line_count( ui_TempChart, 10, 0);
+lv_chart_set_axis_tick( ui_TempChart, LV_CHART_AXIS_PRIMARY_X, 0, 0, 64, 0, false, 50);
+lv_chart_set_axis_tick( ui_TempChart, LV_CHART_AXIS_PRIMARY_Y, 1, 0, 10, 1, true, 50);
+lv_chart_set_axis_tick( ui_TempChart, LV_CHART_AXIS_SECONDARY_Y, 1, 0, 10, 1, true, 0);
 lv_chart_series_t* ui_TempChart_series_1 = lv_chart_add_series(ui_TempChart, lv_color_hex(0xFF0000), LV_CHART_AXIS_PRIMARY_Y);
 static lv_coord_t ui_TempChart_series_1_array[] = { 10,20,30,40,50,60,70,80,90,100 };
 lv_chart_set_ext_y_array(ui_TempChart, ui_TempChart_series_1, ui_TempChart_series_1_array);

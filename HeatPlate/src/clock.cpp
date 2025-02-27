@@ -1,7 +1,5 @@
 #include <clock.h>
 
-uint8_t timer_second;
-uint8_t timer_minute;
 uint8_t timer_250ms;
 
 void clock_run(void *param)

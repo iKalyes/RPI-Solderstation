@@ -6,8 +6,8 @@ void setup()
 {
     Serial.begin( 115200 ); /* prepare for possible serial debug */
     ReadFlash();
-    backlight_init();
     display_init();
+    backlight_init();
 }
 
 void loop()
@@ -33,6 +33,7 @@ void setup1()
   xTaskCreate(clock_run, "clock_run", 128, NULL, 1, NULL);
   xTaskCreate(TMP102_Read, "TMP102_Read", 256, NULL, 1, NULL);
   xTaskCreate(MAX6675_Read, "MAX6675_Read", 256, NULL, 1, NULL);
+
   encoder = new RotaryEncoder(16, 17, RotaryEncoder::LatchMode::FOUR3);
   attachInterrupt(digitalPinToInterrupt(16), checkPosition, CHANGE);
   attachInterrupt(digitalPinToInterrupt(17), checkPosition, CHANGE);

@@ -11601,7 +11601,7 @@
                     "flags": 17,
                     "strtype": "OBJECT/Size",
                     "intarray": [
-                      190,
+                      196,
                       32
                     ],
                     "InheritedType": 7
@@ -12145,7 +12145,7 @@
                     "flags": 17,
                     "strtype": "OBJECT/Size",
                     "intarray": [
-                      190,
+                      196,
                       32
                     ],
                     "InheritedType": 7
@@ -23345,8 +23345,7 @@
                 "InheritedType": 11
               }
             ],
-            "saved_objtypeKey": "CONTAINER",
-            "tree_closed": true
+            "saved_objtypeKey": "CONTAINER"
           },
           {
             "guid": "GUID71904788-841384S186449",
@@ -23403,7 +23402,7 @@
                     "strtype": "OBJECT/Size",
                     "intarray": [
                       247,
-                      130
+                      142
                     ],
                     "InheritedType": 7
                   },
@@ -23439,7 +23438,6 @@
                   },
                   {
                     "nid": 1010,
-                    "flags": 1048576,
                     "strtype": "CHART/Chart",
                     "InheritedType": 1
                   },
@@ -23459,8 +23457,8 @@
                     "nid": 1040,
                     "strtype": "CHART/Division_lines",
                     "intarray": [
-                      8,
-                      10
+                      10,
+                      0
                     ],
                     "InheritedType": 7
                   },
@@ -23482,8 +23480,8 @@
                     "nid": 1070,
                     "strtype": "CHART/XMajor",
                     "intarray": [
-                      1,
-                      21
+                      0,
+                      64
                     ],
                     "InheritedType": 7
                   },
@@ -23492,14 +23490,14 @@
                     "strtype": "CHART/XMinor",
                     "intarray": [
                       0,
-                      1
+                      0
                     ],
                     "InheritedType": 7
                   },
                   {
                     "nid": 1090,
                     "strtype": "CHART/Labels_on_X_axis",
-                    "strval": "True",
+                    "strval": "False",
                     "InheritedType": 2
                   },
                   {
@@ -23510,7 +23508,6 @@
                   },
                   {
                     "nid": 1110,
-                    "flags": 1048576,
                     "strtype": "CHART/Primary_Y_Axis",
                     "InheritedType": 1
                   },
@@ -23528,7 +23525,7 @@
                     "strtype": "CHART/PrimaryYMajor",
                     "intarray": [
                       1,
-                      8
+                      10
                     ],
                     "InheritedType": 7
                   },
@@ -23555,7 +23552,6 @@
                   },
                   {
                     "nid": 1170,
-                    "flags": 1048576,
                     "strtype": "CHART/Secondary_Y_Axis",
                     "InheritedType": 1
                   },
@@ -23573,7 +23569,7 @@
                     "strtype": "CHART/SecondaryYMajor",
                     "intarray": [
                       1,
-                      5
+                      10
                     ],
                     "InheritedType": 7
                   },
@@ -23605,7 +23601,7 @@
                   {
                     "nid": 1240,
                     "strtype": "CHART/ChartData",
-                    "strval": "[{\"Axis\":0,\"Color\":[255,0,0,255],\"Series\":[10,20,30,40,50,60,70,80,90,100]},{\"Axis\":2,\"Color\":[0,232,255,255],\"Series\":[0,10,20,40,80,80,40,80,90,100]}]",
+                    "strval": "[{\"Axis\":0,\"Color\":[255,0,0,255],\"Series\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},{\"Axis\":2,\"Color\":[0,232,255,255],\"Series\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}]",
                     "InheritedType": 12
                   },
                   {
@@ -24027,10 +24023,10 @@
     "theme_dark": false,
     "theme_color1": 5,
     "theme_color2": 0,
-    "uiExportFolderPath": "/Users/quin/Documents/RPI-Solderstation/RP2350/src/ui",
-    "projectExportFolderPath": "/Users/quin/Documents/RPI-Solderstation/RP2350",
+    "uiExportFolderPath": "/Users/quin/Documents/RPI-Solderstation/HeatPlate/src/ui",
+    "projectExportFolderPath": "/Users/quin/Documents/RPI-Solderstation/HeatPlate",
     "custom_variable_prefix": "uic",
-    "backup_cnt": 41,
+    "backup_cnt": 43,
     "autosave_cnt": 0,
     "lvgl_version": "8.3.11",
     "callfuncsexport": "C_FILE",
