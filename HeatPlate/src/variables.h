@@ -3,6 +3,13 @@
 
 #include <Arduino.h>
 
+#include <lvgl.h>
+#include "ui/ui.h"
+#include "ui/ui_helpers.h"
+#include "ui/ui_events.h"
+#include "ui/ui_theme_manager.h"
+#include "ui/ui_themes.h"
+
 //clock//
 extern uint8_t timer_second;
 extern uint8_t timer_minute;
@@ -32,5 +39,9 @@ extern uint8_t brightness;
 //tempset screen//
 extern uint16_t SetTemp;
 extern uint16_t PIDSetTemp;
+//pidcalibration screen//
+extern lv_timer_t* chart_update_timer;
+extern lv_chart_series_t * ui_TempChart_TempSeries;
+extern lv_chart_series_t * ui_TempChart_DutySeries;
 
 #endif

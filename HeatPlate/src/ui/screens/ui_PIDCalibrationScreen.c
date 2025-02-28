@@ -35,6 +35,48 @@ ui_object_set_themeable_style_property(ui_TextPIDHeader, LV_PART_MAIN| LV_STATE_
 ui_object_set_themeable_style_property(ui_TextPIDHeader, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
 lv_obj_set_style_text_font(ui_TextPIDHeader, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
 
+ui_ImagePIDClock = lv_img_create(ui_PIDCalibrationHeader);
+lv_img_set_src(ui_ImagePIDClock, &ui_img_290686881);
+lv_obj_set_width( ui_ImagePIDClock, LV_SIZE_CONTENT);  /// 16
+lv_obj_set_height( ui_ImagePIDClock, LV_SIZE_CONTENT);   /// 16
+lv_obj_set_align( ui_ImagePIDClock, LV_ALIGN_LEFT_MID );
+lv_obj_add_flag( ui_ImagePIDClock, LV_OBJ_FLAG_ADV_HITTEST );   /// Flags
+lv_obj_clear_flag( ui_ImagePIDClock, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
+lv_img_set_zoom(ui_ImagePIDClock,128);
+
+ui_PIDMinute = lv_label_create(ui_PIDCalibrationHeader);
+lv_obj_set_width( ui_PIDMinute, LV_SIZE_CONTENT);  /// 1
+lv_obj_set_height( ui_PIDMinute, LV_SIZE_CONTENT);   /// 1
+lv_obj_set_x( ui_PIDMinute, 25 );
+lv_obj_set_y( ui_PIDMinute, 0 );
+lv_obj_set_align( ui_PIDMinute, LV_ALIGN_LEFT_MID );
+lv_label_set_text(ui_PIDMinute,"00");
+ui_object_set_themeable_style_property(ui_PIDMinute, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
+ui_object_set_themeable_style_property(ui_PIDMinute, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
+lv_obj_set_style_text_font(ui_PIDMinute, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
+
+ui_PIDSecond = lv_label_create(ui_PIDCalibrationHeader);
+lv_obj_set_width( ui_PIDSecond, LV_SIZE_CONTENT);  /// 1
+lv_obj_set_height( ui_PIDSecond, LV_SIZE_CONTENT);   /// 1
+lv_obj_set_x( ui_PIDSecond, 49 );
+lv_obj_set_y( ui_PIDSecond, 0 );
+lv_obj_set_align( ui_PIDSecond, LV_ALIGN_LEFT_MID );
+lv_label_set_text(ui_PIDSecond,"00");
+ui_object_set_themeable_style_property(ui_PIDSecond, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
+ui_object_set_themeable_style_property(ui_PIDSecond, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
+lv_obj_set_style_text_font(ui_PIDSecond, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
+
+ui_TextPIDTime = lv_label_create(ui_PIDCalibrationHeader);
+lv_obj_set_width( ui_TextPIDTime, LV_SIZE_CONTENT);  /// 1
+lv_obj_set_height( ui_TextPIDTime, LV_SIZE_CONTENT);   /// 1
+lv_obj_set_x( ui_TextPIDTime, 41 );
+lv_obj_set_y( ui_TextPIDTime, 0 );
+lv_obj_set_align( ui_TextPIDTime, LV_ALIGN_LEFT_MID );
+lv_label_set_text(ui_TextPIDTime,":");
+ui_object_set_themeable_style_property(ui_TextPIDTime, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
+ui_object_set_themeable_style_property(ui_TextPIDTime, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
+lv_obj_set_style_text_font(ui_TextPIDTime, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
+
 ui_PIDCalibrationBack = lv_btn_create(ui_PIDCalibrationScreen);
 lv_obj_set_width( ui_PIDCalibrationBack, 32);
 lv_obj_set_height( ui_PIDCalibrationBack, 212);
@@ -165,15 +207,9 @@ lv_obj_set_y( ui_TempChart, 2 );
 lv_chart_set_type( ui_TempChart, LV_CHART_TYPE_LINE);
 lv_chart_set_range( ui_TempChart, LV_CHART_AXIS_PRIMARY_Y, 0, 450);
 lv_chart_set_div_line_count( ui_TempChart, 10, 0);
-lv_chart_set_axis_tick( ui_TempChart, LV_CHART_AXIS_PRIMARY_X, 0, 0, 64, 0, false, 50);
+lv_chart_set_axis_tick( ui_TempChart, LV_CHART_AXIS_PRIMARY_X, 0, 0, 256, 0, false, 50);
 lv_chart_set_axis_tick( ui_TempChart, LV_CHART_AXIS_PRIMARY_Y, 1, 0, 10, 1, true, 50);
 lv_chart_set_axis_tick( ui_TempChart, LV_CHART_AXIS_SECONDARY_Y, 1, 0, 10, 1, true, 0);
-lv_chart_series_t* ui_TempChart_series_1 = lv_chart_add_series(ui_TempChart, lv_color_hex(0xFF0000), LV_CHART_AXIS_PRIMARY_Y);
-static lv_coord_t ui_TempChart_series_1_array[] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
-lv_chart_set_ext_y_array(ui_TempChart, ui_TempChart_series_1, ui_TempChart_series_1_array);
-lv_chart_series_t* ui_TempChart_series_2 = lv_chart_add_series(ui_TempChart, lv_color_hex(0x00E8FF), LV_CHART_AXIS_SECONDARY_Y);
-static lv_coord_t ui_TempChart_series_2_array[] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
-lv_chart_set_ext_y_array(ui_TempChart, ui_TempChart_series_2, ui_TempChart_series_2_array);
 ui_object_set_themeable_style_property(ui_TempChart, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_TextAndImage);
 ui_object_set_themeable_style_property(ui_TempChart, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_TextAndImage);
 

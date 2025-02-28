@@ -8,6 +8,7 @@ void setup()
     ReadFlash();
     display_init();
     backlight_init();
+    update_chart_init();
 }
 
 void loop()

@@ -29,3 +29,7 @@ uint8_t brightness;
 //tempset screen//
 uint16_t SetTemp;
 uint16_t PIDSetTemp;
+//pidcalibration screen//
+lv_timer_t* chart_update_timer;
+lv_chart_series_t * ui_TempChart_TempSeries;
+lv_chart_series_t * ui_TempChart_DutySeries;

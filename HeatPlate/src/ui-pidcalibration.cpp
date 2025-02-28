@@ -5,6 +5,7 @@ void ui_event_PIDCalibrationBack( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_PRESSED) {
       _ui_screen_change( &ui_SystemSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_SystemSettingScreen_screen_init);
+      lv_timer_pause(chart_update_timer);
 }
 }
 
@@ -22,8 +23,10 @@ void ui_event_PIDCalibrationSwitch( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       PIDCalibrationStart( e );
+      clock_status = 1;
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       PIDCalibrationStop( e );
+      clock_status = 0;
 }
 }

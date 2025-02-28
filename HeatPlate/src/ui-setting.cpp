@@ -13,6 +13,7 @@ void ui_event_PIDCalibration( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_PRESSED) {
       _ui_screen_change( &ui_PIDCalibrationScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_PIDCalibrationScreen_screen_init);
+      lv_timer_resume(chart_update_timer);
 }
 }
 

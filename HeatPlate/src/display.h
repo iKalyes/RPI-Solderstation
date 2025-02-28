@@ -23,4 +23,7 @@ void lvgl_tmp102_refresh();
 void lvgl_max6675_refresh();
 void lvgl_clock_refresh();
 
+void update_chart_data(lv_timer_t * timer);
+void update_chart_init();
+
 #endif

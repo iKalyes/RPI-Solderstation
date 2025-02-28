@@ -291,6 +291,7 @@ void lvgl_clock_refresh()
             snprintf(second_str, sizeof(second_str), "%d", timer_second);
         }
         lv_label_set_text(ui_Second, second_str);
+        lv_label_set_text(ui_PIDSecond, second_str);
         if(timer_minute < 10)
         {
             snprintf(minute_str, sizeof(minute_str), "0%d", timer_minute);
@@ -300,10 +301,34 @@ void lvgl_clock_refresh()
             snprintf(minute_str, sizeof(minute_str), "%d", timer_minute);
         }
         lv_label_set_text(ui_Minute, minute_str);
+        lv_label_set_text(ui_PIDMinute, minute_str);
     }
     else
     {
         lv_label_set_text(ui_Second, "00");
         lv_label_set_text(ui_Minute, "00");
+        lv_label_set_text(ui_PIDSecond, "00");
+        lv_label_set_text(ui_PIDMinute, "00");
     }
+}
+
+void update_chart_init()
+{
+      ui_TempChart_TempSeries = lv_chart_add_series(ui_TempChart, lv_color_hex(0XFF0000), LV_CHART_AXIS_PRIMARY_Y);
+      ui_TempChart_DutySeries = lv_chart_add_series(ui_TempChart, lv_color_hex(0X00FFFF), LV_CHART_AXIS_SECONDARY_Y);
+      lv_chart_set_point_count(ui_TempChart, 128);
+      chart_update_timer = lv_timer_create(update_chart_data, 250, NULL);
+      lv_timer_pause(chart_update_timer);
+}
+
+void update_chart_data(lv_timer_t * timer)
+{
+  if(heater_status == 0)
+  {
+      lv_chart_set_next_value(ui_TempChart, ui_TempChart_TempSeries, heater_temperature);
+  }
+  else
+  {
+      lv_chart_set_next_value(ui_TempChart, ui_TempChart_TempSeries, 0);
+  }
 }
