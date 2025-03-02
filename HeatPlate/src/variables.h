@@ -32,6 +32,7 @@ extern uint16_t stage5_time;
 extern uint8_t buzzer_status;
 extern uint8_t clock_status;
 extern uint8_t tempset_status;
+extern uint8_t heating_status;
 //setting screen//
 extern uint16_t temp_limited;
 extern uint16_t sleep_time;
@@ -43,5 +44,6 @@ extern uint16_t PIDSetTemp;
 extern lv_timer_t* chart_update_timer;
 extern lv_chart_series_t * ui_TempChart_TempSeries;
 extern lv_chart_series_t * ui_TempChart_DutySeries;
+
 
 #endif

@@ -11,5 +11,7 @@
 #include <Arduino.h>
 #include <variables.h>
 #include <flash.h>
+#include <display.h>
+
 
 #endif

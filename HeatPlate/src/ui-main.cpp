@@ -112,9 +112,11 @@ void ui_event_StartStop( lv_event_t * e) {
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       HeatingStart( e );
       clock_status = 1;
+      heating_status = 1;
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       HeatingStop( e );
       clock_status = 0;
+      heating_status = 0;
 }
 }

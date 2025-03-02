@@ -50,7 +50,7 @@ void ui_event_SliderBrightness( lv_event_t * e) {
 if ( event_code == LV_EVENT_VALUE_CHANGED) {
       _ui_slider_set_text_value( ui_TextBrightness, target, "", "%");
       brightness = lv_slider_get_value(target);
-      analogWrite(6, brightness);
+      backlight_refresh();
 }
 }
 

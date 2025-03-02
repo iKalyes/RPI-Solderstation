@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.tcc": "cpp",
+        "bitset": "cpp",
+        "iterator": "cpp",
+        "format": "cpp",
+        "numeric": "cpp",
+        "ostream": "cpp"
+    },
+    "cmake.sourceDirectory": "/Users/quin/Documents/RPI-Solderstation/HeatPlate/src/QuickPID"
+}

@@ -22,6 +22,7 @@ uint16_t stage5_time;
 uint8_t buzzer_status;
 uint8_t clock_status;
 uint8_t tempset_status;
+uint8_t heating_status;
 //setting screen//
 uint16_t temp_limited;
 uint16_t sleep_time;

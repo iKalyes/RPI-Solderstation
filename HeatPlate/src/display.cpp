@@ -36,17 +36,30 @@ void my_touchpad_read( lv_indev_drv_t * indev_drv, lv_indev_data_t * data )
 
 void backlight_init()
 {
-    pinMode(6, OUTPUT);
-    analogWriteFreq(1000);
-    analogWriteRange(100);
+  // 第一个 PWM 引脚设置 (例如 GPIO 6)
+  gpio_set_function(6, GPIO_FUNC_PWM);
+  uint slice_num = pwm_gpio_to_slice_num(6);
+  uint channel = pwm_gpio_to_channel(6);
+  
+  // 为第一个引脚设置时钟分频和计数范围（决定频率）
+  pwm_set_clkdiv(slice_num, 230.0);  // 分频器
+  pwm_set_wrap(slice_num, 1000);     // 最大计数值 (分辨率)
     if(brightness == 0)
     {
-      analogWrite(6, 50);
+      pwm_set_chan_level(slice_num, channel, 500);  // 占空比
     }
     else
     {
-      analogWrite(6, brightness);
-    }
+      pwm_set_chan_level(slice_num, channel, brightness * 10);  // 占空比
+    } 
+  pwm_set_enabled(slice_num, true);
+}
+
+void backlight_refresh()
+{
+  uint slice_num = pwm_gpio_to_slice_num(6);
+  uint channel = pwm_gpio_to_channel(6);
+  pwm_set_chan_level(slice_num, channel, brightness * 10);  // 占空比
 }
 
 void display_init()
@@ -317,7 +330,7 @@ void update_chart_init()
       ui_TempChart_TempSeries = lv_chart_add_series(ui_TempChart, lv_color_hex(0XFF0000), LV_CHART_AXIS_PRIMARY_Y);
       ui_TempChart_DutySeries = lv_chart_add_series(ui_TempChart, lv_color_hex(0X00FFFF), LV_CHART_AXIS_SECONDARY_Y);
       lv_chart_set_point_count(ui_TempChart, 128);
-      chart_update_timer = lv_timer_create(update_chart_data, 250, NULL);
+      chart_update_timer = lv_timer_create(update_chart_data, 200, NULL);
       lv_timer_pause(chart_update_timer);
 }
 

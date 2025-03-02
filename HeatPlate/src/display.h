@@ -6,6 +6,7 @@
 #include "ui/ui.h"
 #include <RAK14014_FT6336U.h>
 #include <variables.h>
+#include <hardware/pwm.h>
 
 /*Change to your screen resolution*/
 static const uint16_t screenWidth  = 320;
@@ -17,6 +18,7 @@ static lv_color_t buf_2[ screenWidth * screenHeight / 10 ];
 
 void display_init();
 void backlight_init();
+void backlight_refresh();
 
 void lvgl_run();
 void lvgl_tmp102_refresh();

@@ -11,4 +11,7 @@
 #include <tempread.h>
 #include <clock.h>
 
+#include "sTune/src/sTune.h"
+#include "QuickPID/src/QuickPID.h"
+
 #endif
