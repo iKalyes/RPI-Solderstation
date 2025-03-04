@@ -4,12 +4,7 @@
    基于Arduino PID_v1库。使用MIT许可证。
  **********************************************************************************/
 
-#if ARDUINO >= 100
 #include "Arduino.h"
-#else
-#include "WProgram.h"
-#endif
-
 #include "QuickPID.h"
 
 QuickPID::QuickPID() {}

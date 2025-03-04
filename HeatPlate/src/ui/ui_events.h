@@ -10,6 +10,8 @@
 extern "C" {
 #endif
 
+void FanTurnON(lv_event_t * e);
+void FanTurnOFF(lv_event_t * e);
 void HeatingStart(lv_event_t * e);
 void HeatingStop(lv_event_t * e);
 void SaveConfig(lv_event_t * e);

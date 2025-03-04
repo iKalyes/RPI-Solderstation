@@ -5,7 +5,7 @@
 #include <task.h>
 #include <map>
 
-#include <RotaryEncoder.h>
+#include <encoder.h>
 #include <display.h>
 #include <flash.h>
 #include <tempread.h>

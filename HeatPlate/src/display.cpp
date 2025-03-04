@@ -137,15 +137,18 @@ void display_init()
     if(SetTemp == 0 || SetTemp > 400)
     {
       lv_label_set_text(ui_TargetTemp, "000");
+      lv_bar_set_range(ui_BarHeaterTemp, 0, 100);
     }
     else if(SetTemp > temp_limited)
     {
       SetTemp = temp_limited;
       lv_label_set_text_fmt(ui_TargetTemp, "%d", temp_limited);
+      lv_bar_set_range(ui_BarHeaterTemp, 0, temp_limited);
     }
     else
     {
       lv_label_set_text_fmt(ui_TargetTemp, "%d", SetTemp);
+      lv_bar_set_range(ui_BarHeaterTemp, 0, SetTemp);
     }
 
     if(stage1_temp == 0 || stage1_temp > 400)
@@ -279,13 +282,17 @@ void lvgl_max6675_refresh()
             // 大于等于100时正常显示
             snprintf(temp_str, sizeof(temp_str), "%d", temp_int);
         }
-        lv_label_set_text(ui_HeatTemp, temp_str);
-        lv_label_set_text(ui_PIDCurrentTemp, temp_str);
+        lv_label_set_text(ui_HeaterTemp, temp_str);
+        lv_label_set_text(ui_ChartTemp, temp_str);
+        lv_label_set_text(ui_CurrentTemp, temp_str);
+        lv_bar_set_value(ui_BarHeaterTemp, heater_temperature, LV_ANIM_ON);
     }
     else
     {
-        lv_label_set_text(ui_PIDCurrentTemp, "ERR");
-        lv_label_set_text(ui_HeatTemp, "ERR");
+        lv_label_set_text(ui_HeaterTemp, "ERR");
+        lv_label_set_text(ui_ChartTemp, "ERR");
+        lv_label_set_text(ui_CurrentTemp, "ERR");
+        lv_bar_set_value(ui_BarHeaterTemp, 0, LV_ANIM_ON);
     }
 }
 
@@ -304,7 +311,7 @@ void lvgl_clock_refresh()
             snprintf(second_str, sizeof(second_str), "%d", timer_second);
         }
         lv_label_set_text(ui_Second, second_str);
-        lv_label_set_text(ui_PIDSecond, second_str);
+        lv_label_set_text(ui_ChartSecond, second_str);
         if(timer_minute < 10)
         {
             snprintf(minute_str, sizeof(minute_str), "0%d", timer_minute);
@@ -314,14 +321,14 @@ void lvgl_clock_refresh()
             snprintf(minute_str, sizeof(minute_str), "%d", timer_minute);
         }
         lv_label_set_text(ui_Minute, minute_str);
-        lv_label_set_text(ui_PIDMinute, minute_str);
+        lv_label_set_text(ui_ChartMinute, minute_str);
     }
     else
     {
         lv_label_set_text(ui_Second, "00");
         lv_label_set_text(ui_Minute, "00");
-        lv_label_set_text(ui_PIDSecond, "00");
-        lv_label_set_text(ui_PIDMinute, "00");
+        lv_label_set_text(ui_ChartSecond, "00");
+        lv_label_set_text(ui_ChartMinute, "00");
     }
 }
 

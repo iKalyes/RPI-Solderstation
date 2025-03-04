@@ -29,3 +29,13 @@ void SaveConfig(lv_event_t * e)
 {
 	// Your code here
 }
+
+void FanTurnON(lv_event_t * e)
+{
+	// Your code here
+}
+
+void FanTurnOFF(lv_event_t * e)
+{
+	// Your code here
+}

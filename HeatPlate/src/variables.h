@@ -39,7 +39,6 @@ extern uint16_t sleep_time;
 extern uint8_t brightness;
 //tempset screen//
 extern uint16_t SetTemp;
-extern uint16_t PIDSetTemp;
 //pidcalibration screen//
 extern lv_timer_t* chart_update_timer;
 extern lv_chart_series_t * ui_TempChart_TempSeries;

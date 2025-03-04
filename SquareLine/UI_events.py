@@ -18,3 +18,15 @@ def PIDCalibrationStop(event_struct):
 def SaveConfig(event_struct):
     return
 
+
+def FanON(event_struct):
+    return
+
+
+def FanTurnON(event_struct):
+    return
+
+
+def FanTurnOFF(event_struct):
+    return
+

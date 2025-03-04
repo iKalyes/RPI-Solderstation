@@ -26,8 +26,6 @@ void handleNumberInput(char num) {
 void ui_event_Confirm(lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
     if (event_code == LV_EVENT_PRESSED) {
-        if(tempset_status == 1)
-        {
         // 添加输入验证
         if (!tempDisplay || strlen(tempDisplay) > 3) {
             return;
@@ -44,58 +42,35 @@ void ui_event_Confirm(lv_event_t * e) {
         char temp_str[5] = {0};
         if (SetTemp == 0) {
             lv_label_set_text(ui_TargetTemp, "000");
+            lv_label_set_text(ui_ChartTargetTemp, "000");
+            lv_bar_set_range(ui_BarHeaterTemp, 0, 100);
         }
         else if(SetTemp > temp_limited) {
             SetTemp = temp_limited;
             // 使用snprintf防止缓冲区溢出
             snprintf(temp_str, sizeof(temp_str), "%d", temp_limited);
             lv_label_set_text(ui_TargetTemp, temp_str);
+            lv_label_set_text(ui_ChartTargetTemp, temp_str);
+            lv_bar_set_range(ui_BarHeaterTemp, 0, temp_limited);
         }
         else {
             // 使用snprintf防止缓冲区溢出
             snprintf(temp_str, sizeof(temp_str), "%d", SetTemp);
             lv_label_set_text(ui_TargetTemp, temp_str);
+            lv_label_set_text(ui_ChartTargetTemp, temp_str);
+            lv_bar_set_range(ui_BarHeaterTemp, 0, SetTemp);
         }
-        // 切换回主屏幕
-        _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_MainScreen_screen_init);
-        tempset_status = 0;
-    }
-/////////////////////////////////////////////////////////////////////////////
+        if(tempset_status == 1)
+        {
+            _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_MainScreen_screen_init);
+            tempset_status = 0;
+        }
         if(tempset_status == 2)
         {
-        // 添加输入验证
-        if (!tempDisplay || strlen(tempDisplay) > 3) {
-            return;
+            _ui_screen_change(&ui_ChartScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_ChartScreen_screen_init);
+            tempset_status = 0;
         }
-        // 使用更安全的转换方式
-        char *endptr;
-        long temp_val = strtol(tempDisplay, &endptr, 10);
-        // 验证转换结果
-        if (endptr == tempDisplay || *endptr != '\0') {
-            return;
-        }
-        PIDSetTemp = (int)temp_val;
-        // 缓冲区增大为5以确保安全
-        char temp_str[5] = {0};
-        if (PIDSetTemp == 0) {
-            lv_label_set_text(ui_PIDTargetTemp, "000");
-        }
-        else if(PIDSetTemp > temp_limited) {
-            PIDSetTemp = temp_limited;
-            // 使用snprintf防止缓冲区溢出
-            snprintf(temp_str, sizeof(temp_str), "%d", temp_limited);
-            lv_label_set_text(ui_PIDTargetTemp, temp_str);
-        }
-        else {
-            // 使用snprintf防止缓冲区溢出
-            snprintf(temp_str, sizeof(temp_str), "%d", PIDSetTemp);
-            lv_label_set_text(ui_PIDTargetTemp, temp_str);
-        }
-        // 切换回主屏幕
-        _ui_screen_change(&ui_PIDCalibrationScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_PIDCalibrationScreen_screen_init);
-        tempset_status = 0;
     }
-}
 }
 
 void ui_event_Delete(lv_event_t * e) {
@@ -106,7 +81,6 @@ void ui_event_Delete(lv_event_t * e) {
         }
         inputPos = 0;
         SetTemp = 0;
-        PIDSetTemp = 0;
         updateDisplay();
     }
 }
@@ -179,4 +153,21 @@ void ui_event_Num9(lv_event_t * e) {
     if (event_code == LV_EVENT_PRESSED) {
         handleNumberInput('9');
     }
+}
+
+void ui_event_TempSettingBack( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_PRESSED) {
+        if(tempset_status == 1)
+        {
+            _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_MainScreen_screen_init);
+            tempset_status = 0;
+        }
+        if(tempset_status == 2)
+        {
+            _ui_screen_change(&ui_ChartScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_ChartScreen_screen_init);
+            tempset_status = 0;
+        }
+}
 }

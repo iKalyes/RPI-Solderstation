@@ -8,11 +8,7 @@
   Full 5Tau testing and multiple serial output options are provided.
  ****************************************************************************************/
 
-#if ARDUINO >= 100
 #include "Arduino.h"
-#else
-#include "WProgram.h"
-#endif
 #include "sTan.h"
 #include "sTune.h"
 #include "hardware/pwm.h"
@@ -563,11 +559,11 @@ float sTune::hardwarePwm(const uint8_t pwmPin, float input, float output, float 
   }
   if (reachedSetpoint && setpoint > 0 && input > setpoint)
   {
-    optimumOutput = output - 8;
+    optimumOutput = output - 4;
   }
   else if (reachedSetpoint && setpoint > 0 && input < setpoint)
   {
-     optimumOutput = output + 8;
+     optimumOutput = output + 4;
   }
   else optimumOutput = output;
   

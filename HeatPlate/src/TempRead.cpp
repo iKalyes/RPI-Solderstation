@@ -38,10 +38,27 @@ void TMP102_Read(void *param)
     TickType_t xLastWakeTime;
     const TickType_t xPeriod = pdMS_TO_TICKS(200);
     xLastWakeTime = xTaskGetTickCount();
+
+    // 初始化滤波相关变量
+    float smoothed_temp = 0.0f;
+    bool first_reading = true;
+    const float alpha = 0.1f;  // 滤波系数(0-1)：越小越平滑但响应越慢
+
     while (true)
     {
         vTaskDelayUntil(&xLastWakeTime, xPeriod);
-        room_temperature = sensor0.readTempC();
+        float raw_temp = sensor0.readTempC();
+        
+        // 应用指数加权移动平均滤波
+        if (first_reading) {
+            smoothed_temp = raw_temp;  // 第一次读取直接使用原始值
+            first_reading = false;
+        } else {
+            // 新值占alpha比例，历史值占(1-alpha)比例
+            smoothed_temp = alpha * raw_temp + (1.0f - alpha) * smoothed_temp;
+        }
+        
+        room_temperature = smoothed_temp;
     }
     vTaskDelete(NULL);
 }

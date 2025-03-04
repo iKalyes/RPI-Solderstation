@@ -1,5 +1,5 @@
-#ifndef _UI_PIDCALIBRATION_H_
-#define _UI_PIDCALIBRATION_H_
+#ifndef _UI_CHART_H_
+#define _UI_CHART_H_
 
 #include <lvgl.h>
 #include "ui/ui.h"

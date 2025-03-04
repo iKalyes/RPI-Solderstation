@@ -36,41 +36,28 @@ extern lv_obj_t *ui_TextRoomTemp;
 extern lv_obj_t *ui_ImageRoomTemp;
 extern lv_obj_t *ui_BuzzerStatus;
 extern lv_obj_t *ui_ImageClock;
-extern lv_obj_t *ui_ImageProfile;
 extern lv_obj_t *ui_Minute;
 extern lv_obj_t *ui_Second;
 extern lv_obj_t *ui_TextTime;
-extern lv_obj_t *ui_HeatingMode;
-extern lv_obj_t *ui_HeaterDock;
+extern lv_obj_t *ui_HeaterSetDock;
 extern lv_obj_t *ui_ImageHeater;
-extern lv_obj_t *ui_HeatTemp;
-extern lv_obj_t *ui_TextHeatTemp;
-extern lv_obj_t *ui_TextTargetTemp;
+extern lv_obj_t *ui_TextTarget;
 extern lv_obj_t *ui_TargetTemp;
+extern lv_obj_t *ui_TextTargetTemp;
 void ui_event_TempSet( lv_event_t * e);
 extern lv_obj_t *ui_TempSet;
-extern lv_obj_t *ui_FanDock;
-extern lv_obj_t *ui_ImageFan;
-extern lv_obj_t *ui_FanPercent;
-extern lv_obj_t *ui_TextFanPercent;
-void ui_event_FanUP( lv_event_t * e);
-extern lv_obj_t *ui_FanUP;
-void ui_event_FanDown( lv_event_t * e);
-extern lv_obj_t *ui_FanDown;
-void ui_event_USER1( lv_event_t * e);
-extern lv_obj_t *ui_USER1;
-void ui_event_USER2( lv_event_t * e);
-extern lv_obj_t *ui_USER2;
-void ui_event_USER3( lv_event_t * e);
-extern lv_obj_t *ui_USER3;
-void ui_event_USER4( lv_event_t * e);
-extern lv_obj_t *ui_USER4;
+extern lv_obj_t *ui_HeaterTempDock;
+extern lv_obj_t *ui_BarHeaterTemp;
+extern lv_obj_t *ui_HeaterTemp;
+extern lv_obj_t *ui_TextHeaterTemp;
 void ui_event_Setting( lv_event_t * e);
 extern lv_obj_t *ui_Setting;
 void ui_event_BuzzerSwitch( lv_event_t * e);
 extern lv_obj_t *ui_BuzzerSwitch;
 void ui_event_FanSwitch( lv_event_t * e);
 extern lv_obj_t *ui_FanSwitch;
+void ui_event_ScreenSwitch( lv_event_t * e);
+extern lv_obj_t *ui_ScreenSwitch;
 void ui_event_StartStop( lv_event_t * e);
 extern lv_obj_t *ui_StartStop;
 // CUSTOM VARIABLES
@@ -85,7 +72,7 @@ void ui_event_Delete( lv_event_t * e);
 extern lv_obj_t *ui_Delete;
 void ui_event_Num0( lv_event_t * e);
 extern lv_obj_t *ui_Num0;
-extern lv_obj_t *ui_Panel2;
+extern lv_obj_t *ui_NumPanel;
 void ui_event_Num1( lv_event_t * e);
 extern lv_obj_t *ui_Num1;
 void ui_event_Num2( lv_event_t * e);
@@ -107,11 +94,12 @@ extern lv_obj_t *ui_Num9;
 extern lv_obj_t *ui_TempSettingHeader;
 extern lv_obj_t *ui_TextTempSetting;
 extern lv_obj_t *ui_TempSetting;
-extern lv_obj_t *ui_ImageTempSetting;
 extern lv_obj_t *ui_SetTemp;
 extern lv_obj_t *ui_TextSetTemp;
 extern lv_obj_t *ui_TextCurrentTemp;
 extern lv_obj_t *ui_CurrentTemp;
+void ui_event_TempSettingBack( lv_event_t * e);
+extern lv_obj_t *ui_TempSettingBack;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_SystemSettingScreen
@@ -122,14 +110,13 @@ extern lv_obj_t *ui_ImageSystemHeader;
 void ui_event_SystemSettingBack( lv_event_t * e);
 extern lv_obj_t *ui_SystemSettingBack;
 extern lv_obj_t *ui_SettingMenuDock;
-void ui_event_PIDCalibration( lv_event_t * e);
-extern lv_obj_t *ui_PIDCalibration;
-extern lv_obj_t *ui_ImagePID;
-extern lv_obj_t *ui_TextPID;
 void ui_event_CustomCurve( lv_event_t * e);
 extern lv_obj_t *ui_CustomCurve;
 extern lv_obj_t *ui_ImageCurve;
 extern lv_obj_t *ui_TextCurve;
+extern lv_obj_t *ui_PIDSetting;
+extern lv_obj_t *ui_ImagePIDSetting;
+extern lv_obj_t *ui_TextPIDSetting;
 extern lv_obj_t *ui_TempLimited;
 extern lv_obj_t *ui_ImageTempLimited;
 void ui_event_SliderTempLimited( lv_event_t * e);
@@ -149,9 +136,9 @@ void ui_event_SaveConfig( lv_event_t * e);
 extern lv_obj_t *ui_SaveConfig;
 // CUSTOM VARIABLES
 
-// SCREEN: ui_CustomCurveScreen
-void ui_CustomCurveScreen_screen_init(void);
-extern lv_obj_t *ui_CustomCurveScreen;
+// SCREEN: ui_HeatingCurveScreen
+void ui_HeatingCurveScreen_screen_init(void);
+extern lv_obj_t *ui_HeatingCurveScreen;
 extern lv_obj_t *ui_CustomCurveHeader;
 extern lv_obj_t *ui_TextCurveHeader;
 void ui_event_CustomCurveBack( lv_event_t * e);
@@ -199,28 +186,30 @@ extern lv_obj_t *ui_SliderTimeFive;
 extern lv_obj_t *ui_TextTimeFive;
 // CUSTOM VARIABLES
 
-// SCREEN: ui_PIDCalibrationScreen
-void ui_PIDCalibrationScreen_screen_init(void);
-extern lv_obj_t *ui_PIDCalibrationScreen;
-extern lv_obj_t *ui_PIDCalibrationHeader;
-extern lv_obj_t *ui_TextPIDHeader;
-extern lv_obj_t *ui_ImagePIDClock;
-extern lv_obj_t *ui_PIDMinute;
-extern lv_obj_t *ui_PIDSecond;
-extern lv_obj_t *ui_TextPIDTime;
-void ui_event_PIDCalibrationBack( lv_event_t * e);
-extern lv_obj_t *ui_PIDCalibrationBack;
-extern lv_obj_t *ui_PIDCalibrationDock;
-extern lv_obj_t *ui_ImageHeaterPID;
-extern lv_obj_t *ui_PIDCurrentTemp;
-extern lv_obj_t *ui_TextPIDTemp;
-extern lv_obj_t *ui_TextPIDTargetTemp;
-extern lv_obj_t *ui_PIDTargetTemp;
-void ui_event_PIDTempSet( lv_event_t * e);
-extern lv_obj_t *ui_PIDTempSet;
-void ui_event_PIDCalibrationSwitch( lv_event_t * e);
-extern lv_obj_t *ui_PIDCalibrationSwitch;
-extern lv_obj_t *ui_PIDChartDock;
+// SCREEN: ui_ChartScreen
+void ui_ChartScreen_screen_init(void);
+extern lv_obj_t *ui_ChartScreen;
+extern lv_obj_t *ui_ChartHeader;
+extern lv_obj_t *ui_ChartRoomTemp;
+extern lv_obj_t *ui_TextChartRoomTemp;
+extern lv_obj_t *ui_ImageChartRoomTemp;
+extern lv_obj_t *ui_ChartBuzzerStatus;
+extern lv_obj_t *ui_ImageChartClock;
+extern lv_obj_t *ui_ChartMinute;
+extern lv_obj_t *ui_ChartSecond;
+extern lv_obj_t *ui_TextChartTime;
+void ui_event_ChartScreenBack( lv_event_t * e);
+extern lv_obj_t *ui_ChartScreenBack;
+extern lv_obj_t *ui_ChartScreenDock;
+extern lv_obj_t *ui_ChartTemp;
+extern lv_obj_t *ui_TextChartTemp;
+extern lv_obj_t *ui_TextChatTargetTemp;
+extern lv_obj_t *ui_ChartTargetTemp;
+void ui_event_ChartTempSet( lv_event_t * e);
+extern lv_obj_t *ui_ChartTempSet;
+void ui_event_ChartSwitch( lv_event_t * e);
+extern lv_obj_t *ui_ChartSwitch;
+extern lv_obj_t *ui_ChartDock;
 extern lv_obj_t *ui_TempChart;
 // CUSTOM VARIABLES
 
@@ -231,44 +220,43 @@ extern lv_obj_t *ui____initial_actions0;
 LV_IMG_DECLARE( ui_img_740489818);   // assets/material-symbols_thermostat-rounded.png
 LV_IMG_DECLARE( ui_img_1699618864);   // assets/material-symbols_volume-up-outline-rounded.png
 LV_IMG_DECLARE( ui_img_290686881);   // assets/material-symbols_search-activity-rounded.png
-LV_IMG_DECLARE( ui_img_1205510230);   // assets/material-symbols_storage-rounded.png
 LV_IMG_DECLARE( ui_img_1956478733);   // assets/material-symbols_heat.png
 LV_IMG_DECLARE( ui_img_155116563);   // assets/material-symbols_instant-mix-rounded.png
-LV_IMG_DECLARE( ui_img_1162706898);   // assets/material-symbols_mode-fan-outline-sharp.png
-LV_IMG_DECLARE( ui_img_1345483443);   // assets/material-symbols_fitbit-arrow-upward-rounded.png
-LV_IMG_DECLARE( ui_img_817906860);   // assets/material-symbols_fitbit-arrow-downward-rounded.png
-LV_IMG_DECLARE( ui_img_1577463476);   // assets/material-symbols_filter-1-outline-rounded.png
-LV_IMG_DECLARE( ui_img_1006688281);   // assets/material-symbols_filter-2-outline-rounded.png
-LV_IMG_DECLARE( ui_img_1428031618);   // assets/material-symbols_filter-3-outline-rounded.png
-LV_IMG_DECLARE( ui_img_1680627741);   // assets/material-symbols_filter-4-outline-rounded.png
 LV_IMG_DECLARE( ui_img_1671917170);   // assets/material-symbols_settings-rounded.png
 LV_IMG_DECLARE( ui_img_185202102);   // assets/material-symbols_volume-off-outline-rounded.png
 LV_IMG_DECLARE( ui_img_2103744591);   // assets/material-symbols_mode-fan-outline.png
 LV_IMG_DECLARE( ui_img_1708415670);   // assets/material-symbols_mode-fan-off-outline-sharp.png
+LV_IMG_DECLARE( ui_img_921610142);   // assets/material-symbols_screen-share-outline-rounded.png
 LV_IMG_DECLARE( ui_img_1347724781);   // assets/material-symbols_play-arrow-rounded.png
 LV_IMG_DECLARE( ui_img_413634367);   // assets/material-symbols_stop-rounded.png
 LV_IMG_DECLARE( ui_img_938671949);   // assets/material-symbols_check-rounded.png
 LV_IMG_DECLARE( ui_img_13634893);   // assets/material-symbols_close-rounded.png
-LV_IMG_DECLARE( ui_img_1543630939);   // assets/material-symbols_counter-0-outline.png
-LV_IMG_DECLARE( ui_img_761595314);   // assets/material-symbols_counter-1-outline-rounded.png
-LV_IMG_DECLARE( ui_img_154154061);   // assets/material-symbols_counter-2-outline-rounded.png
-LV_IMG_DECLARE( ui_img_2056179636);   // assets/material-symbols_counter-3-outline-rounded.png
-LV_IMG_DECLARE( ui_img_2011795637);   // assets/material-symbols_counter-4-outline-rounded.png
-LV_IMG_DECLARE( ui_img_72837962);   // assets/material-symbols_counter-5-outline-rounded.png
-LV_IMG_DECLARE( ui_img_988587337);   // assets/material-symbols_counter-6-outline-rounded.png
-LV_IMG_DECLARE( ui_img_1221746360);   // assets/material-symbols_counter-7-outline-rounded.png
-LV_IMG_DECLARE( ui_img_427413075);   // assets/material-symbols_counter-8-outline.png
-LV_IMG_DECLARE( ui_img_2131435434);   // assets/material-symbols_counter-9-outline-rounded.png
+LV_IMG_DECLARE( ui_img_num0_png);   // assets/Num0.png
+LV_IMG_DECLARE( ui_img_num1_png);   // assets/Num1.png
+LV_IMG_DECLARE( ui_img_num2_png);   // assets/Num2.png
+LV_IMG_DECLARE( ui_img_num3_png);   // assets/Num3.png
+LV_IMG_DECLARE( ui_img_num4_png);   // assets/Num4.png
+LV_IMG_DECLARE( ui_img_num5_png);   // assets/Num5.png
+LV_IMG_DECLARE( ui_img_num6_png);   // assets/Num6.png
+LV_IMG_DECLARE( ui_img_num7_png);   // assets/Num7.png
+LV_IMG_DECLARE( ui_img_num8_png);   // assets/Num8.png
+LV_IMG_DECLARE( ui_img_num9_png);   // assets/Num9.png
 LV_IMG_DECLARE( ui_img_852573520);   // assets/material-symbols_chevron-left-rounded.png
+LV_IMG_DECLARE( ui_img_1205510230);   // assets/material-symbols_storage-rounded.png
 LV_IMG_DECLARE( ui_img_329106951);   // assets/material-symbols_speed-outline-rounded.png
 LV_IMG_DECLARE( ui_img_295618317);   // assets/material-symbols_avg-pace-rounded.png
 LV_IMG_DECLARE( ui_img_637286161);   // assets/material-symbols_backlight-high-rounded.png
 LV_IMG_DECLARE( ui_img_1723942165);   // assets/material-symbols_save-outline-rounded.png
+LV_IMG_DECLARE( ui_img_1577463476);   // assets/material-symbols_filter-1-outline-rounded.png
+LV_IMG_DECLARE( ui_img_1006688281);   // assets/material-symbols_filter-2-outline-rounded.png
+LV_IMG_DECLARE( ui_img_1428031618);   // assets/material-symbols_filter-3-outline-rounded.png
+LV_IMG_DECLARE( ui_img_1680627741);   // assets/material-symbols_filter-4-outline-rounded.png
 LV_IMG_DECLARE( ui_img_179619656);   // assets/material-symbols_filter-5-outline-rounded.png
 
 // FONTS
 LV_FONT_DECLARE( ui_font_ASCII);
 LV_FONT_DECLARE( ui_font_ASCII48);
+LV_FONT_DECLARE( ui_font_ASCII96);
 LV_FONT_DECLARE( ui_font_Chart);
 
 // UI INIT

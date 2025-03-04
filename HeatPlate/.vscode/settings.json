@@ -7,5 +7,5 @@
         "numeric": "cpp",
         "ostream": "cpp"
     },
-    "cmake.sourceDirectory": "/Users/quin/Documents/RPI-Solderstation/HeatPlate/src/QuickPID"
+    "cmake.sourceDirectory": "/Users/quin/Documents/RPI-Solderstation/HeatPlate/src/ui"
 }

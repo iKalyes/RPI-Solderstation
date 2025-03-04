@@ -17,79 +17,14 @@ if ( event_code == LV_EVENT_RELEASED) {
 }
 }
 
-uint8_t FanPercent = 0;
-char fanPercentStr[4];  // 3位数字加终止符需要4字节
-
-void ui_event_FanUP(lv_event_t * e) {
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-    if (event_code == LV_EVENT_RELEASED) {
-        if (FanPercent <= 90) {
-            FanPercent += 10;
-        } else {
-            FanPercent = 100;
-        }
-        sprintf(fanPercentStr, "%03d", FanPercent);  // 格式化为3位数，不足补0
-        lv_label_set_text(ui_FanPercent, fanPercentStr);
-    }
-}
-
-void ui_event_FanDown(lv_event_t * e) {
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-    if (event_code == LV_EVENT_RELEASED) {
-        if (FanPercent >= 10) {
-            FanPercent -= 10;
-        } else {
-            FanPercent = 0;
-        }
-        sprintf(fanPercentStr, "%03d", FanPercent);  // 格式化为3位数，不足补0
-        lv_label_set_text(ui_FanPercent, fanPercentStr);
-    }
-}
-
 void ui_event_FanSwitch( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
 
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
-      FanPercent = 100;
-      _ui_label_set_property(ui_FanPercent, _UI_LABEL_PROPERTY_TEXT, "100");
+      FanTurnON( e );
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
-      FanPercent = 0;
-      _ui_label_set_property(ui_FanPercent, _UI_LABEL_PROPERTY_TEXT, "000");
-}
-}
-
-void ui_event_USER1( lv_event_t * e) {
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_HeatingMode, _UI_LABEL_PROPERTY_TEXT, "Thermostatic");
-}
-}
-
-void ui_event_USER2( lv_event_t * e) {
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_HeatingMode, _UI_LABEL_PROPERTY_TEXT, "RSS Curve");
-}
-}
-
-void ui_event_USER3( lv_event_t * e) {
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_HeatingMode, _UI_LABEL_PROPERTY_TEXT, "RTS Curve");
-}
-}
-
-void ui_event_USER4( lv_event_t * e) {
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_HeatingMode, _UI_LABEL_PROPERTY_TEXT, "Custom Curve");
+      FanTurnOFF( e );
 }
 }
 
@@ -118,5 +53,14 @@ if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_
       HeatingStop( e );
       clock_status = 0;
       heating_status = 0;
+}
+}
+
+void ui_event_ScreenSwitch( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_PRESSED) {
+      _ui_screen_change( &ui_ChartScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_ChartScreen_screen_init);
+      lv_timer_resume(chart_update_timer);
 }
 }

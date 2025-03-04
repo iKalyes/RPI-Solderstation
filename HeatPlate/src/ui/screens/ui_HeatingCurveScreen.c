@@ -5,14 +5,14 @@
 
 #include "../ui.h"
 
-void ui_CustomCurveScreen_screen_init(void)
+void ui_HeatingCurveScreen_screen_init(void)
 {
-ui_CustomCurveScreen = lv_obj_create(NULL);
-lv_obj_clear_flag( ui_CustomCurveScreen, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
-ui_object_set_themeable_style_property(ui_CustomCurveScreen, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_ButtonAndBack);
-ui_object_set_themeable_style_property(ui_CustomCurveScreen, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_ButtonAndBack);
+ui_HeatingCurveScreen = lv_obj_create(NULL);
+lv_obj_clear_flag( ui_HeatingCurveScreen, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
+ui_object_set_themeable_style_property(ui_HeatingCurveScreen, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_ButtonAndBack);
+ui_object_set_themeable_style_property(ui_HeatingCurveScreen, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_ButtonAndBack);
 
-ui_CustomCurveHeader = lv_obj_create(ui_CustomCurveScreen);
+ui_CustomCurveHeader = lv_obj_create(ui_HeatingCurveScreen);
 lv_obj_remove_style_all(ui_CustomCurveHeader);
 lv_obj_set_width( ui_CustomCurveHeader, 316);
 lv_obj_set_height( ui_CustomCurveHeader, 20);
@@ -30,12 +30,12 @@ lv_obj_set_height( ui_TextCurveHeader, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_TextCurveHeader, 0 );
 lv_obj_set_y( ui_TextCurveHeader, -1 );
 lv_obj_set_align( ui_TextCurveHeader, LV_ALIGN_CENTER );
-lv_label_set_text(ui_TextCurveHeader,"Custom Curve");
+lv_label_set_text(ui_TextCurveHeader,"Heating Curve");
 ui_object_set_themeable_style_property(ui_TextCurveHeader, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
 ui_object_set_themeable_style_property(ui_TextCurveHeader, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
 lv_obj_set_style_text_font(ui_TextCurveHeader, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
 
-ui_CustomCurveBack = lv_btn_create(ui_CustomCurveScreen);
+ui_CustomCurveBack = lv_btn_create(ui_HeatingCurveScreen);
 lv_obj_set_width( ui_CustomCurveBack, 32);
 lv_obj_set_height( ui_CustomCurveBack, 212);
 lv_obj_set_x( ui_CustomCurveBack, -286 );
@@ -50,7 +50,7 @@ lv_obj_set_style_bg_img_src( ui_CustomCurveBack, &ui_img_852573520, LV_PART_MAIN
 lv_obj_set_style_shadow_color(ui_CustomCurveBack, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT );
 lv_obj_set_style_shadow_opa(ui_CustomCurveBack, 0, LV_PART_MAIN| LV_STATE_DEFAULT);
 
-ui_CustomCurveDock = lv_obj_create(ui_CustomCurveScreen);
+ui_CustomCurveDock = lv_obj_create(ui_HeatingCurveScreen);
 lv_obj_remove_style_all(ui_CustomCurveDock);
 lv_obj_set_width( ui_CustomCurveDock, 281);
 lv_obj_set_height( ui_CustomCurveDock, 212);
