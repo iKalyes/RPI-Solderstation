@@ -39,3 +39,33 @@ void FanTurnOFF(lv_event_t * e)
 {
 	// Your code here
 }
+
+void PIDKPMinus(lv_event_t * e)
+{
+	// Your code here
+}
+
+void PIDKPPlus(lv_event_t * e)
+{
+	// Your code here
+}
+
+void PIDKIMinus(lv_event_t * e)
+{
+	// Your code here
+}
+
+void PIDKIPlus(lv_event_t * e)
+{
+	// Your code here
+}
+
+void PIDKDMinus(lv_event_t * e)
+{
+	// Your code here
+}
+
+void PIDKDPlus(lv_event_t * e)
+{
+	// Your code here
+}

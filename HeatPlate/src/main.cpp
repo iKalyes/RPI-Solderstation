@@ -30,8 +30,8 @@ void setup()
 {
     Serial.begin( 115200 ); /* prepare for possible serial debug */
     ReadFlash();
-    display_init();
     backlight_init();
+    display_init();
     update_chart_init();
 }
 
@@ -48,8 +48,8 @@ void setup1()
   TMP102_init();
   MAX6675_init();
   xTaskCreate(clock_run, "clock_run", 128, NULL, 4, NULL);
-  xTaskCreate(TMP102_Read, "TMP102_Read", 256, NULL, 3, NULL);
-  xTaskCreate(MAX6675_Read, "MAX6675_Read", 256, NULL, 5, NULL);
+  xTaskCreate(TMP102_Read, "TMP102_Read", 128, NULL, 3, NULL);
+  xTaskCreate(MAX6675_Read, "MAX6675_Read", 128, NULL, 5, NULL);
 
   tuner.Configure(inputSpan, outputSpan, outputStart, outputStep, testTimeSec, settleTimeSec, samples);
   tuner.SetEmergencyStop(tempLimit);

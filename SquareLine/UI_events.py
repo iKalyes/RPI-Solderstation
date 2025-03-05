@@ -30,3 +30,35 @@ def FanTurnON(event_struct):
 def FanTurnOFF(event_struct):
     return
 
+
+def KPDown(event_struct):
+    return
+
+
+def PIDKPDown(event_struct):
+    return
+
+
+def PIDKPMinus(event_struct):
+    return
+
+
+def PIDKPPlus(event_struct):
+    return
+
+
+def PIDKIMinus(event_struct):
+    return
+
+
+def PIDKIPlus(event_struct):
+    return
+
+
+def PIDKDMinus(event_struct):
+    return
+
+
+def PIDKDPlus(event_struct):
+    return
+

@@ -3,6 +3,7 @@ SET(SOURCES screens/ui_MainScreen.c
     screens/ui_SystemSettingScreen.c
     screens/ui_HeatingCurveScreen.c
     screens/ui_ChartScreen.c
+    screens/ui_PIDSettingScreen.c
     ui_theme_manager.c
     ui_themes.c
     ui.c
@@ -39,14 +40,17 @@ SET(SOURCES screens/ui_MainScreen.c
     images/ui_img_295618317.c
     images/ui_img_637286161.c
     images/ui_img_1723942165.c
-    images/ui_img_1577463476.c
-    images/ui_img_1006688281.c
-    images/ui_img_1428031618.c
-    images/ui_img_1680627741.c
-    images/ui_img_179619656.c
+    images/ui_img_186359097.c
+    images/ui_img_244970085.c
+    images/ui_img_404936684.c
+    images/ui_img_182586645.c
+    images/ui_img_185733654.c
+    images/ui_img_minus_png.c
+    images/ui_img_plus_png.c
     fonts/ui_font_ASCII.c
     fonts/ui_font_ASCII48.c
     fonts/ui_font_ASCII96.c
-    fonts/ui_font_Chart.c)
+    fonts/ui_font_Chart.c
+    fonts/ui_font_ASCII32.c)
 
 add_library(ui ${SOURCES})

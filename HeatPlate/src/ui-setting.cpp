@@ -8,6 +8,14 @@ if ( event_code == LV_EVENT_RELEASED) {
 }
 }
 
+void ui_event_PIDSetting( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_PRESSED) {
+      _ui_screen_change( &ui_PIDSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_PIDSettingScreen_screen_init);
+}
+}
+
 void ui_event_CustomCurve( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
