@@ -97,10 +97,12 @@ void display_init()
         buzzer_status = 1;
         lv_obj_add_state(ui_BuzzerSwitch, LV_STATE_CHECKED);
         lv_img_set_src(ui_BuzzerStatus, &ui_img_185202102);
+        lv_img_set_src(ui_ChartBuzzerStatus, &ui_img_185202102);
     }
     else{
         lv_obj_clear_state(ui_BuzzerSwitch, LV_STATE_CHECKED);
         lv_img_set_src(ui_BuzzerStatus, &ui_img_1699618864);
+        lv_img_set_src(ui_ChartBuzzerStatus, &ui_img_1699618864);
 
     }
 
@@ -137,17 +139,23 @@ void display_init()
     if(SetTemp == 0 || SetTemp > 400)
     {
       lv_label_set_text(ui_TargetTemp, "000");
+      lv_label_set_text(ui_ChartTargetTemp, "000");
+      lv_label_set_text(ui_SetTemp, "000");
       lv_bar_set_range(ui_BarHeaterTemp, 0, 100);
     }
     else if(SetTemp > temp_limited)
     {
       SetTemp = temp_limited;
       lv_label_set_text_fmt(ui_TargetTemp, "%d", temp_limited);
+      lv_label_set_text_fmt(ui_ChartTargetTemp, "%d", temp_limited);
+      lv_label_set_text_fmt(ui_SetTemp, "%d", temp_limited);
       lv_bar_set_range(ui_BarHeaterTemp, 0, temp_limited);
     }
     else
     {
       lv_label_set_text_fmt(ui_TargetTemp, "%d", SetTemp);
+      lv_label_set_text_fmt(ui_ChartTargetTemp, "%d", SetTemp);
+      lv_label_set_text_fmt(ui_SetTemp, "%d", SetTemp);
       lv_bar_set_range(ui_BarHeaterTemp, 0, SetTemp);
     }
 
@@ -264,6 +272,7 @@ void lvgl_tmp102_refresh()
     char temp_str[8] = {0};  // 缓冲区足够存储 XX.XX 格式
     snprintf(temp_str, sizeof(temp_str), "%.2f", room_temperature);
     lv_label_set_text(ui_RoomTemp, temp_str);
+    lv_label_set_text(ui_ChartRoomTemp, temp_str);
   }
 }
 

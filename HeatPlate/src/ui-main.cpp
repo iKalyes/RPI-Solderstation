@@ -22,9 +22,11 @@ void ui_event_FanSwitch( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       FanTurnON( e );
+      fan_on();
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       FanTurnOFF( e );
+      fan_off();
 }
 }
 
@@ -33,10 +35,12 @@ void ui_event_BuzzerSwitch( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       lv_img_set_src(ui_BuzzerStatus, &ui_img_185202102);
+      lv_img_set_src(ui_ChartBuzzerStatus, &ui_img_185202102);
       buzzer_status = 1;
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       lv_img_set_src(ui_BuzzerStatus, &ui_img_1699618864);
+      lv_img_set_src(ui_ChartBuzzerStatus, &ui_img_1699618864);
       buzzer_status = 0;
 }
 }
@@ -46,13 +50,15 @@ void ui_event_StartStop( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       HeatingStart( e );
+      lv_obj_add_state(ui_ChartSwitch, LV_STATE_CHECKED);
       clock_status = 1;
       heating_status = 1;
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       HeatingStop( e );
+      lv_obj_clear_state(ui_ChartSwitch, LV_STATE_CHECKED);
       clock_status = 0;
-      heating_status = 0;
+      heater_stop();
 }
 }
 

@@ -74,6 +74,13 @@ void sTune::Reset(const uint8_t pwmPin) {
   pwm_set_chan_level(slice_num, channel, 0);  // 将PWM输出置零
 }
 
+void sTune::StopPwm(const uint8_t pwmPin)
+{
+  uint slice_num = pwm_gpio_to_slice_num(pwmPin);  // 获取PWM片选号
+  uint channel = pwm_gpio_to_channel(pwmPin);      // 获取PWM通道号
+  pwm_set_chan_level(slice_num, channel, 0);  // 将PWM输出置零
+}
+
 // 配置自动调谐器的参数
 void sTune::Configure(const float inputSpan, const float outputSpan, float outputStart, float outputStep,
                     uint32_t testTimeSec, uint32_t settleTimeSec, const uint16_t samples) {

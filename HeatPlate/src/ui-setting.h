@@ -12,6 +12,7 @@
 #include <variables.h>
 #include <flash.h>
 #include <display.h>
+#include <heater-run.h>
 
 
 #endif

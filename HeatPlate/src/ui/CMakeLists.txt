@@ -48,9 +48,9 @@ SET(SOURCES screens/ui_MainScreen.c
     images/ui_img_minus_png.c
     images/ui_img_plus_png.c
     fonts/ui_font_ASCII.c
+    fonts/ui_font_ASCII32.c
     fonts/ui_font_ASCII48.c
     fonts/ui_font_ASCII96.c
-    fonts/ui_font_Chart.c
-    fonts/ui_font_ASCII32.c)
+    fonts/ui_font_Chart.c)
 
 add_library(ui ${SOURCES})

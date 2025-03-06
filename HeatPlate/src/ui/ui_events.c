@@ -69,3 +69,13 @@ void PIDKDPlus(lv_event_t * e)
 {
 	// Your code here
 }
+
+void ChartHeaterStart(lv_event_t * e)
+{
+	// Your code here
+}
+
+void ChartHeaterStop(lv_event_t * e)
+{
+	// Your code here
+}

@@ -20,6 +20,7 @@ class sTune {  // Inflection Point Autotuner
                    uint32_t testTimeSec, uint32_t settleTimeSec, const uint16_t samples);
     uint8_t Run();
     void Reset(const uint8_t pwmPin);
+    void StopPwm(const uint8_t pwmPin);
     void printTestRun();
     void printResults();
     void printTunings();

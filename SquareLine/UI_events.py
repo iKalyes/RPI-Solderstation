@@ -62,3 +62,11 @@ def PIDKDMinus(event_struct):
 def PIDKDPlus(event_struct):
     return
 
+
+def ChartHeaterStart(event_struct):
+    return
+
+
+def ChartHeaterStop(event_struct):
+    return
+

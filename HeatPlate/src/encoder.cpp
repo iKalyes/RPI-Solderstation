@@ -9,15 +9,16 @@ void encoder_tick()
 
 void encoder_init()
 {
-    encoder = new RotaryEncoder(16, 17, RotaryEncoder::LatchMode::FOUR3);
-    attachInterrupt(digitalPinToInterrupt(16), encoder_tick, CHANGE);
-    attachInterrupt(digitalPinToInterrupt(17), encoder_tick, CHANGE);
+    encoder = new RotaryEncoder(14, 15, RotaryEncoder::LatchMode::FOUR3);
+    attachInterrupt(digitalPinToInterrupt(14), encoder_tick, CHANGE);
+    attachInterrupt(digitalPinToInterrupt(15), encoder_tick, CHANGE);
 }
 
 void encoder_run()
 {
     static int pos = 0;
     int newPos = encoder->getPosition();
+    int Dir = (int)(encoder->getDirection());
     if (pos != newPos) 
     {
         Serial.print("pos:");

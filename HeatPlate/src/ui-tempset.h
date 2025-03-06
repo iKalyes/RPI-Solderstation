@@ -10,6 +10,7 @@
 
 #include <Arduino.h>
 #include <variables.h>
+#include <heater-run.h>
 
 void updateDisplay();
 void handleNumberInput(char num);

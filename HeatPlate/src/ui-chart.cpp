@@ -22,9 +22,15 @@ void ui_event_ChartSwitch( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
 
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
-      PIDCalibrationStart( e );
+      ChartHeaterStart( e );
+      lv_obj_add_state(ui_StartStop, LV_STATE_CHECKED);
+      clock_status = 1;
+      heating_status = 1;
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
-      PIDCalibrationStop( e );
+      ChartHeaterStop( e );
+      lv_obj_clear_state(ui_StartStop, LV_STATE_CHECKED);
+      clock_status = 0;
+      heater_stop();
 }
 }

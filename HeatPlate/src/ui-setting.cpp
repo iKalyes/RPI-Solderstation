@@ -30,6 +30,7 @@ void ui_event_SliderTempLimited( lv_event_t * e) {
 if ( event_code == LV_EVENT_VALUE_CHANGED) {
       _ui_slider_set_text_value( ui_TextTempLimited, target, "", "℃");
       temp_limited = lv_slider_get_value(target);
+      heater_templimit();
 }
 }
 

@@ -81,6 +81,20 @@ bool QuickPID::Compute() {
     if (action == Action::reverse) error = -error;  // 如果是反向动作，反转误差
     float dError = error - lastError;         // 计算误差变化量
     
+    // 处理超过设定点的情况（温度过高）
+    if (originalError < 0) {  // 温度高于设定点
+      float overShootAmount = -originalError;  // 超调量（正数）
+      
+      // 如果超调超过0.5度或仍在升温，则强制输出最小值
+      if (overShootAmount > 0.5 || dInput > 0) {
+        *myOutput = outMin;  // 设为最小输出
+        lastInput = input;
+        lastError = error;
+        lastTime = now;
+        return true;
+      }
+    }
+    
     // 如果误差很大(远低于设定点)，直接提供最大输出
     if (originalError > approachRange * 1.5 && dInput >= 0) {
       *myOutput = outMax;  // 当温度远低于目标且没有快速上升时，提供最大输出
@@ -90,18 +104,18 @@ bool QuickPID::Compute() {
       return true;
     }
     
-    // 预测控制处理 - 只有在接近设定点且温度仍在上升时才使用
+    // 预测控制处理 - 改进后的预测逻辑
     bool usePrediction = false;
     float predictedInput = input;
     
-    if (usePredictControl && 
-        abs(originalError) < approachRange && // 在接近设定点范围内
-        dInput > 0) {  // 温度仍在上升
+    if (usePredictControl && abs(originalError) < approachRange) { 
+      // 在接近设定点范围内进行预测控制
+      // 不再限制只有在dInput > 0时才使用预测
       
       // 预测未来温度
       predictedInput = input + predictGain * dInput;
       
-      // 如果预测温度会超过设定点，则启用预测控制
+      // 如果预测温度会超过/低于设定点，则启用预测控制
       if ((action == Action::direct && predictedInput > *mySetpoint) || 
           (action == Action::reverse && predictedInput < *mySetpoint)) {
         usePrediction = true;
@@ -154,20 +168,29 @@ bool QuickPID::Compute() {
     // 计算PID输出
     float baseOutput = constrain(outputSum + pTerm + dTerm, outMin, outMax);
     
-    // 如果预测控制被触发且仅当在接近设定点时调整输出
-    if (usePrediction && dInput > 0 && abs(originalError) < approachRange) {
-      float overShootAmount = predictedInput - *mySetpoint;
-      if (overShootAmount > 0) {  // 只有确实预测会超调时才减小输出
-        float adjustFactor = 1.0 - (overShootAmount / approachRange);
-        adjustFactor = constrain(adjustFactor, 0.2, 1.0);
-        *myOutput = baseOutput * adjustFactor;
-      } else {
-        // 不会超调，使用正常输出
-        *myOutput = baseOutput;
+    // 强化过冲保护 - 接近设定点时更保守地调整输出
+    if (abs(originalError) < approachRange) {
+      // 在接近设定点时额外调整输出
+      if (originalError < 0) { // 温度高于设定点
+        // 如果温度已经超过目标，显著减小输出
+        baseOutput = baseOutput * 0.3;
+      } else if (dInput > 0) { // 温度低于设定点但正在上升
+        // 根据上升速度和接近程度调整输出
+        float adjustFactor = 1.0 - (dInput * predictGain / approachRange);
+        adjustFactor = constrain(adjustFactor, 0.5, 1.0);
+        baseOutput = baseOutput * adjustFactor;
       }
-    } else {
-      // 标准输出计算
-      *myOutput = baseOutput;
+    }
+    
+    // 设置最终输出
+    *myOutput = baseOutput;
+    
+    // 如果预测会过冲，进一步限制输出
+    if (usePrediction && predictedInput > *mySetpoint) {
+      float overShootAmount = predictedInput - *mySetpoint;
+      float adjustFactor = 1.0 - (overShootAmount / approachRange);
+      adjustFactor = constrain(adjustFactor, 0.1, 0.8); // 更激进地限制输出
+      *myOutput = baseOutput * adjustFactor;
     }
 
     lastError = error;    // 保存当前误差

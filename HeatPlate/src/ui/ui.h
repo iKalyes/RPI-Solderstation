@@ -286,10 +286,10 @@ LV_IMG_DECLARE( ui_img_plus_png);   // assets/plus.png
 
 // FONTS
 LV_FONT_DECLARE( ui_font_ASCII);
+LV_FONT_DECLARE( ui_font_ASCII32);
 LV_FONT_DECLARE( ui_font_ASCII48);
 LV_FONT_DECLARE( ui_font_ASCII96);
 LV_FONT_DECLARE( ui_font_Chart);
-LV_FONT_DECLARE( ui_font_ASCII32);
 
 // UI INIT
 void ui_init(void);

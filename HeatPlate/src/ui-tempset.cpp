@@ -44,6 +44,7 @@ void ui_event_Confirm(lv_event_t * e) {
             lv_label_set_text(ui_TargetTemp, "000");
             lv_label_set_text(ui_ChartTargetTemp, "000");
             lv_bar_set_range(ui_BarHeaterTemp, 0, 100);
+            heater_tempset();
         }
         else if(SetTemp > temp_limited) {
             SetTemp = temp_limited;
@@ -52,6 +53,7 @@ void ui_event_Confirm(lv_event_t * e) {
             lv_label_set_text(ui_TargetTemp, temp_str);
             lv_label_set_text(ui_ChartTargetTemp, temp_str);
             lv_bar_set_range(ui_BarHeaterTemp, 0, temp_limited);
+            heater_tempset();
         }
         else {
             // 使用snprintf防止缓冲区溢出
@@ -59,6 +61,7 @@ void ui_event_Confirm(lv_event_t * e) {
             lv_label_set_text(ui_TargetTemp, temp_str);
             lv_label_set_text(ui_ChartTargetTemp, temp_str);
             lv_bar_set_range(ui_BarHeaterTemp, 0, SetTemp);
+            heater_tempset();
         }
         if(tempset_status == 1)
         {
