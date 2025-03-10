@@ -54,12 +54,16 @@ void heater_run()
 
     case tuner.tunings: // active just once when sTune is done
       tuner.GetAutoTunings(&Kp, &Ki, &Kd); // sketch variables updated by sTune
-      myPID.EnablePredictControl(true, 2.0, 5.0); // 启用预测控制
+      myPID.EnablePredictControl(true, 2.0, 6.0); // 启用预测控制
       myPID.SetSampleTimeUs(testTimeSec / samples);
       myPID.SetMode(QuickPID::Control::automatic);
       myPID.SetProportionalMode(QuickPID::pMode::pOnMeas);
       myPID.SetAntiWindupMode(QuickPID::iAwMode::iAwCondition);
       myPID.SetTunings(Kp, Ki, Kd); // update PID with the new tunings
+      all_Kp = Kp;
+      all_Ki = Ki;
+      all_Kd = Kd;
+      pid_setting();
       break;
 
     case tuner.runPid: // active once per sample after tunings

@@ -79,3 +79,18 @@ void ChartHeaterStop(lv_event_t * e)
 {
 	// Your code here
 }
+
+void KpUpdate(lv_event_t * e)
+{
+	// Your code here
+}
+
+void KiUpdate(lv_event_t * e)
+{
+	// Your code here
+}
+
+void KdUpdate(lv_event_t * e)
+{
+	// Your code here
+}

@@ -61,29 +61,29 @@ lv_obj_set_style_radius(ui_PIDSettingDock, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
 ui_object_set_themeable_style_property(ui_PIDSettingDock, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_Container);
 ui_object_set_themeable_style_property(ui_PIDSettingDock, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_Container);
 
-ui_KPSPinBox = lv_spinbox_create(ui_PIDSettingDock);
-lv_obj_set_width( ui_KPSPinBox, 180);
-lv_obj_set_height( ui_KPSPinBox, 41);
-lv_obj_set_x( ui_KPSPinBox, 4 );
-lv_obj_set_y( ui_KPSPinBox, 20 );
-lv_spinbox_set_digit_format( ui_KPSPinBox, 6, 3);
-lv_spinbox_set_range( ui_KPSPinBox, 0,999999 );
-lv_spinbox_set_cursor_pos(ui_KPSPinBox, 1 - 1);
-lv_obj_set_style_radius(ui_KPSPinBox, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
-ui_object_set_themeable_style_property(ui_KPSPinBox, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_ButtonAndBack);
-ui_object_set_themeable_style_property(ui_KPSPinBox, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_ButtonAndBack);
-lv_obj_set_style_pad_left(ui_KPSPinBox, 0, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_pad_right(ui_KPSPinBox, 1, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_pad_top(ui_KPSPinBox, 1, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_pad_bottom(ui_KPSPinBox, 0, LV_PART_MAIN| LV_STATE_DEFAULT);
-ui_object_set_themeable_style_property(ui_KPSPinBox, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
-ui_object_set_themeable_style_property(ui_KPSPinBox, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
-lv_obj_set_style_text_align(ui_KPSPinBox, LV_TEXT_ALIGN_RIGHT, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_text_font(ui_KPSPinBox, &ui_font_ASCII32, LV_PART_MAIN| LV_STATE_DEFAULT);
+ui_KPSpinBox = lv_spinbox_create(ui_PIDSettingDock);
+lv_obj_set_width( ui_KPSpinBox, 180);
+lv_obj_set_height( ui_KPSpinBox, 41);
+lv_obj_set_x( ui_KPSpinBox, 4 );
+lv_obj_set_y( ui_KPSpinBox, 20 );
+lv_spinbox_set_digit_format( ui_KPSpinBox, 6, 3);
+lv_spinbox_set_range( ui_KPSpinBox, 0,999999 );
+lv_spinbox_set_cursor_pos(ui_KPSpinBox, 1 - 1);
+lv_obj_set_style_radius(ui_KPSpinBox, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
+ui_object_set_themeable_style_property(ui_KPSpinBox, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_ButtonAndBack);
+ui_object_set_themeable_style_property(ui_KPSpinBox, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_ButtonAndBack);
+lv_obj_set_style_pad_left(ui_KPSpinBox, 0, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_pad_right(ui_KPSpinBox, 1, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_pad_top(ui_KPSpinBox, 1, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_pad_bottom(ui_KPSpinBox, 0, LV_PART_MAIN| LV_STATE_DEFAULT);
+ui_object_set_themeable_style_property(ui_KPSpinBox, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
+ui_object_set_themeable_style_property(ui_KPSpinBox, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
+lv_obj_set_style_text_align(ui_KPSpinBox, LV_TEXT_ALIGN_RIGHT, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_text_font(ui_KPSpinBox, &ui_font_ASCII32, LV_PART_MAIN| LV_STATE_DEFAULT);
 
-lv_obj_set_style_radius(ui_KPSPinBox, 1, LV_PART_CURSOR| LV_STATE_DEFAULT);
+lv_obj_set_style_radius(ui_KPSpinBox, 1, LV_PART_CURSOR| LV_STATE_DEFAULT);
 
-ui_TextPIDKP = lv_label_create(ui_KPSPinBox);
+ui_TextPIDKP = lv_label_create(ui_KPSpinBox);
 lv_obj_set_width( ui_TextPIDKP, LV_SIZE_CONTENT);  /// 1
 lv_obj_set_height( ui_TextPIDKP, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_TextPIDKP, 2 );
@@ -271,6 +271,9 @@ lv_obj_set_style_shadow_color(ui_KDUp, lv_color_hex(0x000000), LV_PART_MAIN | LV
 lv_obj_set_style_shadow_opa(ui_KDUp, 0, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 lv_obj_add_event_cb(ui_PIDSettingBack, ui_event_PIDSettingBack, LV_EVENT_ALL, NULL);
+lv_obj_add_event_cb(ui_KPSpinBox, ui_event_KPSpinBox, LV_EVENT_ALL, NULL);
+lv_obj_add_event_cb(ui_KISpinBox, ui_event_KISpinBox, LV_EVENT_ALL, NULL);
+lv_obj_add_event_cb(ui_KDSpinBox, ui_event_KDSpinBox, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_KPDown, ui_event_KPDown, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_KPUp, ui_event_KPUp, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_KIDown, ui_event_KIDown, LV_EVENT_ALL, NULL);

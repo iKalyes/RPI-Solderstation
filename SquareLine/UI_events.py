@@ -70,3 +70,11 @@ def ChartHeaterStart(event_struct):
 def ChartHeaterStop(event_struct):
     return
 
+
+def KpUpdate(event_struct):
+    return
+
+
+def KiUpdate(event_struct):
+    return
+

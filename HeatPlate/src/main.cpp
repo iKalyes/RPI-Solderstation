@@ -38,4 +38,9 @@ void setup1()
 void loop1()
 {
   heater_run();
+  if(timer_minute >= sleep_time)
+  {
+    heater_stop();
+    clock_status = 0;
+  }
 }

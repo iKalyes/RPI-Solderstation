@@ -10,5 +10,9 @@
 
 #include <Arduino.h>
 #include <variables.h>
+#include "QuickPID/src/QuickPID.h"
+
+void pid_setting();
+void pid_update();
 
 #endif

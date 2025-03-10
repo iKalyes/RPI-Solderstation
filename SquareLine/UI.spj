@@ -26367,7 +26367,7 @@
                   {
                     "nid": 10,
                     "strtype": "OBJECT/Name",
-                    "strval": "KPSPinBox",
+                    "strval": "KPSpinBox",
                     "InheritedType": 10
                   },
                   {
@@ -26571,6 +26571,71 @@
                     "strtype": "SPINBOX/Style_cursor",
                     "strval": "lv.PART.CURSOR, Rectangle, Text",
                     "InheritedType": 11
+                  },
+                  {
+                    "disabled": false,
+                    "nid": 1001137,
+                    "strtype": "_event/EventHandler",
+                    "strval": "VALUE_CHANGED",
+                    "childs": [
+                      {
+                        "nid": 1001138,
+                        "strtype": "_event/name",
+                        "strval": "KpUpdate",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1001139,
+                        "strtype": "_event/condition_C",
+                        "strval": "",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1001140,
+                        "strtype": "_event/condition_P",
+                        "strval": "",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1001141,
+                        "strtype": "_event/action",
+                        "strval": "CALL FUNCTION",
+                        "childs": [
+                          {
+                            "nid": 1001142,
+                            "strtype": "CALL FUNCTION/Name",
+                            "strval": "CALL FUNCTION",
+                            "InheritedType": 10
+                          },
+                          {
+                            "nid": 1001143,
+                            "strtype": "CALL FUNCTION/Call",
+                            "strval": "<{Function_name}>( event_struct )",
+                            "InheritedType": 10
+                          },
+                          {
+                            "nid": 1001144,
+                            "strtype": "CALL FUNCTION/CallC",
+                            "strval": "<{Function_name}>( e );",
+                            "InheritedType": 10
+                          },
+                          {
+                            "nid": 1001145,
+                            "strtype": "CALL FUNCTION/Function_name",
+                            "strval": "KpUpdate",
+                            "InheritedType": 10
+                          },
+                          {
+                            "nid": 1001146,
+                            "strtype": "CALL FUNCTION/Dont_export_function",
+                            "strval": "False",
+                            "InheritedType": 2
+                          }
+                        ],
+                        "InheritedType": 10
+                      }
+                    ],
+                    "InheritedType": 4
                   }
                 ],
                 "saved_objtypeKey": "SPINBOX",
@@ -26962,6 +27027,71 @@
                     "strtype": "SPINBOX/Style_cursor",
                     "strval": "lv.PART.CURSOR, Rectangle, Text",
                     "InheritedType": 11
+                  },
+                  {
+                    "disabled": false,
+                    "nid": 1001147,
+                    "strtype": "_event/EventHandler",
+                    "strval": "VALUE_CHANGED",
+                    "childs": [
+                      {
+                        "nid": 1001148,
+                        "strtype": "_event/name",
+                        "strval": "KiUpdate",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1001149,
+                        "strtype": "_event/condition_C",
+                        "strval": "",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1001150,
+                        "strtype": "_event/condition_P",
+                        "strval": "",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1001151,
+                        "strtype": "_event/action",
+                        "strval": "CALL FUNCTION",
+                        "childs": [
+                          {
+                            "nid": 1001152,
+                            "strtype": "CALL FUNCTION/Name",
+                            "strval": "CALL FUNCTION",
+                            "InheritedType": 10
+                          },
+                          {
+                            "nid": 1001153,
+                            "strtype": "CALL FUNCTION/Call",
+                            "strval": "<{Function_name}>( event_struct )",
+                            "InheritedType": 10
+                          },
+                          {
+                            "nid": 1001154,
+                            "strtype": "CALL FUNCTION/CallC",
+                            "strval": "<{Function_name}>( e );",
+                            "InheritedType": 10
+                          },
+                          {
+                            "nid": 1001155,
+                            "strtype": "CALL FUNCTION/Function_name",
+                            "strval": "KiUpdate",
+                            "InheritedType": 10
+                          },
+                          {
+                            "nid": 1001156,
+                            "strtype": "CALL FUNCTION/Dont_export_function",
+                            "strval": "False",
+                            "InheritedType": 2
+                          }
+                        ],
+                        "InheritedType": 10
+                      }
+                    ],
+                    "InheritedType": 4
                   }
                 ],
                 "saved_objtypeKey": "SPINBOX",
@@ -27353,6 +27483,71 @@
                     "strtype": "SPINBOX/Style_cursor",
                     "strval": "lv.PART.CURSOR, Rectangle, Text",
                     "InheritedType": 11
+                  },
+                  {
+                    "disabled": false,
+                    "nid": 1001157,
+                    "strtype": "_event/EventHandler",
+                    "strval": "VALUE_CHANGED",
+                    "childs": [
+                      {
+                        "nid": 1001158,
+                        "strtype": "_event/name",
+                        "strval": "KdUpdate",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1001159,
+                        "strtype": "_event/condition_C",
+                        "strval": "",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1001160,
+                        "strtype": "_event/condition_P",
+                        "strval": "",
+                        "InheritedType": 10
+                      },
+                      {
+                        "nid": 1001161,
+                        "strtype": "_event/action",
+                        "strval": "CALL FUNCTION",
+                        "childs": [
+                          {
+                            "nid": 1001162,
+                            "strtype": "CALL FUNCTION/Name",
+                            "strval": "CALL FUNCTION",
+                            "InheritedType": 10
+                          },
+                          {
+                            "nid": 1001163,
+                            "strtype": "CALL FUNCTION/Call",
+                            "strval": "<{Function_name}>( event_struct )",
+                            "InheritedType": 10
+                          },
+                          {
+                            "nid": 1001164,
+                            "strtype": "CALL FUNCTION/CallC",
+                            "strval": "<{Function_name}>( e );",
+                            "InheritedType": 10
+                          },
+                          {
+                            "nid": 1001165,
+                            "strtype": "CALL FUNCTION/Function_name",
+                            "strval": "KdUpdate",
+                            "InheritedType": 10
+                          },
+                          {
+                            "nid": 1001166,
+                            "strtype": "CALL FUNCTION/Dont_export_function",
+                            "strval": "False",
+                            "InheritedType": 2
+                          }
+                        ],
+                        "InheritedType": 10
+                      }
+                    ],
+                    "InheritedType": 4
                   }
                 ],
                 "saved_objtypeKey": "SPINBOX",
@@ -29220,7 +29415,7 @@
     "uiExportFolderPath": "/Users/quin/Documents/RPI-Solderstation/HeatPlate/src/ui",
     "projectExportFolderPath": "/Users/quin/Documents/RPI-Solderstation/HeatPlate",
     "custom_variable_prefix": "uic",
-    "backup_cnt": 75,
+    "backup_cnt": 76,
     "autosave_cnt": 0,
     "group_color_cnt": 1,
     "lvgl_version": "8.3.11",
@@ -29237,7 +29432,7 @@
     "drive_fatfs_path": "",
     "naming": "Name",
     "naming_force_lowercase": false,
-    "nidcnt": 1001137,
+    "nidcnt": 1001167,
     "BitDepth": 16,
     "Name": "UI"
   }

@@ -43,6 +43,10 @@ extern uint16_t SetTemp;
 extern lv_timer_t* chart_update_timer;
 extern lv_chart_series_t * ui_TempChart_TempSeries;
 extern lv_chart_series_t * ui_TempChart_DutySeries;
+//heater-run//
+extern float all_Kp;
+extern float all_Ki;
+extern float all_Kd;
 
 
 #endif

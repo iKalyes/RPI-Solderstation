@@ -33,3 +33,7 @@ uint16_t SetTemp;
 lv_timer_t* chart_update_timer;
 lv_chart_series_t * ui_TempChart_TempSeries;
 lv_chart_series_t * ui_TempChart_DutySeries;
+//heater-run//
+float all_Kp;
+float all_Ki;
+float all_Kd;

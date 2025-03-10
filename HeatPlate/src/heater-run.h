@@ -7,6 +7,7 @@
 #include "hardware/pwm.h"
 #include "sTune/src/sTune.h"
 #include "QuickPID/src/QuickPID.h"
+#include "ui-pidsetting.h"
 
 void heater_tempset();
 void heater_templimit();
