@@ -78,3 +78,7 @@ def KpUpdate(event_struct):
 def KiUpdate(event_struct):
     return
 
+
+def KdUpdate(event_struct):
+    return
+
