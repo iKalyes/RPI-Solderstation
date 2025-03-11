@@ -99,8 +99,8 @@ void pid_setting()
     uint32_t Kd = (uint32_t)(all_Kd * 1000.0f + 0.5f); 
 
     lv_spinbox_set_value(ui_KPSpinBox, Kp);
-    lv_spinbox_set_value(ui_KISpinBox, Kp);
-    lv_spinbox_set_value(ui_KDSpinBox, Kp);
+    lv_spinbox_set_value(ui_KISpinBox, Ki);
+    lv_spinbox_set_value(ui_KDSpinBox, Kd);
 }
 
 void pid_update()
