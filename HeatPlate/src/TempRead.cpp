@@ -1,4 +1,4 @@
-#include <tempread.h>
+#include <TempRead.h>
 
 TMP102 sensor0;
 MAX6675 sensor1(24, 25, 26, &SPI1, 1000000);

@@ -13,6 +13,7 @@
 #include <flash.h>
 #include <display.h>
 #include <heater-run.h>
+#include <lvgl_group.h>
 
 
 #endif

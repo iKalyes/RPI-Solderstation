@@ -10,5 +10,6 @@
 
 #include <Arduino.h>
 #include <variables.h>
+#include <lvgl_group.h>
 
 #endif

@@ -8,8 +8,10 @@
 #include <encoder.h>
 #include <display.h>
 #include <flash.h>
-#include <tempread.h>
+#include <TempRead.h>
 #include <clock.h>
 #include <heater-run.h>
+
+#include <lvgl_group.h>
 
 #endif

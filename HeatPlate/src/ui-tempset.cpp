@@ -66,11 +66,13 @@ void ui_event_Confirm(lv_event_t * e) {
         if(tempset_status == 1)
         {
             _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_MainScreen_screen_init);
+            lvgl_group_to_main();
             tempset_status = 0;
         }
         if(tempset_status == 2)
         {
             _ui_screen_change(&ui_ChartScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_ChartScreen_screen_init);
+            lvgl_group_to_chart();
             tempset_status = 0;
         }
     }
@@ -165,11 +167,13 @@ if ( event_code == LV_EVENT_PRESSED) {
         if(tempset_status == 1)
         {
             _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_MainScreen_screen_init);
+            lvgl_group_to_main();
             tempset_status = 0;
         }
         if(tempset_status == 2)
         {
             _ui_screen_change(&ui_ChartScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_ChartScreen_screen_init);
+            lvgl_group_to_chart();
             tempset_status = 0;
         }
 }

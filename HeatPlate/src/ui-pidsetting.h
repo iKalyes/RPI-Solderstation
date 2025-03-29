@@ -11,6 +11,7 @@
 #include <Arduino.h>
 #include <variables.h>
 #include "QuickPID/src/QuickPID.h"
+#include <lvgl_group.h>
 
 void pid_setting();
 void pid_update();

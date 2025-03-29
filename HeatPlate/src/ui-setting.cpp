@@ -5,6 +5,7 @@ void ui_event_SystemSettingBack( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_change( &ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_MainScreen_screen_init);
+        lvgl_group_to_main();
 }
 }
 
@@ -13,6 +14,7 @@ void ui_event_PIDSetting( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_PRESSED) {
       _ui_screen_change( &ui_PIDSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_PIDSettingScreen_screen_init);
+        lvgl_group_to_pid();
 }
 }
 
@@ -21,6 +23,7 @@ void ui_event_CustomCurve( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_PRESSED) {
       _ui_screen_change( &ui_HeatingCurveScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_HeatingCurveScreen_screen_init);
+        lvgl_group_to_curve();
 }
 }
 

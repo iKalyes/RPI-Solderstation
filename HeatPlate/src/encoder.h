@@ -1,11 +1,15 @@
-#ifndef _ENCODER_H_
-#define _ENCODER_H_
+#ifndef _ENCODER_H
+#define _ENCODER_H
 
 #include <Arduino.h>
 #include <RotaryEncoder.h>
+#include <variables.h>
+#include <lvgl.h>
+#include "ui/ui.h"
 
-void encoder_tick();
+void encoder_tick();  // Interrupt Service Routine for the encoder
 void encoder_init();
-void encoder_run();
+void encoder_lvgl_init();
+lv_indev_t* get_encoder_indev();
 
 #endif

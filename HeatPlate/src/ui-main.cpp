@@ -6,6 +6,7 @@ void ui_event_TempSet( lv_event_t * e) {
 if ( event_code == LV_EVENT_RELEASED) {
       tempset_status = 1;
       _ui_screen_change( &ui_TemperatureSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_TemperatureSettingScreen_screen_init);
+      lvgl_group_to_tempset();
 }
 }
 
@@ -14,6 +15,7 @@ void ui_event_Setting( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_change( &ui_SystemSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_SystemSettingScreen_screen_init);
+      lvgl_group_to_setting();
 }
 }
 
@@ -68,5 +70,6 @@ void ui_event_ScreenSwitch( lv_event_t * e) {
 if ( event_code == LV_EVENT_PRESSED) {
       _ui_screen_change( &ui_ChartScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_ChartScreen_screen_init);
       lv_timer_resume(chart_update_timer);
+      lvgl_group_to_chart();
 }
 }

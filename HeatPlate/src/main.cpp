@@ -14,6 +14,9 @@ void setup()
     display_init();
     backlight_init();
     update_chart_init();
+
+    encoder_lvgl_init();
+    lvgl_group_init();
 }
 
 void loop()

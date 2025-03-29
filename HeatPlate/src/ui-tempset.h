@@ -11,6 +11,7 @@
 #include <Arduino.h>
 #include <variables.h>
 #include <heater-run.h>
+#include <lvgl_group.h>
 
 void updateDisplay();
 void handleNumberInput(char num);
