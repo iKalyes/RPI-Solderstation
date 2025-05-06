@@ -48,6 +48,38 @@ void ReadFlash() {
     EEPROM.end();
 }
 
+void WritePID()
+{
+    EEPROM.begin(256);
+    uint32_t Kp = (uint32_t)(all_Kp * 1000.0f + 0.5f); 
+    uint32_t Ki = (uint32_t)(all_Ki * 1000.0f + 0.5f); 
+    uint32_t Kd = (uint32_t)(all_Kd * 1000.0f + 0.5f); 
+
+    EEPROM.put(28, Kp); //uint32_t
+    EEPROM.put(32, Ki); //uint32_t
+    EEPROM.put(36, Kd); //uint32_t
+
+    EEPROM.end();
+}
+
+void ReadPID()
+{
+    EEPROM.begin(256);
+    uint32_t Kp; 
+    uint32_t Ki; 
+    uint32_t Kd; 
+
+    EEPROM.get(28, Kp);
+    EEPROM.get(32, Ki);
+    EEPROM.get(36, Kd);
+
+    all_Kp = Kp / 1000.0f;
+    all_Ki = Ki / 1000.0f;
+    all_Kd = Kd / 1000.0f;
+
+    EEPROM.end();
+}
+
 void ClearFlash(){
     EEPROM.begin(256);
     for (int i = 0; i < 256; i++) {

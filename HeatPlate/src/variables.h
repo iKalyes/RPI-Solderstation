@@ -16,6 +16,7 @@ extern uint8_t timer_minute;
 //temperature//
 extern float room_temperature;
 extern float heater_temperature;
+extern float heater_duty;
 extern int heater_status;
 //custom curve//
 extern uint16_t stage1_temp;

@@ -12,6 +12,8 @@
 #include <variables.h>
 #include "QuickPID/src/QuickPID.h"
 #include <lvgl_group.h>
+#include <heater-run.h>
+#include <flash.h>
 
 void pid_setting();
 void pid_update();

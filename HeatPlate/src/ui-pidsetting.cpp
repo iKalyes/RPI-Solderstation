@@ -6,6 +6,7 @@ void ui_event_PIDSettingBack( lv_event_t * e) {
 if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_change( &ui_SystemSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_SystemSettingScreen_screen_init);
         lvgl_group_to_setting();
+        WritePID();
 }
 }
 
@@ -106,8 +107,19 @@ void pid_setting()
 
 void pid_update()
 {
-    float Kp = lv_spinbox_get_value(ui_KPSpinBox) / 1000.0f;
-    float Ki = lv_spinbox_get_value(ui_KISpinBox) / 1000.0f;
-    float Kd = lv_spinbox_get_value(ui_KDSpinBox) / 1000.0f;
-    PID.SetTunings(Kp, Ki, Kd);
+    all_Kp = lv_spinbox_get_value(ui_KPSpinBox) / 1000.0f;
+    all_Ki = lv_spinbox_get_value(ui_KISpinBox) / 1000.0f;
+    all_Kd = lv_spinbox_get_value(ui_KDSpinBox) / 1000.0f;
+    PID.SetTunings(all_Kp, all_Ki, all_Kd);
+    if(all_Kp != 0 || all_Ki != 0 || all_Kd != 0)
+    {
+        PID_flag_True();
+        SetStatusRunPid();
+    }
+    else
+    {
+        PID_flag_False();
+        SetStatusSample();
+    }
+
 }

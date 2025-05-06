@@ -1724,7 +1724,7 @@
                     "flags": 17,
                     "strtype": "OBJECT/Position",
                     "intarray": [
-                      58,
+                      59,
                       3
                     ],
                     "InheritedType": 7
@@ -1896,7 +1896,7 @@
                     "flags": 17,
                     "strtype": "OBJECT/Position",
                     "intarray": [
-                      55,
+                      -81,
                       21
                     ],
                     "InheritedType": 7
@@ -1914,7 +1914,7 @@
                   {
                     "nid": 70,
                     "strtype": "OBJECT/Align",
-                    "strval": "TOP_LEFT",
+                    "strval": "TOP_RIGHT",
                     "InheritedType": 3
                   },
                   {
@@ -24470,7 +24470,7 @@
                     "flags": 17,
                     "strtype": "OBJECT/Position",
                     "intarray": [
-                      80,
+                      -179,
                       23
                     ],
                     "InheritedType": 7
@@ -24488,7 +24488,7 @@
                   {
                     "nid": 70,
                     "strtype": "OBJECT/Align",
-                    "strval": "LEFT_MID",
+                    "strval": "RIGHT_MID",
                     "InheritedType": 3
                   },
                   {
@@ -29713,7 +29713,7 @@
                     "flags": 17,
                     "strtype": "OBJECT/Position",
                     "intarray": [
-                      178,
+                      -7,
                       67
                     ],
                     "InheritedType": 7
@@ -29731,7 +29731,7 @@
                   {
                     "nid": 70,
                     "strtype": "OBJECT/Align",
-                    "strval": "LEFT_MID",
+                    "strval": "RIGHT_MID",
                     "InheritedType": 3
                   },
                   {
@@ -30514,8 +30514,8 @@
     "editor_version": "1.5.1",
     "image": "",
     "export_temp_image": false,
-    "force_export_images": false,
-    "flat_export": true,
+    "force_export_images": true,
+    "flat_export": false,
     "advanced_alpha": false,
     "pointfilter": true,
     "theme_simplified": false,
@@ -30525,7 +30525,7 @@
     "uiExportFolderPath": "/Users/quin/Documents/RPI-Solderstation/HeatPlate/src/ui",
     "projectExportFolderPath": "/Users/quin/Documents/RPI-Solderstation/HeatPlate",
     "custom_variable_prefix": "uic",
-    "backup_cnt": 86,
+    "backup_cnt": 88,
     "autosave_cnt": 0,
     "group_color_cnt": 0,
     "lvgl_version": "8.3.11",

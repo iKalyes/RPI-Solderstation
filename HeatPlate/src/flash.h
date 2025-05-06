@@ -7,5 +7,7 @@
 void WriteFlash();
 void ReadFlash();
 void ClearFlash();
+void ReadPID();
+void WritePID();
 
 #endif

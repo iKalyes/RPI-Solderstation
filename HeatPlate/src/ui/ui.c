@@ -224,6 +224,10 @@ void ui_event_KDDown( lv_event_t * e);
 lv_obj_t *ui_KDDown;
 void ui_event_KDUp( lv_event_t * e);
 lv_obj_t *ui_KDUp;
+lv_obj_t *ui_PIDCurrentTemp;
+lv_obj_t *ui_PIDTargetTemp;
+lv_obj_t *ui_TextPIDCurrentTemp;
+lv_obj_t *ui_TextPIDSettingTemp;
 // CUSTOM VARIABLES
 
 // EVENTS

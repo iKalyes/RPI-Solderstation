@@ -12,6 +12,7 @@ const float outputSpan = 100; //控制输出范围（暂无用）
 float outputStart = 0;        //稳定时间输出值
 float outputStep = 50;        //采样阶段输出值
 float tempLimit;              //温度上限
+bool PID_flag = false;      //PID标志位
 
 // variables
 float Setpoint;         
@@ -37,6 +38,33 @@ void heater_init()
   tuner.Configure(inputSpan, outputSpan, outputStart, outputStep, testTimeSec, settleTimeSec, samples);
   tuner.SetEmergencyStop(tempLimit);
   tuner.initHardwarePwm(relayPin);
+  if(all_Kp != 0 || all_Ki != 0 || all_Kd != 0)
+  {
+    myPID.SetOutputLimits(0, 100); // 限制输出范围
+    myPID.SetSampleTimeUs(testTimeSec / samples);
+    myPID.SetMode(QuickPID::Control::automatic);
+    myPID.SetProportionalMode(QuickPID::pMode::pOnMeas);
+    myPID.SetAntiWindupMode(QuickPID::iAwMode::iAwCondition);
+    myPID.SetTunings(all_Kp, all_Ki, all_Kd); // update PID with the new tunings
+    pid_setting();
+    tuner.SetStausRunPid();
+    PID_flag = true;
+  }
+  else
+  {
+    PID_flag = false;
+  }
+  
+}
+
+void PID_flag_True()
+{
+  PID_flag = true;
+}
+
+void PID_flag_False()
+{
+  PID_flag = false;
 }
 
 void heater_run()
@@ -45,36 +73,49 @@ void heater_run()
   {
   float optimumOutput = tuner.hardwarePwm(relayPin, Input, Output, Setpoint);
 
-  switch (tuner.Run()) {
+  if(PID_flag == false)
+  {
+    switch (tuner.Run()) {
 
-    case tuner.sample: // active once per sample during test
-      Input = heater_temperature;
-      tuner.plotter(Input, Output, Setpoint, 1.0f, 1); // output scale 0.5, plot every 3rd sample
-      break;
-
-    case tuner.tunings: // active just once when sTune is done
-      tuner.GetAutoTunings(&Kp, &Ki, &Kd); // sketch variables updated by sTune
-      myPID.EnablePredictControl(true, 2.0, 6.0); // 启用预测控制
-      myPID.SetSampleTimeUs(testTimeSec / samples);
-      myPID.SetMode(QuickPID::Control::automatic);
-      myPID.SetProportionalMode(QuickPID::pMode::pOnMeas);
-      myPID.SetAntiWindupMode(QuickPID::iAwMode::iAwCondition);
-      myPID.SetTunings(Kp, Ki, Kd); // update PID with the new tunings
-      all_Kp = Kp;
-      all_Ki = Ki;
-      all_Kd = Kd;
-      pid_setting();
-      break;
-
-    case tuner.runPid: // active once per sample after tunings
-      Input = heater_temperature;
-      myPID.Compute();
-      tuner.plotter(Input, optimumOutput, Setpoint, 1.0f, 1);
-      break;
-   }
+      case tuner.sample: // active once per sample during test
+        Input = heater_temperature;
+        tuner.plotter(Input, Output, Setpoint, 1.0f, 1); // output scale 0.5, plot every 3rd sample
+        heater_duty = Output;
+        break;
+  
+      case tuner.tunings: // active just once when sTune is done
+        tuner.GetAutoTunings(&Kp, &Ki, &Kd); // sketch variables updated by sTune
+        myPID.EnablePredictControl(true, 2.0, 6.0); // 启用预测控制
+        myPID.SetSampleTimeUs(testTimeSec / samples);
+        myPID.SetMode(QuickPID::Control::automatic);
+        myPID.SetProportionalMode(QuickPID::pMode::pOnMeas);
+        myPID.SetAntiWindupMode(QuickPID::iAwMode::iAwCondition);
+        myPID.SetTunings(Kp, Ki, Kd); // update PID with the new tunings
+        all_Kp = Kp;
+        all_Ki = Ki;
+        all_Kd = Kd;
+        pid_setting();
+        WritePID();
+        PID_flag = true;
+        break;
+     }
   }
   else
   {
+    switch (tuner.Run()) {
+      case tuner.runPid: // active once per sample during test
+        Input = heater_temperature;
+        myPID.Compute();
+        heater_duty = optimumOutput;
+        tuner.plotter(Input, optimumOutput, Setpoint, 1.0f, 1);
+        break;
+    }
+  }
+
+  }
+  else
+  {
+    heater_duty = 0;
     tuner.StopPwm(relayPin);
   }
 }
@@ -82,7 +123,25 @@ void heater_run()
 void heater_stop()
 {
   heating_status = 0;
-  tuner.Reset(relayPin);
+  if(PID_flag == true)
+  {
+    tuner.Reset(relayPin);
+    tuner.SetStausRunPid();
+  }
+  else
+  {
+    tuner.Reset(relayPin);
+  }
+}
+
+void SetStatusRunPid()
+{
+  tuner.SetStausRunPid();
+}
+
+void SetStatusSample()
+{
+  tuner.SetStausSample();
 }
 
 void fan_init()
@@ -109,6 +168,4 @@ void fan_off()
   uint slice_num = pwm_gpio_to_slice_num(20);
   uint channel = pwm_gpio_to_channel(20);
   pwm_set_chan_level(slice_num, channel, 0);
-  Serial.println(tempLimit);
-  Serial.println(Setpoint);
 }

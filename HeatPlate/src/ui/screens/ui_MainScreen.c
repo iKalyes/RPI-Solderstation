@@ -9,8 +9,8 @@ void ui_MainScreen_screen_init(void)
 {
 ui_MainScreen = lv_obj_create(NULL);
 lv_obj_clear_flag( ui_MainScreen, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
-lv_obj_set_style_bg_color(ui_MainScreen, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT );
-lv_obj_set_style_bg_opa(ui_MainScreen, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
+ui_object_set_themeable_style_property(ui_MainScreen, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_ButtonAndBack);
+ui_object_set_themeable_style_property(ui_MainScreen, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_ButtonAndBack);
 
 ui_StatusHeader = lv_obj_create(ui_MainScreen);
 lv_obj_remove_style_all(ui_StatusHeader);
@@ -137,9 +137,9 @@ lv_img_set_zoom(ui_ImageHeater,300);
 ui_TextTarget = lv_label_create(ui_HeaterSetDock);
 lv_obj_set_width( ui_TextTarget, LV_SIZE_CONTENT);  /// 1
 lv_obj_set_height( ui_TextTarget, LV_SIZE_CONTENT);   /// 1
-lv_obj_set_x( ui_TextTarget, 58 );
+lv_obj_set_x( ui_TextTarget, 59 );
 lv_obj_set_y( ui_TextTarget, 3 );
-lv_label_set_text(ui_TextTarget,"TARGET:");
+lv_label_set_text(ui_TextTarget,"设定温度:");
 ui_object_set_themeable_style_property(ui_TextTarget, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
 ui_object_set_themeable_style_property(ui_TextTarget, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
 lv_obj_set_style_text_font(ui_TextTarget, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
@@ -147,8 +147,9 @@ lv_obj_set_style_text_font(ui_TextTarget, &ui_font_ASCII, LV_PART_MAIN| LV_STATE
 ui_TargetTemp = lv_label_create(ui_HeaterSetDock);
 lv_obj_set_width( ui_TargetTemp, LV_SIZE_CONTENT);  /// 1
 lv_obj_set_height( ui_TargetTemp, LV_SIZE_CONTENT);   /// 1
-lv_obj_set_x( ui_TargetTemp, 55 );
+lv_obj_set_x( ui_TargetTemp, -81 );
 lv_obj_set_y( ui_TargetTemp, 21 );
+lv_obj_set_align( ui_TargetTemp, LV_ALIGN_TOP_RIGHT );
 lv_label_set_text(ui_TargetTemp,"000");
 ui_object_set_themeable_style_property(ui_TargetTemp, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
 ui_object_set_themeable_style_property(ui_TargetTemp, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
@@ -189,16 +190,27 @@ lv_obj_clear_flag( ui_HeaterTempDock, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_SCROLL
 
 ui_BarHeaterTemp = lv_bar_create(ui_HeaterTempDock);
 lv_bar_set_range(ui_BarHeaterTemp, 0,400);
+lv_bar_set_value(ui_BarHeaterTemp,100,LV_ANIM_OFF);
+lv_bar_set_start_value(ui_BarHeaterTemp, 0, LV_ANIM_OFF);
 lv_obj_set_width( ui_BarHeaterTemp, 210);
 lv_obj_set_height( ui_BarHeaterTemp, 82);
 lv_obj_set_align( ui_BarHeaterTemp, LV_ALIGN_CENTER );
 lv_obj_set_style_radius(ui_BarHeaterTemp, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
 lv_obj_set_style_bg_color(ui_BarHeaterTemp, lv_color_hex(0x00FFFF), LV_PART_MAIN | LV_STATE_DEFAULT );
 lv_obj_set_style_bg_opa(ui_BarHeaterTemp, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_anim_time(ui_BarHeaterTemp, 10, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 lv_obj_set_style_radius(ui_BarHeaterTemp, 5, LV_PART_INDICATOR| LV_STATE_DEFAULT);
 lv_obj_set_style_bg_color(ui_BarHeaterTemp, lv_color_hex(0xFF0000), LV_PART_INDICATOR | LV_STATE_DEFAULT );
 lv_obj_set_style_bg_opa(ui_BarHeaterTemp, 255, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_border_color(ui_BarHeaterTemp, lv_color_hex(0x000000), LV_PART_INDICATOR | LV_STATE_DEFAULT );
+lv_obj_set_style_border_opa(ui_BarHeaterTemp, 255, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_shadow_color(ui_BarHeaterTemp, lv_color_hex(0x343131), LV_PART_INDICATOR | LV_STATE_DEFAULT );
+lv_obj_set_style_shadow_opa(ui_BarHeaterTemp, 255, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_shadow_width(ui_BarHeaterTemp, 20, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_shadow_spread(ui_BarHeaterTemp, 0, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_shadow_ofs_x(ui_BarHeaterTemp, 5, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_shadow_ofs_y(ui_BarHeaterTemp, 0, LV_PART_INDICATOR| LV_STATE_DEFAULT);
 
 ui_HeaterTemp = lv_label_create(ui_HeaterTempDock);
 lv_obj_set_width( ui_HeaterTemp, LV_SIZE_CONTENT);  /// 1
@@ -209,6 +221,8 @@ lv_label_set_text(ui_HeaterTemp,"000");
 ui_object_set_themeable_style_property(ui_HeaterTemp, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
 ui_object_set_themeable_style_property(ui_HeaterTemp, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
 lv_obj_set_style_text_font(ui_HeaterTemp, &ui_font_ASCII96, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_shadow_color(ui_HeaterTemp, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT );
+lv_obj_set_style_shadow_opa(ui_HeaterTemp, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_TextHeaterTemp = lv_label_create(ui_HeaterTempDock);
 lv_obj_set_width( ui_TextHeaterTemp, LV_SIZE_CONTENT);  /// 1

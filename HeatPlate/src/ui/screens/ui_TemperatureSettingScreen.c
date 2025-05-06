@@ -270,7 +270,7 @@ lv_obj_set_height( ui_TextTempSetting, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_TextTempSetting, 0 );
 lv_obj_set_y( ui_TextTempSetting, -1 );
 lv_obj_set_align( ui_TextTempSetting, LV_ALIGN_CENTER );
-lv_label_set_text(ui_TextTempSetting,"Temperature Setting");
+lv_label_set_text(ui_TextTempSetting,"加热温度设置");
 ui_object_set_themeable_style_property(ui_TextTempSetting, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
 ui_object_set_themeable_style_property(ui_TextTempSetting, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
 lv_obj_set_style_text_font(ui_TextTempSetting, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
@@ -300,7 +300,7 @@ lv_obj_set_style_text_font(ui_SetTemp, &ui_font_ASCII48, LV_PART_MAIN| LV_STATE_
 ui_TextSetTemp = lv_label_create(ui_TempSetting);
 lv_obj_set_width( ui_TextSetTemp, LV_SIZE_CONTENT);  /// 1
 lv_obj_set_height( ui_TextSetTemp, LV_SIZE_CONTENT);   /// 1
-lv_obj_set_x( ui_TextSetTemp, 80 );
+lv_obj_set_x( ui_TextSetTemp, 78 );
 lv_obj_set_y( ui_TextSetTemp, -8 );
 lv_obj_set_align( ui_TextSetTemp, LV_ALIGN_LEFT_MID );
 lv_label_set_text(ui_TextSetTemp,"℃");
@@ -314,7 +314,7 @@ lv_obj_set_height( ui_TextCurrentTemp, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_TextCurrentTemp, 8 );
 lv_obj_set_y( ui_TextCurrentTemp, 22 );
 lv_obj_set_align( ui_TextCurrentTemp, LV_ALIGN_LEFT_MID );
-lv_label_set_text(ui_TextCurrentTemp,"CURRENT:   ℃");
+lv_label_set_text(ui_TextCurrentTemp,"当前温度:   ℃");
 ui_object_set_themeable_style_property(ui_TextCurrentTemp, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
 ui_object_set_themeable_style_property(ui_TextCurrentTemp, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
 lv_obj_set_style_text_font(ui_TextCurrentTemp, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
@@ -322,8 +322,8 @@ lv_obj_set_style_text_font(ui_TextCurrentTemp, &ui_font_ASCII, LV_PART_MAIN| LV_
 ui_CurrentTemp = lv_label_create(ui_TempSetting);
 lv_obj_set_width( ui_CurrentTemp, LV_SIZE_CONTENT);  /// 1
 lv_obj_set_height( ui_CurrentTemp, LV_SIZE_CONTENT);   /// 1
-lv_obj_set_x( ui_CurrentTemp, 71 );
-lv_obj_set_y( ui_CurrentTemp, 22 );
+lv_obj_set_x( ui_CurrentTemp, 79 );
+lv_obj_set_y( ui_CurrentTemp, 23 );
 lv_obj_set_align( ui_CurrentTemp, LV_ALIGN_LEFT_MID );
 lv_label_set_text(ui_CurrentTemp,"000");
 ui_object_set_themeable_style_property(ui_CurrentTemp, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);

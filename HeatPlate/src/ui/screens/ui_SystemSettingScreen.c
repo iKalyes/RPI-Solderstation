@@ -30,7 +30,7 @@ lv_obj_set_height( ui_ImageSystemHeader, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_ImageSystemHeader, 0 );
 lv_obj_set_y( ui_ImageSystemHeader, -1 );
 lv_obj_set_align( ui_ImageSystemHeader, LV_ALIGN_CENTER );
-lv_label_set_text(ui_ImageSystemHeader,"System Setting");
+lv_label_set_text(ui_ImageSystemHeader,"系统设置");
 ui_object_set_themeable_style_property(ui_ImageSystemHeader, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
 ui_object_set_themeable_style_property(ui_ImageSystemHeader, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
 lv_obj_set_style_text_font(ui_ImageSystemHeader, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
@@ -90,7 +90,7 @@ lv_obj_set_height( ui_TextCurve, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_TextCurve, 50 );
 lv_obj_set_y( ui_TextCurve, 0 );
 lv_obj_set_align( ui_TextCurve, LV_ALIGN_LEFT_MID );
-lv_label_set_text(ui_TextCurve,"Heating Curve");
+lv_label_set_text(ui_TextCurve,"自定义加热曲线");
 ui_object_set_themeable_style_property(ui_TextCurve, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
 ui_object_set_themeable_style_property(ui_TextCurve, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
 lv_obj_set_style_text_font(ui_TextCurve, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
@@ -124,7 +124,7 @@ lv_obj_set_height( ui_TextPIDSetting, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_TextPIDSetting, 50 );
 lv_obj_set_y( ui_TextPIDSetting, 0 );
 lv_obj_set_align( ui_TextPIDSetting, LV_ALIGN_LEFT_MID );
-lv_label_set_text(ui_TextPIDSetting,"PID Setting");
+lv_label_set_text(ui_TextPIDSetting,"PID参数设置");
 ui_object_set_themeable_style_property(ui_TextPIDSetting, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
 ui_object_set_themeable_style_property(ui_TextPIDSetting, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
 lv_obj_set_style_text_font(ui_TextPIDSetting, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);

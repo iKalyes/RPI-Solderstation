@@ -74,6 +74,17 @@ void sTune::Reset(const uint8_t pwmPin) {
   pwm_set_chan_level(slice_num, channel, 0);  // 将PWM输出置零
 }
 
+void sTune::SetStausRunPid()
+{
+  _tunerStatus = timerPid;  // 设置状态为运行PID
+}
+
+void sTune::SetStausSample()
+{
+  _tunerStatus = test;  // 设置状态为运行PID
+}
+
+
 void sTune::StopPwm(const uint8_t pwmPin)
 {
   uint slice_num = pwm_gpio_to_slice_num(pwmPin);  // 获取PWM片选号

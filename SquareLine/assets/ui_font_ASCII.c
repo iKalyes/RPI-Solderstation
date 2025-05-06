@@ -4,7 +4,7 @@
  * Opts: --bpp 4 --size 16 --font /Users/quin/Documents/RPI-Solderstation/SquareLine/assets/SarasaMonoSC-Bold.ttf -o /Users/quin/Documents/RPI-Solderstation/SquareLine/assets/ui_font_ASCII.c --format lvgl -r 0x20-0x7f --symbols ℃温度当前设置自定义加热曲线系统参数 --no-compress --no-prefilter
  ******************************************************************************/
 
-#include "ui.h"
+#include "../ui.h"
 
 #ifndef UI_FONT_ASCII
 #define UI_FONT_ASCII 1

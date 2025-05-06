@@ -243,6 +243,10 @@ void ui_event_KDDown( lv_event_t * e);
 extern lv_obj_t *ui_KDDown;
 void ui_event_KDUp( lv_event_t * e);
 extern lv_obj_t *ui_KDUp;
+extern lv_obj_t *ui_PIDCurrentTemp;
+extern lv_obj_t *ui_PIDTargetTemp;
+extern lv_obj_t *ui_TextPIDCurrentTemp;
+extern lv_obj_t *ui_TextPIDSettingTemp;
 // CUSTOM VARIABLES
 
 // EVENTS
@@ -286,6 +290,9 @@ LV_IMG_DECLARE( ui_img_182586645);   // assets/material-symbols_looks-4-outline-
 LV_IMG_DECLARE( ui_img_185733654);   // assets/material-symbols_looks-5-outline-rounded.png
 LV_IMG_DECLARE( ui_img_minus_png);   // assets/minus.png
 LV_IMG_DECLARE( ui_img_plus_png);   // assets/plus.png
+LV_IMG_DECLARE( ui_img_817906860);   // assets/material-symbols_fitbit-arrow-downward-rounded.png
+LV_IMG_DECLARE( ui_img_1345483443);   // assets/material-symbols_fitbit-arrow-upward-rounded.png
+LV_IMG_DECLARE( ui_img_1162706898);   // assets/material-symbols_mode-fan-outline-sharp.png
 
 // FONTS
 LV_FONT_DECLARE( ui_font_ASCII);

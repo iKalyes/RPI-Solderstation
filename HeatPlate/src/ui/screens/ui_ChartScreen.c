@@ -14,9 +14,9 @@ ui_object_set_themeable_style_property(ui_ChartScreen, LV_PART_MAIN| LV_STATE_DE
 
 ui_ChartHeader = lv_obj_create(ui_ChartScreen);
 lv_obj_remove_style_all(ui_ChartHeader);
-lv_obj_set_width( ui_ChartHeader, 312);
+lv_obj_set_width( ui_ChartHeader, 316);
 lv_obj_set_height( ui_ChartHeader, 20);
-lv_obj_set_x( ui_ChartHeader, 4 );
+lv_obj_set_x( ui_ChartHeader, 2 );
 lv_obj_set_y( ui_ChartHeader, 2 );
 lv_obj_clear_flag( ui_ChartHeader, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_SCROLLABLE );    /// Flags
 lv_obj_set_style_radius(ui_ChartHeader, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
@@ -151,7 +151,7 @@ lv_obj_set_style_text_font(ui_ChartTemp, &ui_font_ASCII48, LV_PART_MAIN| LV_STAT
 ui_TextChartTemp = lv_label_create(ui_ChartScreenDock);
 lv_obj_set_width( ui_TextChartTemp, LV_SIZE_CONTENT);  /// 1
 lv_obj_set_height( ui_TextChartTemp, LV_SIZE_CONTENT);   /// 1
-lv_obj_set_x( ui_TextChartTemp, 80 );
+lv_obj_set_x( ui_TextChartTemp, 78 );
 lv_obj_set_y( ui_TextChartTemp, -8 );
 lv_obj_set_align( ui_TextChartTemp, LV_ALIGN_LEFT_MID );
 lv_label_set_text(ui_TextChartTemp,"℃");
@@ -165,7 +165,7 @@ lv_obj_set_height( ui_TextChatTargetTemp, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_TextChatTargetTemp, 8 );
 lv_obj_set_y( ui_TextChatTargetTemp, 22 );
 lv_obj_set_align( ui_TextChatTargetTemp, LV_ALIGN_LEFT_MID );
-lv_label_set_text(ui_TextChatTargetTemp,"TARGET:    ℃");
+lv_label_set_text(ui_TextChatTargetTemp,"设定温度:   ℃");
 ui_object_set_themeable_style_property(ui_TextChatTargetTemp, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
 ui_object_set_themeable_style_property(ui_TextChatTargetTemp, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
 lv_obj_set_style_text_font(ui_TextChatTargetTemp, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
@@ -173,18 +173,18 @@ lv_obj_set_style_text_font(ui_TextChatTargetTemp, &ui_font_ASCII, LV_PART_MAIN| 
 ui_ChartTargetTemp = lv_label_create(ui_ChartScreenDock);
 lv_obj_set_width( ui_ChartTargetTemp, LV_SIZE_CONTENT);  /// 1
 lv_obj_set_height( ui_ChartTargetTemp, LV_SIZE_CONTENT);   /// 1
-lv_obj_set_x( ui_ChartTargetTemp, 68 );
-lv_obj_set_y( ui_ChartTargetTemp, 22 );
-lv_obj_set_align( ui_ChartTargetTemp, LV_ALIGN_LEFT_MID );
+lv_obj_set_x( ui_ChartTargetTemp, -179 );
+lv_obj_set_y( ui_ChartTargetTemp, 23 );
+lv_obj_set_align( ui_ChartTargetTemp, LV_ALIGN_RIGHT_MID );
 lv_label_set_text(ui_ChartTargetTemp,"000");
 ui_object_set_themeable_style_property(ui_ChartTargetTemp, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
 ui_object_set_themeable_style_property(ui_ChartTargetTemp, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
 lv_obj_set_style_text_font(ui_ChartTargetTemp, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_ChartTempSet = lv_btn_create(ui_ChartScreenDock);
-lv_obj_set_width( ui_ChartTempSet, 82);
+lv_obj_set_width( ui_ChartTempSet, 80);
 lv_obj_set_height( ui_ChartTempSet, 60);
-lv_obj_set_x( ui_ChartTempSet, 110 );
+lv_obj_set_x( ui_ChartTempSet, 116 );
 lv_obj_set_y( ui_ChartTempSet, 0 );
 lv_obj_set_align( ui_ChartTempSet, LV_ALIGN_LEFT_MID );
 lv_obj_add_flag( ui_ChartTempSet, LV_OBJ_FLAG_SCROLL_ON_FOCUS );   /// Flags
@@ -197,7 +197,7 @@ lv_obj_set_style_shadow_color(ui_ChartTempSet, lv_color_hex(0x000000), LV_PART_M
 lv_obj_set_style_shadow_opa(ui_ChartTempSet, 0, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_ChartSwitch = lv_btn_create(ui_ChartScreenDock);
-lv_obj_set_width( ui_ChartSwitch, 82);
+lv_obj_set_width( ui_ChartSwitch, 80);
 lv_obj_set_height( ui_ChartSwitch, 60);
 lv_obj_set_x( ui_ChartSwitch, -2 );
 lv_obj_set_y( ui_ChartSwitch, 2 );

@@ -21,6 +21,8 @@ class sTune {  // Inflection Point Autotuner
     uint8_t Run();
     void Reset(const uint8_t pwmPin);
     void StopPwm(const uint8_t pwmPin);
+    void SetStausRunPid();
+    void SetStausSample();
     void printTestRun();
     void printResults();
     void printTunings();

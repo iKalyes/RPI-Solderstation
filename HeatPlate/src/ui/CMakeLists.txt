@@ -47,6 +47,9 @@ SET(SOURCES screens/ui_MainScreen.c
     images/ui_img_185733654.c
     images/ui_img_minus_png.c
     images/ui_img_plus_png.c
+    images/ui_img_817906860.c
+    images/ui_img_1345483443.c
+    images/ui_img_1162706898.c
     fonts/ui_font_ASCII.c
     fonts/ui_font_ASCII32.c
     fonts/ui_font_ASCII48.c

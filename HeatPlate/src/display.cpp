@@ -29,8 +29,6 @@ void my_touchpad_read( lv_indev_drv_t * indev_drv, lv_indev_data_t * data )
   }
   else
   {
-    data->point.x = 0;
-    data->point.y = 0;
     data->state = LV_INDEV_STATE_REL;
   }
 }
@@ -147,16 +145,18 @@ void display_init()
     else if(SetTemp > temp_limited)
     {
       SetTemp = temp_limited;
-      lv_label_set_text_fmt(ui_TargetTemp, "%d", temp_limited);
-      lv_label_set_text_fmt(ui_ChartTargetTemp, "%d", temp_limited);
-      lv_label_set_text_fmt(ui_SetTemp, "%d", temp_limited);
+      lv_label_set_text_fmt(ui_TargetTemp, "%.3d", temp_limited);
+      lv_label_set_text_fmt(ui_ChartTargetTemp, "%.3d", temp_limited);
+      lv_label_set_text_fmt(ui_SetTemp, "%.3d", temp_limited);
+      lv_label_set_text_fmt(ui_PIDTargetTemp, "%.3d℃", temp_limited);
       lv_bar_set_range(ui_BarHeaterTemp, 0, temp_limited);
     }
     else
     {
-      lv_label_set_text_fmt(ui_TargetTemp, "%d", SetTemp);
-      lv_label_set_text_fmt(ui_ChartTargetTemp, "%d", SetTemp);
-      lv_label_set_text_fmt(ui_SetTemp, "%d", SetTemp);
+      lv_label_set_text_fmt(ui_TargetTemp, "%.3d", SetTemp);
+      lv_label_set_text_fmt(ui_ChartTargetTemp, "%.3d", SetTemp);
+      lv_label_set_text_fmt(ui_SetTemp, "%.3d", SetTemp);
+      lv_label_set_text_fmt(ui_PIDTargetTemp, "%.3d℃", SetTemp);
       lv_bar_set_range(ui_BarHeaterTemp, 0, SetTemp);
     }
 
@@ -254,12 +254,36 @@ void display_init()
       lv_label_set_text_fmt(ui_TextTimeFive, "%dS", stage5_time);
       lv_slider_set_value(ui_SliderTimeFive, stage5_time, LV_ANIM_OFF);
     }
+
+    static lv_style_t style_pr;
+    lv_style_init(&style_pr);
+    lv_style_set_transform_width(&style_pr, 0);
+    lv_style_set_transform_height(&style_pr, 0);
+    lv_obj_add_style(ui_FanSwitch, &style_pr, LV_STATE_PRESSED);
+    lv_obj_add_style(ui_BuzzerSwitch, &style_pr, LV_STATE_PRESSED);
+    lv_obj_add_style(ui_ScreenSwitch, &style_pr, LV_STATE_PRESSED);
+    lv_obj_add_style(ui_Setting, &style_pr, LV_STATE_PRESSED);
+    lv_obj_add_style(ui_TempSet, &style_pr, LV_STATE_PRESSED);
+    lv_obj_add_style(ui_StartStop, &style_pr, LV_STATE_PRESSED);
+    
+    lv_obj_add_style(ui_TempSettingBack, &style_pr, LV_STATE_PRESSED);
+    lv_obj_add_style(ui_Confirm, &style_pr, LV_STATE_PRESSED);
+
+    lv_obj_add_style(ui_CustomCurveBack, &style_pr, LV_STATE_PRESSED);
+
+    lv_obj_add_style(ui_ChartScreenBack, &style_pr, LV_STATE_PRESSED);
+    lv_obj_add_style(ui_ChartTempSet, &style_pr, LV_STATE_PRESSED);
+
+    lv_obj_add_style(ui_SystemSettingBack, &style_pr, LV_STATE_PRESSED);
+    lv_obj_add_style(ui_CustomCurve, &style_pr, LV_STATE_PRESSED);
+    lv_obj_add_style(ui_PIDSetting, &style_pr, LV_STATE_PRESSED);
+
+    lv_obj_add_style(ui_PIDSettingBack, &style_pr, LV_STATE_PRESSED);
 }
 
 void lvgl_run()
 {
     lv_task_handler();
-    delay(5);
 }
 
 void lvgl_tmp102_refresh()
@@ -283,18 +307,10 @@ void lvgl_max6675_refresh()
     {
         // 提取整数部分
         int temp_int = (int)heater_temperature;
-        
-        char temp_str[4] = {0};
-        if(temp_int < 100) {
-            // 小于100时补零，确保显示3位
-            snprintf(temp_str, sizeof(temp_str), "%03d", temp_int);
-        } else {
-            // 大于等于100时正常显示
-            snprintf(temp_str, sizeof(temp_str), "%d", temp_int);
-        }
-        lv_label_set_text(ui_HeaterTemp, temp_str);
-        lv_label_set_text(ui_ChartTemp, temp_str);
-        lv_label_set_text(ui_CurrentTemp, temp_str);
+        lv_label_set_text_fmt(ui_HeaterTemp, "%.3d", temp_int);
+        lv_label_set_text_fmt(ui_ChartTemp, "%.3d", temp_int);
+        lv_label_set_text_fmt(ui_CurrentTemp, "%.3d", temp_int);
+        lv_label_set_text_fmt(ui_PIDCurrentTemp, "%.3d℃", temp_int);
         lv_bar_set_value(ui_BarHeaterTemp, heater_temperature, LV_ANIM_ON);
     }
     else
@@ -302,6 +318,7 @@ void lvgl_max6675_refresh()
         lv_label_set_text(ui_HeaterTemp, "ERR");
         lv_label_set_text(ui_ChartTemp, "ERR");
         lv_label_set_text(ui_CurrentTemp, "ERR");
+        lv_label_set_text(ui_PIDCurrentTemp, "ERR");
         lv_bar_set_value(ui_BarHeaterTemp, 0, LV_ANIM_ON);
     }
 }
@@ -346,8 +363,8 @@ void update_chart_init()
 {
       ui_TempChart_TempSeries = lv_chart_add_series(ui_TempChart, lv_color_hex(0XFF0000), LV_CHART_AXIS_PRIMARY_Y);
       ui_TempChart_DutySeries = lv_chart_add_series(ui_TempChart, lv_color_hex(0X00FFFF), LV_CHART_AXIS_SECONDARY_Y);
-      lv_chart_set_point_count(ui_TempChart, 512);
-      chart_update_timer = lv_timer_create(update_chart_data, 200, NULL);
+      lv_chart_set_point_count(ui_TempChart, 128);
+      chart_update_timer = lv_timer_create(update_chart_data, 100, NULL);
       lv_timer_pause(chart_update_timer);
 }
 
@@ -356,9 +373,11 @@ void update_chart_data(lv_timer_t * timer)
   if(heater_status == 0)
   {
       lv_chart_set_next_value(ui_TempChart, ui_TempChart_TempSeries, heater_temperature);
+      lv_chart_set_next_value(ui_TempChart, ui_TempChart_DutySeries, heater_duty);
   }
   else
   {
       lv_chart_set_next_value(ui_TempChart, ui_TempChart_TempSeries, 0);
+      lv_chart_set_next_value(ui_TempChart, ui_TempChart_DutySeries, 0);
   }
 }

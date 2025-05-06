@@ -6,6 +6,7 @@ uint8_t timer_minute;
 //temperature//
 float room_temperature;
 float heater_temperature;
+float heater_duty;
 int heater_status;
 //custom curve//
 uint16_t stage1_temp;

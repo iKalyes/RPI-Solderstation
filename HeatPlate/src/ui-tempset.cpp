@@ -1,6 +1,6 @@
 #include <ui-tempset.h>
 
-char tempDisplay[4] = "000";  // 初始化为"000"而不是空格
+char tempDisplay[4] = "---";  // 初始化为"000"而不是空格
 uint8_t inputPos = 0;        // 输入位置指针
 
 // 更新显示函数
@@ -16,7 +16,7 @@ void handleNumberInput(char num) {
         tempDisplay[inputPos] = num;
         // 确保后面的位置保持为'0'
         for (int i = inputPos + 1; i < 3; i++) {
-            tempDisplay[i] = '0';
+            tempDisplay[i] = '-';
         }
         inputPos++;
         updateDisplay();
@@ -38,8 +38,6 @@ void ui_event_Confirm(lv_event_t * e) {
             return;
         }
         SetTemp = (int)temp_val;
-        // 缓冲区增大为5以确保安全
-        char temp_str[5] = {0};
         if (SetTemp == 0) {
             lv_label_set_text(ui_TargetTemp, "000");
             lv_label_set_text(ui_ChartTargetTemp, "000");
@@ -48,18 +46,15 @@ void ui_event_Confirm(lv_event_t * e) {
         }
         else if(SetTemp > temp_limited) {
             SetTemp = temp_limited;
-            // 使用snprintf防止缓冲区溢出
-            snprintf(temp_str, sizeof(temp_str), "%d", temp_limited);
-            lv_label_set_text(ui_TargetTemp, temp_str);
-            lv_label_set_text(ui_ChartTargetTemp, temp_str);
+            lv_label_set_text_fmt(ui_SetTemp, "%.3d", SetTemp);
+            lv_label_set_text_fmt(ui_TargetTemp, "%.3d", SetTemp);
+            lv_label_set_text_fmt(ui_ChartTargetTemp, "%.3d", SetTemp);
             lv_bar_set_range(ui_BarHeaterTemp, 0, temp_limited);
             heater_tempset();
         }
         else {
-            // 使用snprintf防止缓冲区溢出
-            snprintf(temp_str, sizeof(temp_str), "%d", SetTemp);
-            lv_label_set_text(ui_TargetTemp, temp_str);
-            lv_label_set_text(ui_ChartTargetTemp, temp_str);
+            lv_label_set_text_fmt(ui_TargetTemp, "%.3d", SetTemp);
+            lv_label_set_text_fmt(ui_ChartTargetTemp, "%.3d", SetTemp);
             lv_bar_set_range(ui_BarHeaterTemp, 0, SetTemp);
             heater_tempset();
         }
@@ -82,7 +77,7 @@ void ui_event_Delete(lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
     if (event_code == LV_EVENT_PRESSED) {
         for(int i = 0; i < 3; i++) {
-            tempDisplay[i] = '0';
+            tempDisplay[i] = '-';
         }
         inputPos = 0;
         SetTemp = 0;

@@ -11,12 +11,16 @@ void setup()
 {
     Serial.begin( 115200 ); /* prepare for possible serial debug */
     ReadFlash();
+    ReadPID();
+
     display_init();
     backlight_init();
     update_chart_init();
 
     encoder_lvgl_init();
     lvgl_group_init();
+
+    heater_init();
 }
 
 void loop()
@@ -31,8 +35,8 @@ void setup1()
 {
   TMP102_init();
   MAX6675_init();
-  heater_init();
   fan_init();
+
   xTaskCreate(clock_run, "clock_run", 128, NULL, 4, NULL);
   xTaskCreate(TMP102_Read, "TMP102_Read", 128, NULL, 3, NULL);
   xTaskCreate(MAX6675_Read, "MAX6675_Read", 128, NULL, 5, NULL);
@@ -41,7 +45,7 @@ void setup1()
 void loop1()
 {
   heater_run();
-  if(timer_minute >= sleep_time)
+  if(timer_minute >= sleep_time && heating_status == 1)
   {
     heater_stop();
     clock_status = 0;
