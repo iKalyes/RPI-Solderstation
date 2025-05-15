@@ -82,3 +82,63 @@ def KiUpdate(event_struct):
 def KdUpdate(event_struct):
     return
 
+
+def SolderingON(event_struct):
+    return
+
+
+def SolderingOFF(event_struct):
+    return
+
+
+def HeatgunON(event_struct):
+    return
+
+
+def HeatgunOFF(event_struct):
+    return
+
+
+def HeatgunNum0(event_struct):
+    return
+
+
+def HeatgunDelete(event_struct):
+    return
+
+
+def HeatgunNum1(event_struct):
+    return
+
+
+def HeatgunNum2(event_struct):
+    return
+
+
+def HeatgunNum3(event_struct):
+    return
+
+
+def HeatgunNum4(event_struct):
+    return
+
+
+def HeatgunNum5(event_struct):
+    return
+
+
+def HeatgunNum6(event_struct):
+    return
+
+
+def HeatgunNum7(event_struct):
+    return
+
+
+def HeatgunNum8(event_struct):
+    return
+
+
+def HeatgunNum9(event_struct):
+    return
+

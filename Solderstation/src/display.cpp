@@ -78,4 +78,5 @@ void display_init()
 void lvgl_task_handler()
 {
   lv_task_handler();
+  handle_encoder_parameters_edit();
 }

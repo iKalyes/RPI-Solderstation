@@ -30,88 +30,131 @@ extern "C" {
 // SCREEN: ui_MainScreen
 void ui_MainScreen_screen_init(void);
 extern lv_obj_t *ui_MainScreen;
-extern lv_obj_t *ui_StatusHeader;
-extern lv_obj_t *ui_RoomTemp;
-extern lv_obj_t *ui_ImageRoomTemp;
-extern lv_obj_t *ui_RoomTemp2;
-extern lv_obj_t *ui_RoomTemp3;
-extern lv_obj_t *ui_RoomTemp4;
-extern lv_obj_t *ui_StatusHeader2;
-extern lv_obj_t *ui_BuzzerStatus;
-extern lv_obj_t *ui_Image1;
-extern lv_obj_t *ui_Image2;
 void ui_event_Setting( lv_event_t * e);
 extern lv_obj_t *ui_Setting;
-extern lv_obj_t *ui_Container2;
-extern lv_obj_t *ui_Label1;
-extern lv_obj_t *ui_Image3;
-extern lv_obj_t *ui_Container1;
-extern lv_obj_t *ui_HeaterTempDock;
-extern lv_obj_t *ui_BarHeaterTemp;
-extern lv_obj_t *ui_HeaterTemp;
-extern lv_obj_t *ui_TextHeaterTemp;
-extern lv_obj_t *ui_HeaterSetDock;
-extern lv_obj_t *ui_TextTarget;
-extern lv_obj_t *ui_TargetTemp;
-void ui_event_TempSet( lv_event_t * e);
-extern lv_obj_t *ui_TempSet;
-extern lv_obj_t *ui_TempSet2;
-extern lv_obj_t *ui_Container5;
-extern lv_obj_t *ui_Label3;
-extern lv_obj_t *ui_Image5;
-extern lv_obj_t *ui_Container3;
-extern lv_obj_t *ui_HeaterTempDock2;
-extern lv_obj_t *ui_BarHeaterTemp2;
-extern lv_obj_t *ui_HeaterTemp2;
-extern lv_obj_t *ui_TextHeaterTemp2;
-extern lv_obj_t *ui_HeaterSetDock2;
-extern lv_obj_t *ui_TextTarget2;
-extern lv_obj_t *ui_TargetTemp2;
-extern lv_obj_t *ui_TextTarget3;
-extern lv_obj_t *ui_TargetTemp3;
-void ui_event_TempSet4( lv_event_t * e);
-extern lv_obj_t *ui_TempSet4;
-extern lv_obj_t *ui_TempSet1;
+extern lv_obj_t *ui_TMP102Dock;
+extern lv_obj_t *ui_TMP102Temp;
+extern lv_obj_t *ui_ImageTMP102Temp;
+extern lv_obj_t *ui_INA226Voltage;
+extern lv_obj_t *ui_INA226Current;
+extern lv_obj_t *ui_INA226Power;
+extern lv_obj_t *ui_SystemStatusDock;
+extern lv_obj_t *ui_BuzzerStatus;
+extern lv_obj_t *ui_SleepStatus;
+extern lv_obj_t *ui_CoolingStatus;
+extern lv_obj_t *ui_Soldering;
+extern lv_obj_t *ui_TextSoldering;
+extern lv_obj_t *ui_ImageSoldering;
+extern lv_obj_t *ui_SolderingDock;
+extern lv_obj_t *ui_SolderingTempDock;
+extern lv_obj_t *ui_BarSolderingTemp;
+extern lv_obj_t *ui_SolderingTemp;
+extern lv_obj_t *ui_TextSolderingTemp;
+extern lv_obj_t *ui_SolderingSettingDock;
+extern lv_obj_t *ui_TextSolderingTragetTemp;
+extern lv_obj_t *ui_SolderingTargetTemp;
+void ui_event_SolderingSet( lv_event_t * e);
+extern lv_obj_t *ui_SolderingSet;
+void ui_event_SplderingSwitch( lv_event_t * e);
+extern lv_obj_t *ui_SplderingSwitch;
+extern lv_obj_t *ui_Heatgun;
+extern lv_obj_t *ui_TextHeatgun;
+extern lv_obj_t *ui_ImageHeatgun;
+extern lv_obj_t *ui_HeatgunDock;
+extern lv_obj_t *ui_HeatgunTempDock;
+extern lv_obj_t *ui_BarHeatgunTemp;
+extern lv_obj_t *ui_HeatgunTemp;
+extern lv_obj_t *ui_TextHeatgunTemp;
+extern lv_obj_t *ui_HeatgunSettingDock;
+extern lv_obj_t *ui_TextHeatgunTargetTemp;
+extern lv_obj_t *ui_HeatgunTargetTemp;
+extern lv_obj_t *ui_TextHeatgunWindSpeed;
+extern lv_obj_t *ui_HeatgunWindSpeed;
+void ui_event_HeatgunSet( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunSet;
+void ui_event_HeatgunSwitch( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunSwitch;
 // CUSTOM VARIABLES
 
-// SCREEN: ui_TemperatureSettingScreen
-void ui_TemperatureSettingScreen_screen_init(void);
-extern lv_obj_t *ui_TemperatureSettingScreen;
-extern lv_obj_t *ui_Keyboard;
-void ui_event_Confirm( lv_event_t * e);
-extern lv_obj_t *ui_Confirm;
-void ui_event_Delete( lv_event_t * e);
-extern lv_obj_t *ui_Delete;
-void ui_event_Num0( lv_event_t * e);
-extern lv_obj_t *ui_Num0;
-extern lv_obj_t *ui_NumPanel;
-void ui_event_Num1( lv_event_t * e);
-extern lv_obj_t *ui_Num1;
-void ui_event_Num2( lv_event_t * e);
-extern lv_obj_t *ui_Num2;
-void ui_event_Num3( lv_event_t * e);
-extern lv_obj_t *ui_Num3;
-void ui_event_Num4( lv_event_t * e);
-extern lv_obj_t *ui_Num4;
-void ui_event_Num5( lv_event_t * e);
-extern lv_obj_t *ui_Num5;
-void ui_event_Num6( lv_event_t * e);
-extern lv_obj_t *ui_Num6;
-void ui_event_Num7( lv_event_t * e);
-extern lv_obj_t *ui_Num7;
-void ui_event_Num8( lv_event_t * e);
-extern lv_obj_t *ui_Num8;
-void ui_event_Num9( lv_event_t * e);
-extern lv_obj_t *ui_Num9;
-extern lv_obj_t *ui_TempSettingHeader;
-extern lv_obj_t *ui_TextTempSetting;
-extern lv_obj_t *ui_TempSetting;
-extern lv_obj_t *ui_SetTemp;
-extern lv_obj_t *ui_TextSetTemp;
-extern lv_obj_t *ui_TextCurrentTemp;
-extern lv_obj_t *ui_CurrentTemp;
-void ui_event_TempSettingBack( lv_event_t * e);
-extern lv_obj_t *ui_TempSettingBack;
+// SCREEN: ui_SolderingTempSetScreen
+void ui_SolderingTempSetScreen_screen_init(void);
+extern lv_obj_t *ui_SolderingTempSetScreen;
+extern lv_obj_t *ui_SolderingKeyboard;
+void ui_event_SolderingConfirm( lv_event_t * e);
+extern lv_obj_t *ui_SolderingConfirm;
+void ui_event_SolderingDelete( lv_event_t * e);
+extern lv_obj_t *ui_SolderingDelete;
+void ui_event_SolderingNum0( lv_event_t * e);
+extern lv_obj_t *ui_SolderingNum0;
+extern lv_obj_t *ui_SolderingNumPanel;
+void ui_event_SolderingNum1( lv_event_t * e);
+extern lv_obj_t *ui_SolderingNum1;
+void ui_event_SolderingNum2( lv_event_t * e);
+extern lv_obj_t *ui_SolderingNum2;
+void ui_event_SolderingNum3( lv_event_t * e);
+extern lv_obj_t *ui_SolderingNum3;
+void ui_event_SolderingNum4( lv_event_t * e);
+extern lv_obj_t *ui_SolderingNum4;
+void ui_event_SolderingNum5( lv_event_t * e);
+extern lv_obj_t *ui_SolderingNum5;
+void ui_event_SolderingNum6( lv_event_t * e);
+extern lv_obj_t *ui_SolderingNum6;
+void ui_event_SolderingNum7( lv_event_t * e);
+extern lv_obj_t *ui_SolderingNum7;
+void ui_event_SolderingNum8( lv_event_t * e);
+extern lv_obj_t *ui_SolderingNum8;
+void ui_event_SolderingNum9( lv_event_t * e);
+extern lv_obj_t *ui_SolderingNum9;
+extern lv_obj_t *ui_SolderingTempSetDock;
+extern lv_obj_t *ui_TextSolderingTempSetting;
+extern lv_obj_t *ui_SolderingTempSetting;
+extern lv_obj_t *ui_SolderingSetTemp;
+extern lv_obj_t *ui_TextSolderingCurrentTemp;
+extern lv_obj_t *ui_SolderingCurrentTemp;
+void ui_event_SolderingTempSetBack( lv_event_t * e);
+extern lv_obj_t *ui_SolderingTempSetBack;
+// CUSTOM VARIABLES
+
+// SCREEN: ui_HeatgunTempSetScreen
+void ui_HeatgunTempSetScreen_screen_init(void);
+extern lv_obj_t *ui_HeatgunTempSetScreen;
+extern lv_obj_t *ui_HeatgunKeyboard;
+void ui_event_HeatgunConfirm( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunConfirm;
+void ui_event_HeatgunDelete( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunDelete;
+void ui_event_HeatgunNum0( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunNum0;
+extern lv_obj_t *ui_HeatgunNumPanel;
+void ui_event_HeatgunNum1( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunNum1;
+void ui_event_HeatgunNum2( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunNum2;
+void ui_event_HeatgunNum3( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunNum3;
+void ui_event_HeatgunNum4( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunNum4;
+void ui_event_HeatgunNum5( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunNum5;
+void ui_event_HeatgunNum6( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunNum6;
+void ui_event_HeatgunNum7( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunNum7;
+void ui_event_HeatgunNum8( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunNum8;
+void ui_event_HeatgunNum9( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunNum9;
+extern lv_obj_t *ui_HeatgunSetDock;
+extern lv_obj_t *ui_TextHeatgunSetting;
+extern lv_obj_t *ui_HeatgunSetting;
+extern lv_obj_t *ui_HeatgunSetTemp;
+extern lv_obj_t *ui_TextHeatgunCurrentTemp;
+extern lv_obj_t *ui_HeatgunCurrentTemp;
+extern lv_obj_t *ui_HeatgunSetWindSpeed;
+extern lv_obj_t *ui_TextHeatgunCurrentWindSpeed;
+extern lv_obj_t *ui_HeatgunCurrentWindSpeed;
+void ui_event_HeatgunSetBack( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunSetBack;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_SystemSettingScreen
@@ -183,11 +226,11 @@ extern lv_obj_t *ui_KDUp;
 extern lv_obj_t *ui____initial_actions0;
 
 // IMAGES AND IMAGE SETS
+LV_IMG_DECLARE( ui_img_1671917170);   // assets/material-symbols_settings-rounded.png
 LV_IMG_DECLARE( ui_img_740489818);   // assets/material-symbols_thermostat-rounded.png
 LV_IMG_DECLARE( ui_img_1699618864);   // assets/material-symbols_volume-up-outline-rounded.png
 LV_IMG_DECLARE( ui_img_1249241237);   // assets/icon-park-solid_sleep.png
 LV_IMG_DECLARE( ui_img_2103744591);   // assets/material-symbols_mode-fan-outline.png
-LV_IMG_DECLARE( ui_img_1671917170);   // assets/material-symbols_settings-rounded.png
 LV_IMG_DECLARE( ui_img_1357884022);   // assets/material-symbols_looks-one-rounded.png
 LV_IMG_DECLARE( ui_img_155116563);   // assets/material-symbols_instant-mix-rounded.png
 LV_IMG_DECLARE( ui_img_1347724781);   // assets/material-symbols_play-arrow-rounded.png

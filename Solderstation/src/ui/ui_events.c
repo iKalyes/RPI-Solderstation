@@ -74,3 +74,78 @@ void PIDKDPlus(lv_event_t * e)
 {
 	// Your code here
 }
+
+void SolderingON(lv_event_t * e)
+{
+	// Your code here
+}
+
+void SolderingOFF(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunON(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunOFF(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunDelete(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunNum0(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunNum1(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunNum2(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunNum3(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunNum4(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunNum5(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunNum6(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunNum7(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunNum8(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunNum9(lv_event_t * e)
+{
+	// Your code here
+}

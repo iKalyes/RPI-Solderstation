@@ -10,7 +10,7 @@
   "ranges": [
     "0x20-0x7f"
   ],
-  "symbols": "℃温度当前设置自定义加热曲线系统参数风速",
+  "symbols": "℃温度当前设置自定义加热曲线系统参数风速烙铁枪电",
   "customparams": "--no-compress --no-prefilter",
   "uploaded": false
 }

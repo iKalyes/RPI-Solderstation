@@ -1,5 +1,6 @@
 SET(SOURCES screens/ui_MainScreen.c
-    screens/ui_TemperatureSettingScreen.c
+    screens/ui_SolderingTempSetScreen.c
+    screens/ui_HeatgunTempSetScreen.c
     screens/ui_SystemSettingScreen.c
     screens/ui_PIDSettingScreen.c
     ui_theme_manager.c
@@ -8,11 +9,11 @@ SET(SOURCES screens/ui_MainScreen.c
     components/ui_comp_hook.c
     ui_helpers.c
     ui_events.c
+    images/ui_img_1671917170.c
     images/ui_img_740489818.c
     images/ui_img_1699618864.c
     images/ui_img_1249241237.c
     images/ui_img_2103744591.c
-    images/ui_img_1671917170.c
     images/ui_img_1357884022.c
     images/ui_img_155116563.c
     images/ui_img_1347724781.c

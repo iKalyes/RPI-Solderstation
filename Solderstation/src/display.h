@@ -6,6 +6,8 @@
 #include "ui/ui.h"
 #include <RAK14014_FT6336U.h>
 
+#include <event_main.h>
+
 /*Change to your screen resolution*/
 static const uint16_t screenWidth  = 320;
 static const uint16_t screenHeight = 240;

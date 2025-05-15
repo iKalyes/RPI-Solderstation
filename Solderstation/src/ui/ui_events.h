@@ -10,6 +10,21 @@
 extern "C" {
 #endif
 
+void SolderingON(lv_event_t * e);
+void SolderingOFF(lv_event_t * e);
+void HeatgunON(lv_event_t * e);
+void HeatgunOFF(lv_event_t * e);
+void HeatgunDelete(lv_event_t * e);
+void HeatgunNum0(lv_event_t * e);
+void HeatgunNum1(lv_event_t * e);
+void HeatgunNum2(lv_event_t * e);
+void HeatgunNum3(lv_event_t * e);
+void HeatgunNum4(lv_event_t * e);
+void HeatgunNum5(lv_event_t * e);
+void HeatgunNum6(lv_event_t * e);
+void HeatgunNum7(lv_event_t * e);
+void HeatgunNum8(lv_event_t * e);
+void HeatgunNum9(lv_event_t * e);
 void SaveConfig(lv_event_t * e);
 void KpUpdate(lv_event_t * e);
 void KiUpdate(lv_event_t * e);

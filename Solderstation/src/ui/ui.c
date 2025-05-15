@@ -11,88 +11,131 @@
 // SCREEN: ui_MainScreen
 void ui_MainScreen_screen_init(void);
 lv_obj_t *ui_MainScreen;
-lv_obj_t *ui_StatusHeader;
-lv_obj_t *ui_RoomTemp;
-lv_obj_t *ui_ImageRoomTemp;
-lv_obj_t *ui_RoomTemp2;
-lv_obj_t *ui_RoomTemp3;
-lv_obj_t *ui_RoomTemp4;
-lv_obj_t *ui_StatusHeader2;
-lv_obj_t *ui_BuzzerStatus;
-lv_obj_t *ui_Image1;
-lv_obj_t *ui_Image2;
 void ui_event_Setting( lv_event_t * e);
 lv_obj_t *ui_Setting;
-lv_obj_t *ui_Container2;
-lv_obj_t *ui_Label1;
-lv_obj_t *ui_Image3;
-lv_obj_t *ui_Container1;
-lv_obj_t *ui_HeaterTempDock;
-lv_obj_t *ui_BarHeaterTemp;
-lv_obj_t *ui_HeaterTemp;
-lv_obj_t *ui_TextHeaterTemp;
-lv_obj_t *ui_HeaterSetDock;
-lv_obj_t *ui_TextTarget;
-lv_obj_t *ui_TargetTemp;
-void ui_event_TempSet( lv_event_t * e);
-lv_obj_t *ui_TempSet;
-lv_obj_t *ui_TempSet2;
-lv_obj_t *ui_Container5;
-lv_obj_t *ui_Label3;
-lv_obj_t *ui_Image5;
-lv_obj_t *ui_Container3;
-lv_obj_t *ui_HeaterTempDock2;
-lv_obj_t *ui_BarHeaterTemp2;
-lv_obj_t *ui_HeaterTemp2;
-lv_obj_t *ui_TextHeaterTemp2;
-lv_obj_t *ui_HeaterSetDock2;
-lv_obj_t *ui_TextTarget2;
-lv_obj_t *ui_TargetTemp2;
-lv_obj_t *ui_TextTarget3;
-lv_obj_t *ui_TargetTemp3;
-void ui_event_TempSet4( lv_event_t * e);
-lv_obj_t *ui_TempSet4;
-lv_obj_t *ui_TempSet1;
+lv_obj_t *ui_TMP102Dock;
+lv_obj_t *ui_TMP102Temp;
+lv_obj_t *ui_ImageTMP102Temp;
+lv_obj_t *ui_INA226Voltage;
+lv_obj_t *ui_INA226Current;
+lv_obj_t *ui_INA226Power;
+lv_obj_t *ui_SystemStatusDock;
+lv_obj_t *ui_BuzzerStatus;
+lv_obj_t *ui_SleepStatus;
+lv_obj_t *ui_CoolingStatus;
+lv_obj_t *ui_Soldering;
+lv_obj_t *ui_TextSoldering;
+lv_obj_t *ui_ImageSoldering;
+lv_obj_t *ui_SolderingDock;
+lv_obj_t *ui_SolderingTempDock;
+lv_obj_t *ui_BarSolderingTemp;
+lv_obj_t *ui_SolderingTemp;
+lv_obj_t *ui_TextSolderingTemp;
+lv_obj_t *ui_SolderingSettingDock;
+lv_obj_t *ui_TextSolderingTragetTemp;
+lv_obj_t *ui_SolderingTargetTemp;
+void ui_event_SolderingSet( lv_event_t * e);
+lv_obj_t *ui_SolderingSet;
+void ui_event_SplderingSwitch( lv_event_t * e);
+lv_obj_t *ui_SplderingSwitch;
+lv_obj_t *ui_Heatgun;
+lv_obj_t *ui_TextHeatgun;
+lv_obj_t *ui_ImageHeatgun;
+lv_obj_t *ui_HeatgunDock;
+lv_obj_t *ui_HeatgunTempDock;
+lv_obj_t *ui_BarHeatgunTemp;
+lv_obj_t *ui_HeatgunTemp;
+lv_obj_t *ui_TextHeatgunTemp;
+lv_obj_t *ui_HeatgunSettingDock;
+lv_obj_t *ui_TextHeatgunTargetTemp;
+lv_obj_t *ui_HeatgunTargetTemp;
+lv_obj_t *ui_TextHeatgunWindSpeed;
+lv_obj_t *ui_HeatgunWindSpeed;
+void ui_event_HeatgunSet( lv_event_t * e);
+lv_obj_t *ui_HeatgunSet;
+void ui_event_HeatgunSwitch( lv_event_t * e);
+lv_obj_t *ui_HeatgunSwitch;
 // CUSTOM VARIABLES
 
-// SCREEN: ui_TemperatureSettingScreen
-void ui_TemperatureSettingScreen_screen_init(void);
-lv_obj_t *ui_TemperatureSettingScreen;
-lv_obj_t *ui_Keyboard;
-void ui_event_Confirm( lv_event_t * e);
-lv_obj_t *ui_Confirm;
-void ui_event_Delete( lv_event_t * e);
-lv_obj_t *ui_Delete;
-void ui_event_Num0( lv_event_t * e);
-lv_obj_t *ui_Num0;
-lv_obj_t *ui_NumPanel;
-void ui_event_Num1( lv_event_t * e);
-lv_obj_t *ui_Num1;
-void ui_event_Num2( lv_event_t * e);
-lv_obj_t *ui_Num2;
-void ui_event_Num3( lv_event_t * e);
-lv_obj_t *ui_Num3;
-void ui_event_Num4( lv_event_t * e);
-lv_obj_t *ui_Num4;
-void ui_event_Num5( lv_event_t * e);
-lv_obj_t *ui_Num5;
-void ui_event_Num6( lv_event_t * e);
-lv_obj_t *ui_Num6;
-void ui_event_Num7( lv_event_t * e);
-lv_obj_t *ui_Num7;
-void ui_event_Num8( lv_event_t * e);
-lv_obj_t *ui_Num8;
-void ui_event_Num9( lv_event_t * e);
-lv_obj_t *ui_Num9;
-lv_obj_t *ui_TempSettingHeader;
-lv_obj_t *ui_TextTempSetting;
-lv_obj_t *ui_TempSetting;
-lv_obj_t *ui_SetTemp;
-lv_obj_t *ui_TextSetTemp;
-lv_obj_t *ui_TextCurrentTemp;
-lv_obj_t *ui_CurrentTemp;
-void ui_event_TempSettingBack( lv_event_t * e);
-lv_obj_t *ui_TempSettingBack;
+// SCREEN: ui_SolderingTempSetScreen
+void ui_SolderingTempSetScreen_screen_init(void);
+lv_obj_t *ui_SolderingTempSetScreen;
+lv_obj_t *ui_SolderingKeyboard;
+void ui_event_SolderingConfirm( lv_event_t * e);
+lv_obj_t *ui_SolderingConfirm;
+void ui_event_SolderingDelete( lv_event_t * e);
+lv_obj_t *ui_SolderingDelete;
+void ui_event_SolderingNum0( lv_event_t * e);
+lv_obj_t *ui_SolderingNum0;
+lv_obj_t *ui_SolderingNumPanel;
+void ui_event_SolderingNum1( lv_event_t * e);
+lv_obj_t *ui_SolderingNum1;
+void ui_event_SolderingNum2( lv_event_t * e);
+lv_obj_t *ui_SolderingNum2;
+void ui_event_SolderingNum3( lv_event_t * e);
+lv_obj_t *ui_SolderingNum3;
+void ui_event_SolderingNum4( lv_event_t * e);
+lv_obj_t *ui_SolderingNum4;
+void ui_event_SolderingNum5( lv_event_t * e);
+lv_obj_t *ui_SolderingNum5;
+void ui_event_SolderingNum6( lv_event_t * e);
+lv_obj_t *ui_SolderingNum6;
+void ui_event_SolderingNum7( lv_event_t * e);
+lv_obj_t *ui_SolderingNum7;
+void ui_event_SolderingNum8( lv_event_t * e);
+lv_obj_t *ui_SolderingNum8;
+void ui_event_SolderingNum9( lv_event_t * e);
+lv_obj_t *ui_SolderingNum9;
+lv_obj_t *ui_SolderingTempSetDock;
+lv_obj_t *ui_TextSolderingTempSetting;
+lv_obj_t *ui_SolderingTempSetting;
+lv_obj_t *ui_SolderingSetTemp;
+lv_obj_t *ui_TextSolderingCurrentTemp;
+lv_obj_t *ui_SolderingCurrentTemp;
+void ui_event_SolderingTempSetBack( lv_event_t * e);
+lv_obj_t *ui_SolderingTempSetBack;
+// CUSTOM VARIABLES
+
+// SCREEN: ui_HeatgunTempSetScreen
+void ui_HeatgunTempSetScreen_screen_init(void);
+lv_obj_t *ui_HeatgunTempSetScreen;
+lv_obj_t *ui_HeatgunKeyboard;
+void ui_event_HeatgunConfirm( lv_event_t * e);
+lv_obj_t *ui_HeatgunConfirm;
+void ui_event_HeatgunDelete( lv_event_t * e);
+lv_obj_t *ui_HeatgunDelete;
+void ui_event_HeatgunNum0( lv_event_t * e);
+lv_obj_t *ui_HeatgunNum0;
+lv_obj_t *ui_HeatgunNumPanel;
+void ui_event_HeatgunNum1( lv_event_t * e);
+lv_obj_t *ui_HeatgunNum1;
+void ui_event_HeatgunNum2( lv_event_t * e);
+lv_obj_t *ui_HeatgunNum2;
+void ui_event_HeatgunNum3( lv_event_t * e);
+lv_obj_t *ui_HeatgunNum3;
+void ui_event_HeatgunNum4( lv_event_t * e);
+lv_obj_t *ui_HeatgunNum4;
+void ui_event_HeatgunNum5( lv_event_t * e);
+lv_obj_t *ui_HeatgunNum5;
+void ui_event_HeatgunNum6( lv_event_t * e);
+lv_obj_t *ui_HeatgunNum6;
+void ui_event_HeatgunNum7( lv_event_t * e);
+lv_obj_t *ui_HeatgunNum7;
+void ui_event_HeatgunNum8( lv_event_t * e);
+lv_obj_t *ui_HeatgunNum8;
+void ui_event_HeatgunNum9( lv_event_t * e);
+lv_obj_t *ui_HeatgunNum9;
+lv_obj_t *ui_HeatgunSetDock;
+lv_obj_t *ui_TextHeatgunSetting;
+lv_obj_t *ui_HeatgunSetting;
+lv_obj_t *ui_HeatgunSetTemp;
+lv_obj_t *ui_TextHeatgunCurrentTemp;
+lv_obj_t *ui_HeatgunCurrentTemp;
+lv_obj_t *ui_HeatgunSetWindSpeed;
+lv_obj_t *ui_TextHeatgunCurrentWindSpeed;
+lv_obj_t *ui_HeatgunCurrentWindSpeed;
+void ui_event_HeatgunSetBack( lv_event_t * e);
+lv_obj_t *ui_HeatgunSetBack;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_SystemSettingScreen
@@ -184,23 +227,45 @@ if ( event_code == LV_EVENT_RELEASED) {
 }
 }
 
-void ui_event_TempSet( lv_event_t * e) {
+void ui_event_SolderingSet( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_RELEASED) {
-      _ui_screen_change( &ui_TemperatureSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 50, 0, &ui_TemperatureSettingScreen_screen_init);
+      _ui_screen_change( &ui_SolderingTempSetScreen, LV_SCR_LOAD_ANIM_FADE_ON, 50, 0, &ui_SolderingTempSetScreen_screen_init);
 }
 }
 
-void ui_event_TempSet4( lv_event_t * e) {
+void ui_event_SplderingSwitch( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
+
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      SolderingON( e );
+}
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      SolderingOFF( e );
+}
+}
+
+void ui_event_HeatgunSet( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_RELEASED) {
-      _ui_screen_change( &ui_TemperatureSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 50, 0, &ui_TemperatureSettingScreen_screen_init);
+      _ui_screen_change( &ui_HeatgunTempSetScreen, LV_SCR_LOAD_ANIM_FADE_ON, 50, 0, &ui_HeatgunTempSetScreen_screen_init);
 }
 }
 
-void ui_event_Confirm( lv_event_t * e) {
+void ui_event_HeatgunSwitch( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
+
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      HeatgunON( e );
+}
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      HeatgunOFF( e );
+}
+}
+
+void ui_event_SolderingConfirm( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_RELEASED) {
@@ -208,95 +273,199 @@ if ( event_code == LV_EVENT_RELEASED) {
 }
 }
 
-void ui_event_Delete( lv_event_t * e) {
+void ui_event_SolderingDelete( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "000");
+      _ui_label_set_property(ui_SolderingSetTemp, _UI_LABEL_PROPERTY_TEXT, "---");
 }
 }
 
-void ui_event_Num0( lv_event_t * e) {
+void ui_event_SolderingNum0( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "0");
+      _ui_label_set_property(ui_SolderingSetTemp, _UI_LABEL_PROPERTY_TEXT, "0");
 }
 }
 
-void ui_event_Num1( lv_event_t * e) {
+void ui_event_SolderingNum1( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "1");
+      _ui_label_set_property(ui_SolderingSetTemp, _UI_LABEL_PROPERTY_TEXT, "1");
 }
 }
 
-void ui_event_Num2( lv_event_t * e) {
+void ui_event_SolderingNum2( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "2");
+      _ui_label_set_property(ui_SolderingSetTemp, _UI_LABEL_PROPERTY_TEXT, "2");
 }
 }
 
-void ui_event_Num3( lv_event_t * e) {
+void ui_event_SolderingNum3( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "3");
+      _ui_label_set_property(ui_SolderingSetTemp, _UI_LABEL_PROPERTY_TEXT, "3");
 }
 }
 
-void ui_event_Num4( lv_event_t * e) {
+void ui_event_SolderingNum4( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "4");
+      _ui_label_set_property(ui_SolderingSetTemp, _UI_LABEL_PROPERTY_TEXT, "4");
 }
 }
 
-void ui_event_Num5( lv_event_t * e) {
+void ui_event_SolderingNum5( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "5");
+      _ui_label_set_property(ui_SolderingSetTemp, _UI_LABEL_PROPERTY_TEXT, "5");
 }
 }
 
-void ui_event_Num6( lv_event_t * e) {
+void ui_event_SolderingNum6( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "6");
+      _ui_label_set_property(ui_SolderingSetTemp, _UI_LABEL_PROPERTY_TEXT, "6");
 }
 }
 
-void ui_event_Num7( lv_event_t * e) {
+void ui_event_SolderingNum7( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "7");
+      _ui_label_set_property(ui_SolderingSetTemp, _UI_LABEL_PROPERTY_TEXT, "7");
 }
 }
 
-void ui_event_Num8( lv_event_t * e) {
+void ui_event_SolderingNum8( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "8");
+      _ui_label_set_property(ui_SolderingSetTemp, _UI_LABEL_PROPERTY_TEXT, "8");
 }
 }
 
-void ui_event_Num9( lv_event_t * e) {
+void ui_event_SolderingNum9( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_PRESSED) {
-      _ui_label_set_property(ui_SetTemp, _UI_LABEL_PROPERTY_TEXT, "9");
+      _ui_label_set_property(ui_SolderingSetTemp, _UI_LABEL_PROPERTY_TEXT, "9");
 }
 }
 
-void ui_event_TempSettingBack( lv_event_t * e) {
+void ui_event_SolderingTempSetBack( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_PRESSED) {
+      _ui_screen_change( &ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_MainScreen_screen_init);
+}
+}
+
+void ui_event_HeatgunConfirm( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_RELEASED) {
+      _ui_screen_change( &ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 50, 0, &ui_MainScreen_screen_init);
+}
+}
+
+void ui_event_HeatgunDelete( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_PRESSED) {
+      HeatgunDelete( e );
+}
+}
+
+void ui_event_HeatgunNum0( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_PRESSED) {
+      HeatgunNum0( e );
+}
+}
+
+void ui_event_HeatgunNum1( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_PRESSED) {
+      HeatgunNum1( e );
+}
+}
+
+void ui_event_HeatgunNum2( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_PRESSED) {
+      HeatgunNum2( e );
+}
+}
+
+void ui_event_HeatgunNum3( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_PRESSED) {
+      HeatgunNum3( e );
+}
+}
+
+void ui_event_HeatgunNum4( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_PRESSED) {
+      HeatgunNum4( e );
+}
+}
+
+void ui_event_HeatgunNum5( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_PRESSED) {
+      HeatgunNum5( e );
+}
+}
+
+void ui_event_HeatgunNum6( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_PRESSED) {
+      HeatgunNum6( e );
+}
+}
+
+void ui_event_HeatgunNum7( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_PRESSED) {
+      HeatgunNum7( e );
+}
+}
+
+void ui_event_HeatgunNum8( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_PRESSED) {
+      HeatgunNum8( e );
+}
+}
+
+void ui_event_HeatgunNum9( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_PRESSED) {
+      HeatgunNum9( e );
+}
+}
+
+void ui_event_HeatgunSetBack( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_PRESSED) {
@@ -440,7 +609,8 @@ lv_disp_t *dispp = lv_disp_get_default();
 lv_theme_t *theme = lv_theme_default_init(dispp, lv_palette_main(LV_PALETTE_BLUE), lv_palette_main(LV_PALETTE_RED), false, LV_FONT_DEFAULT);
 lv_disp_set_theme(dispp, theme);
 ui_MainScreen_screen_init();
-ui_TemperatureSettingScreen_screen_init();
+ui_SolderingTempSetScreen_screen_init();
+ui_HeatgunTempSetScreen_screen_init();
 ui_SystemSettingScreen_screen_init();
 ui_PIDSettingScreen_screen_init();
 ui____initial_actions0 = lv_obj_create(NULL);
