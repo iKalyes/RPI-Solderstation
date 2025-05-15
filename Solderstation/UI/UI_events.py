@@ -142,3 +142,11 @@ def HeatgunNum8(event_struct):
 def HeatgunNum9(event_struct):
     return
 
+
+def HeatgunSetTemp(event_struct):
+    return
+
+
+def HeatgunSetWindSpeed(event_struct):
+    return
+

@@ -395,6 +395,8 @@ lv_obj_add_event_cb(ui_HeatgunNum6, ui_event_HeatgunNum6, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_HeatgunNum7, ui_event_HeatgunNum7, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_HeatgunNum8, ui_event_HeatgunNum8, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_HeatgunNum9, ui_event_HeatgunNum9, LV_EVENT_ALL, NULL);
+lv_obj_add_event_cb(ui_HeatgunSetTemp, ui_event_HeatgunSetTemp, LV_EVENT_ALL, NULL);
+lv_obj_add_event_cb(ui_HeatgunSetWindSpeed, ui_event_HeatgunSetWindSpeed, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_HeatgunSetBack, ui_event_HeatgunSetBack, LV_EVENT_ALL, NULL);
 
 }

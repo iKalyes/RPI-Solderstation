@@ -149,3 +149,13 @@ void HeatgunNum9(lv_event_t * e)
 {
 	// Your code here
 }
+
+void HeatgunSetTemp(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunSetWindSpeed(lv_event_t * e)
+{
+	// Your code here
+}

@@ -8,4 +8,6 @@
 #include <TMP102_Service.h>
 #include <Encoder_Service.h>
 
+#include <variables.h>
+
 #endif

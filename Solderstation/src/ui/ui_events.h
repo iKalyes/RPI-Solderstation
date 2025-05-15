@@ -25,6 +25,8 @@ void HeatgunNum6(lv_event_t * e);
 void HeatgunNum7(lv_event_t * e);
 void HeatgunNum8(lv_event_t * e);
 void HeatgunNum9(lv_event_t * e);
+void HeatgunSetTemp(lv_event_t * e);
+void HeatgunSetWindSpeed(lv_event_t * e);
 void SaveConfig(lv_event_t * e);
 void KpUpdate(lv_event_t * e);
 void KiUpdate(lv_event_t * e);
