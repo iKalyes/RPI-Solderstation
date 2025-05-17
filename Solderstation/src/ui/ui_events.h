@@ -10,10 +10,17 @@
 extern "C" {
 #endif
 
+void BuzzerOFF(lv_event_t * e);
+void BuzzerON(lv_event_t * e);
+void CoolingON(lv_event_t * e);
+void CoolingOFF(lv_event_t * e);
 void SolderingON(lv_event_t * e);
 void SolderingOFF(lv_event_t * e);
 void HeatgunON(lv_event_t * e);
 void HeatgunOFF(lv_event_t * e);
+void SolderingTempAdjust(lv_event_t * e);
+void HeatgunTempAdjust(lv_event_t * e);
+void SaveConfig(lv_event_t * e);
 void HeatgunDelete(lv_event_t * e);
 void HeatgunNum0(lv_event_t * e);
 void HeatgunNum1(lv_event_t * e);
@@ -26,17 +33,27 @@ void HeatgunNum7(lv_event_t * e);
 void HeatgunNum8(lv_event_t * e);
 void HeatgunNum9(lv_event_t * e);
 void HeatgunSetTemp(lv_event_t * e);
+void HeatgunSetTempUN(lv_event_t * e);
 void HeatgunSetWindSpeed(lv_event_t * e);
-void SaveConfig(lv_event_t * e);
-void KpUpdate(lv_event_t * e);
-void KiUpdate(lv_event_t * e);
-void KdUpdate(lv_event_t * e);
-void PIDKPMinus(lv_event_t * e);
-void PIDKPPlus(lv_event_t * e);
-void PIDKIMinus(lv_event_t * e);
-void PIDKIPlus(lv_event_t * e);
-void PIDKDMinus(lv_event_t * e);
-void PIDKDPlus(lv_event_t * e);
+void HeatgunSetWindSpeedUN(lv_event_t * e);
+void SolderingKpUpdate(lv_event_t * e);
+void SolderingKiUpdate(lv_event_t * e);
+void SolderingKdUpdate(lv_event_t * e);
+void SolderingKPDown(lv_event_t * e);
+void SolderingKPUp(lv_event_t * e);
+void SolderingKIDown(lv_event_t * e);
+void SolderingKIUp(lv_event_t * e);
+void SolderingKDDown(lv_event_t * e);
+void SolderingKDUp(lv_event_t * e);
+void HeatgunKpUpdate(lv_event_t * e);
+void HeatgunKiUpdate(lv_event_t * e);
+void HeatgunKdUpdate(lv_event_t * e);
+void HeatgunKPDown(lv_event_t * e);
+void HeatgunKPUp(lv_event_t * e);
+void HeatgunKIDown(lv_event_t * e);
+void HeatgunKIUp(lv_event_t * e);
+void HeatgunKDDown(lv_event_t * e);
+void HeatgunKDUp(lv_event_t * e);
 
 #ifdef __cplusplus
 } /*extern "C"*/

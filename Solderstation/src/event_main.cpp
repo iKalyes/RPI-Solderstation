@@ -188,7 +188,30 @@ void ui_event_Setting( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_RELEASED) {
-      _ui_screen_change( &ui_SystemSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 50, 0, &ui_SystemSettingScreen_screen_init);
+      _ui_screen_change( &ui_SystemSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_SystemSettingScreen_screen_init);
+      lvgl_group_to_setting();
+}
+}
+
+void ui_event_Buzzer( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
+
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      BuzzerOFF( e );
+}
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      BuzzerON( e );
+}
+}
+
+void ui_event_CoolingFan( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
+
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      CoolingON( e );
+}
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      CoolingOFF( e );
 }
 }
 
@@ -196,11 +219,11 @@ void ui_event_SolderingSet( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_RELEASED) {
-      _ui_screen_change( &ui_SolderingTempSetScreen, LV_SCR_LOAD_ANIM_FADE_ON, 50, 0, &ui_SolderingTempSetScreen_screen_init);
+      _ui_screen_change( &ui_SolderingTempSetScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_SolderingTempSetScreen_screen_init);
 }
 }
 
-void ui_event_SplderingSwitch( lv_event_t * e) {
+void ui_event_SolderingSwitch( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
 
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
@@ -215,7 +238,7 @@ void ui_event_HeatgunSet( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
 if ( event_code == LV_EVENT_RELEASED) {
-      _ui_screen_change( &ui_HeatgunTempSetScreen, LV_SCR_LOAD_ANIM_FADE_ON, 50, 0, &ui_HeatgunTempSetScreen_screen_init);
+      _ui_screen_change( &ui_HeatgunTempSetScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_HeatgunTempSetScreen_screen_init);
 }
 }
 

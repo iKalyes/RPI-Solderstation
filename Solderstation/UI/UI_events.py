@@ -150,3 +150,107 @@ def HeatgunSetTemp(event_struct):
 def HeatgunSetWindSpeed(event_struct):
     return
 
+
+def HeatgunSetTempUN(event_struct):
+    return
+
+
+def HeatgunSetWindSpeedUN(event_struct):
+    return
+
+
+def SolderingTempAdjust(event_struct):
+    return
+
+
+def HeatgunTempAdjust(event_struct):
+    return
+
+
+def SolderingKpUpdate(event_struct):
+    return
+
+
+def SolderingKiUpdate(event_struct):
+    return
+
+
+def SolderingKdUpdate(event_struct):
+    return
+
+
+def SolderingKPDown(event_struct):
+    return
+
+
+def SolderingKPUp(event_struct):
+    return
+
+
+def SolderingKIDown(event_struct):
+    return
+
+
+def SolderingKIUp(event_struct):
+    return
+
+
+def SolderingKDDown(event_struct):
+    return
+
+
+def SolderingKDUp(event_struct):
+    return
+
+
+def HeatgunKpUpdate(event_struct):
+    return
+
+
+def HeatgunKiUpdate(event_struct):
+    return
+
+
+def HeatgunKdUpdate(event_struct):
+    return
+
+
+def HeatgunKPDown(event_struct):
+    return
+
+
+def HeatgunKPUp(event_struct):
+    return
+
+
+def HeatgunKIDown(event_struct):
+    return
+
+
+def HeatgunKIUp(event_struct):
+    return
+
+
+def HeatgunKDDown(event_struct):
+    return
+
+
+def HeatgunKDUp(event_struct):
+    return
+
+
+def BuzzerOFF(event_struct):
+    return
+
+
+def BuzzerON(event_struct):
+    return
+
+
+def CoolingON(event_struct):
+    return
+
+
+def CoolingOFF(event_struct):
+    return
+

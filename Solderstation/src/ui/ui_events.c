@@ -159,3 +159,133 @@ void HeatgunSetWindSpeed(lv_event_t * e)
 {
 	// Your code here
 }
+
+void HeatgunSetTempUN(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunSetWindSpeedUN(lv_event_t * e)
+{
+	// Your code here
+}
+
+void SolderingTempAdjust(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunTempAdjust(lv_event_t * e)
+{
+	// Your code here
+}
+
+void BuzzerOFF(lv_event_t * e)
+{
+	// Your code here
+}
+
+void BuzzerON(lv_event_t * e)
+{
+	// Your code here
+}
+
+void CoolingON(lv_event_t * e)
+{
+	// Your code here
+}
+
+void CoolingOFF(lv_event_t * e)
+{
+	// Your code here
+}
+
+void SolderingKpUpdate(lv_event_t * e)
+{
+	// Your code here
+}
+
+void SolderingKiUpdate(lv_event_t * e)
+{
+	// Your code here
+}
+
+void SolderingKdUpdate(lv_event_t * e)
+{
+	// Your code here
+}
+
+void SolderingKPDown(lv_event_t * e)
+{
+	// Your code here
+}
+
+void SolderingKPUp(lv_event_t * e)
+{
+	// Your code here
+}
+
+void SolderingKIDown(lv_event_t * e)
+{
+	// Your code here
+}
+
+void SolderingKIUp(lv_event_t * e)
+{
+	// Your code here
+}
+
+void SolderingKDDown(lv_event_t * e)
+{
+	// Your code here
+}
+
+void SolderingKDUp(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunKpUpdate(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunKiUpdate(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunKdUpdate(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunKPDown(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunKPUp(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunKIDown(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunKIUp(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunKDDown(lv_event_t * e)
+{
+	// Your code here
+}
+
+void HeatgunKDUp(lv_event_t * e)
+{
+	// Your code here
+}

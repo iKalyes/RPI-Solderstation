@@ -11,6 +11,20 @@
         "initializer_list": "cpp",
         "span": "cpp",
         "text_encoding": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "concepts": "cpp",
+        "memory": "cpp",
+        "optional": "cpp",
+        "fstream": "cpp",
+        "future": "cpp",
+        "istream": "cpp",
+        "ostream": "cpp",
+        "sstream": "cpp",
+        "stop_token": "cpp",
+        "streambuf": "cpp",
+        "thread": "cpp",
+        "functional": "cpp",
+        "tuple": "cpp",
+        "variant": "cpp"
     }
 }

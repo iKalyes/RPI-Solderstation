@@ -7,6 +7,7 @@
 #include <INA226_Service.h>
 #include <TMP102_Service.h>
 #include <Encoder_Service.h>
+#include <Temp_Service.h>
 
 #include <variables.h>
 

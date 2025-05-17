@@ -18,41 +18,73 @@ void my_disp_flush( lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_color_t *
 }
 
 /*Read the touchpad*/
-void my_touchpad_read( lv_indev_drv_t * indev_drv, lv_indev_data_t * data )
+void my_touchpad_read(lv_indev_drv_t * indev_drv, lv_indev_data_t * data)
 {
-
-  if (touch_6336.available())
+  // 更新触摸数据
+  touch_6336.scan();
+  
+  // 检查是否有触摸点
+  if (touch_6336.touchPoint.touch_count > 0)
   {
-    data->state = LV_INDEV_STATE_PR;
-    data->point.x = touch_6336.touchPoint.tp[0].x;
-    data->point.y = touch_6336.touchPoint.tp[0].y;
+    // 找到第一个活动的触摸点
+    for (uint8_t i = 0; i < 2; i++)
+    {
+      if (touch_6336.touchPoint.tp[i].status != release)
+      {
+        data->state = LV_INDEV_STATE_PR;
+        data->point.x = touch_6336.touchPoint.tp[i].x;
+        data->point.y = touch_6336.touchPoint.tp[i].y;
+        return;
+      }
+    }
   }
-  else
-  {
-    data->state = LV_INDEV_STATE_REL;
-  }
-
+  
+  // 没有触摸点活动
+  data->state = LV_INDEV_STATE_REL;
 }
 
 void backlight_init()
 {
-    pinMode(6, OUTPUT);
-    analogWriteFreq(5000);
-    analogWriteRange(100);
-    analogWrite(6, 100);
+  // 第一个 PWM 引脚设置 (例如 GPIO 6)
+  gpio_set_function(6, GPIO_FUNC_PWM);
+  uint slice_num = pwm_gpio_to_slice_num(6);
+  uint channel = pwm_gpio_to_channel(6);
+  
+  // 为第一个引脚设置时钟分频和计数范围（决定频率）
+  pwm_set_clkdiv(slice_num, 230.0);  // 分频器
+  pwm_set_wrap(slice_num, 1000);     // 最大计数值 (分辨率)
+    if(Brightness == 0)
+    {
+      pwm_set_chan_level(slice_num, channel, 500);  // 占空比
+    }
+    else
+    {
+      pwm_set_chan_level(slice_num, channel, Brightness * 10);  // 占空比
+    } 
+  pwm_set_enabled(slice_num, true);
+}
+
+void backlight_refresh()
+{
+  uint slice_num = pwm_gpio_to_slice_num(6);
+  uint channel = pwm_gpio_to_channel(6);
+  pwm_set_chan_level(slice_num, channel, Brightness * 10);  // 占空比
 }
 
 void display_init()
 {
     lv_init();
-    tft.begin();          /* TFT init */
+    tft.init();          /* TFT init */
+    tft.initDMA();
     tft.setRotation( 3 ); /* Landscape orientation, flipped */
+    tft.fillScreen(TFT_BLACK);
+
 
     /*Set the touchscreen calibration data,
      the actual data for your display can be acquired using
      the Generic -> Touch_calibrate example from the TFT_eSPI library*/
     touch_6336.begin(Wire);
-    lv_disp_draw_buf_init( &draw_buf, buf_1, buf_2, screenWidth * screenHeight / 10 );
+    lv_disp_draw_buf_init( &draw_buf, buf_1, buf_2, screenWidth * screenHeight / 6 );
 
     /*Initialize the display*/
     static lv_disp_drv_t disp_drv;
@@ -71,12 +103,52 @@ void display_init()
     indev_drv.read_cb = my_touchpad_read;
     lv_indev_drv_register( &indev_drv );
 
-    ui_init();
     backlight_init();
+    ui_init();
+
+    SystemSettingScreen_init();
+    MainScreen_init();
 }
 
 void lvgl_task_handler()
 {
   lv_task_handler();
   handle_encoder_parameters_edit();
+}
+
+static void pid_setting_focus_cb(lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    if(code == LV_EVENT_FOCUSED) {
+        lv_obj_t *obj = lv_event_get_target(e);
+        lv_obj_t *panel = lv_obj_get_parent(obj);
+        // 强制滚动到面板顶部
+        lv_obj_scroll_to_y(panel, 0, LV_ANIM_ON);
+    }
+}
+
+void SystemSettingScreen_init(void) 
+{    
+    // 为PIDSetting添加特殊的事件处理
+    lv_obj_add_event_cb(ui_PIDSetting, pid_setting_focus_cb, LV_EVENT_FOCUSED, NULL);
+    
+    // 为所有控件添加滚动跟随焦点的标志
+    lv_obj_add_flag(ui_PIDSetting, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+    lv_obj_add_flag(ui_SolderingMaxTemp, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+    lv_obj_add_flag(ui_SolderingMinTemp, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+    lv_obj_add_flag(ui_SolderingStandbyTemp, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+    lv_obj_add_flag(ui_SolderingStandbyTime, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+    lv_obj_add_flag(ui_HeatgunMaxTemp, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+    lv_obj_add_flag(ui_HeatgunMinTemp, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+    lv_obj_add_flag(ui_SolderingTempAdjust, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+    lv_obj_add_flag(ui_HeatgunTempAdjust, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+    lv_obj_add_flag(ui_SystemBrightness, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+    lv_obj_add_flag(ui_SettingSave, LV_OBJ_FLAG_SCROLL_ON_FOCUS); 
+}
+
+void MainScreen_init()
+{
+  lv_label_set_text_fmt(ui_SolderingTargetTemp, "%.3d℃", SolderingTargetTemp);
+  lv_label_set_text_fmt(ui_HeatgunTargetTemp, "%.3d℃", HeatgunTargetTemp);
+  lv_label_set_text_fmt(ui_HeatgunWindSpeed, "%.3d%%", HeatgunWindSpeed);
 }

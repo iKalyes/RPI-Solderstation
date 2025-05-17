@@ -6,5 +6,7 @@
 #include "ui/ui.h"
 
 void lvgl_group_init();
+void lvgl_group_to_setting();
+void lvgl_group_to_main();
 
 #endif

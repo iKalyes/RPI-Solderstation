@@ -32,6 +32,10 @@ void ui_MainScreen_screen_init(void);
 extern lv_obj_t *ui_MainScreen;
 void ui_event_Setting( lv_event_t * e);
 extern lv_obj_t *ui_Setting;
+void ui_event_Buzzer( lv_event_t * e);
+extern lv_obj_t *ui_Buzzer;
+void ui_event_CoolingFan( lv_event_t * e);
+extern lv_obj_t *ui_CoolingFan;
 extern lv_obj_t *ui_TMP102Dock;
 extern lv_obj_t *ui_TMP102Temp;
 extern lv_obj_t *ui_ImageTMP102Temp;
@@ -55,8 +59,8 @@ extern lv_obj_t *ui_TextSolderingTragetTemp;
 extern lv_obj_t *ui_SolderingTargetTemp;
 void ui_event_SolderingSet( lv_event_t * e);
 extern lv_obj_t *ui_SolderingSet;
-void ui_event_SplderingSwitch( lv_event_t * e);
-extern lv_obj_t *ui_SplderingSwitch;
+void ui_event_SolderingSwitch( lv_event_t * e);
+extern lv_obj_t *ui_SolderingSwitch;
 extern lv_obj_t *ui_Heatgun;
 extern lv_obj_t *ui_TextHeatgun;
 extern lv_obj_t *ui_ImageHeatgun;
@@ -115,6 +119,57 @@ void ui_event_SolderingTempSetBack( lv_event_t * e);
 extern lv_obj_t *ui_SolderingTempSetBack;
 // CUSTOM VARIABLES
 
+// SCREEN: ui_SystemSettingScreen
+void ui_SystemSettingScreen_screen_init(void);
+extern lv_obj_t *ui_SystemSettingScreen;
+extern lv_obj_t *ui_SystemSettingDock;
+extern lv_obj_t *ui_TextSystemSetting;
+void ui_event_SystemSettingBack( lv_event_t * e);
+extern lv_obj_t *ui_SystemSettingBack;
+extern lv_obj_t *ui_SystemSetting;
+void ui_event_PIDSetting( lv_event_t * e);
+extern lv_obj_t *ui_PIDSetting;
+extern lv_obj_t *ui_TextPIDSetting;
+void ui_event_SolderingMaxTemp( lv_event_t * e);
+extern lv_obj_t *ui_SolderingMaxTemp;
+extern lv_obj_t *ui_TextSolderingMaxTemp;
+extern lv_obj_t *ui_NameSolderingMaxTemp;
+void ui_event_SolderingMinTemp( lv_event_t * e);
+extern lv_obj_t *ui_SolderingMinTemp;
+extern lv_obj_t *ui_TextSolderingMinTemp;
+extern lv_obj_t *ui_NameSolderingMinTemp;
+void ui_event_SolderingStandbyTemp( lv_event_t * e);
+extern lv_obj_t *ui_SolderingStandbyTemp;
+extern lv_obj_t *ui_TextSolderingStandbyTemp;
+extern lv_obj_t *ui_NameSolderingStandbyTemp;
+void ui_event_SolderingStandbyTime( lv_event_t * e);
+extern lv_obj_t *ui_SolderingStandbyTime;
+extern lv_obj_t *ui_TextSolderingStandbyTime;
+extern lv_obj_t *ui_NameSolderingStandbyTime;
+void ui_event_HeatgunMaxTemp( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunMaxTemp;
+extern lv_obj_t *ui_TextHeatgunMaxTemp;
+extern lv_obj_t *ui_NameHeatgunMaxTemp;
+void ui_event_HeatgunMinTemp( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunMinTemp;
+extern lv_obj_t *ui_TextHeatgunMinTemp;
+extern lv_obj_t *ui_NameHeatgunMinTemp;
+void ui_event_SolderingTempAdjust( lv_event_t * e);
+extern lv_obj_t *ui_SolderingTempAdjust;
+extern lv_obj_t *ui_TextSolderingTempAdjust;
+extern lv_obj_t *ui_NameSolderingTempAdjust;
+void ui_event_HeatgunTempAdjust( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunTempAdjust;
+extern lv_obj_t *ui_TextHeatgunTempAdjust;
+extern lv_obj_t *ui_NameHeatgunTempAdjust;
+void ui_event_SystemBrightness( lv_event_t * e);
+extern lv_obj_t *ui_SystemBrightness;
+extern lv_obj_t *ui_ImageBrightness;
+extern lv_obj_t *ui_TextBrightness;
+void ui_event_SettingSave( lv_event_t * e);
+extern lv_obj_t *ui_SettingSave;
+// CUSTOM VARIABLES
+
 // SCREEN: ui_HeatgunTempSetScreen
 void ui_HeatgunTempSetScreen_screen_init(void);
 extern lv_obj_t *ui_HeatgunTempSetScreen;
@@ -159,40 +214,6 @@ void ui_event_HeatgunSetBack( lv_event_t * e);
 extern lv_obj_t *ui_HeatgunSetBack;
 // CUSTOM VARIABLES
 
-// SCREEN: ui_SystemSettingScreen
-void ui_SystemSettingScreen_screen_init(void);
-extern lv_obj_t *ui_SystemSettingScreen;
-extern lv_obj_t *ui_SystemSettingHeader;
-extern lv_obj_t *ui_ImageSystemHeader;
-void ui_event_SystemSettingBack( lv_event_t * e);
-extern lv_obj_t *ui_SystemSettingBack;
-extern lv_obj_t *ui_SettingMenuDock;
-extern lv_obj_t *ui_CustomCurve;
-extern lv_obj_t *ui_ImageCurve;
-extern lv_obj_t *ui_TextCurve;
-void ui_event_PIDSetting( lv_event_t * e);
-extern lv_obj_t *ui_PIDSetting;
-extern lv_obj_t *ui_ImagePIDSetting;
-extern lv_obj_t *ui_TextPIDSetting;
-extern lv_obj_t *ui_TempLimited;
-void ui_event_SliderTempLimited( lv_event_t * e);
-extern lv_obj_t *ui_SliderTempLimited;
-extern lv_obj_t *ui_ImageTempLimited;
-extern lv_obj_t *ui_TextTempLimited;
-extern lv_obj_t *ui_SleepTime;
-void ui_event_SliderSleepTime( lv_event_t * e);
-extern lv_obj_t *ui_SliderSleepTime;
-extern lv_obj_t *ui_ImageSleepTime;
-extern lv_obj_t *ui_TextSleepTime;
-extern lv_obj_t *ui_Brightness;
-void ui_event_SliderBrightness( lv_event_t * e);
-extern lv_obj_t *ui_SliderBrightness;
-extern lv_obj_t *ui_ImageBrightness;
-extern lv_obj_t *ui_TextBrightness;
-void ui_event_SaveConfig( lv_event_t * e);
-extern lv_obj_t *ui_SaveConfig;
-// CUSTOM VARIABLES
-
 // SCREEN: ui_PIDSettingScreen
 void ui_PIDSettingScreen_screen_init(void);
 extern lv_obj_t *ui_PIDSettingScreen;
@@ -201,27 +222,50 @@ extern lv_obj_t *ui_TextPIDSettingHeader;
 void ui_event_PIDSettingBack( lv_event_t * e);
 extern lv_obj_t *ui_PIDSettingBack;
 extern lv_obj_t *ui_PIDSettingDock;
-void ui_event_KPSpinBox( lv_event_t * e);
-extern lv_obj_t *ui_KPSpinBox;
+extern lv_obj_t *ui_TextSolderingPID;
+void ui_event_SolderingKP( lv_event_t * e);
+extern lv_obj_t *ui_SolderingKP;
 extern lv_obj_t *ui_TextPIDKP;
-void ui_event_KISpinBox( lv_event_t * e);
-extern lv_obj_t *ui_KISpinBox;
+void ui_event_SolderingKI( lv_event_t * e);
+extern lv_obj_t *ui_SolderingKI;
 extern lv_obj_t *ui_TextPIDKI;
-void ui_event_KDSpinBox( lv_event_t * e);
-extern lv_obj_t *ui_KDSpinBox;
+void ui_event_SolderingKD( lv_event_t * e);
+extern lv_obj_t *ui_SolderingKD;
 extern lv_obj_t *ui_TextPIDKD;
-void ui_event_KPDown( lv_event_t * e);
-extern lv_obj_t *ui_KPDown;
-void ui_event_KPUp( lv_event_t * e);
-extern lv_obj_t *ui_KPUp;
-void ui_event_KIDown( lv_event_t * e);
-extern lv_obj_t *ui_KIDown;
-void ui_event_KIUp( lv_event_t * e);
-extern lv_obj_t *ui_KIUp;
-void ui_event_KDDown( lv_event_t * e);
-extern lv_obj_t *ui_KDDown;
-void ui_event_KDUp( lv_event_t * e);
-extern lv_obj_t *ui_KDUp;
+void ui_event_SolderingKPDown( lv_event_t * e);
+extern lv_obj_t *ui_SolderingKPDown;
+void ui_event_SolderingKPUp( lv_event_t * e);
+extern lv_obj_t *ui_SolderingKPUp;
+void ui_event_SolderingKIDown( lv_event_t * e);
+extern lv_obj_t *ui_SolderingKIDown;
+void ui_event_SolderingKIUp( lv_event_t * e);
+extern lv_obj_t *ui_SolderingKIUp;
+void ui_event_SolderingKDDown( lv_event_t * e);
+extern lv_obj_t *ui_SolderingKDDown;
+void ui_event_SolderingKDUp( lv_event_t * e);
+extern lv_obj_t *ui_SolderingKDUp;
+extern lv_obj_t *ui_TextHeatgunPID;
+void ui_event_HeatgunKP( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunKP;
+extern lv_obj_t *ui_TextPIDKP2;
+void ui_event_HeatgunKI( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunKI;
+extern lv_obj_t *ui_TextPIDKI2;
+void ui_event_HeatgunKD( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunKD;
+extern lv_obj_t *ui_TextPIDKD2;
+void ui_event_HeatgunKPDown( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunKPDown;
+void ui_event_HeatgunKPUp( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunKPUp;
+void ui_event_HeatgunKIDown( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunKIDown;
+void ui_event_HeatgunKIUp( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunKIUp;
+void ui_event_HeatgunKDDown( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunKDDown;
+void ui_event_HeatgunKDUp( lv_event_t * e);
+extern lv_obj_t *ui_HeatgunKDUp;
 // CUSTOM VARIABLES
 
 // EVENTS
@@ -229,10 +273,12 @@ extern lv_obj_t *ui____initial_actions0;
 
 // IMAGES AND IMAGE SETS
 LV_IMG_DECLARE( ui_img_1671917170);   // assets/material-symbols_settings-rounded.png
-LV_IMG_DECLARE( ui_img_740489818);   // assets/material-symbols_thermostat-rounded.png
+LV_IMG_DECLARE( ui_img_185202102);   // assets/material-symbols_volume-off-outline-rounded.png
 LV_IMG_DECLARE( ui_img_1699618864);   // assets/material-symbols_volume-up-outline-rounded.png
-LV_IMG_DECLARE( ui_img_1249241237);   // assets/icon-park-solid_sleep.png
+LV_IMG_DECLARE( ui_img_1708415670);   // assets/material-symbols_mode-fan-off-outline-sharp.png
 LV_IMG_DECLARE( ui_img_2103744591);   // assets/material-symbols_mode-fan-outline.png
+LV_IMG_DECLARE( ui_img_740489818);   // assets/material-symbols_thermostat-rounded.png
+LV_IMG_DECLARE( ui_img_1249241237);   // assets/icon-park-solid_sleep.png
 LV_IMG_DECLARE( ui_img_1357884022);   // assets/material-symbols_looks-one-rounded.png
 LV_IMG_DECLARE( ui_img_155116563);   // assets/material-symbols_instant-mix-rounded.png
 LV_IMG_DECLARE( ui_img_1347724781);   // assets/material-symbols_play-arrow-rounded.png
@@ -251,21 +297,19 @@ LV_IMG_DECLARE( ui_img_num7_png);   // assets/Num7.png
 LV_IMG_DECLARE( ui_img_num8_png);   // assets/Num8.png
 LV_IMG_DECLARE( ui_img_num9_png);   // assets/Num9.png
 LV_IMG_DECLARE( ui_img_852573520);   // assets/material-symbols_chevron-left-rounded.png
-LV_IMG_DECLARE( ui_img_1205510230);   // assets/material-symbols_storage-rounded.png
-LV_IMG_DECLARE( ui_img_329106951);   // assets/material-symbols_speed-outline-rounded.png
-LV_IMG_DECLARE( ui_img_295618317);   // assets/material-symbols_avg-pace-rounded.png
 LV_IMG_DECLARE( ui_img_637286161);   // assets/material-symbols_backlight-high-rounded.png
 LV_IMG_DECLARE( ui_img_1723942165);   // assets/material-symbols_save-outline-rounded.png
 LV_IMG_DECLARE( ui_img_minus_png);   // assets/minus.png
 LV_IMG_DECLARE( ui_img_plus_png);   // assets/plus.png
+LV_IMG_DECLARE( ui_img_295618317);   // assets/material-symbols_avg-pace-rounded.png
 LV_IMG_DECLARE( ui_img_817906860);   // assets/material-symbols_fitbit-arrow-downward-rounded.png
 LV_IMG_DECLARE( ui_img_1345483443);   // assets/material-symbols_fitbit-arrow-upward-rounded.png
 LV_IMG_DECLARE( ui_img_1956478733);   // assets/material-symbols_heat.png
-LV_IMG_DECLARE( ui_img_1708415670);   // assets/material-symbols_mode-fan-off-outline-sharp.png
 LV_IMG_DECLARE( ui_img_1162706898);   // assets/material-symbols_mode-fan-outline-sharp.png
 LV_IMG_DECLARE( ui_img_921610142);   // assets/material-symbols_screen-share-outline-rounded.png
 LV_IMG_DECLARE( ui_img_290686881);   // assets/material-symbols_search-activity-rounded.png
-LV_IMG_DECLARE( ui_img_185202102);   // assets/material-symbols_volume-off-outline-rounded.png
+LV_IMG_DECLARE( ui_img_329106951);   // assets/material-symbols_speed-outline-rounded.png
+LV_IMG_DECLARE( ui_img_1205510230);   // assets/material-symbols_storage-rounded.png
 
 // FONTS
 LV_FONT_DECLARE( ui_font_ASCII);

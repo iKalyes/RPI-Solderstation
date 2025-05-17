@@ -47,12 +47,19 @@ void ui_event_SolderingConfirm(lv_event_t * e) {
             }
         }
         
-        // 如果输入不完整，直接返回，不切换屏幕
+        // 如果输入不完整，清空当前输入值，重新开始输入
         if (!isComplete) {
+            // 重置所有位置为'-'
+            for (int i = 0; i < 3; i++) {
+                tempDisplay[i] = '-';
+            }
+            // 重置输入位置指针
+            inputPos = 0;
+            updateDisplay();
             return;
         }
         
-        _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 50, 0, &ui_MainScreen_screen_init);
+        _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_MainScreen_screen_init);
         // 添加输入验证
         if (!tempDisplay || strlen(tempDisplay) > 3) {
             return;
@@ -184,10 +191,20 @@ void ui_event_SolderingNum9( lv_event_t * e) {
     }
 }
 
-void ui_event_SolderingTempSetBack( lv_event_t * e) {
+void ui_event_SolderingTempSetBack(lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-if ( event_code == LV_EVENT_PRESSED) {
-      _ui_screen_change( &ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 0, 0, &ui_MainScreen_screen_init);
-}
+    if (event_code == LV_EVENT_RELEASED) {
+        // 重置所有位置为'-'
+        for (int i = 0; i < 3; i++) {
+            tempDisplay[i] = '-';
+        }
+        // 重置输入位置指针
+        inputPos = 0;
+        // 更新显示
+        updateDisplay();
+        
+        // 切换回主屏幕
+        _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_MainScreen_screen_init);
+    }
 }
