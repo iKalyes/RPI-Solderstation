@@ -73,18 +73,16 @@ void backlight_refresh()
 
 void display_init()
 {
-    lv_init();
     tft.init();          /* TFT init */
     tft.initDMA();
     tft.setRotation( 3 ); /* Landscape orientation, flipped */
     tft.fillScreen(TFT_BLACK);
-
-
+    lv_init();
     /*Set the touchscreen calibration data,
      the actual data for your display can be acquired using
      the Generic -> Touch_calibrate example from the TFT_eSPI library*/
     touch_6336.begin(Wire);
-    lv_disp_draw_buf_init( &draw_buf, buf_1, buf_2, screenWidth * screenHeight / 6 );
+    lv_disp_draw_buf_init( &draw_buf, buf_1, buf_2, screenWidth * screenHeight / 5 );
 
     /*Initialize the display*/
     static lv_disp_drv_t disp_drv;
@@ -106,8 +104,9 @@ void display_init()
     backlight_init();
     ui_init();
 
-    SystemSettingScreen_init();
     MainScreen_init();
+    SystemSettingScreen_init();
+    PIDSettingScreen_init();
 }
 
 void lvgl_task_handler()
@@ -127,7 +126,14 @@ static void pid_setting_focus_cb(lv_event_t *e)
     }
 }
 
-void SystemSettingScreen_init(void) 
+void MainScreen_init()
+{
+  lv_label_set_text_fmt(ui_SolderingTargetTemp, "%.3d℃", SolderingTargetTemp);
+  lv_label_set_text_fmt(ui_HeatgunTargetTemp, "%.3d℃", HeatgunTargetTemp);
+  lv_label_set_text_fmt(ui_HeatgunWindSpeed, "%.3d%%", HeatgunWindSpeed);
+}
+
+void SystemSettingScreen_init() 
 {    
     // 为PIDSetting添加特殊的事件处理
     lv_obj_add_event_cb(ui_PIDSetting, pid_setting_focus_cb, LV_EVENT_FOCUSED, NULL);
@@ -146,9 +152,16 @@ void SystemSettingScreen_init(void)
     lv_obj_add_flag(ui_SettingSave, LV_OBJ_FLAG_SCROLL_ON_FOCUS); 
 }
 
-void MainScreen_init()
+void PIDSettingScreen_init()
 {
-  lv_label_set_text_fmt(ui_SolderingTargetTemp, "%.3d℃", SolderingTargetTemp);
-  lv_label_set_text_fmt(ui_HeatgunTargetTemp, "%.3d℃", HeatgunTargetTemp);
-  lv_label_set_text_fmt(ui_HeatgunWindSpeed, "%.3d%%", HeatgunWindSpeed);
+    // 为PIDSetting添加特殊的事件处理
+    lv_obj_add_event_cb(ui_SolderingKPDown, pid_setting_focus_cb, LV_EVENT_FOCUSED, NULL);
+    
+    // 为所有控件添加滚动跟随焦点的标志
+    lv_obj_add_flag(ui_SolderingKP, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+    lv_obj_add_flag(ui_SolderingKI, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+    lv_obj_add_flag(ui_SolderingKD, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+    lv_obj_add_flag(ui_HeatgunKP, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+    lv_obj_add_flag(ui_HeatgunKI, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+    lv_obj_add_flag(ui_HeatgunKD, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
 }

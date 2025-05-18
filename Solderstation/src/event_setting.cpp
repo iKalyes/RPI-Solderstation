@@ -14,6 +14,7 @@ void ui_event_PIDSetting( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_change( &ui_PIDSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_PIDSettingScreen_screen_init);
+      lvgl_group_to_pid_setting();
 }
 }
 

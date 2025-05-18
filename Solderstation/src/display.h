@@ -15,14 +15,16 @@ static const uint16_t screenWidth  = 320;
 static const uint16_t screenHeight = 240;
 
 static lv_disp_draw_buf_t draw_buf;
-static lv_color_t buf_1[ screenWidth * screenHeight / 6 ];
-static lv_color_t buf_2[ screenWidth * screenHeight / 6 ];
+static lv_color_t buf_1[ screenWidth * screenHeight / 5 ];
+static lv_color_t buf_2[ screenWidth * screenHeight / 5 ];
 
 void display_init();
 void backlight_init();
 void backlight_refresh();
 void lvgl_task_handler();
-void SystemSettingScreen_init(void);
+
 void MainScreen_init();
+void SystemSettingScreen_init();
+void PIDSettingScreen_init();
 
 #endif

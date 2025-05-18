@@ -5,6 +5,7 @@ void ui_event_PIDSettingBack( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_change( &ui_SystemSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_SystemSettingScreen_screen_init);
+        lvgl_group_to_setting();
 }
 }
 

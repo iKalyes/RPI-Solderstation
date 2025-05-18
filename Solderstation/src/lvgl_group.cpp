@@ -46,6 +46,40 @@ void lvgl_group_to_setting()
     lv_group_add_obj(group, ui_SettingSave);
 }
 
+void lvgl_group_to_pid_setting()
+{
+    lv_group_remove_all_objs(group);
+    
+    // 等待输入设备释放后再添加对象到组
+    lv_indev_wait_release(get_encoder_indev());
+
+    lv_group_add_obj(group, ui_PIDSettingBack);
+
+    lv_group_add_obj(group, ui_SolderingKPDown);
+    lv_group_add_obj(group, ui_SolderingKP);
+    lv_group_add_obj(group, ui_SolderingKPUp);
+
+    lv_group_add_obj(group, ui_SolderingKIDown);
+    lv_group_add_obj(group, ui_SolderingKI);
+    lv_group_add_obj(group, ui_SolderingKIUp);
+
+    lv_group_add_obj(group, ui_SolderingKDDown);
+    lv_group_add_obj(group, ui_SolderingKD);
+    lv_group_add_obj(group, ui_SolderingKDUp);
+
+    lv_group_add_obj(group, ui_HeatgunKPDown);
+    lv_group_add_obj(group, ui_HeatgunKP);
+    lv_group_add_obj(group, ui_HeatgunKPUp);
+    
+    lv_group_add_obj(group, ui_HeatgunKIDown);
+    lv_group_add_obj(group, ui_HeatgunKI);
+    lv_group_add_obj(group, ui_HeatgunKIUp);
+
+    lv_group_add_obj(group, ui_HeatgunKDDown);
+    lv_group_add_obj(group, ui_HeatgunKD);
+    lv_group_add_obj(group, ui_HeatgunKDUp);
+}
+
 void lvgl_group_to_main()
 {
     lv_group_remove_all_objs(group);
