@@ -10,6 +10,7 @@ void setup()
   lvgl_group_init();
   INA226_Init();
   TMP102_Init();
+  MAX6675_Init();
 }
 
 void loop()
@@ -19,10 +20,14 @@ void loop()
 
 void setup1()
 {
-
+  pinMode(24, OUTPUT);
+  analogWriteResolution(12);
+  analogWriteFreq(200);
+  analogWriteRange(100);
+  analogWrite(24, 0);
 }
 
 void loop1()
 {
-  
+
 }

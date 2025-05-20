@@ -228,9 +228,11 @@ void ui_event_SolderingSwitch( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       SolderingON( e );
+      analogWrite(24, 20);
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       SolderingOFF( e );
+      analogWrite(24, 0);
 }
 }
 

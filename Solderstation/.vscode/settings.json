@@ -26,6 +26,7 @@
         "functional": "cpp",
         "tuple": "cpp",
         "variant": "cpp",
-        "mian": "c"
+        "mian": "c",
+        "cmath": "cpp"
     }
 }

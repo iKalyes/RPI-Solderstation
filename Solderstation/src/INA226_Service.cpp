@@ -10,8 +10,17 @@ void INA226_Init()
   Wire1.setSDA(INA226_SDA);
   Wire1.begin();
   INA.begin();
-  INA.setMaxCurrentShunt(10, 0.01);
-  INA226_Timer = lv_timer_create(INA226_Task, 200, NULL);
+  INA.setMaxCurrentShunt(10, 0.005);
+  INA.setAverage(INA226_128_SAMPLES);
+  INA.setShuntVoltageConversionTime(INA226_140_us);
+  INA.setBusVoltageConversionTime(INA226_140_us);
+  INA226_Timer = lv_timer_create(INA226_Task, 100, NULL);
+  delay(5000);
+  Serial.print("INA226 Bus Voltage Conversion Time: ");
+    Serial.println(INA.getBusVoltageConversionTime());
+    Serial.print("INA226 Shunt Voltage Conversion Time: ");
+    Serial.println(INA.getShuntVoltageConversionTime());
+
 }
 
 
@@ -32,17 +41,9 @@ void INA226_Task(lv_timer_t *timer)
     int power_int = power_full / 10;
     int power_frac = power_full % 10;
 
-    if(voltage_full >= 0 && current_full >= 0 && power_full >= 0)
-    {
-        lv_label_set_text_fmt(ui_INA226Voltage, "%02d.%02dV", voltage_int, voltage_frac);
-        lv_label_set_text_fmt(ui_INA226Current, "%01d.%03dA", current_int, current_frac);
-        lv_label_set_text_fmt(ui_INA226Power, "%03d.%01dW", power_int, power_frac);
-    }
-    else
-    {
-        lv_label_set_text(ui_INA226Voltage, "00.00V");
-        lv_label_set_text(ui_INA226Current, "0.000A");
-        lv_label_set_text(ui_INA226Power, "000.0W");
-    }
+    lv_label_set_text_fmt(ui_INA226Voltage, "%02d.%02dV", voltage_int, voltage_frac);
+    lv_label_set_text_fmt(ui_INA226Current, "%01d.%03dA", current_int, current_frac);
+    lv_label_set_text_fmt(ui_INA226Power, "%03d.%01dW", power_int, power_frac);
+
 }
 

@@ -12,12 +12,15 @@ void encoder_init()
     encoder = new RotaryEncoder(17, 16, RotaryEncoder::LatchMode::FOUR3);
     attachInterrupt(digitalPinToInterrupt(17), encoder_tick, CHANGE); // Attach interrupt to pin 17
     attachInterrupt(digitalPinToInterrupt(16), encoder_tick, CHANGE); // Attach interrupt to pin 16
-    pinMode(15, INPUT); // Pin 15 for SW
+    pinMode(15, INPUT_PULLUP); // Pin 15 for SW
 }
 
 // 跟踪编码器状态
 static int last_encoder_dir = 0;
 static bool encoder_btn_pressed = false;
+static bool last_btn_state = false;
+static unsigned long last_btn_change_time = 0;
+static const unsigned long DEBOUNCE_DELAY = 50; // 50ms去抖动延迟
 static lv_indev_t* encoder_indev = NULL;
 
 // 编码器读取回调函数
@@ -34,10 +37,25 @@ static void encoder_read(lv_indev_drv_t* drv, lv_indev_data_t* data)
     }
     last_encoder_dir = current_dir;
     
-    // 检测按钮状态 (Pin 4)
-    bool btn_state = !digitalRead(15); // 假设低电平为按下
-    data->state = btn_state ? LV_INDEV_STATE_PRESSED : LV_INDEV_STATE_RELEASED;
-    encoder_btn_pressed = btn_state;
+    // 检测按钮状态 (Pin 15)，增加消抖机制
+    bool current_btn_state = !digitalRead(15); // 读取当前按钮状态
+    
+    // 检查按钮状态是否改变，并处理消抖
+    if (current_btn_state != last_btn_state) {
+        // 状态变化，记录时间
+        last_btn_change_time = millis();
+    }
+    
+    // 只有当状态稳定足够长时间才更新实际按钮状态
+    if ((millis() - last_btn_change_time) > DEBOUNCE_DELAY) {
+        encoder_btn_pressed = current_btn_state;
+    }
+    
+    // 更新上次状态
+    last_btn_state = current_btn_state;
+    
+    // 设置LVGL状态
+    data->state = encoder_btn_pressed ? LV_INDEV_STATE_PRESSED : LV_INDEV_STATE_RELEASED;
 }
 
 // 初始化LVGL编码器输入设备

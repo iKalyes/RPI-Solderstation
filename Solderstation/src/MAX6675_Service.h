@@ -1,0 +1,17 @@
+#ifndef _MAX6675_SERVICE_H
+#define _MAX6675_SERVICE_H
+
+#include <Arduino.h>
+#include <MAX6675.h>
+#include <lvgl.h>
+#include <ui/ui.h>
+
+#define MAX6675_CS1_PIN 11
+#define MAX6675_CS2_PIN 21
+#define MAX6675_SO_PIN 12
+#define MAX6675_CLK_PIN 14
+
+void MAX6675_Init();
+void MAX6675_Task(lv_timer_t *timer);
+
+#endif // _MAX6675_SERVICE_H

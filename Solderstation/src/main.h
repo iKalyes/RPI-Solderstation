@@ -8,6 +8,7 @@
 #include <TMP102_Service.h>
 #include <Encoder_Service.h>
 #include <Temp_Service.h>
+#include <MAX6675_Service.h>
 
 #include <variables.h>
 
