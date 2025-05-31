@@ -39,8 +39,6 @@ void lvgl_group_to_setting()
 
     lv_group_add_obj(group, ui_HeatgunMaxTemp);
     lv_group_add_obj(group, ui_HeatgunMinTemp);
-    lv_group_add_obj(group, ui_SolderingTempAdjust);
-    lv_group_add_obj(group, ui_HeatgunTempAdjust);
 
     lv_group_add_obj(group, ui_SystemBrightness);
     lv_group_add_obj(group, ui_SettingSave);

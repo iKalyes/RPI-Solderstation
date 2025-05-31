@@ -5,5 +5,6 @@
 #include <lvgl.h>
 #include <ui/ui.h>
 #include <variables.h>
+#include <flash.h>
 
 #endif

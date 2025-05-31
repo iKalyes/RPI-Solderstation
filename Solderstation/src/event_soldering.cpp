@@ -60,6 +60,7 @@ void ui_event_SolderingConfirm(lv_event_t * e) {
         }
         
         _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_MainScreen_screen_init);
+        WriteSoldering();
         // 添加输入验证
         if (!tempDisplay || strlen(tempDisplay) > 3) {
             return;

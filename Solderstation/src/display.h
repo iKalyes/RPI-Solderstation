@@ -7,6 +7,7 @@
 #include <RAK14014_FT6336U.h>
 #include <hardware/pwm.h>
 #include <event_main.h>
+#include <event_pid.h>
 #include <variables.h>
 
 

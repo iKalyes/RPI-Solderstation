@@ -51,7 +51,7 @@ void backlight_init()
   uint channel = pwm_gpio_to_channel(6);
   
   // 为第一个引脚设置时钟分频和计数范围（决定频率）
-  pwm_set_clkdiv(slice_num, 230.0);  // 分频器
+  pwm_set_clkdiv(slice_num, 250.0);  // 分频器
   pwm_set_wrap(slice_num, 1000);     // 最大计数值 (分辨率)
     if(Brightness == 0)
     {
@@ -107,6 +107,9 @@ void display_init()
     MainScreen_init();
     SystemSettingScreen_init();
     PIDSettingScreen_init();
+
+    Soldering_PID_Init();
+    Heatgun_PID_Init();
 }
 
 void lvgl_task_handler()
@@ -146,10 +149,29 @@ void SystemSettingScreen_init()
     lv_obj_add_flag(ui_SolderingStandbyTime, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
     lv_obj_add_flag(ui_HeatgunMaxTemp, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
     lv_obj_add_flag(ui_HeatgunMinTemp, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
-    lv_obj_add_flag(ui_SolderingTempAdjust, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
-    lv_obj_add_flag(ui_HeatgunTempAdjust, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
     lv_obj_add_flag(ui_SystemBrightness, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
     lv_obj_add_flag(ui_SettingSave, LV_OBJ_FLAG_SCROLL_ON_FOCUS); 
+
+    lv_label_set_text_fmt(ui_TextSolderingMinTemp, "%d℃", SolderingTargetTempMin);
+    lv_slider_set_value(ui_SolderingMinTemp, SolderingTargetTempMin, LV_ANIM_OFF);
+
+    lv_label_set_text_fmt(ui_TextSolderingMaxTemp, "%d℃", SolderingTargetTempMax);
+    lv_slider_set_value(ui_SolderingMaxTemp, SolderingTargetTempMax, LV_ANIM_OFF);
+    
+    lv_label_set_text_fmt(ui_TextSolderingStandbyTemp, "%d℃", SolderingStandbyTemp);
+    lv_slider_set_value(ui_SolderingStandbyTemp, SolderingStandbyTemp, LV_ANIM_OFF);
+    
+    lv_label_set_text_fmt(ui_TextSolderingStandbyTime, "%dMin", SolderingStandbyTime);
+    lv_slider_set_value(ui_SolderingStandbyTime, SolderingStandbyTime, LV_ANIM_OFF);
+
+    lv_label_set_text_fmt(ui_TextHeatgunMaxTemp, "%d℃", HeatgunTargetTempMax);
+    lv_slider_set_value(ui_HeatgunMaxTemp, HeatgunTargetTempMax, LV_ANIM_OFF);
+
+    lv_label_set_text_fmt(ui_TextHeatgunMinTemp, "%d℃", HeatgunTargetTempMin);
+    lv_slider_set_value(ui_HeatgunMinTemp, HeatgunTargetTempMin, LV_ANIM_OFF);
+
+    lv_label_set_text_fmt(ui_TextBrightness, "%d%%", Brightness);
+    lv_slider_set_value(ui_SystemBrightness, Brightness, LV_ANIM_OFF);
 }
 
 void PIDSettingScreen_init()

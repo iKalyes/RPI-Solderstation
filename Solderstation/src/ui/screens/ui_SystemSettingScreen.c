@@ -95,7 +95,7 @@ ui_object_set_themeable_style_property(ui_TextPIDSetting, LV_PART_MAIN| LV_STATE
 lv_obj_set_style_text_font(ui_TextPIDSetting, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_SolderingMaxTemp = lv_slider_create(ui_SystemSetting);
-lv_slider_set_range(ui_SolderingMaxTemp, 10,450);
+lv_slider_set_range(ui_SolderingMaxTemp, 100,450);
 lv_slider_set_value( ui_SolderingMaxTemp, 400, LV_ANIM_OFF);
 if (lv_slider_get_mode(ui_SolderingMaxTemp)==LV_SLIDER_MODE_RANGE ) lv_slider_set_left_value( ui_SolderingMaxTemp, 0, LV_ANIM_OFF);
 lv_obj_set_width( ui_SolderingMaxTemp, 232);
@@ -140,7 +140,7 @@ lv_obj_set_style_text_opa(ui_NameSolderingMaxTemp, 255, LV_PART_MAIN| LV_STATE_D
 lv_obj_set_style_text_font(ui_NameSolderingMaxTemp, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_SolderingMinTemp = lv_slider_create(ui_SystemSetting);
-lv_slider_set_range(ui_SolderingMinTemp, 10,450);
+lv_slider_set_range(ui_SolderingMinTemp, 50,100);
 lv_slider_set_value( ui_SolderingMinTemp, 50, LV_ANIM_OFF);
 if (lv_slider_get_mode(ui_SolderingMinTemp)==LV_SLIDER_MODE_RANGE ) lv_slider_set_left_value( ui_SolderingMinTemp, 0, LV_ANIM_OFF);
 lv_obj_set_width( ui_SolderingMinTemp, 232);
@@ -185,7 +185,7 @@ lv_obj_set_style_text_opa(ui_NameSolderingMinTemp, 255, LV_PART_MAIN| LV_STATE_D
 lv_obj_set_style_text_font(ui_NameSolderingMinTemp, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_SolderingStandbyTemp = lv_slider_create(ui_SystemSetting);
-lv_slider_set_range(ui_SolderingStandbyTemp, 10,450);
+lv_slider_set_range(ui_SolderingStandbyTemp, 50,450);
 lv_slider_set_value( ui_SolderingStandbyTemp, 100, LV_ANIM_OFF);
 if (lv_slider_get_mode(ui_SolderingStandbyTemp)==LV_SLIDER_MODE_RANGE ) lv_slider_set_left_value( ui_SolderingStandbyTemp, 0, LV_ANIM_OFF);
 lv_obj_set_width( ui_SolderingStandbyTemp, 232);
@@ -231,7 +231,7 @@ lv_obj_set_style_text_font(ui_NameSolderingStandbyTemp, &ui_font_ASCII, LV_PART_
 
 ui_SolderingStandbyTime = lv_slider_create(ui_SystemSetting);
 lv_slider_set_range(ui_SolderingStandbyTime, 0,60);
-lv_slider_set_value( ui_SolderingStandbyTime, 10, LV_ANIM_OFF);
+lv_slider_set_value( ui_SolderingStandbyTime, 0, LV_ANIM_OFF);
 if (lv_slider_get_mode(ui_SolderingStandbyTime)==LV_SLIDER_MODE_RANGE ) lv_slider_set_left_value( ui_SolderingStandbyTime, 0, LV_ANIM_OFF);
 lv_obj_set_width( ui_SolderingStandbyTime, 232);
 lv_obj_set_height( ui_SolderingStandbyTime, 28);
@@ -258,7 +258,7 @@ lv_obj_set_height( ui_TextSolderingStandbyTime, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_TextSolderingStandbyTime, -4 );
 lv_obj_set_y( ui_TextSolderingStandbyTime, 0 );
 lv_obj_set_align( ui_TextSolderingStandbyTime, LV_ALIGN_RIGHT_MID );
-lv_label_set_text(ui_TextSolderingStandbyTime,"10Min");
+lv_label_set_text(ui_TextSolderingStandbyTime,"0Min");
 ui_object_set_themeable_style_property(ui_TextSolderingStandbyTime, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
 ui_object_set_themeable_style_property(ui_TextSolderingStandbyTime, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
 lv_obj_set_style_text_font(ui_TextSolderingStandbyTime, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
@@ -275,7 +275,7 @@ lv_obj_set_style_text_opa(ui_NameSolderingStandbyTime, 255, LV_PART_MAIN| LV_STA
 lv_obj_set_style_text_font(ui_NameSolderingStandbyTime, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_HeatgunMaxTemp = lv_slider_create(ui_SystemSetting);
-lv_slider_set_range(ui_HeatgunMaxTemp, 10,450);
+lv_slider_set_range(ui_HeatgunMaxTemp, 100,450);
 lv_slider_set_value( ui_HeatgunMaxTemp, 400, LV_ANIM_OFF);
 if (lv_slider_get_mode(ui_HeatgunMaxTemp)==LV_SLIDER_MODE_RANGE ) lv_slider_set_left_value( ui_HeatgunMaxTemp, 0, LV_ANIM_OFF);
 lv_obj_set_width( ui_HeatgunMaxTemp, 232);
@@ -320,7 +320,7 @@ lv_obj_set_style_text_opa(ui_NameHeatgunMaxTemp, 255, LV_PART_MAIN| LV_STATE_DEF
 lv_obj_set_style_text_font(ui_NameHeatgunMaxTemp, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_HeatgunMinTemp = lv_slider_create(ui_SystemSetting);
-lv_slider_set_range(ui_HeatgunMinTemp, 10,450);
+lv_slider_set_range(ui_HeatgunMinTemp, 50,100);
 lv_slider_set_value( ui_HeatgunMinTemp, 100, LV_ANIM_OFF);
 if (lv_slider_get_mode(ui_HeatgunMinTemp)==LV_SLIDER_MODE_RANGE ) lv_slider_set_left_value( ui_HeatgunMinTemp, 0, LV_ANIM_OFF);
 lv_obj_set_width( ui_HeatgunMinTemp, 232);
@@ -364,96 +364,6 @@ lv_obj_set_style_text_color(ui_NameHeatgunMinTemp, lv_color_hex(0xFFFFFF), LV_PA
 lv_obj_set_style_text_opa(ui_NameHeatgunMinTemp, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
 lv_obj_set_style_text_font(ui_NameHeatgunMinTemp, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
 
-ui_SolderingTempAdjust = lv_slider_create(ui_SystemSetting);
-lv_slider_set_range(ui_SolderingTempAdjust, 10,500);
-lv_slider_set_value( ui_SolderingTempAdjust, 250, LV_ANIM_OFF);
-if (lv_slider_get_mode(ui_SolderingTempAdjust)==LV_SLIDER_MODE_RANGE ) lv_slider_set_left_value( ui_SolderingTempAdjust, 0, LV_ANIM_OFF);
-lv_obj_set_width( ui_SolderingTempAdjust, 232);
-lv_obj_set_height( ui_SolderingTempAdjust, 28);
-lv_obj_set_x( ui_SolderingTempAdjust, -6 );
-lv_obj_set_y( ui_SolderingTempAdjust, 246 );
-lv_obj_set_style_radius(ui_SolderingTempAdjust, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
-ui_object_set_themeable_style_property(ui_SolderingTempAdjust, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_ButtonAndBack);
-ui_object_set_themeable_style_property(ui_SolderingTempAdjust, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_ButtonAndBack);
-lv_obj_set_style_outline_color(ui_SolderingTempAdjust, lv_color_hex(0xFF0000), LV_PART_MAIN | LV_STATE_DEFAULT );
-lv_obj_set_style_outline_opa(ui_SolderingTempAdjust, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_outline_width(ui_SolderingTempAdjust, 2, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_outline_pad(ui_SolderingTempAdjust, 1, LV_PART_MAIN| LV_STATE_DEFAULT);
-
-lv_obj_set_style_radius(ui_SolderingTempAdjust, 5, LV_PART_INDICATOR| LV_STATE_DEFAULT);
-lv_obj_set_style_bg_color(ui_SolderingTempAdjust, lv_color_hex(0x0032FF), LV_PART_INDICATOR | LV_STATE_DEFAULT );
-lv_obj_set_style_bg_opa(ui_SolderingTempAdjust, 255, LV_PART_INDICATOR| LV_STATE_DEFAULT);
-
-lv_obj_set_style_blend_mode(ui_SolderingTempAdjust, LV_BLEND_MODE_NORMAL, LV_PART_KNOB| LV_STATE_DEFAULT);
-lv_obj_set_style_opa(ui_SolderingTempAdjust, 0, LV_PART_KNOB| LV_STATE_DEFAULT);
-
-ui_TextSolderingTempAdjust = lv_label_create(ui_SolderingTempAdjust);
-lv_obj_set_width( ui_TextSolderingTempAdjust, LV_SIZE_CONTENT);  /// 1
-lv_obj_set_height( ui_TextSolderingTempAdjust, LV_SIZE_CONTENT);   /// 1
-lv_obj_set_x( ui_TextSolderingTempAdjust, -4 );
-lv_obj_set_y( ui_TextSolderingTempAdjust, 0 );
-lv_obj_set_align( ui_TextSolderingTempAdjust, LV_ALIGN_RIGHT_MID );
-lv_label_set_text(ui_TextSolderingTempAdjust,"000℃");
-ui_object_set_themeable_style_property(ui_TextSolderingTempAdjust, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
-ui_object_set_themeable_style_property(ui_TextSolderingTempAdjust, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
-lv_obj_set_style_text_font(ui_TextSolderingTempAdjust, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
-
-ui_NameSolderingTempAdjust = lv_label_create(ui_SolderingTempAdjust);
-lv_obj_set_width( ui_NameSolderingTempAdjust, LV_SIZE_CONTENT);  /// 1
-lv_obj_set_height( ui_NameSolderingTempAdjust, LV_SIZE_CONTENT);   /// 1
-lv_obj_set_x( ui_NameSolderingTempAdjust, 4 );
-lv_obj_set_y( ui_NameSolderingTempAdjust, 0 );
-lv_obj_set_align( ui_NameSolderingTempAdjust, LV_ALIGN_LEFT_MID );
-lv_label_set_text(ui_NameSolderingTempAdjust,"电烙铁 - 温度校准");
-lv_obj_set_style_text_color(ui_NameSolderingTempAdjust, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT );
-lv_obj_set_style_text_opa(ui_NameSolderingTempAdjust, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_text_font(ui_NameSolderingTempAdjust, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
-
-ui_HeatgunTempAdjust = lv_slider_create(ui_SystemSetting);
-lv_slider_set_range(ui_HeatgunTempAdjust, 10,500);
-lv_slider_set_value( ui_HeatgunTempAdjust, 250, LV_ANIM_OFF);
-if (lv_slider_get_mode(ui_HeatgunTempAdjust)==LV_SLIDER_MODE_RANGE ) lv_slider_set_left_value( ui_HeatgunTempAdjust, 0, LV_ANIM_OFF);
-lv_obj_set_width( ui_HeatgunTempAdjust, 232);
-lv_obj_set_height( ui_HeatgunTempAdjust, 28);
-lv_obj_set_x( ui_HeatgunTempAdjust, -6 );
-lv_obj_set_y( ui_HeatgunTempAdjust, 282 );
-lv_obj_set_style_radius(ui_HeatgunTempAdjust, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
-ui_object_set_themeable_style_property(ui_HeatgunTempAdjust, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_ButtonAndBack);
-ui_object_set_themeable_style_property(ui_HeatgunTempAdjust, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_ButtonAndBack);
-lv_obj_set_style_outline_color(ui_HeatgunTempAdjust, lv_color_hex(0xFFFF00), LV_PART_MAIN | LV_STATE_DEFAULT );
-lv_obj_set_style_outline_opa(ui_HeatgunTempAdjust, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_outline_width(ui_HeatgunTempAdjust, 2, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_outline_pad(ui_HeatgunTempAdjust, 1, LV_PART_MAIN| LV_STATE_DEFAULT);
-
-lv_obj_set_style_radius(ui_HeatgunTempAdjust, 5, LV_PART_INDICATOR| LV_STATE_DEFAULT);
-lv_obj_set_style_bg_color(ui_HeatgunTempAdjust, lv_color_hex(0x00FF00), LV_PART_INDICATOR | LV_STATE_DEFAULT );
-lv_obj_set_style_bg_opa(ui_HeatgunTempAdjust, 255, LV_PART_INDICATOR| LV_STATE_DEFAULT);
-
-lv_obj_set_style_blend_mode(ui_HeatgunTempAdjust, LV_BLEND_MODE_NORMAL, LV_PART_KNOB| LV_STATE_DEFAULT);
-lv_obj_set_style_opa(ui_HeatgunTempAdjust, 0, LV_PART_KNOB| LV_STATE_DEFAULT);
-
-ui_TextHeatgunTempAdjust = lv_label_create(ui_HeatgunTempAdjust);
-lv_obj_set_width( ui_TextHeatgunTempAdjust, LV_SIZE_CONTENT);  /// 1
-lv_obj_set_height( ui_TextHeatgunTempAdjust, LV_SIZE_CONTENT);   /// 1
-lv_obj_set_x( ui_TextHeatgunTempAdjust, -4 );
-lv_obj_set_y( ui_TextHeatgunTempAdjust, 0 );
-lv_obj_set_align( ui_TextHeatgunTempAdjust, LV_ALIGN_RIGHT_MID );
-lv_label_set_text(ui_TextHeatgunTempAdjust,"000℃");
-ui_object_set_themeable_style_property(ui_TextHeatgunTempAdjust, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
-ui_object_set_themeable_style_property(ui_TextHeatgunTempAdjust, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
-lv_obj_set_style_text_font(ui_TextHeatgunTempAdjust, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
-
-ui_NameHeatgunTempAdjust = lv_label_create(ui_HeatgunTempAdjust);
-lv_obj_set_width( ui_NameHeatgunTempAdjust, LV_SIZE_CONTENT);  /// 1
-lv_obj_set_height( ui_NameHeatgunTempAdjust, LV_SIZE_CONTENT);   /// 1
-lv_obj_set_x( ui_NameHeatgunTempAdjust, 4 );
-lv_obj_set_y( ui_NameHeatgunTempAdjust, 0 );
-lv_obj_set_align( ui_NameHeatgunTempAdjust, LV_ALIGN_LEFT_MID );
-lv_label_set_text(ui_NameHeatgunTempAdjust,"热风枪 - 温度校准");
-lv_obj_set_style_text_color(ui_NameHeatgunTempAdjust, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT );
-lv_obj_set_style_text_opa(ui_NameHeatgunTempAdjust, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_text_font(ui_NameHeatgunTempAdjust, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
-
 ui_SystemBrightness = lv_slider_create(ui_SystemSetting);
 lv_slider_set_range(ui_SystemBrightness, 10,100);
 lv_slider_set_value( ui_SystemBrightness, 50, LV_ANIM_OFF);
@@ -461,7 +371,7 @@ if (lv_slider_get_mode(ui_SystemBrightness)==LV_SLIDER_MODE_RANGE ) lv_slider_se
 lv_obj_set_width( ui_SystemBrightness, 232);
 lv_obj_set_height( ui_SystemBrightness, 28);
 lv_obj_set_x( ui_SystemBrightness, -6 );
-lv_obj_set_y( ui_SystemBrightness, 318 );
+lv_obj_set_y( ui_SystemBrightness, 246 );
 lv_obj_set_style_radius(ui_SystemBrightness, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
 ui_object_set_themeable_style_property(ui_SystemBrightness, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_ButtonAndBack);
 ui_object_set_themeable_style_property(ui_SystemBrightness, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_ButtonAndBack);
@@ -502,7 +412,7 @@ ui_SettingSave = lv_btn_create(ui_SystemSetting);
 lv_obj_set_width( ui_SettingSave, 236);
 lv_obj_set_height( ui_SettingSave, 32);
 lv_obj_set_x( ui_SettingSave, -8 );
-lv_obj_set_y( ui_SettingSave, 352 );
+lv_obj_set_y( ui_SettingSave, 280 );
 lv_obj_add_flag( ui_SettingSave, LV_OBJ_FLAG_SCROLL_ON_FOCUS );   /// Flags
 lv_obj_clear_flag( ui_SettingSave, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
 lv_obj_set_style_radius(ui_SettingSave, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
@@ -520,8 +430,6 @@ lv_obj_add_event_cb(ui_SolderingStandbyTemp, ui_event_SolderingStandbyTemp, LV_E
 lv_obj_add_event_cb(ui_SolderingStandbyTime, ui_event_SolderingStandbyTime, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_HeatgunMaxTemp, ui_event_HeatgunMaxTemp, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_HeatgunMinTemp, ui_event_HeatgunMinTemp, LV_EVENT_ALL, NULL);
-lv_obj_add_event_cb(ui_SolderingTempAdjust, ui_event_SolderingTempAdjust, LV_EVENT_ALL, NULL);
-lv_obj_add_event_cb(ui_HeatgunTempAdjust, ui_event_HeatgunTempAdjust, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_SystemBrightness, ui_event_SystemBrightness, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_SettingSave, ui_event_SettingSave, LV_EVENT_ALL, NULL);
 

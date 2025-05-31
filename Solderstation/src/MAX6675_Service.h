@@ -5,6 +5,7 @@
 #include <MAX6675.h>
 #include <lvgl.h>
 #include <ui/ui.h>
+#include <variables.h>
 
 #define MAX6675_CS1_PIN 11
 #define MAX6675_CS2_PIN 21

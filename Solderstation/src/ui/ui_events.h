@@ -18,8 +18,6 @@ void SolderingON(lv_event_t * e);
 void SolderingOFF(lv_event_t * e);
 void HeatgunON(lv_event_t * e);
 void HeatgunOFF(lv_event_t * e);
-void SolderingTempAdjust(lv_event_t * e);
-void HeatgunTempAdjust(lv_event_t * e);
 void SaveConfig(lv_event_t * e);
 void HeatgunDelete(lv_event_t * e);
 void HeatgunNum0(lv_event_t * e);

@@ -6,5 +6,6 @@
 #include <ui/ui.h>
 #include <variables.h>
 #include <display.h>
+#include <flash.h>
 
 #endif // _EVENT_SETTING_H

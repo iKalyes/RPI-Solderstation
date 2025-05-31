@@ -13,18 +13,21 @@ void MAX6675_Init()
 
 void MAX6675_Task(lv_timer_t *timer)
 {
-        int Soldering_Status = sensor1.read();
-        int Soldering_Temp = (int)sensor1.getTemperature();
-        int Heatgun_Status = sensor2.read();
-        int Heatgun_Temp = (int)sensor2.getTemperature();
-        if (Soldering_Status == 0)
+        if(Soldering_Enabled == false)
         {
-            lv_label_set_text_fmt(ui_SolderingTemp, "%.3d", Soldering_Temp);
+            Soldering_Status = sensor1.read();
+            Soldering_Temp = (int)sensor1.getTemperature();
+            if (Soldering_Status == 0)
+            {
+                lv_label_set_text_fmt(ui_SolderingTemp, "%.3d", Soldering_Temp);
+            }
+            else
+            {
+                lv_label_set_text(ui_SolderingTemp, "ERR");
+            }
         }
-        else
-        {
-            lv_label_set_text(ui_SolderingTemp, "ERR");
-        }
+        Heatgun_Status = sensor2.read();
+        Heatgun_Temp = (int)sensor2.getTemperature();
         if (Heatgun_Status == 0)
         {
             lv_label_set_text_fmt(ui_HeatgunTemp, "%.3d", Heatgun_Temp);

@@ -15,12 +15,6 @@ void INA226_Init()
   INA.setShuntVoltageConversionTime(INA226_140_us);
   INA.setBusVoltageConversionTime(INA226_140_us);
   INA226_Timer = lv_timer_create(INA226_Task, 100, NULL);
-  delay(5000);
-  Serial.print("INA226 Bus Voltage Conversion Time: ");
-    Serial.println(INA.getBusVoltageConversionTime());
-    Serial.print("INA226 Shunt Voltage Conversion Time: ");
-    Serial.println(INA.getShuntVoltageConversionTime());
-
 }
 
 
