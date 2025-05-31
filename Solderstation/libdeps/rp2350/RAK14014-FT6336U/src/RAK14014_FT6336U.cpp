@@ -286,10 +286,6 @@ FT6336U_TouchPointType FT6336U::scan(void){
     if(touchPoint.touch_count == 0) {
         touchPoint.tp[0].status = release; 
         touchPoint.tp[1].status = release; 
-        touchPoint.tp[0].x = 0; 
-        touchPoint.tp[0].y = 0; 
-        touchPoint.tp[1].x = 0; 
-        touchPoint.tp[1].y = 0; 
     }
     else if(touchPoint.touch_count == 1) {
         uint8_t id1 = read_touch1_id(); // id1 = 0 or 1

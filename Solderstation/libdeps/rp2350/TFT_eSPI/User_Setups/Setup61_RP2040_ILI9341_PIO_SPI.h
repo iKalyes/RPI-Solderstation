@@ -11,13 +11,13 @@
 #define RP2040_PIO_SPI
 
 // TFT driver
-#define ILI9341_DRIVER
+#define ILI9342_DRIVER
 #define TFT_RGB_ORDER TFT_BGR
 #define TFT_INVERSION_ON
 
 // Pins - the PIO will control MOSI, SCLK and DC pins
 // Any digital GPIO pins may be used
-#define TFT_MISO   0 // MISO is not used or supported
+//#define TFT_MISO   0 // MISO is not used or supported
 #define TFT_MOSI   3
 #define TFT_SCLK   2
 #define TFT_CS     1  // Chip select control pin
@@ -26,6 +26,9 @@
 
 #define TFT_BL   6           // Optional LED back-light control pin
 #define TFT_BACKLIGHT_ON HIGH  // Level to turn ON back-light (HIGH or LOW)
+
+#define RP2040_PIO_CLK_DIV 1
+#define RP2040_DMA
 
 
 #define LOAD_GLCD   // Font 1. Original Adafruit 8 pixel font needs ~1820 bytes in FLASH
@@ -38,10 +41,5 @@
 
 #define SMOOTH_FONT
 
-// #define SPI_FREQUENCY   1000000
-// #define SPI_FREQUENCY   5000000
-// #define SPI_FREQUENCY  10000000
-// #define SPI_FREQUENCY  20000000
-// #define SPI_FREQUENCY  32000000
 #define SPI_FREQUENCY  100000000
-#define SPI_READ_FREQUENCY  20000000
+#define SPI_READ_FREQUENCY  10000000
