@@ -9,6 +9,7 @@
 #include <event_main.h>
 #include <event_pid.h>
 #include <variables.h>
+#include <GPIO_Service.h>
 
 
 /*Change to your screen resolution*/

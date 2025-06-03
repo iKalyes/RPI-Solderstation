@@ -134,6 +134,24 @@ void MainScreen_init()
   lv_label_set_text_fmt(ui_SolderingTargetTemp, "%.3d℃", SolderingTargetTemp);
   lv_label_set_text_fmt(ui_HeatgunTargetTemp, "%.3d℃", HeatgunTargetTemp);
   lv_label_set_text_fmt(ui_HeatgunWindSpeed, "%.3d%%", HeatgunWindSpeed);
+
+  if(Buzzer_Enabled == true) {
+      lv_obj_clear_state(ui_Buzzer, LV_STATE_CHECKED);
+      lv_img_set_src(ui_BuzzerStatus, &ui_img_1699618864);
+  } else {
+      lv_obj_add_state(ui_Buzzer, LV_STATE_CHECKED);
+      lv_img_set_src(ui_BuzzerStatus, &ui_img_185202102);
+  }
+
+  if(CoolingFan_Enabled == true) {
+      lv_obj_clear_state(ui_CoolingFan, LV_STATE_CHECKED);
+      lv_img_set_src(ui_CoolingStatus, &ui_img_2103744591);
+      Cooling_FAN_Set_PWM(100); // 打开冷却风扇
+  } else {
+      lv_obj_add_state(ui_CoolingFan, LV_STATE_CHECKED);
+      lv_img_set_src(ui_CoolingStatus, &ui_img_1708415670);
+      Cooling_FAN_Set_PWM(0); // 关闭冷却风扇
+  }
 }
 
 void SystemSettingScreen_init() 

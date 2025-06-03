@@ -2,6 +2,13 @@
 
 RotaryEncoder *encoder = NULL;
 
+// 蜂鸣器控制变量
+static unsigned long buzzer_start_time = 0;
+static bool buzzer_active = false;
+static const unsigned long BUZZER_DURATION = 5; // 蜂鸣器响5ms
+static unsigned long last_buzzer_trigger_time = 0;  // 上次触发蜂鸣器的时间
+static const unsigned long BUZZER_INTERVAL = 65;   // 两次蜂鸣之间的最小间隔(ms)
+
 void encoder_tick()  // Interrupt Service Routine for the encoder
 {
     encoder->tick();
@@ -28,6 +35,24 @@ static void encoder_read(lv_indev_drv_t* drv, lv_indev_data_t* data)
 {
     // 检测旋转
     int current_dir = (int)(encoder->getDirection());
+    unsigned long current_time = millis();
+    
+    // 只有当蜂鸣器功能启用、检测到旋转且间隔足够长，才触发蜂鸣器
+    if(Buzzer_Enabled && (current_dir == -1 || current_dir == 1) && 
+       (current_time - last_buzzer_trigger_time > BUZZER_INTERVAL)) {
+        // 检测到旋转且满足条件，启动蜂鸣器
+        Buzzer_ON();
+        buzzer_active = true;
+        buzzer_start_time = current_time;
+        last_buzzer_trigger_time = current_time;  // 更新上次触发时间
+    }
+    
+    // 检查是否需要关闭蜂鸣器
+    if (buzzer_active && (current_time - buzzer_start_time > BUZZER_DURATION)) {
+        Buzzer_OFF();
+        buzzer_active = false;
+    }
+    
     if(current_dir == -1) {
         data->enc_diff = 1;  // 顺时针
     } else if(current_dir == 1) {

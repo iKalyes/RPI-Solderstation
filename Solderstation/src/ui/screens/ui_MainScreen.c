@@ -230,8 +230,8 @@ ui_TextSoldering = lv_label_create(ui_Soldering);
 lv_obj_set_width( ui_TextSoldering, LV_SIZE_CONTENT);  /// 1
 lv_obj_set_height( ui_TextSoldering, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_TextSoldering, 20 );
-lv_obj_set_y( ui_TextSoldering, -2 );
-lv_label_set_text(ui_TextSoldering,"SOLDERING");
+lv_obj_set_y( ui_TextSoldering, 0 );
+lv_label_set_text(ui_TextSoldering,"电烙铁-C245");
 lv_obj_set_style_text_color(ui_TextSoldering, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT );
 lv_obj_set_style_text_opa(ui_TextSoldering, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
 lv_obj_set_style_text_font(ui_TextSoldering, &ui_font_ASCII24, LV_PART_MAIN| LV_STATE_DEFAULT);
@@ -328,7 +328,8 @@ ui_TextSolderingTragetTemp = lv_label_create(ui_SolderingSettingDock);
 lv_obj_set_width( ui_TextSolderingTragetTemp, LV_SIZE_CONTENT);  /// 1
 lv_obj_set_height( ui_TextSolderingTragetTemp, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_TextSolderingTragetTemp, 2 );
-lv_obj_set_y( ui_TextSolderingTragetTemp, 1 );
+lv_obj_set_y( ui_TextSolderingTragetTemp, -44 );
+lv_obj_set_align( ui_TextSolderingTragetTemp, LV_ALIGN_BOTTOM_LEFT );
 lv_label_set_text(ui_TextSolderingTragetTemp,"设定温度:");
 ui_object_set_themeable_style_property(ui_TextSolderingTragetTemp, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
 ui_object_set_themeable_style_property(ui_TextSolderingTragetTemp, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
@@ -412,8 +413,9 @@ ui_TextHeatgun = lv_label_create(ui_Heatgun);
 lv_obj_set_width( ui_TextHeatgun, LV_SIZE_CONTENT);  /// 1
 lv_obj_set_height( ui_TextHeatgun, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_TextHeatgun, 20 );
-lv_obj_set_y( ui_TextHeatgun, -2 );
-lv_label_set_text(ui_TextHeatgun,"HEATGUN");
+lv_obj_set_y( ui_TextHeatgun, 0 );
+lv_label_set_text(ui_TextHeatgun,"热风枪-858D");
+lv_label_set_recolor(ui_TextHeatgun,"true");
 lv_obj_set_style_text_color(ui_TextHeatgun, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT );
 lv_obj_set_style_text_opa(ui_TextHeatgun, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
 lv_obj_set_style_text_font(ui_TextHeatgun, &ui_font_ASCII24, LV_PART_MAIN| LV_STATE_DEFAULT);

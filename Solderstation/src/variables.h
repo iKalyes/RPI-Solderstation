@@ -25,6 +25,9 @@ extern uint16_t HeatgunWindSpeedMax;
 
 extern uint8_t Brightness;
 
+extern bool Buzzer_Enabled;
+extern bool CoolingFan_Enabled;
+
 extern uint8_t Soldering_Status;
 extern uint16_t Soldering_Temp;
 extern uint8_t Heatgun_Status;

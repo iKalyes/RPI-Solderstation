@@ -13,6 +13,9 @@ void WriteFlash() {
 
     EEPROM.write(24, Brightness);
 
+    EEPROM.write(50, Buzzer_Enabled ? 1 : 0);
+    EEPROM.write(51, CoolingFan_Enabled ? 1 : 0);
+
     EEPROM.end();
 }
 
@@ -104,6 +107,20 @@ void ReadFlash() {
     Brightness = EEPROM.read(24);
     if(Brightness < 10 || Brightness > 100) {
         Brightness = 50; // Default value
+    }
+
+    Buzzer_Enabled = EEPROM.read(50);
+    if(Buzzer_Enabled > 1) {
+        Buzzer_Enabled = true; // Default value
+    } else {
+        Buzzer_Enabled = (Buzzer_Enabled == 1);
+    }
+
+    CoolingFan_Enabled = EEPROM.read(51);
+    if(CoolingFan_Enabled > 1) {
+        CoolingFan_Enabled = true; // Default value
+    } else {
+        CoolingFan_Enabled = (CoolingFan_Enabled == 1);
     }
 
     EEPROM.end();

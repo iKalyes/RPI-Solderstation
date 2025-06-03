@@ -59,12 +59,11 @@ void ui_event_SolderingConfirm(lv_event_t * e) {
             return;
         }
         
-        _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_MainScreen_screen_init);
-        WriteSoldering();
         // 添加输入验证
         if (!tempDisplay || strlen(tempDisplay) > 3) {
             return;
         }
+        
         // 使用更安全的转换方式
         char *endptr;
         long temp_val = strtol(tempDisplay, &endptr, 10);
@@ -72,22 +71,37 @@ void ui_event_SolderingConfirm(lv_event_t * e) {
         if (endptr == tempDisplay || *endptr != '\0') {
             return;
         }
+        
+        // 保存旧的温度值，用于判断是否需要保存
+        uint16_t old_temp = SolderingTargetTemp;
+        bool value_changed = false;
+        
         SolderingTargetTemp = (int)temp_val;
+        
         if (SolderingTargetTemp == 0) {
             lv_label_set_text(ui_SolderingTargetTemp, "000℃");
+            value_changed = (old_temp != SolderingTargetTemp);
         }
         else if(SolderingTargetTemp > SolderingTargetTempMax) {
             SolderingTargetTemp = SolderingTargetTempMax;
             lv_label_set_text_fmt(ui_SolderingTargetTemp, "%.3d℃", SolderingTargetTemp);
             lv_label_set_text(ui_SolderingSetTemp, "---℃");
+            value_changed = (old_temp != SolderingTargetTemp);
         }
         else if(SolderingTargetTemp < SolderingTargetTempMin) {
             SolderingTargetTemp = SolderingTargetTempMin;
             lv_label_set_text_fmt(ui_SolderingTargetTemp, "%.3d℃", SolderingTargetTemp);
             lv_label_set_text(ui_SolderingSetTemp, "---℃");
+            value_changed = (old_temp != SolderingTargetTemp);
         }
         else {
             lv_label_set_text_fmt(ui_SolderingTargetTemp, "%.3d℃", SolderingTargetTemp);
+            value_changed = (old_temp != SolderingTargetTemp);
+        }
+        
+        // 只有当数值实际发生变化时才保存到EEPROM
+        if (value_changed) {
+            WriteSoldering(); // 保存烙铁温度到EEPROM
         }
         
         // 确认后重置输入状态到初始状态
@@ -96,6 +110,9 @@ void ui_event_SolderingConfirm(lv_event_t * e) {
         }
         inputPos = 0;
         updateDisplay();
+        
+        // 切换回主屏幕
+        _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_MainScreen_screen_init);
     }
 }
 

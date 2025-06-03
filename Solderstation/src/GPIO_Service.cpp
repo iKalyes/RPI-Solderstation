@@ -12,7 +12,7 @@ void Soldering_GPIO_Init()
     uint channel = pwm_gpio_to_channel(Soldering_PWM);
     pwm_set_clkdiv(slice_num, 250.0);  // 分频器
     pwm_set_wrap(slice_num, 10000);     // 最大计数值 (分辨率)
-    pwm_set_chan_level(slice_num, channel, 5000); // 初始占空比为0
+    pwm_set_chan_level(slice_num, channel, 0); // 初始占空比为0
     pwm_set_enabled(slice_num, true);
 }
 
@@ -51,7 +51,7 @@ void Heatgun_GPIO_Init()
     uint channel = pwm_gpio_to_channel(Heatgun_PWM);
     pwm_set_clkdiv(slice_num, 250.0);  // 分频器
     pwm_set_wrap(slice_num, 20000);     // 最大计数值 (分辨率)
-    pwm_set_chan_level(slice_num, channel, 10000); // 初始占空比为0
+    pwm_set_chan_level(slice_num, channel, 0); // 初始占空比为0
     pwm_set_enabled(slice_num, true);
     
     // 设置热风枪风扇PWM引脚 - 1000Hz PWM
@@ -60,7 +60,7 @@ void Heatgun_GPIO_Init()
     channel = pwm_gpio_to_channel(Heatgun_FAN_PWM);
     pwm_set_clkdiv(slice_num, 250.0);  // 分频器
     pwm_set_wrap(slice_num, 1000);     // 最大计数值 (分辨率)
-    pwm_set_chan_level(slice_num, channel, 500); // 初始占空比为0
+    pwm_set_chan_level(slice_num, channel, 0); // 初始占空比为0
     pwm_set_enabled(slice_num, true);
 }
 
@@ -102,7 +102,7 @@ void Cooling_FAN_GPIO_Init()
     uint channel = pwm_gpio_to_channel(Cooling_FAN_PWM);
     pwm_set_clkdiv(slice_num, 250.0);  // 分频器
     pwm_set_wrap(slice_num, 1000);     // 最大计数值 (分辨率)
-    pwm_set_chan_level(slice_num, channel, 500); // 初始占空比为0
+    pwm_set_chan_level(slice_num, channel, 0); // 初始占空比为0
     pwm_set_enabled(slice_num, true);
 }
 
@@ -141,4 +141,16 @@ void Buzzer_Set_PWM(float value)
     }
     // 将0-100映射到0-2700的计数值
     pwm_set_chan_level(slice_num, channel, (uint16_t)((value / 100.0) * 2700)); // 设置占空比
+}
+
+void Buzzer_ON()
+{
+    // 打开蜂鸣器
+    Buzzer_Set_PWM(50.0f); // 设置占空比为50%
+}
+
+void Buzzer_OFF()
+{
+    // 关闭蜂鸣器
+    Buzzer_Set_PWM(0.0f); // 设置占空比为0%
 }

@@ -7,6 +7,8 @@
 #include <Encoder_Service.h>
 #include <variables.h>
 #include <lvgl_group.h>
+#include <GPIO_Service.h>
+#include <flash.h>
 
 void handle_soldering_temp_encoder_edit();
 void handle_encoder_parameters_edit();

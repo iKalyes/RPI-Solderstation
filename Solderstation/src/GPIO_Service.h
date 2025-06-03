@@ -10,7 +10,7 @@
 #define Soldering_PWM 24 //PWM4 A
 
 #define Heatgun_SLEEP 22
-#define Heatgun_FAN_PWM 23 //PWM3 B
+#define Heatgun_FAN_PWM 23 //PWM3 B - 与屏幕背光共用PWM3，频率必须相同
 #define Heatgun_PWM 26 //PWM5 A
 
 #define Cooling_FAN_PWM 20 //PWM2 A
@@ -33,5 +33,7 @@ void Cooling_FAN_Set_PWM(float value);
 
 void Buzzer_GPIO_Init();
 void Buzzer_Set_PWM(float value);
+void Buzzer_ON();
+void Buzzer_OFF();
 
 #endif

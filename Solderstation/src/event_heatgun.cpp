@@ -121,17 +121,35 @@ void ui_event_HeatgunConfirm(lv_event_t * e) {
             return; // 不执行后续操作
         }
         
+        // 保存修改前的值，用于检测是否有变化
+        uint16_t old_temp = HeatgunTargetTemp;
+        uint16_t old_wind_speed = HeatgunWindSpeed;
+        bool any_value_changed = false;
+        
         // 应用所有已修改的值
         if (heatgun_tempModified) {
             HeatgunTargetTemp = heatgun_tempValue;
             // 更新温度显示控件
             lv_label_set_text_fmt(ui_HeatgunTargetTemp, "%.3d℃", HeatgunTargetTemp);
+            // 检查温度是否真正发生变化
+            if (old_temp != HeatgunTargetTemp) {
+                any_value_changed = true;
+            }
         }
         
         if (heatgun_windSpeedModified) {
             HeatgunWindSpeed = heatgun_windSpeedValue;
             // 更新风速显示控件
             lv_label_set_text_fmt(ui_HeatgunWindSpeed, "%.3d%%", HeatgunWindSpeed);
+            // 检查风速是否真正发生变化
+            if (old_wind_speed != HeatgunWindSpeed) {
+                any_value_changed = true;
+            }
+        }
+        
+        // 只有当数值实际发生变化时才保存到EEPROM
+        if (any_value_changed) {
+            WriteHeatgun(); // 保存热风枪设置
         }
         
         // 重置所有状态
@@ -155,7 +173,6 @@ void ui_event_HeatgunConfirm(lv_event_t * e) {
         
         // 切换回主屏幕
         _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_MainScreen_screen_init);
-        WriteHeatgun(); // 保存热风枪设置
     }
 }
 

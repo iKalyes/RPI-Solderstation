@@ -72,6 +72,7 @@ void handle_soldering_temp_encoder_edit() {
 void handle_encoder_parameters_edit() {
     static int last_position = 0;
     static lv_obj_t* last_edited_obj = NULL;
+    static bool was_editing = false; // 跟踪上一次的编辑状态
     
     // 检查各个可能处于编辑模式的控件
     lv_obj_t* current_edited_obj = NULL;
@@ -99,6 +100,21 @@ void handle_encoder_parameters_edit() {
         lv_group_get_editing(heatgun_speed_group)) {
         current_edited_obj = ui_HeatgunWindSpeed;
     }
+    
+    bool is_currently_editing = (current_edited_obj != NULL);
+    
+    // 检测从编辑模式退出的情况
+    if (was_editing && !is_currently_editing && last_edited_obj != NULL) {
+        // 刚刚退出编辑模式，执行保存操作
+        if (last_edited_obj == ui_SolderingTargetTemp) {
+            WriteSoldering(); // 保存烙铁温度
+        } else if (last_edited_obj == ui_HeatgunTargetTemp || last_edited_obj == ui_HeatgunWindSpeed) {
+            WriteHeatgun(); // 保存热风枪温度和风速
+        }
+    }
+    
+    // 更新状态
+    was_editing = is_currently_editing;
     
     // 如果没有控件处于编辑状态，保存当前位置并返回
     if (current_edited_obj == NULL) {
@@ -198,9 +214,14 @@ void ui_event_Buzzer( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       BuzzerOFF( e );
+      Buzzer_Enabled = false; // 确保全局变量同步
+      
+      lv_img_set_src(ui_BuzzerStatus, &ui_img_185202102);
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       BuzzerON( e );
+      Buzzer_Enabled = true; // 确保全局变量同步
+      lv_img_set_src(ui_BuzzerStatus, &ui_img_1699618864);
 }
 }
 
@@ -208,10 +229,16 @@ void ui_event_CoolingFan( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
 
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
-      CoolingON( e );
+      CoolingOFF( e );
+      CoolingFan_Enabled = false; // 确保全局变量同步
+      lv_img_set_src(ui_CoolingStatus, &ui_img_1708415670);
+      Cooling_FAN_Set_PWM(0); // 关闭冷却风扇
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
-      CoolingOFF( e );
+      CoolingON( e );
+      CoolingFan_Enabled = true; // 确保全局变量同步
+      lv_img_set_src(ui_CoolingStatus, &ui_img_2103744591);
+      Cooling_FAN_Set_PWM(100); // 打开冷却风扇
 }
 }
 
@@ -228,11 +255,11 @@ void ui_event_SolderingSwitch( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       SolderingON( e );
-      analogWrite(24, 20);
+      Soldering_Enabled = true; // 确保全局变量同步
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       SolderingOFF( e );
-      analogWrite(24, 0);
+      Soldering_Enabled = false; // 确保全局变量同步
 }
 }
 
@@ -249,8 +276,10 @@ void ui_event_HeatgunSwitch( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       HeatgunON( e );
+      Heatgun_Enabled = true; // 确保全局变量同步
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       HeatgunOFF( e );
+      Heatgun_Enabled = false; // 确保全局变量同步
 }
 }

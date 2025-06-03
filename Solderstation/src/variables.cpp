@@ -1,4 +1,4 @@
-#include <variables.h>
+#include <variables.h> 
 
 bool Soldering_Enabled = false;
 
@@ -8,7 +8,7 @@ uint16_t SolderingTargetTempMax = 400;
 uint16_t SolderingStandbyTemp = 100;
 uint16_t SolderingStandbyTime = 10; // Minutes
 
-uint16_t SolderingMaxPower = 80; // Max power in percentage (0-100)
+uint16_t SolderingMaxPower = 50; // Max power in percentage (0-100)
 
 bool Heatgun_Enabled = false;
 
@@ -21,6 +21,9 @@ uint16_t HeatgunWindSpeedMin = 10;
 uint16_t HeatgunWindSpeedMax = 100;
 
 uint8_t Brightness;
+
+bool Buzzer_Enabled = true;
+bool CoolingFan_Enabled = true;
 
 uint8_t Soldering_Status;
 uint16_t Soldering_Temp;

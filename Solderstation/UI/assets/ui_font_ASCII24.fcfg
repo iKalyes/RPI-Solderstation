@@ -4,7 +4,7 @@
   "bin_path": "/assets/ui_font_ASCII24.bin",
   "c_path": "/assets/ui_font_ASCII24.c",
   "cfg_path": "/assets/ui_font_ASCII24.fcfg",
-  "size": 24,
+  "size": 19,
   "bpp": 4,
   "letters": 0,
   "ranges": [

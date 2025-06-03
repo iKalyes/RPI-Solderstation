@@ -2817,7 +2817,7 @@
                     "strtype": "OBJECT/Position",
                     "intarray": [
                       20,
-                      -2
+                      0
                     ],
                     "InheritedType": 7
                   },
@@ -2899,7 +2899,7 @@
                   {
                     "nid": 1030,
                     "strtype": "LABEL/Text",
-                    "strval": "SOLDERING",
+                    "strval": "电烙铁-C245",
                     "InheritedType": 10
                   },
                   {
@@ -3850,7 +3850,8 @@
                         "InheritedType": 11
                       }
                     ],
-                    "saved_objtypeKey": "CONTAINER"
+                    "saved_objtypeKey": "CONTAINER",
+                    "tree_closed": true
                   },
                   {
                     "guid": "GUID64479674-153505S919413",
@@ -3897,7 +3898,7 @@
                             "strtype": "OBJECT/Position",
                             "intarray": [
                               2,
-                              1
+                              -44
                             ],
                             "InheritedType": 7
                           },
@@ -3914,7 +3915,7 @@
                           {
                             "nid": 70,
                             "strtype": "OBJECT/Align",
-                            "strval": "TOP_LEFT",
+                            "strval": "BOTTOM_LEFT",
                             "InheritedType": 3
                           },
                           {
@@ -5022,7 +5023,8 @@
                         "InheritedType": 11
                       }
                     ],
-                    "saved_objtypeKey": "CONTAINER"
+                    "saved_objtypeKey": "CONTAINER",
+                    "tree_closed": true
                   }
                 ],
                 "dont_export": false,
@@ -5197,7 +5199,8 @@
                     "InheritedType": 11
                   }
                 ],
-                "saved_objtypeKey": "CONTAINER"
+                "saved_objtypeKey": "CONTAINER",
+                "tree_closed": true
               }
             ],
             "dont_export": false,
@@ -5372,7 +5375,8 @@
                 "InheritedType": 11
               }
             ],
-            "saved_objtypeKey": "CONTAINER"
+            "saved_objtypeKey": "CONTAINER",
+            "tree_closed": true
           },
           {
             "guid": "GUID2058424-497527S12314134",
@@ -5419,7 +5423,7 @@
                     "strtype": "OBJECT/Position",
                     "intarray": [
                       20,
-                      -2
+                      0
                     ],
                     "InheritedType": 7
                   },
@@ -5501,13 +5505,13 @@
                   {
                     "nid": 1030,
                     "strtype": "LABEL/Text",
-                    "strval": "HEATGUN",
+                    "strval": "热风枪-858D",
                     "InheritedType": 10
                   },
                   {
                     "nid": 1040,
                     "strtype": "LABEL/Recolor",
-                    "strval": "False",
+                    "strval": "True",
                     "InheritedType": 2
                   },
                   {
@@ -6434,7 +6438,8 @@
                         "InheritedType": 11
                       }
                     ],
-                    "saved_objtypeKey": "CONTAINER"
+                    "saved_objtypeKey": "CONTAINER",
+                    "tree_closed": true
                   },
                   {
                     "guid": "GUID75968807-497525S12314134",
@@ -8114,7 +8119,8 @@
                         "InheritedType": 11
                       }
                     ],
-                    "saved_objtypeKey": "CONTAINER"
+                    "saved_objtypeKey": "CONTAINER",
+                    "tree_closed": true
                   }
                 ],
                 "dont_export": false,
@@ -8289,7 +8295,8 @@
                     "InheritedType": 11
                   }
                 ],
-                "saved_objtypeKey": "CONTAINER"
+                "saved_objtypeKey": "CONTAINER",
+                "tree_closed": true
               }
             ],
             "dont_export": false,
@@ -32485,7 +32492,7 @@
     "uiExportFolderPath": "/Users/quin/Documents/RPI-Solderstation/Solderstation/src/ui",
     "projectExportFolderPath": "/Users/quin/Documents/RPI-Solderstation/Solderstation",
     "custom_variable_prefix": "uic",
-    "backup_cnt": 270,
+    "backup_cnt": 275,
     "autosave_cnt": 0,
     "group_color_cnt": 0,
     "lvgl_version": "8.3.11",
