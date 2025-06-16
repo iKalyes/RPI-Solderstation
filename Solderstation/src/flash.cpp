@@ -78,7 +78,7 @@ void ReadFlash() {
         SolderingTargetTemp = 100; // Default value
     }
     EEPROM.get(6, SolderingStandbyTemp);
-    if(SolderingStandbyTemp < SolderingTargetTempMin || SolderingStandbyTemp > SolderingTargetTempMax) {
+    if(SolderingStandbyTemp < 50 || SolderingStandbyTemp > SolderingTargetTempMax) {
         SolderingStandbyTemp = 100; // Default value
     }
     EEPROM.get(8, SolderingStandbyTime);

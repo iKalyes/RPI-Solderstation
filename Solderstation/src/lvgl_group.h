@@ -8,6 +8,8 @@
 void lvgl_group_init();
 void lvgl_group_to_setting();
 void lvgl_group_to_main();
+void lvgl_group_to_soldering();
+void lvgl_group_to_heatgun();
 void lvgl_group_to_pid_setting();
 
 #endif

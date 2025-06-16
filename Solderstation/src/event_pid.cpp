@@ -7,6 +7,8 @@ if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_change( &ui_SystemSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_SystemSettingScreen_screen_init);
         lvgl_group_to_setting();
         WritePID();
+        Soldering_PID_Update_Tunings( Soldering_KP, Soldering_KI, Soldering_KD );
+        HeatgunPID_Update_Tunings( Heatgun_KP, Heatgun_KI, Heatgun_KD );
 }
 }
 

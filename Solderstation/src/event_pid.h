@@ -7,6 +7,7 @@
 #include <variables.h>
 #include <lvgl_group.h>
 #include <flash.h>
+#include <PID_Service.h>
 
 void Soldering_PID_Update();
 void Soldering_PID_Init();

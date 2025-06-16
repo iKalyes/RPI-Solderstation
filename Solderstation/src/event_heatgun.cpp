@@ -173,6 +173,7 @@ void ui_event_HeatgunConfirm(lv_event_t * e) {
         
         // 切换回主屏幕
         _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_MainScreen_screen_init);
+        lvgl_group_to_main();
     }
 }
 
@@ -390,5 +391,6 @@ void ui_event_HeatgunSetBack(lv_event_t * e) {
         lv_obj_clear_state(ui_HeatgunSetWindSpeed, LV_STATE_CHECKED);
 
         _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_MainScreen_screen_init);
+        lvgl_group_to_main();
     }
 }

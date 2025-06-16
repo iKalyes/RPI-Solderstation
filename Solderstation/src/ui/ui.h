@@ -27,6 +27,16 @@ extern "C" {
 #include "ui_theme_manager.h"
 #include "ui_themes.h"
 
+void Start_Animation( lv_obj_t *TargetObject, int delay);
+
+// SCREEN: ui_PowerON
+void ui_PowerON_screen_init(void);
+extern lv_obj_t *ui_PowerON;
+extern lv_obj_t *ui_ImagePowerON;
+extern lv_obj_t *ui_InitializeStatusBar;
+extern lv_obj_t *ui_InitializeStatus;
+// CUSTOM VARIABLES
+
 // SCREEN: ui_MainScreen
 void ui_MainScreen_screen_init(void);
 extern lv_obj_t *ui_MainScreen;
@@ -51,7 +61,7 @@ extern lv_obj_t *ui_TextSoldering;
 extern lv_obj_t *ui_ImageSoldering;
 extern lv_obj_t *ui_SolderingDock;
 extern lv_obj_t *ui_SolderingTempDock;
-extern lv_obj_t *ui_BarSolderingTemp;
+extern lv_obj_t *ui_BarSolderingDuty;
 extern lv_obj_t *ui_SolderingTemp;
 extern lv_obj_t *ui_TextSolderingTemp;
 extern lv_obj_t *ui_SolderingSettingDock;
@@ -66,7 +76,7 @@ extern lv_obj_t *ui_TextHeatgun;
 extern lv_obj_t *ui_ImageHeatgun;
 extern lv_obj_t *ui_HeatgunDock;
 extern lv_obj_t *ui_HeatgunTempDock;
-extern lv_obj_t *ui_BarHeatgunTemp;
+extern lv_obj_t *ui_BarHeatgunDuty;
 extern lv_obj_t *ui_HeatgunTemp;
 extern lv_obj_t *ui_TextHeatgunTemp;
 extern lv_obj_t *ui_HeatgunSettingDock;
@@ -261,9 +271,11 @@ extern lv_obj_t *ui_HeatgunKDUp;
 // CUSTOM VARIABLES
 
 // EVENTS
+void ui_event____initial_actions0( lv_event_t * e);
 extern lv_obj_t *ui____initial_actions0;
 
 // IMAGES AND IMAGE SETS
+LV_IMG_DECLARE( ui_img_739362403);   // assets/开机头图.png
 LV_IMG_DECLARE( ui_img_1671917170);   // assets/material-symbols_settings-rounded.png
 LV_IMG_DECLARE( ui_img_185202102);   // assets/material-symbols_volume-off-outline-rounded.png
 LV_IMG_DECLARE( ui_img_1699618864);   // assets/material-symbols_volume-up-outline-rounded.png
@@ -305,6 +317,7 @@ LV_IMG_DECLARE( ui_img_1205510230);   // assets/material-symbols_storage-rounded
 
 // FONTS
 LV_FONT_DECLARE( ui_font_ASCII);
+LV_FONT_DECLARE( ui_font_ASCII19);
 LV_FONT_DECLARE( ui_font_ASCII24);
 LV_FONT_DECLARE( ui_font_ASCII32);
 LV_FONT_DECLARE( ui_font_ASCII48);

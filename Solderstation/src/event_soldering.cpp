@@ -113,6 +113,7 @@ void ui_event_SolderingConfirm(lv_event_t * e) {
         
         // 切换回主屏幕
         _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_MainScreen_screen_init);
+        lvgl_group_to_main();
     }
 }
 
@@ -224,5 +225,6 @@ void ui_event_SolderingTempSetBack(lv_event_t * e) {
         
         // 切换回主屏幕
         _ui_screen_change(&ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_MainScreen_screen_init);
+        lvgl_group_to_main();
     }
 }

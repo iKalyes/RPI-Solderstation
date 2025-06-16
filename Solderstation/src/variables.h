@@ -30,8 +30,10 @@ extern bool CoolingFan_Enabled;
 
 extern uint8_t Soldering_Status;
 extern uint16_t Soldering_Temp;
+extern float Soldering_DutyCycle;
 extern uint8_t Heatgun_Status;
 extern uint16_t Heatgun_Temp;
+extern float Heatgun_DutyCycle;
 
 extern float Soldering_KP;
 extern float Soldering_KI;

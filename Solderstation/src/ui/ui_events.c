@@ -289,3 +289,8 @@ void HeatgunKDUp(lv_event_t * e)
 {
 	// Your code here
 }
+
+void PowerOnInit(lv_event_t * e)
+{
+	// Your code here
+}

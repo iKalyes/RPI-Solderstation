@@ -13,6 +13,12 @@
 #define MAX6675_CLK_PIN 14
 
 void MAX6675_Init();
-void MAX6675_Task(lv_timer_t *timer);
+void MAX6675_Soldering_Task(lv_timer_t *timer);
+void MAX6675_Heatgun_Task(lv_timer_t *timer);
+
+uint8_t MAX6675_Read_Soldering_Status();
+float MAX6675_Read_Soldering_Temperature();
+uint8_t MAX6675_Read_Heatgun_Status();
+float MAX6675_Read_Heatgun_Temperature();
 
 #endif // _MAX6675_SERVICE_H

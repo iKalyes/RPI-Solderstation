@@ -1,4 +1,5 @@
-SET(SOURCES screens/ui_MainScreen.c
+SET(SOURCES screens/ui_PowerON.c
+    screens/ui_MainScreen.c
     screens/ui_SolderingTempSetScreen.c
     screens/ui_SystemSettingScreen.c
     screens/ui_HeatgunTempSetScreen.c
@@ -9,6 +10,7 @@ SET(SOURCES screens/ui_MainScreen.c
     components/ui_comp_hook.c
     ui_helpers.c
     ui_events.c
+    images/ui_img_739362403.c
     images/ui_img_1671917170.c
     images/ui_img_185202102.c
     images/ui_img_1699618864.c
@@ -48,6 +50,7 @@ SET(SOURCES screens/ui_MainScreen.c
     images/ui_img_329106951.c
     images/ui_img_1205510230.c
     fonts/ui_font_ASCII.c
+    fonts/ui_font_ASCII19.c
     fonts/ui_font_ASCII24.c
     fonts/ui_font_ASCII32.c
     fonts/ui_font_ASCII48.c

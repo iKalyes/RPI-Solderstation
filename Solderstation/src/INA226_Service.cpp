@@ -4,17 +4,21 @@ lv_timer_t* INA226_Timer;
 
 INA226 INA(0x40, &Wire1);
 
-void INA226_Init()
+bool INA226_Init()
 {
   Wire1.setSCL(INA226_SCL);
   Wire1.setSDA(INA226_SDA);
   Wire1.begin();
-  INA.begin();
+  if (!INA.begin())
+  {
+    return false; // 初始化失败，返回 false
+  }
   INA.setMaxCurrentShunt(10, 0.005);
   INA.setAverage(INA226_128_SAMPLES);
-  INA.setShuntVoltageConversionTime(INA226_140_us);
-  INA.setBusVoltageConversionTime(INA226_140_us);
+  INA.setShuntVoltageConversionTime(INA226_1100_us);
+  INA.setBusVoltageConversionTime(INA226_1100_us);
   INA226_Timer = lv_timer_create(INA226_Task, 100, NULL);
+  return true; // 初始化成功，返回 true
 }
 
 

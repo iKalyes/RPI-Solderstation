@@ -53,15 +53,41 @@ void backlight_init()
   // 为第一个引脚设置时钟分频和计数范围（决定频率）
   pwm_set_clkdiv(slice_num, 250.0);  // 分频器
   pwm_set_wrap(slice_num, 1000);     // 最大计数值 (分辨率)
-    if(Brightness == 0)
-    {
-      pwm_set_chan_level(slice_num, channel, 500);  // 占空比
-    }
-    else
-    {
-      pwm_set_chan_level(slice_num, channel, Brightness * 10);  // 占空比
-    } 
+  
+  // 确定目标亮度值
+  uint16_t target_brightness;
+  if(Brightness == 0)
+  {
+    target_brightness = 500;  // 默认亮度
+  }
+  else
+  {
+    target_brightness = Brightness * 10;  // 设定亮度
+  }
+  
   pwm_set_enabled(slice_num, true);
+  
+  // 渐进增加亮度，从0开始到目标值
+  const uint16_t step = 10;  // 每次增加的步长
+  const uint32_t delay_ms = 1;  // 每步之间的延时（毫秒）
+  
+  for(uint16_t current_level = 0; current_level <= target_brightness; current_level += step)
+  {
+    // 确保不超过目标值
+    if(current_level > target_brightness)
+    {
+      current_level = target_brightness;
+    }
+    
+    pwm_set_chan_level(slice_num, channel, current_level);
+    delay(delay_ms);  // 延时
+    
+    // 如果已达到目标值，退出循环
+    if(current_level == target_brightness)
+    {
+      break;
+    }
+  }
 }
 
 void backlight_refresh()
@@ -76,7 +102,6 @@ void display_init()
     tft.init();          /* TFT init */
     tft.initDMA();
     tft.setRotation( 3 ); /* Landscape orientation, flipped */
-    tft.fillScreen(TFT_BLACK);
     lv_init();
     /*Set the touchscreen calibration data,
      the actual data for your display can be acquired using
@@ -101,15 +126,20 @@ void display_init()
     indev_drv.read_cb = my_touchpad_read;
     lv_indev_drv_register( &indev_drv );
 
-    backlight_init();
     ui_init();
+    int display_time_start = millis();
+    while ( display_time_start + 200 > millis() ) 
+    {
+        lv_task_handler(); // 处理 LVGL 任务
+    }
+    backlight_init();
 
     MainScreen_init();
     SystemSettingScreen_init();
     PIDSettingScreen_init();
 
     Soldering_PID_Init();
-    Heatgun_PID_Init();
+    Heatgun_PID_Init();    
 }
 
 void lvgl_task_handler()
@@ -146,11 +176,15 @@ void MainScreen_init()
   if(CoolingFan_Enabled == true) {
       lv_obj_clear_state(ui_CoolingFan, LV_STATE_CHECKED);
       lv_img_set_src(ui_CoolingStatus, &ui_img_2103744591);
-      Cooling_FAN_Set_PWM(100); // 打开冷却风扇
   } else {
       lv_obj_add_state(ui_CoolingFan, LV_STATE_CHECKED);
       lv_img_set_src(ui_CoolingStatus, &ui_img_1708415670);
       Cooling_FAN_Set_PWM(0); // 关闭冷却风扇
+  }
+
+  if(SolderingStandbyTime == 0)
+  {
+    lv_img_set_src(ui_SleepStatus, &ui_img_minus_png);
   }
 }
 

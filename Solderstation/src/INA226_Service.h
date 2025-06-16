@@ -9,7 +9,7 @@
 #define INA226_SCL 19
 #define INA226_SDA 18
 
-void INA226_Init();
+bool INA226_Init();
 void INA226_Task(lv_timer_t *timer);
 
 #endif

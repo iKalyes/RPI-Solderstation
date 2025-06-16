@@ -234,7 +234,7 @@ lv_obj_set_y( ui_TextSoldering, 0 );
 lv_label_set_text(ui_TextSoldering,"电烙铁-C245");
 lv_obj_set_style_text_color(ui_TextSoldering, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT );
 lv_obj_set_style_text_opa(ui_TextSoldering, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_text_font(ui_TextSoldering, &ui_font_ASCII24, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_text_font(ui_TextSoldering, &ui_font_ASCII19, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_ImageSoldering = lv_img_create(ui_Soldering);
 lv_img_set_src(ui_ImageSoldering, &ui_img_1357884022);
@@ -269,26 +269,26 @@ lv_obj_set_x( ui_SolderingTempDock, 1 );
 lv_obj_set_y( ui_SolderingTempDock, 1 );
 lv_obj_clear_flag( ui_SolderingTempDock, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_SCROLLABLE );    /// Flags
 
-ui_BarSolderingTemp = lv_bar_create(ui_SolderingTempDock);
-lv_bar_set_value(ui_BarSolderingTemp,10,LV_ANIM_OFF);
-lv_bar_set_start_value(ui_BarSolderingTemp, 0, LV_ANIM_OFF);
-lv_obj_set_width( ui_BarSolderingTemp, 152);
-lv_obj_set_height( ui_BarSolderingTemp, 69);
-lv_obj_set_align( ui_BarSolderingTemp, LV_ALIGN_LEFT_MID );
-lv_obj_set_style_radius(ui_BarSolderingTemp, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_bg_color(ui_BarSolderingTemp, lv_color_hex(0x00FFFF), LV_PART_MAIN | LV_STATE_DEFAULT );
-lv_obj_set_style_bg_opa(ui_BarSolderingTemp, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_anim_time(ui_BarSolderingTemp, 10, LV_PART_MAIN| LV_STATE_DEFAULT);
+ui_BarSolderingDuty = lv_bar_create(ui_SolderingTempDock);
+lv_bar_set_value(ui_BarSolderingDuty,10,LV_ANIM_OFF);
+lv_bar_set_start_value(ui_BarSolderingDuty, 0, LV_ANIM_OFF);
+lv_obj_set_width( ui_BarSolderingDuty, 152);
+lv_obj_set_height( ui_BarSolderingDuty, 69);
+lv_obj_set_align( ui_BarSolderingDuty, LV_ALIGN_LEFT_MID );
+lv_obj_set_style_radius(ui_BarSolderingDuty, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_bg_color(ui_BarSolderingDuty, lv_color_hex(0x00FFFF), LV_PART_MAIN | LV_STATE_DEFAULT );
+lv_obj_set_style_bg_opa(ui_BarSolderingDuty, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_anim_time(ui_BarSolderingDuty, 100, LV_PART_MAIN| LV_STATE_DEFAULT);
 
-lv_obj_set_style_radius(ui_BarSolderingTemp, 5, LV_PART_INDICATOR| LV_STATE_DEFAULT);
-lv_obj_set_style_bg_color(ui_BarSolderingTemp, lv_color_hex(0xFF0000), LV_PART_INDICATOR | LV_STATE_DEFAULT );
-lv_obj_set_style_bg_opa(ui_BarSolderingTemp, 255, LV_PART_INDICATOR| LV_STATE_DEFAULT);
-lv_obj_set_style_shadow_color(ui_BarSolderingTemp, lv_color_hex(0x343131), LV_PART_INDICATOR | LV_STATE_DEFAULT );
-lv_obj_set_style_shadow_opa(ui_BarSolderingTemp, 255, LV_PART_INDICATOR| LV_STATE_DEFAULT);
-lv_obj_set_style_shadow_width(ui_BarSolderingTemp, 20, LV_PART_INDICATOR| LV_STATE_DEFAULT);
-lv_obj_set_style_shadow_spread(ui_BarSolderingTemp, 0, LV_PART_INDICATOR| LV_STATE_DEFAULT);
-lv_obj_set_style_shadow_ofs_x(ui_BarSolderingTemp, 4, LV_PART_INDICATOR| LV_STATE_DEFAULT);
-lv_obj_set_style_shadow_ofs_y(ui_BarSolderingTemp, 0, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_radius(ui_BarSolderingDuty, 5, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_bg_color(ui_BarSolderingDuty, lv_color_hex(0xFF0000), LV_PART_INDICATOR | LV_STATE_DEFAULT );
+lv_obj_set_style_bg_opa(ui_BarSolderingDuty, 255, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_shadow_color(ui_BarSolderingDuty, lv_color_hex(0x343131), LV_PART_INDICATOR | LV_STATE_DEFAULT );
+lv_obj_set_style_shadow_opa(ui_BarSolderingDuty, 255, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_shadow_width(ui_BarSolderingDuty, 20, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_shadow_spread(ui_BarSolderingDuty, 0, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_shadow_ofs_x(ui_BarSolderingDuty, 4, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_shadow_ofs_y(ui_BarSolderingDuty, 0, LV_PART_INDICATOR| LV_STATE_DEFAULT);
 
 ui_SolderingTemp = lv_label_create(ui_SolderingTempDock);
 lv_obj_set_width( ui_SolderingTemp, LV_SIZE_CONTENT);  /// 1
@@ -418,7 +418,7 @@ lv_label_set_text(ui_TextHeatgun,"热风枪-858D");
 lv_label_set_recolor(ui_TextHeatgun,"true");
 lv_obj_set_style_text_color(ui_TextHeatgun, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT );
 lv_obj_set_style_text_opa(ui_TextHeatgun, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_text_font(ui_TextHeatgun, &ui_font_ASCII24, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_text_font(ui_TextHeatgun, &ui_font_ASCII19, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_ImageHeatgun = lv_img_create(ui_Heatgun);
 lv_img_set_src(ui_ImageHeatgun, &ui_img_2126869900);
@@ -452,26 +452,26 @@ lv_obj_set_x( ui_HeatgunTempDock, 1 );
 lv_obj_set_y( ui_HeatgunTempDock, 1 );
 lv_obj_clear_flag( ui_HeatgunTempDock, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_SCROLLABLE );    /// Flags
 
-ui_BarHeatgunTemp = lv_bar_create(ui_HeatgunTempDock);
-lv_bar_set_value(ui_BarHeatgunTemp,10,LV_ANIM_OFF);
-lv_bar_set_start_value(ui_BarHeatgunTemp, 0, LV_ANIM_OFF);
-lv_obj_set_width( ui_BarHeatgunTemp, 152);
-lv_obj_set_height( ui_BarHeatgunTemp, 69);
-lv_obj_set_align( ui_BarHeatgunTemp, LV_ALIGN_LEFT_MID );
-lv_obj_set_style_radius(ui_BarHeatgunTemp, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_bg_color(ui_BarHeatgunTemp, lv_color_hex(0x00FFFF), LV_PART_MAIN | LV_STATE_DEFAULT );
-lv_obj_set_style_bg_opa(ui_BarHeatgunTemp, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_anim_time(ui_BarHeatgunTemp, 10, LV_PART_MAIN| LV_STATE_DEFAULT);
+ui_BarHeatgunDuty = lv_bar_create(ui_HeatgunTempDock);
+lv_bar_set_value(ui_BarHeatgunDuty,10,LV_ANIM_OFF);
+lv_bar_set_start_value(ui_BarHeatgunDuty, 0, LV_ANIM_OFF);
+lv_obj_set_width( ui_BarHeatgunDuty, 152);
+lv_obj_set_height( ui_BarHeatgunDuty, 69);
+lv_obj_set_align( ui_BarHeatgunDuty, LV_ALIGN_LEFT_MID );
+lv_obj_set_style_radius(ui_BarHeatgunDuty, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_bg_color(ui_BarHeatgunDuty, lv_color_hex(0x00FFFF), LV_PART_MAIN | LV_STATE_DEFAULT );
+lv_obj_set_style_bg_opa(ui_BarHeatgunDuty, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_anim_time(ui_BarHeatgunDuty, 100, LV_PART_MAIN| LV_STATE_DEFAULT);
 
-lv_obj_set_style_radius(ui_BarHeatgunTemp, 5, LV_PART_INDICATOR| LV_STATE_DEFAULT);
-lv_obj_set_style_bg_color(ui_BarHeatgunTemp, lv_color_hex(0xFF0000), LV_PART_INDICATOR | LV_STATE_DEFAULT );
-lv_obj_set_style_bg_opa(ui_BarHeatgunTemp, 255, LV_PART_INDICATOR| LV_STATE_DEFAULT);
-lv_obj_set_style_shadow_color(ui_BarHeatgunTemp, lv_color_hex(0x343131), LV_PART_INDICATOR | LV_STATE_DEFAULT );
-lv_obj_set_style_shadow_opa(ui_BarHeatgunTemp, 255, LV_PART_INDICATOR| LV_STATE_DEFAULT);
-lv_obj_set_style_shadow_width(ui_BarHeatgunTemp, 20, LV_PART_INDICATOR| LV_STATE_DEFAULT);
-lv_obj_set_style_shadow_spread(ui_BarHeatgunTemp, 0, LV_PART_INDICATOR| LV_STATE_DEFAULT);
-lv_obj_set_style_shadow_ofs_x(ui_BarHeatgunTemp, 4, LV_PART_INDICATOR| LV_STATE_DEFAULT);
-lv_obj_set_style_shadow_ofs_y(ui_BarHeatgunTemp, 0, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_radius(ui_BarHeatgunDuty, 5, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_bg_color(ui_BarHeatgunDuty, lv_color_hex(0xFF0000), LV_PART_INDICATOR | LV_STATE_DEFAULT );
+lv_obj_set_style_bg_opa(ui_BarHeatgunDuty, 255, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_shadow_color(ui_BarHeatgunDuty, lv_color_hex(0x343131), LV_PART_INDICATOR | LV_STATE_DEFAULT );
+lv_obj_set_style_shadow_opa(ui_BarHeatgunDuty, 255, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_shadow_width(ui_BarHeatgunDuty, 20, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_shadow_spread(ui_BarHeatgunDuty, 0, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_shadow_ofs_x(ui_BarHeatgunDuty, 4, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+lv_obj_set_style_shadow_ofs_y(ui_BarHeatgunDuty, 0, LV_PART_INDICATOR| LV_STATE_DEFAULT);
 
 ui_HeatgunTemp = lv_label_create(ui_HeatgunTempDock);
 lv_obj_set_width( ui_HeatgunTemp, LV_SIZE_CONTENT);  /// 1

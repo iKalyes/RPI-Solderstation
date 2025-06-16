@@ -10,7 +10,7 @@
   "ranges": [
     "0x20-0x7f"
   ],
-  "symbols": "℃温度",
+  "symbols": "℃温度桌面二合一焊台",
   "customparams": "--no-compress --no-prefilter",
   "uploaded": false
 }

@@ -51,6 +51,10 @@ void ui_event_SolderingStandbyTime( lv_event_t * e) {
 if ( event_code == LV_EVENT_VALUE_CHANGED) {
       _ui_slider_set_text_value( ui_TextSolderingStandbyTime, target, "", "Min");
         SolderingStandbyTime = lv_slider_get_value( target );
+        if(SolderingStandbyTime == 0)
+        {
+            lv_img_set_src(ui_SleepStatus, &ui_img_minus_png);
+        }
 }
 }
 

@@ -232,13 +232,11 @@ if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_C
       CoolingOFF( e );
       CoolingFan_Enabled = false; // 确保全局变量同步
       lv_img_set_src(ui_CoolingStatus, &ui_img_1708415670);
-      Cooling_FAN_Set_PWM(0); // 关闭冷却风扇
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       CoolingON( e );
       CoolingFan_Enabled = true; // 确保全局变量同步
       lv_img_set_src(ui_CoolingStatus, &ui_img_2103744591);
-      Cooling_FAN_Set_PWM(100); // 打开冷却风扇
 }
 }
 
@@ -247,6 +245,7 @@ void ui_event_SolderingSet( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_change( &ui_SolderingTempSetScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_SolderingTempSetScreen_screen_init);
+      lvgl_group_to_soldering();
 }
 }
 
@@ -268,6 +267,7 @@ void ui_event_HeatgunSet( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_change( &ui_HeatgunTempSetScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_HeatgunTempSetScreen_screen_init);
+      lvgl_group_to_heatgun();
 }
 }
 

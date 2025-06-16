@@ -25,7 +25,7 @@
 #define TFT_RST    4  // Reset pin (could connect to Arduino RESET pin)
 
 #define TFT_BL   6           // Optional LED back-light control pin
-#define TFT_BACKLIGHT_ON HIGH  // Level to turn ON back-light (HIGH or LOW)
+//#define TFT_BACKLIGHT_ON HIGH  // Level to turn ON back-light (HIGH or LOW)
 
 #define RP2040_PIO_CLK_DIV 1
 #define RP2040_DMA

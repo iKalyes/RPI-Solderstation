@@ -254,3 +254,7 @@ def CoolingON(event_struct):
 def CoolingOFF(event_struct):
     return
 
+
+def PowerOnInit(event_struct):
+    return
+

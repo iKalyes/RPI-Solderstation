@@ -6,12 +6,7 @@ void setup()
   ReadFlash();
   ReadPID();
 
-  display_init();
-  encoder_lvgl_init();
-  lvgl_group_init();
-  INA226_Init();
-  TMP102_Init();
-  MAX6675_Init();
+  System_Init();
 }
 
 void loop()
@@ -21,13 +16,11 @@ void loop()
 
 void setup1()
 {
-  Soldering_GPIO_Init();
-  Heatgun_GPIO_Init();
-  Cooling_FAN_GPIO_Init();
-  Buzzer_GPIO_Init();
+
 }
 
 void loop1()
 {
-
+  Soldering_PID_Compute();
+  Heatgun_PID_Compute();
 }
