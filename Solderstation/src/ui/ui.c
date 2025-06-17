@@ -15,6 +15,7 @@ lv_obj_t *ui_PowerON;
 lv_obj_t *ui_ImagePowerON;
 lv_obj_t *ui_InitializeStatusBar;
 lv_obj_t *ui_InitializeStatus;
+lv_obj_t *ui_FWVersion;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_MainScreen

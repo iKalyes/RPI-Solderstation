@@ -47,13 +47,16 @@ void System_Init()
     bool init_success = true;
 
     // 1. display_init
-    display_init(); // 假设 display_init() 已声明或定义
-    if (ui_InitializeStatusBar) lv_bar_set_value(ui_InitializeStatusBar, 8, LV_ANIM_ON);
-    if (ui_InitializeStatus) lv_textarea_add_text(ui_InitializeStatus, "Display initialized.\n");
     Soldering_GPIO_Init();
     Heatgun_GPIO_Init();
     Cooling_FAN_GPIO_Init();
     Buzzer_GPIO_Init();
+    Soldering_Set_PWM(0); // 确保在初始化时电烙铁关闭
+    Heatgun_Set_PWM(0); // 确保在初始化时热风枪关闭
+    Heatgun_Set_FAN_PWM(0); // 确保在初始化时热风枪风扇关闭
+    display_init(); // 假设 display_init() 已声明或定义
+    if (ui_InitializeStatusBar) lv_bar_set_value(ui_InitializeStatusBar, 8, LV_ANIM_ON);
+    if (ui_InitializeStatus) lv_textarea_add_text(ui_InitializeStatus, "Display initialized.\n");
     if (ui_InitializeStatusBar) lv_bar_set_value(ui_InitializeStatusBar, 16, LV_ANIM_ON);
     if (ui_InitializeStatus) lv_textarea_add_text(ui_InitializeStatus, "All GPIOs initialized.\n");
     if(Buzzer_Enabled == true)

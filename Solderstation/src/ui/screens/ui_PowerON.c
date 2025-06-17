@@ -48,9 +48,9 @@ lv_obj_set_style_bg_opa(ui_InitializeStatusBar, 255, LV_PART_INDICATOR| LV_STATE
 
 ui_InitializeStatus = lv_textarea_create(ui_PowerON);
 lv_obj_set_width( ui_InitializeStatus, 290);
-lv_obj_set_height( ui_InitializeStatus, 80);
+lv_obj_set_height( ui_InitializeStatus, 70);
 lv_obj_set_x( ui_InitializeStatus, 0 );
-lv_obj_set_y( ui_InitializeStatus, 72 );
+lv_obj_set_y( ui_InitializeStatus, 63 );
 lv_obj_set_align( ui_InitializeStatus, LV_ALIGN_CENTER );
 lv_textarea_set_placeholder_text(ui_InitializeStatus,"System Initializing...");
 lv_obj_clear_flag( ui_InitializeStatus, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_CLICK_FOCUSABLE );    /// Flags
@@ -61,5 +61,16 @@ lv_obj_set_style_text_font(ui_InitializeStatus, &ui_font_ASCII19, LV_PART_MAIN| 
 lv_obj_set_style_radius(ui_InitializeStatus, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
 ui_object_set_themeable_style_property(ui_InitializeStatus, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_ButtonAndBack);
 ui_object_set_themeable_style_property(ui_InitializeStatus, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_ButtonAndBack);
+
+ui_FWVersion = lv_label_create(ui_PowerON);
+lv_obj_set_width( ui_FWVersion, LV_SIZE_CONTENT);  /// 1
+lv_obj_set_height( ui_FWVersion, LV_SIZE_CONTENT);   /// 1
+lv_obj_set_x( ui_FWVersion, 14 );
+lv_obj_set_y( ui_FWVersion, 0 );
+lv_obj_set_align( ui_FWVersion, LV_ALIGN_BOTTOM_LEFT );
+lv_label_set_text(ui_FWVersion,"");
+ui_object_set_themeable_style_property(ui_FWVersion, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
+ui_object_set_themeable_style_property(ui_FWVersion, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
+lv_obj_set_style_text_font(ui_FWVersion, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 }

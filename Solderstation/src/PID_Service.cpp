@@ -2,9 +2,9 @@
 
 QuickPID Soldering_PID(&soldering_temp_float, &Soldering_DutyCycle, &soldering_target_temp_float,
                         Soldering_KP, Soldering_KI, Soldering_KD,
-                        QuickPID::pMode::pOnError, 
+                        QuickPID::pMode::pOnErrorMeas, 
                         QuickPID::dMode::dOnMeas, 
-                        QuickPID::iAwMode::iAwCondition, 
+                        QuickPID::iAwMode::iAwClamp, 
                         QuickPID::Action::direct);
 
 void Soldering_PID_Compute_Init()
@@ -304,58 +304,12 @@ void Soldering_PID_Compute()
 
 //------ 热风枪 PID计算 ------//
 
-// 创建float类型的中间变量用于PID计算
-static float heatgun_temp_float = 0.0f; //转换Heatgun_Temp为float类型
-static float heatgun_target_temp_float = 0.0f; //转换HeatgunTargetTemp为float类型
-
 QuickPID Heatgun_PID(&heatgun_temp_float, &Heatgun_DutyCycle, &heatgun_target_temp_float,
                          Heatgun_KP, Heatgun_KI, Heatgun_KD,
-                         QuickPID::pMode::pOnError, 
+                         QuickPID::pMode::pOnErrorMeas, 
                          QuickPID::dMode::dOnMeas, 
-                         QuickPID::iAwMode::iAwCondition, 
+                         QuickPID::iAwMode::iAwClamp, 
                          QuickPID::Action::direct);
-
-// ------ 热风枪 PID状态定义 ------//
-enum HeatgunPIDState {
-    HEATGUN_PID_OFF,
-    HEATGUN_PID_HEATING,
-    HEATGUN_PID_SLEEP_COOLING, // 进入休眠，风扇100%降温
-    HEATGUN_PID_SLEEP_IDLE     // 休眠中，已降温到安全温度，风扇维持低速运转
-};
-static HeatgunPIDState heatgun_pid_state = HEATGUN_PID_OFF;
-
-struct HeatgunSleepState {
-    bool prev_raw_sleep_signal;
-    bool debounced_sleep_signal_is_low;
-    unsigned long last_raw_signal_change_time;
-    bool last_processed_debounced_signal_is_low;
-    bool in_sleep_mode_active;
-    bool ui_color_changed;
-};
-static HeatgunSleepState heatgun_sleep_state;
-
-// 新增：热风枪蜂鸣器状态
-struct HeatgunBuzzerState {
-    unsigned long start_time;
-    bool short_active;
-    bool long_active;
-    bool temperature_reached_played;
-};
-static HeatgunBuzzerState heatgun_buzzer_state;
-
-// 新增：热风枪内部状态，用于辅助蜂鸣器逻辑
-struct HeatgunInternalState {
-    bool was_disabled;
-    uint16_t last_target_temp;
-};
-static HeatgunInternalState heatgun_internal_state;
-
-const unsigned long HEATGUN_SLEEP_DEBOUNCE_DURATION_MS = 200;
-const uint16_t HEATGUN_SAFETY_MAX_TEMP_OFFSET = 15;
-const int HEATGUN_TEMP_REACHED_THRESHOLD = 3; // 温度到达提示的阈值（+/- 3度）
-const uint16_t HEATGUN_SLEEP_COOL_DOWN_TEMP_STAGE1 = 150; // 新增：冷却第一阶段阈值
-const uint16_t HEATGUN_SLEEP_COOL_DOWN_TEMP_STAGE2 = 100; // 重命名/明确 HEATGUN_SLEEP_COOL_DOWN_TEMP
-const uint16_t HEATGUN_SLEEP_COOL_DOWN_TEMP_STAGE3 = 60;  // 新增：冷却第三阶段阈值 (风扇关闭)
 
 void Heatgun_PID_Compute_Init()
 {
