@@ -18,10 +18,12 @@ void heatgun_updateDisplay() {
     if(heatgun_inputmod == 1) // 温度输入模式
     {
         lv_label_set_text_fmt(ui_HeatgunSetTemp, "%s℃", heatgun_tempDisplay);
+        lv_label_set_text_fmt(ui_HeatgunCurrentTemp, "%s℃", heatgun_tempDisplay);
     }
     else if(heatgun_inputmod == 2) // 风速输入模式
     {
         lv_label_set_text_fmt(ui_HeatgunSetWindSpeed, "%s%%", heatgun_tempDisplay);
+        lv_label_set_text_fmt(ui_HeatgunCurrentWindSpeed, "%s%%", heatgun_tempDisplay);
     }
 }
 

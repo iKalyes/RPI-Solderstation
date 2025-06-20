@@ -3727,7 +3727,8 @@
                 "InheritedType": 11
               }
             ],
-            "saved_objtypeKey": "CONTAINER"
+            "saved_objtypeKey": "CONTAINER",
+            "tree_closed": true
           },
           {
             "guid": "GUID90466552-497488S8904134",
@@ -9422,7 +9423,8 @@
                 "InheritedType": 11
               }
             ],
-            "saved_objtypeKey": "CONTAINER"
+            "saved_objtypeKey": "CONTAINER",
+            "tree_closed": true
           }
         ],
         "isPage": true,
@@ -13713,7 +13715,7 @@
                   {
                     "nid": 1030,
                     "strtype": "LABEL/Text",
-                    "strval": "当前温度:",
+                    "strval": "设定温度:",
                     "InheritedType": 10
                   },
                   {
@@ -14090,8 +14092,7 @@
                 "InheritedType": 11
               }
             ],
-            "saved_objtypeKey": "CONTAINER",
-            "tree_closed": true
+            "saved_objtypeKey": "CONTAINER"
           },
           {
             "guid": "GUID66737602-996137S6675463",
@@ -20511,8 +20512,8 @@
           }
         ],
         "isPage": true,
-        "editor_posx": 740,
-        "editor_posy": -680,
+        "editor_posx": 400,
+        "editor_posy": -700,
         "dont_export": false,
         "locked": false,
         "properties": [
@@ -24896,7 +24897,7 @@
                   {
                     "nid": 1030,
                     "strtype": "LABEL/Text",
-                    "strval": "当前温度:",
+                    "strval": "设定温度:",
                     "InheritedType": 10
                   },
                   {
@@ -25577,7 +25578,7 @@
                   {
                     "nid": 1030,
                     "strtype": "LABEL/Text",
-                    "strval": "当前风速:",
+                    "strval": "设定风速:",
                     "InheritedType": 10
                   },
                   {
@@ -33487,7 +33488,7 @@
     {
       "propertyAnimations": [
         {
-          "Path": 2,
+          "Path": 0,
           "KeyFrames": [
             {
               "Value": 0,
@@ -33563,7 +33564,7 @@
             {
               "nid": 1001395,
               "strtype": "PROPERTYANIMATION/Path",
-              "strval": "ease_out",
+              "strval": "linear",
               "InheritedType": 3
             },
             {
@@ -33712,7 +33713,7 @@
     "uiExportFolderPath": "/Users/quin/Documents/RPI-Solderstation/Solderstation/src/ui",
     "projectExportFolderPath": "/Users/quin/Documents/RPI-Solderstation/Solderstation",
     "custom_variable_prefix": "uic",
-    "backup_cnt": 296,
+    "backup_cnt": 297,
     "autosave_cnt": 0,
     "group_color_cnt": 0,
     "lvgl_version": "8.3.11",
@@ -33729,7 +33730,7 @@
     "drive_fatfs_path": "",
     "naming": "Name",
     "naming_force_lowercase": false,
-    "nidcnt": 1001472,
+    "nidcnt": 1001499,
     "BitDepth": 16,
     "Name": "UI"
   }

@@ -146,18 +146,21 @@ void handle_encoder_parameters_edit() {
             handle_parameter_change(&SolderingTargetTemp, diff,
                                    SolderingTargetTempMin, SolderingTargetTempMax,
                                    ui_SolderingTargetTemp, "%03d℃");
+            lv_label_set_text_fmt(ui_SolderingCurrentTemp, "%03d℃", SolderingTargetTemp);
             break;
             
         case 2: // 热风枪温度编辑
             handle_parameter_change(&HeatgunTargetTemp, diff,
                                    HeatgunTargetTempMin, HeatgunTargetTempMax,
                                    ui_HeatgunTargetTemp, "%03d℃");
+            lv_label_set_text_fmt(ui_HeatgunCurrentTemp, "%03d℃", HeatgunTargetTemp);
             break;
             
         case 3: // 热风枪风速编辑
             handle_parameter_change(&HeatgunWindSpeed, diff,
                                    HeatgunWindSpeedMin, HeatgunWindSpeedMax,
                                    ui_HeatgunWindSpeed, "%03d%%");
+            lv_label_set_text_fmt(ui_HeatgunCurrentWindSpeed, "%03d%%", HeatgunWindSpeed);
             break;
     }
 }

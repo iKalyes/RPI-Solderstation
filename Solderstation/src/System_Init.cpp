@@ -154,7 +154,7 @@ void System_Init()
 
     // 10. Heatgun_PID_Compute_Init
     Heatgun_PID_Compute_Init();
-    if (ui_InitializeStatusBar) lv_bar_set_value(ui_InitializeStatusBar, 100, LV_ANIM_ON);
+    if (ui_InitializeStatusBar) lv_bar_set_value(ui_InitializeStatusBar, 99, LV_ANIM_ON);
     if (ui_InitializeStatus) lv_textarea_add_text(ui_InitializeStatus, "Heatgun PID initialized.\n");
     lvgl_friendly_delay(INIT_STEP_DELAY_MS);
 

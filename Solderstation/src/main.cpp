@@ -12,6 +12,7 @@ void setup()
 void loop()
 {
   lvgl_task_handler();
+  MAX6675_Read_Task();
 }
 
 void setup1()

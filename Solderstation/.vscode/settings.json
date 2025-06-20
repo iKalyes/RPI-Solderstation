@@ -27,6 +27,10 @@
         "tuple": "cpp",
         "variant": "cpp",
         "mian": "c",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "random": "cpp",
+        "mutex": "cpp",
+        "coremutex.h": "c",
+        "event_queue.h": "c"
     }
 }

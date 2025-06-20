@@ -311,7 +311,7 @@ lv_obj_set_height( ui_TextHeatgunCurrentTemp, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_TextHeatgunCurrentTemp, 8 );
 lv_obj_set_y( ui_TextHeatgunCurrentTemp, 22 );
 lv_obj_set_align( ui_TextHeatgunCurrentTemp, LV_ALIGN_LEFT_MID );
-lv_label_set_text(ui_TextHeatgunCurrentTemp,"当前温度:");
+lv_label_set_text(ui_TextHeatgunCurrentTemp,"设定温度:");
 ui_object_set_themeable_style_property(ui_TextHeatgunCurrentTemp, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
 ui_object_set_themeable_style_property(ui_TextHeatgunCurrentTemp, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
 lv_obj_set_style_text_font(ui_TextHeatgunCurrentTemp, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);
@@ -352,7 +352,7 @@ lv_obj_set_height( ui_TextHeatgunCurrentWindSpeed, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_TextHeatgunCurrentWindSpeed, 169 );
 lv_obj_set_y( ui_TextHeatgunCurrentWindSpeed, 22 );
 lv_obj_set_align( ui_TextHeatgunCurrentWindSpeed, LV_ALIGN_LEFT_MID );
-lv_label_set_text(ui_TextHeatgunCurrentWindSpeed,"当前风速:");
+lv_label_set_text(ui_TextHeatgunCurrentWindSpeed,"设定风速:");
 ui_object_set_themeable_style_property(ui_TextHeatgunCurrentWindSpeed, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
 ui_object_set_themeable_style_property(ui_TextHeatgunCurrentWindSpeed, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
 lv_obj_set_style_text_font(ui_TextHeatgunCurrentWindSpeed, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);

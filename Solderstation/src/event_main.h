@@ -8,6 +8,7 @@
 #include <variables.h>
 #include <lvgl_group.h>
 #include <GPIO_Service.h>
+#include <MAX6675_Service.h>
 #include <flash.h>
 
 void handle_soldering_temp_encoder_edit();

@@ -277,7 +277,7 @@ lv_anim_set_time(&PropertyAnimation_0, 1000);
 lv_anim_set_user_data(&PropertyAnimation_0, PropertyAnimation_0_user_data);
 lv_anim_set_custom_exec_cb(&PropertyAnimation_0, _ui_anim_callback_set_opacity );
 lv_anim_set_values(&PropertyAnimation_0, 0, 255 );
-lv_anim_set_path_cb( &PropertyAnimation_0, lv_anim_path_ease_out);
+lv_anim_set_path_cb( &PropertyAnimation_0, lv_anim_path_linear);
 lv_anim_set_delay( &PropertyAnimation_0, delay + 0 );
 lv_anim_set_deleted_cb( &PropertyAnimation_0, _ui_anim_callback_free_user_data );
 lv_anim_set_playback_time(&PropertyAnimation_0, 0);

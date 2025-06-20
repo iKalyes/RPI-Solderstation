@@ -85,17 +85,20 @@ void ui_event_SolderingConfirm(lv_event_t * e) {
         else if(SolderingTargetTemp > SolderingTargetTempMax) {
             SolderingTargetTemp = SolderingTargetTempMax;
             lv_label_set_text_fmt(ui_SolderingTargetTemp, "%.3d℃", SolderingTargetTemp);
+            lv_label_set_text_fmt(ui_SolderingCurrentTemp, "%.3d℃", SolderingTargetTemp);
             lv_label_set_text(ui_SolderingSetTemp, "---℃");
             value_changed = (old_temp != SolderingTargetTemp);
         }
         else if(SolderingTargetTemp < SolderingTargetTempMin) {
             SolderingTargetTemp = SolderingTargetTempMin;
             lv_label_set_text_fmt(ui_SolderingTargetTemp, "%.3d℃", SolderingTargetTemp);
+            lv_label_set_text_fmt(ui_SolderingCurrentTemp, "%.3d℃", SolderingTargetTemp);
             lv_label_set_text(ui_SolderingSetTemp, "---℃");
             value_changed = (old_temp != SolderingTargetTemp);
         }
         else {
             lv_label_set_text_fmt(ui_SolderingTargetTemp, "%.3d℃", SolderingTargetTemp);
+            lv_label_set_text_fmt(ui_SolderingCurrentTemp, "%.3d℃", SolderingTargetTemp);
             value_changed = (old_temp != SolderingTargetTemp);
         }
         

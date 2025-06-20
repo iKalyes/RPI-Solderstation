@@ -127,7 +127,7 @@ void display_init()
     lv_indev_drv_register( &indev_drv );
 
     ui_init();
-    lv_label_set_text(ui_FWVersion, "FW/Ver: 1.0 - 250617 Release"); // 设置固件版本信息
+    lv_label_set_text(ui_FWVersion, "FW/Ver: 1.2 - 250620 Release"); // 设置固件版本信息
     int display_time_start = millis();
     while ( display_time_start + 200 > millis() ) 
     {
@@ -165,6 +165,10 @@ void MainScreen_init()
   lv_label_set_text_fmt(ui_SolderingTargetTemp, "%.3d℃", SolderingTargetTemp);
   lv_label_set_text_fmt(ui_HeatgunTargetTemp, "%.3d℃", HeatgunTargetTemp);
   lv_label_set_text_fmt(ui_HeatgunWindSpeed, "%.3d%%", HeatgunWindSpeed);
+
+  lv_label_set_text_fmt(ui_SolderingCurrentTemp, "%.3d℃", SolderingTargetTemp);
+  lv_label_set_text_fmt(ui_HeatgunCurrentTemp, "%.3d℃", HeatgunTargetTemp);
+  lv_label_set_text_fmt(ui_HeatgunCurrentWindSpeed, "%.3d%%", HeatgunWindSpeed);
 
   if(Buzzer_Enabled == true) {
       lv_obj_clear_state(ui_Buzzer, LV_STATE_CHECKED);

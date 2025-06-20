@@ -303,7 +303,7 @@ lv_obj_set_height( ui_TextSolderingCurrentTemp, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_TextSolderingCurrentTemp, 8 );
 lv_obj_set_y( ui_TextSolderingCurrentTemp, 22 );
 lv_obj_set_align( ui_TextSolderingCurrentTemp, LV_ALIGN_LEFT_MID );
-lv_label_set_text(ui_TextSolderingCurrentTemp,"当前温度:");
+lv_label_set_text(ui_TextSolderingCurrentTemp,"设定温度:");
 ui_object_set_themeable_style_property(ui_TextSolderingCurrentTemp, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_TextAndImage);
 ui_object_set_themeable_style_property(ui_TextSolderingCurrentTemp, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_TextAndImage);
 lv_obj_set_style_text_font(ui_TextSolderingCurrentTemp, &ui_font_ASCII, LV_PART_MAIN| LV_STATE_DEFAULT);

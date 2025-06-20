@@ -8,6 +8,7 @@
 #include "variables.h"
 #include <lvgl.h>
 #include "ui/ui.h"
+#include "numberflow.h"
 
 // 创建float类型的中间变量用于PID计算
 static float soldering_temp_float = 0.0f;
