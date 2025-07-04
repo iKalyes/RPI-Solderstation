@@ -297,7 +297,8 @@ void Soldering_PID_Compute()
         
         case PID_HEATING:
             // 内联时间检查
-            if (current_time - state_start_time >= 100) {
+            if (current_time - state_start_time >= 100) //加热状态持续100ms
+            {
                 pid_state = PID_POWER_OFF;
             }
             break;
